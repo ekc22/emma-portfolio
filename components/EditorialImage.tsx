@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBase } from "@/lib/paths";
 
 export type ImageAsset = { src: string; alt: string; width: number; height: number };
 
@@ -35,7 +36,7 @@ export default function EditorialImage({
   if (image) {
     return (
       <div className={`relative overflow-hidden bg-stone ${className}`} style={{ aspectRatio: ratio }}>
-        <Image src={image.src} alt={image.alt} fill sizes={sizes} priority={priority} className={`object-cover ${zoom}`} />
+        <Image src={withBase(image.src)} alt={image.alt} fill sizes={sizes} priority={priority} className={`object-cover ${zoom}`} />
       </div>
     );
   }

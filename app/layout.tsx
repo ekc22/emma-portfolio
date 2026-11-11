@@ -4,6 +4,7 @@ import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { site } from "@/content/site";
+import { ogImage } from "@/lib/seo";
 import "./globals.css";
 
 const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-serif", display: "swap" });
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.title}`,
     description,
     url: "/",
+    images: [ogImage],
   },
-  twitter: { card: "summary_large_image", title: site.name, description },
+  twitter: { card: "summary_large_image", title: site.name, description, images: [ogImage.url] },
   robots: { index: true, follow: true },
 };
 

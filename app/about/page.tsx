@@ -6,6 +6,7 @@ import TextLink from "@/components/TextLink";
 import { about, beyondWork } from "@/content/profile";
 import { site } from "@/content/site";
 import { hasCv } from "@/lib/cv";
+import { withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "About",
@@ -123,7 +124,7 @@ export default function AboutPage() {
             </ul>
             <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
               <TextLink href="/currently">What I’m into right now</TextLink>
-              {cv && <TextLink href={site.cv.path}>{site.cv.label}</TextLink>}
+              {cv && <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>}
             </div>
           </div>
         </div>

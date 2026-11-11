@@ -17,19 +17,29 @@ Quality checks (all three must pass before deploying):
 ```bash
 npm run lint
 npm run typecheck
-npm run build
+npm run build      # writes the static site to out/
 ```
 
-`npm run check` runs all three in order.
+`npm run check` runs all three in order. `npm start` serves the built `out/` folder locally.
 
-## Deploy to Vercel
+## Live site — GitHub Pages
 
-1. Push this folder to a GitHub repository.
-2. In Vercel, **Add New → Project**, import the repo. The framework is detected automatically; no build settings need changing.
-3. Add environment variables (Project → Settings → Environment Variables):
-   - `NEXT_PUBLIC_SITE_URL` — the live URL, e.g. `https://emmaclark.com` (used for canonical links, sitemap and social cards).
-   - `NEXT_PUBLIC_SHOW_REVIEW_NOTES=false` — once Emma has approved the copy, hides the "Draft — awaiting Emma's approval" badges.
-4. Deploy. Add a custom domain under Project → Settings → Domains.
+The site is published at **https://ekc22.github.io/emma-portfolio/**.
+
+Every push to `main` runs `.github/workflows/deploy.yml`, which lints, type-checks, builds a static
+export and publishes it. Progress shows under the repository's **Actions** tab (about 2 minutes).
+
+One-time setup (already needed once per repository): **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+Notes
+- The workflow sets `NEXT_PUBLIC_BASE_PATH=/emma-portfolio` and `NEXT_PUBLIC_SITE_URL` automatically.
+- To hide the "Draft — awaiting Emma's approval" badges at launch, add `NEXT_PUBLIC_SHOW_REVIEW_NOTES: "false"`
+  under `env:` in the workflow.
+- Custom domain: add it under Settings → Pages, then in the workflow set `NEXT_PUBLIC_BASE_PATH: ""` and
+  `NEXT_PUBLIC_SITE_URL` to the domain.
+- GitHub Pages has no image server, so photos are not resized automatically. Export them at a sensible size
+  (about 2000px on the long edge, JPEG or WebP, under ~400 KB) before adding them to `public/images/`.
+- The site is a plain static build, so it can also be hosted on Vercel, Netlify or Cloudflare Pages with no code changes.
 
 ## Editing content
 
@@ -45,7 +55,7 @@ npm run build
 
 **Case-study rules:** `myRole` is what Emma personally did; `teamOutcomes` is what the wider team achieved. Keep them separate, keep copy qualitative until metrics are verified, and don't name employers or clients without permission.
 
-**Images:** put files in `public/images/` and add an `image: { src, alt, width, height }` to the relevant entry (`hero.portrait`, a project, or an interest). Until then a labelled neutral placeholder shows what should go there. Next.js serves them as optimised AVIF/WebP automatically.
+**Images:** put files in `public/images/` and add an `image: { src, alt, width, height }` to the relevant entry (`hero.portrait`, a project, or an interest). Until then a labelled neutral placeholder shows what should go there. Resize them before adding (see the GitHub Pages notes above).
 
 **Contact:** set `site.contact.email`. Every "Let's talk" / "Talk about this" link becomes a `mailto:` with a pre-filled subject. Until set, the contact section says the address is coming soon (nothing is invented).
 
@@ -63,7 +73,6 @@ Assets
 Contact and links
 - [ ] Approved email address → `content/site.ts`
 - [ ] LinkedIn URL (optional) → `content/site.ts`
-- [ ] Production URL → `NEXT_PUBLIC_SITE_URL` in Vercel
 
 Copy to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
 - [ ] Case studies: challenge, approach, my role, team outcomes and reflection for all three projects
@@ -75,7 +84,7 @@ Copy to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
 - [ ] "Currently" entries and the notebook picks on `/currently` (Reading / Listening are placeholders)
 - [ ] Optional: project timeframes (`timeframe`)
 
-Then set `NEXT_PUBLIC_SHOW_REVIEW_NOTES=false` and set each approved project's `status` to `"approved"`.
+Then set `NEXT_PUBLIC_SHOW_REVIEW_NOTES: "false"` in the deploy workflow and set each approved project's `status` to `"approved"`.
 
 ## Structure
 
@@ -85,14 +94,16 @@ app/
   template.tsx          soft page transition
   page.tsx              Home (hero → about → capabilities → work → beyond → currently)
   about/ work/ work/[slug]/ work-with-me/ currently/
-  opengraph-image.tsx   typographic social card
+  og.png/route.tsx      typographic social card (built to /og.png)
   sitemap.ts robots.ts not-found.tsx
 components/
   Navbar MobileMenu Footer Hero SectionHeading CapabilityCard ProjectCard
   CaseStudyTemplate ContactCTA EditorialImage InterestsCollage CurrentlyList
   Reveal TextLink ReviewNote
 content/                all editable copy and configuration
-lib/                    mailto helper, CV detection, review-note flag
+lib/                    mailto, base-path, CV detection, SEO and review-note helpers
+assets/fonts/           Instrument Serif (OFL) for the social card
+.github/workflows/      GitHub Pages deployment
 ```
 
 ## Design notes

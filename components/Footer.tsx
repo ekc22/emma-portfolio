@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/content/site";
 import { hasCv } from "@/lib/cv";
+import { withBase } from "@/lib/paths";
 
 export default function Footer() {
   const cv = hasCv();
@@ -37,7 +38,7 @@ export default function Footer() {
               )}
               {cv && (
                 <li>
-                  <a href={site.cv.path} download className="transition-colors hover:text-[#D9AEB8]">{site.cv.label}</a>
+                  <a href={withBase(site.cv.path)} download className="transition-colors hover:text-[#D9AEB8]">{site.cv.label}</a>
                 </li>
               )}
             </ul>

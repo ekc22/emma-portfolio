@@ -54,6 +54,21 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
                 <p className="mt-2 max-w-[30ch] text-display-sm">{project.result}</p>
               </div>
             )}
+            {project.demo && (
+              <div className="mt-8">
+                <a
+                  href={project.demo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-cherry px-6 py-4 font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-paper transition-colors hover:bg-oxblood"
+                >
+                  {project.demo.label}
+                  <span aria-hidden="true">↗</span>
+                  <span className="sr-only">(opens in a new tab)</span>
+                </a>
+                <p className="mt-3 max-w-[52ch] text-[1rem] leading-snug text-muted-ink">{project.demo.note}</p>
+              </div>
+            )}
             <p className="mt-8 max-w-[42ch] text-[1.375rem] leading-[1.45] text-muted-ink md:text-[1.5rem]">{project.summary}</p>
             {project.status === "draft" && <ReviewNote className="mt-8">Draft: figures and wording awaiting Emma’s approval</ReviewNote>}
           </div>

@@ -61,6 +61,8 @@ export type Project = {
   motif: { figure: string; caption: string };
   /** A wide exhibit (e.g. product screens) shown at its natural shape instead of the hero panel. */
   exhibit?: ProjectImage & { caption: string };
+  /** An external, working demo (opens in a new tab), shown under the result. */
+  demo?: { href: string; label: string; note: string };
   /** Further screens shown as "Selected screens" on the case study. */
   gallery?: (ProjectImage & { caption: string; wide?: boolean })[];
   /** Use a venture's own colour (Turnout blue). */
@@ -120,6 +122,11 @@ export const projects: Project[] = [
     result: "A working AI-enabled Chief of Staff product connecting leadership priorities with operational execution.",
     context: "CoS OS, an AI-enabled operating workspace",
     role: "Founder · Product, Design & Build",
+    demo: {
+      href: "https://claude.ai/artifact/JagBWBFjGhPqJ9CPJv3TNu",
+      label: "Try my AI Chief of Staff agent",
+      note: "Opens on claude.ai; sign in to talk to it. You get your own empty desk, and your calendar and inbox are only read if you allow it.",
+    },
     motif: { figure: "9", caption: "Operating desks in one workspace" },
     exhibit: {
       src: "/images/cos-os-investors.jpg",

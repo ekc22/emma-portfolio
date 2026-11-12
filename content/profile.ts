@@ -142,6 +142,24 @@ export const contact = {
   cta: "Let’s talk",
 };
 
+/** Career timeline and education, taken from Emma's CV. */
+export const timeline = [
+  { when: "2026 to present", org: "Turnout (Good Turnout Ltd)", role: "Co-Founder & Chief Strategy Officer" },
+  { when: "2025 to present", org: "Circus Capital", role: "Chief of Staff (fractional)" },
+  { when: "2025 to present", org: "Seed-stage AI start-up (stealth)", role: "Founding growth team, part time" },
+  { when: "Apr 2024 to present", org: "Canaccord Genuity Wealth Management", role: "Business Initiatives Lead, Commercial Office · Chief of Staff remit to the Group CCO" },
+  { when: "Aug 2022 to Mar 2024", org: "RBC Brewin Dolphin", role: "Associate, Funds (Associate Director cover)" },
+  { when: "Apr 2022 to Aug 2022", org: "Paddle", role: "Management Accountant, FP&A" },
+  { when: "Mar 2016 to Jan 2022", org: "Hastings Direct", role: "Commercial Finance & Investor Relations" },
+];
+
+export const education = [
+  "BSc Economics & Management, University of London (LSE academic direction), part time, 2026 to present",
+  "Investment Management Certificate, CISI Level 4",
+  "ACCA, Practical Experience Requirement complete",
+  "Anthropic Academy, 2026: Claude Code in Action; Building Effective Human-Agent Teams; AI Fluency",
+];
+
 /** About page: "your story, not your CV". */
 export const about = {
   headline: "I’ve never been particularly interested in staying in one lane.",

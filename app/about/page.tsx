@@ -3,7 +3,7 @@ import EditorialImage from "@/components/EditorialImage";
 import Reveal from "@/components/Reveal";
 import ReviewNote from "@/components/ReviewNote";
 import TextLink from "@/components/TextLink";
-import { about, beyondWork, hero, identity, workedWith } from "@/content/profile";
+import { about, beyondWork, education, hero, identity, timeline, workedWith } from "@/content/profile";
 import { site } from "@/content/site";
 import { mailto } from "@/lib/contact";
 import { hasCv } from "@/lib/cv";
@@ -79,6 +79,39 @@ export default function AboutPage() {
                 )}
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Career timeline (from the CV) */}
+      <section aria-labelledby="timeline-title" className="frame pb-20 md:pb-28">
+        <div className="grid-12 gap-y-10">
+          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
+            <h2 id="timeline-title" className="label">Career timeline</h2>
+          </div>
+          <ol className="col-span-4 md:col-span-8">
+            {timeline.map((t) => (
+              <li key={t.org + t.when} className="grid grid-cols-1 gap-x-8 gap-y-1 border-b border-linen-deep py-5 sm:grid-cols-[11rem_1fr]">
+                <span className="text-[1rem] tabular-nums text-muted-ink">{t.when}</span>
+                <span>
+                  <span className="block text-[1.5rem] leading-tight">{t.org}</span>
+                  <span className="mt-1 block text-[1.0625rem] leading-snug text-muted-ink">{t.role}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+          <div className="col-span-4 md:col-span-4">
+            <p className="label">Education & qualifications</p>
+            <ul className="mt-4 space-y-3">
+              {education.map((e) => (
+                <li key={e} className="text-[1.125rem] leading-snug">{e}</li>
+              ))}
+            </ul>
+            {cv && (
+              <div className="mt-8">
+                <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>
+              </div>
+            )}
           </div>
         </div>
       </section>

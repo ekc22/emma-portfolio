@@ -99,8 +99,8 @@ export const projects: Project[] = [
         body: "Work closely with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, balancing what we want to build with what gets us to market sooner.",
       },
       {
-        title: "The concept for Poppy",
-        body: "Came up with the concept for Poppy, Turnout’s AI agent, which supports coordination for clubs and members, with forecasting and agent-to-agent workflows that track trends.",
+        title: "Poppy: my vision, built with our CTO",
+        body: "Came up with the concept for Poppy, Turnout’s AI agent, which supports coordination for clubs and members. Our fractional CTO built it; my role was channelling the vision, working with him to turn it into the product.",
       },
       {
         title: "Brand and launch",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
       { title: "From idea to product testing", text: "Taken from company formation and initial concept into product testing.", kind: "team" },
       { title: "Go-to-market and monetisation", text: "The go-to-market strategy and monetisation model, developed and owned by me.", kind: "personal" },
       { title: "A product concept", text: "Product and UX for the 2026 concept direction, designed by me, with brand by A Plus M Studio.", kind: "personal" },
-      { title: "The concept for Poppy", text: "Our AI agent, which supports coordination for clubs and members, conceived by me.", kind: "personal" },
+      { title: "Poppy, from vision to product", text: "Our AI agent, which supports coordination for clubs and members: conceived by me, built by our fractional CTO.", kind: "team" },
     ],
     lesson:
       "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",

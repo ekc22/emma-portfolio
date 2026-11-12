@@ -48,7 +48,7 @@ export const turnout = {
   what:
     "Turnout connects clubs and people, bringing together a sports and wellness market that’s fragmented. Clubs get a backend for collecting money and organising events, and Poppy, our AI agent, supports the coordination.",
   body:
-    "Building Turnout has given me a founder’s perspective on commercial strategy, product development, technical trade-offs and execution. I lead go-to-market, monetisation and product and UX, came up with the concept for Poppy, our AI agent, and work with a fractional CTO to get to market sooner.",
+    "Building Turnout has given me a founder’s perspective on commercial strategy, product development, technical trade-offs and execution. I lead go-to-market, monetisation and product and UX, came up with the concept for Poppy, our AI agent, and work with our fractional CTO, who builds it, to bring that vision to life and get to market sooner.",
   facts: [
     { label: "My role", value: "Co-founder" },
     { label: "I lead", value: "Go-to-market & monetisation" },
@@ -169,7 +169,7 @@ export const about = {
       label: "The other side of the table",
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
-        "I co-founded Turnout, a sports and wellness community platform that connects clubs and people in a fragmented market, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market, monetisation and product and UX, and came up with the concept for Poppy, our AI agent, which supports the coordination behind it all.",
+        "I co-founded Turnout, a sports and wellness community platform that connects clubs and people in a fragmented market, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market, monetisation and product and UX, and came up with the concept for Poppy, our AI agent, which supports the coordination behind it all. Our fractional CTO builds it; I work with him to channel the vision into the product.",
         "I’ve also worked fractionally with founders. At a seed-stage AI venture I’m a founding member of the growth team, leading go-to-market. For Circus Capital, I support fundraising and investor relationships, and built the Claude-powered systems behind their day-to-day operations.",
         "Across all of it, I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],

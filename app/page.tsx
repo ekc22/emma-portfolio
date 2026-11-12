@@ -38,11 +38,19 @@ export default function Home() {
       <section aria-labelledby="facts-title" className="bg-butter/50">
         <div className="frame py-16 md:py-24">
           <h2 id="facts-title" className="label">In numbers</h2>
-          <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 md:gap-x-0">
+          <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4 md:gap-x-0">
             {facts.map((f, i) => (
-              <Reveal key={f.label} delay={i * 70} className={`flex flex-col-reverse ${i > 0 ? "md:border-l md:border-linen-deep md:pl-6" : ""} md:pr-6`}>
-                <dt className="mt-3 max-w-[24ch] text-[1.0625rem] leading-snug text-muted-ink">{f.label}</dt>
-                <dd className="font-serif text-[clamp(2.75rem,4.6vw,4.25rem)] leading-none text-cherry">{f.figure}</dd>
+              <Reveal key={f.label} delay={i * 70} className={`flex flex-col ${i > 0 ? "md:border-l md:border-linen-deep md:pl-6" : ""} md:pr-6`}>
+                <dt className="order-2 mt-3 max-w-[24ch] text-[1.0625rem] leading-snug text-muted-ink">
+                  {f.href ? (
+                    <Link href={f.href} className="underline decoration-cherry/40 underline-offset-4 transition-colors hover:text-cherry">
+                      {f.label}
+                    </Link>
+                  ) : (
+                    f.label
+                  )}
+                </dt>
+                <dd className="order-1 font-serif text-[clamp(2.75rem,4.6vw,4.25rem)] leading-none text-cherry">{f.figure}</dd>
               </Reveal>
             ))}
           </dl>

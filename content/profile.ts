@@ -59,8 +59,9 @@ export const turnout = {
  * fundraise isn’t read as raising the capital, and pilots aren’t read as revenue.
  * Figures confirmed by Emma as current and shareable.
  */
-export const facts = [
+export const facts: { figure: string; label: string; href?: string }[] = [
   { figure: "10 years", label: "Across finance, strategy, operations and growth" },
+  { figure: "9", label: "Operating desks in CoS OS, the AI Chief of Staff tool I built", href: "/work/cos-os" },
   { figure: "6", label: "Businesses progressed to pilot stage at a seed-stage AI venture" },
   { figure: "$200m+", label: "Series D at Paddle, where I supported the financial analysis" },
 ];

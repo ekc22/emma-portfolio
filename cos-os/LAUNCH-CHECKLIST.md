@@ -38,7 +38,7 @@ CoS OS needs a server, so it can't go on GitHub Pages like the portfolio. Vercel
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
   - `NEXT_PUBLIC_APP_URL` (your live address)
 - [ ] **You:** connect your domain in Vercel (*Settings → Domains*).
-- [ ] **Claude:** check the live site: sign in, each of the nine desks, approving a proposal, and generating a briefing.
+- [ ] **Claude:** check the live site: sign in, each of the ten desks, approving a proposal, and generating a briefing.
 - [ ] **Don't** run demo mode on Vercel without Supabase. The local demo store writes to a file, and Vercel's file system doesn't keep it.
 
 ## 5. Make a public demo safe, if you want one (Claude, 1–2 hours)

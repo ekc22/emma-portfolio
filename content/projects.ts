@@ -225,7 +225,7 @@ export const projects: Project[] = [
     result: "An organic growth strategy adopted by the Executive Committee.",
     context: "Canaccord, Commercial Office",
     role: "Business Initiatives Lead · Commercial Office",
-    timeframe: "April 2024 to present",
+    timeframe: "2024 to present",
     motif: { figure: "ExCo", caption: "Organic growth strategy adopted" },
     problem:
       "Commercial growth spans multiple interdependent functions, from distribution and propositions to finance, technology, data and client experience.\n\nLeadership needed a consistent framework for prioritisation, accountability, performance visibility and decision-making.",
@@ -292,19 +292,19 @@ export const projects: Project[] = [
     result: "Public-company reporting, fundraising support, acquisition work and investment governance.",
     context: "Hastings Direct, Paddle and RBC Brewin Dolphin",
     role: "Finance, Strategy & Executive Reporting",
-    timeframe: "March 2016 to March 2024",
+    timeframe: "2016 to 2024",
     motif: { figure: "3", caption: "Businesses, three stages of growth" },
     myRole: [
       {
-        title: "Hastings Direct · Commercial finance and investor relations · Mar 2016 to Jan 2022",
-        body: "Around six years progressing across finance, planning and investor relations: financial and management reporting, business planning, capital and workforce planning, commercial analysis, supplier and procurement activity, and supporting half-year and full-year results. I worked through the transition from listed to private ownership, developing an understanding of financial scrutiny, stakeholder expectations and the relationship between strategic ambition and operating performance.",
+        title: "Hastings Direct · Foundational roles in finance · 2016 to 2022",
+        body: "Around six years in a variety of foundational roles in finance, including commercial finance, investor relations, workforce planning and procurement: financial and management reporting, business planning, capital and workforce planning, commercial analysis, supplier and procurement activity, and supporting half-year and full-year results. I worked through the transition from listed to private ownership, developing an understanding of financial scrutiny, stakeholder expectations and the relationship between strategic ambition and operating performance.",
       },
       {
-        title: "Paddle · Series D SaaS and acquisition integration · Apr to Aug 2022",
+        title: "Paddle · Series D SaaS and acquisition integration · 2022",
         body: "Supported financial analysis during the period of Paddle’s $200m+ Series D fundraising, and contributed to reporting and integration work associated with the ProfitWell acquisition.",
       },
       {
-        title: "RBC Brewin Dolphin · Investment management and executive reporting · Aug 2022 to Mar 2024",
+        title: "RBC Brewin Dolphin · Investment management and executive reporting · 2022 to 2024",
         body: "Supported executive and Investment Committee reporting through the RBC acquisition. After joining, I stepped into Associate Director cover, holding the remit for around 15 months, and worked on reporting improvements, automation and credit-rating monitoring.",
       },
     ],

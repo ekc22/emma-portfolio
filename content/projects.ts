@@ -61,23 +61,41 @@ export const projects: Project[] = [
     title: "What happens when you’re the one building it?",
     category: "Founding & Go-to-market",
     summary:
-      "Co-founding Turnout, a sports and wellness platform, and owning its full go-to-market: from company formation and initial concept to product testing.",
+      "Co-founding Turnout, a sports and wellness platform: owning its full go-to-market, building AI agents for forecasting and trends, and working with our CTO to free up more time for go-to-market.",
     context: "Turnout, a sports and wellness platform",
-    role: "Co-founder, responsible for go-to-market",
+    role: "Co-founder · Go-to-market & AI",
     imageBrief: "Turnout: a real photograph from a sports or wellness session",
     situation:
       "Turnout started as an idea: a sports and wellness platform that brings people together.",
     problem:
-      "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or brand, is a trade-off between ambition and what can realistically get done this week. And a great product still needs a clear route to the people it’s for.",
+      "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or brand, is a trade-off between ambition and what can realistically get done this week. And a great product still needs a clear route to the people it’s for.\n\nIn a small team, time is the scarcest resource. Every hour spent on manual work is an hour not spent on go-to-market.",
     myRole: [
-      "Co-founded the company, from formation and initial concept onwards",
-      "Own the full go-to-market and developed the go-to-market strategy",
-      "Move between commercial planning, product decisions and brand",
-      "Worked on website development and preparing the platform for launch",
+      {
+        title: "Founding",
+        body: "Co-founded the company, from formation and initial concept onwards.",
+      },
+      {
+        title: "Go-to-market",
+        body: "Own the full go-to-market and developed the go-to-market strategy.",
+      },
+      {
+        title: "AI agents",
+        body: "Built AI agents into how we work, including a forecasting agent and agent-to-agent workflows that track trends.",
+      },
+      {
+        title: "Working with our CTO",
+        body: "Work closely with our CTO, a Forward Deployed Engineer in AI, to automate manual work and free up more of our time for go-to-market.",
+      },
+      {
+        title: "Product, brand and launch",
+        body: "Move between commercial planning, product decisions and brand, and worked on website development and preparing the platform for launch.",
+      },
     ],
+    // Describes what was built; no performance claims (e.g. forecast accuracy, hours saved) unless evidenced.
     whatChanged: [
-      { text: "A full go-to-market strategy, developed and owned by me.", kind: "personal" },
-      { text: "Taken from company formation and initial concept into product testing.", kind: "team" },
+      { title: "A go-to-market strategy", text: "A full go-to-market strategy, developed and owned by me.", kind: "personal" },
+      { title: "AI built into the business", text: "A forecasting agent and agent-to-agent trend workflows, built by me.", kind: "personal" },
+      { title: "From idea to product testing", text: "Taken from company formation and initial concept into product testing.", kind: "team" },
     ],
     lesson:
       "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",

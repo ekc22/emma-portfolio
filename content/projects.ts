@@ -63,13 +63,13 @@ export const projects: Project[] = [
     title: "Building something from scratch.",
     category: "Founding & Product",
     summary:
-      "Co-founding Turnout, a sports and wellness platform: commercial decisions, product development, technical trade-offs and the accountability that comes with building something of your own.",
-    context: "Turnout, a sports and wellness platform",
+      "Co-founding Turnout, a sports and wellness community platform that connects clubs and people: commercial decisions, product development, technical trade-offs and the accountability that comes with building something of your own.",
+    context: "Turnout, a sports and wellness community platform",
     role: "Co-founder · Go-to-market, product & AI",
     motif: { figure: "Turnout", caption: "Co-founded" },
     accent: "turnout",
     situation:
-      "Turnout started as an idea: a sports and wellness platform that brings people together.",
+      "Sports and wellness is a fragmented market. Turnout is a community platform that brings it together, connecting clubs and people in one place. Poppy, our AI agent, then supports you with your running.",
     problem:
       "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or technical, is a trade-off between ambition and what can realistically get done this week.\n\nIn a small team, time is the scarcest resource. Every hour spent on manual work is an hour later to market.",
     myRole: [
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       },
       {
         title: "Poppy, our AI agent",
-        body: "Built Poppy, Turnout’s AI agent, with forecasting and agent-to-agent workflows that track trends.",
+        body: "Built Poppy, Turnout’s AI agent, which supports you with your running, with forecasting and agent-to-agent workflows that track trends.",
       },
       {
         title: "Brand and launch",
@@ -98,11 +98,11 @@ export const projects: Project[] = [
     whatChanged: [
       { title: "From idea to product testing", text: "Taken from company formation and initial concept into product testing.", kind: "team" },
       { title: "A go-to-market strategy", text: "Developed and owned by me.", kind: "personal" },
-      { title: "Poppy, built into the business", text: "Our AI agent, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
+      { title: "Poppy, built into the business", text: "Our AI agent, which supports you with your running, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
     ],
     lesson:
       "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",
-    // TODO(Emma): a practical example of what Turnout and Poppy do for a user, and real product visuals.
+    // TODO(Emma): real product visuals.
     status: "approved",
   },
   {

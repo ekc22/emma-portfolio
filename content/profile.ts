@@ -44,7 +44,9 @@ export const aboutTeaser = {
 export const turnout = {
   label: "Currently building",
   name: "Turnout",
-  line: "A sports and wellness platform I co-founded.",
+  line: "A sports and wellness community platform I co-founded.",
+  what:
+    "Turnout connects clubs and people, bringing together a sports and wellness market that’s fragmented. Poppy, our AI agent, then supports you with your running.",
   body:
     "Building Turnout has given me a founder’s perspective on commercial strategy, product development, technical trade-offs and execution. I lead go-to-market, built Poppy, our AI agent, and work with a fractional CTO to get to market sooner.",
   facts: [
@@ -167,7 +169,7 @@ export const about = {
       label: "The other side of the table",
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
-        "I co-founded Turnout, a sports and wellness platform, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market and built Poppy, our AI agent.",
+        "I co-founded Turnout, a sports and wellness community platform that connects clubs and people in a fragmented market, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market and built Poppy, our AI agent, which supports you with your running.",
         "I’ve also worked fractionally with founders. At a seed-stage AI venture I’m a founding member of the growth team, leading go-to-market. For Circus Capital, I support fundraising and investor relationships, and built the Claude-powered systems behind their day-to-day operations.",
         "Across all of it, I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],

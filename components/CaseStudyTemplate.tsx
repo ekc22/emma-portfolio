@@ -2,6 +2,7 @@ import Link from "next/link";
 import { outcomeLabels, type Project } from "@/content/projects";
 import { showReviewNotes } from "@/lib/review";
 import EditorialImage from "./EditorialImage";
+import TurnoutMark from "./TurnoutMark";
 import TurnoutPanel from "./TurnoutPanel";
 import Reveal from "./Reveal";
 import ReviewNote from "./ReviewNote";
@@ -37,6 +38,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
         <div className="grid-12 mt-12 md:mt-20">
           <span aria-hidden="true" className="col-span-4 font-serif text-numeral text-linen-deep md:col-span-2">{num}</span>
           <div className="col-span-4 mt-8 md:col-span-9 md:col-start-4 md:mt-0">
+            {project.accent === "turnout" && <TurnoutMark size={72} className="mb-6" />}
             <p className="label text-cherry">{num} / {project.category}</p>
             <h1 className="mt-5 text-display-lg motion-safe:animate-page-in">{project.title}</h1>
             {project.role && <p className="label mt-6 !text-oxblood">{project.role}</p>}

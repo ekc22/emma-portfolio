@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import TextLink from "@/components/TextLink";
+import TurnoutMark from "@/components/TurnoutMark";
 import TurnoutPanel from "@/components/TurnoutPanel";
 import { aboutTeaser, beyondWork, facts, journeys, turnout } from "@/content/profile";
 import { projects } from "@/content/projects";
@@ -83,10 +84,14 @@ export default function Home() {
             </Link>
           </Reveal>
           <Reveal delay={120} className="col-span-4 md:col-span-6 md:col-start-7 md:self-center">
-            <h2 id="turnout-title" className="text-display-md">
-              {turnout.name}. <em className="block text-[0.55em] leading-tight text-muted-ink">{turnout.line}</em>
-            </h2>
-            <p className="mt-8 text-[1.25rem] leading-[1.5] md:text-[1.375rem]">{turnout.body}</p>
+            <div className="flex items-center gap-5">
+              <TurnoutMark size={64} />
+              <h2 id="turnout-title" className="text-display-md">
+                {turnout.name}. <em className="block text-[0.55em] leading-tight text-muted-ink">{turnout.line}</em>
+              </h2>
+            </div>
+            <p className="mt-8 text-display-sm leading-[1.25]">{turnout.what}</p>
+            <p className="mt-6 text-[1.25rem] leading-[1.5] text-muted-ink md:text-[1.375rem]">{turnout.body}</p>
             <dl className="mt-8 grid grid-cols-3 gap-x-4 border-t border-linen-deep pt-5">
               {turnout.facts.map((f) => (
                 <div key={f.label}>

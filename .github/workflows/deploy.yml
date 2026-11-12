@@ -18,8 +18,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-      NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+      # Served from the custom domain emmaclark.info, so no sub-path.
+      NEXT_PUBLIC_BASE_PATH: ""
+      NEXT_PUBLIC_SITE_URL: https://emmaclark.info
       # Copy approved by Emma: hide draft badges. Set to "true" to show them again while editing.
       NEXT_PUBLIC_SHOW_REVIEW_NOTES: "false"
     steps:

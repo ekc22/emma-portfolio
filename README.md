@@ -24,7 +24,7 @@ npm run build      # writes the static site to out/
 
 ## Live site — GitHub Pages
 
-The site is published at **https://ekc22.github.io/emma-portfolio/**.
+The site is published at **https://emmaclark.info** (custom domain; `public/CNAME`), served by GitHub Pages from this repository.
 
 Every push to `main` runs `.github/workflows/deploy.yml`, which lints, type-checks, builds a static
 export and publishes it. Progress shows under the repository's **Actions** tab (about 2 minutes).

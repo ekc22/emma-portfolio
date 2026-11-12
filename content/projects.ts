@@ -80,7 +80,7 @@ export const projects: Project[] = [
       { text: "Taken from company formation and initial concept into product testing.", kind: "team" },
     ],
     lesson:
-      "Building Turnout has taught me to think like an owner, not just an operator. To make decisions without perfect information, balance ambition with what’s commercially and technically possible, and take responsibility for everything between an idea and bringing it to life.",
+      "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",
     // Turnout keeps its own brand: shown as a credit, never merged into the EMMA CLARK mark.
     status: "draft",
   },
@@ -107,7 +107,8 @@ export const projects: Project[] = [
       { text: "Six businesses progressed to pilot stage.", kind: "pipeline" },
       { text: "Commercial traction against a £150k pilot revenue target: a target, not recognised revenue.", kind: "pipeline" },
     ],
-    // TODO(Emma): add what this taught you, in your own words.
+    lesson:
+      "It taught me that early-stage growth is as much about listening and testing assumptions as it is about selling. When there’s no established market or playbook, you have to find the opportunity, shape a proposition people understand and turn uncertainty into commercial momentum.",
     status: "draft",
   },
   {
@@ -165,7 +166,8 @@ export const projects: Project[] = [
     category: "Strategy & Execution",
     summary:
       "Growth priorities spanning product, distribution, finance, technology and data needed a common execution rhythm.",
-    context: "Private equity-backed wealth manager",
+    context: "Canaccord",
+    role: "Canaccord · Strategy & Executive Execution",
     imageBrief: "Desk still life: paper, fountain pen, a cherry-lacquer cup, a folded agenda",
     situation:
       "A private equity-backed business had ambitious growth priorities spread across product, distribution, finance, technology and data.",
@@ -179,7 +181,8 @@ export const projects: Project[] = [
     whatChanged: [
       { text: "A repeatable system for turning leadership priorities into accountable delivery.", kind: "personal" },
     ],
-    // TODO(Emma): add what this taught you, in your own words.
+    lesson:
+      "It taught me that strategy only works when people understand what they’re working towards and how their contribution fits into the bigger picture. The real value isn’t in creating the plan, but in bringing people together, establishing accountability and turning ambition into collective progress.",
     status: "draft",
   },
   {
@@ -189,6 +192,7 @@ export const projects: Project[] = [
     summary:
       "Reporting infrastructure, AI-assisted workflows and a Claude Chief of Staff agent: using technology to create capacity, not just another dashboard.",
     context: "Executive reporting and AI-assisted workflows",
+    role: "AI, Automation & Executive Reporting",
     imageBrief: "Material detail: linen paper edges and a notebook, top-down at 30°",
     situation:
       "Executive reporting depended on a recurring, largely manual preparation cycle.",
@@ -203,7 +207,8 @@ export const projects: Project[] = [
       { text: "Recurring reporting preparation reduced by approximately two weeks per cycle.", kind: "personal" },
       { text: "Clearer visibility of actions and pipeline, without another dashboard to maintain.", kind: "personal" },
     ],
-    // TODO(Emma): add what this taught you, in your own words.
+    lesson:
+      "It taught me to question how work gets done, not just how to do it faster. The real opportunity with technology isn’t simply automating tasks. It’s giving people back the time and clarity to think, make better decisions and focus on work that actually moves the business forward.",
     status: "draft",
   },
   {
@@ -212,7 +217,8 @@ export const projects: Project[] = [
     category: "Finance & Leadership",
     summary:
       "From supporting analysis for Paddle’s $200m+ Series D and acquisition integration to Board reporting, capital planning and investor relations.",
-    context: "Venture-backed SaaS, investment management and private equity-backed businesses",
+    context: "Paddle, then investment management and private equity-backed businesses",
+    role: "Paddle · Series D Fundraising & Acquisition",
     imageBrief: "Desk still life: ledger, linen paper and a fountain pen, top-down at 30°",
     situation:
       "Businesses at different stages, from scaling SaaS to investment management and private equity-backed firms, each facing significant financial and operational decisions.",
@@ -227,7 +233,8 @@ export const projects: Project[] = [
     whatChanged: [
       { text: "Paddle raised a $200m+ Series D. I supported the financial analysis; I did not raise the capital.", kind: "company" },
     ],
-    // TODO(Emma): add what this taught you, in your own words.
+    lesson:
+      "It taught me that behind every ambitious growth story is a business that needs to stand up to scrutiny. Supporting a major fundraise and acquisition gave me an appreciation for the financial discipline, commercial understanding and operational detail required to turn ambition into something investors can believe in.",
     status: "draft",
   },
 ];

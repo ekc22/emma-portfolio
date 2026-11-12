@@ -3,35 +3,26 @@ import EditorialImage from "./EditorialImage";
 import Reveal from "./Reveal";
 
 /**
- * A journal-like collage: varied sizes, offsets and ratios so it never reads as a grid of cards.
- * Layout slots repeat if more interests are added.
+ * Beyond the boardroom: a journal-like index. Typographic by default; when Emma adds
+ * a photo to an interest it appears alongside, so the layout works with or without images.
  */
-const slots = [
-  { col: "md:col-span-5 md:col-start-1", ratio: "4 / 5", offset: "" },
-  { col: "md:col-span-4 md:col-start-8", ratio: "1 / 1", offset: "md:mt-32" },
-  { col: "md:col-span-4 md:col-start-2", ratio: "5 / 4", offset: "md:mt-10" },
-  { col: "md:col-span-3 md:col-start-8", ratio: "3 / 4", offset: "md:mt-24" },
-];
-const tones = ["linen", "deep", "cherry", "deep", "linen", "cherry", "deep"] as const;
-
 export default function InterestsCollage({ interests }: { interests: Interest[] }) {
   return (
-    <ul className="grid-12 gap-y-12">
-      {interests.map((item, i) => {
-        const slot = slots[i % slots.length];
-        return (
-          <li key={item.title} className={`col-span-2 ${slot.col} ${slot.offset}`}>
-            <Reveal as="figure" delay={(i % 3) * 80}>
-              <EditorialImage image={item.image} brief={item.imageBrief} ratio={slot.ratio} tone={tones[i % tones.length]} sizes="(min-width: 768px) 33vw, 50vw" />
-              <figcaption className="mt-4">
-                <span className="label text-cherry">No. {String(i + 1).padStart(2, "0")}</span>
-                <span className="mt-2 block text-[1.75rem] leading-tight">{item.title}</span>
-                <span className="mt-1 block text-[1.1875rem] italic leading-snug text-muted-ink">{item.caption}</span>
-              </figcaption>
-            </Reveal>
-          </li>
-        );
-      })}
-    </ul>
+    <ol className="border-t border-linen-deep">
+      {interests.map((item, i) => (
+        <Reveal as="li" key={item.title} delay={(i % 3) * 60} className="group grid-12 items-baseline border-b border-linen-deep py-7 md:py-9">
+          <span className="label col-span-1 text-cherry md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
+          <h3 className="col-span-3 text-[clamp(1.75rem,3.4vw,3rem)] leading-[1.05] transition-colors duration-500 group-hover:text-cherry md:col-span-5">
+            {item.title}
+          </h3>
+          <p className="col-span-3 col-start-2 mt-2 italic text-muted-ink md:col-span-4 md:col-start-7 md:mt-0">{item.caption}</p>
+          {item.image && (
+            <div className="col-span-3 col-start-2 mt-4 md:col-span-2 md:col-start-11 md:mt-0">
+              <EditorialImage image={item.image} ratio="4 / 5" sizes="(min-width: 768px) 15vw, 60vw" />
+            </div>
+          )}
+        </Reveal>
+      ))}
+    </ol>
   );
 }

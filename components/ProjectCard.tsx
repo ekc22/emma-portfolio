@@ -4,15 +4,15 @@ import EditorialImage from "./EditorialImage";
 import TurnoutPanel from "./TurnoutPanel";
 import Reveal from "./Reveal";
 
-type Props = { project: Project; index: number; headingLevel?: "h2" | "h3" };
+type Props = { project: Project; index: number; flipIndex?: number; headingLevel?: "h2" | "h3" };
 
 /**
  * Magazine-style project feature. Alternates image/text sides, with an oversized numeral.
  * The whole block is clickable via the title link's stretched hit area.
  */
-export default function ProjectCard({ project, index, headingLevel: H = "h3" }: Props) {
+export default function ProjectCard({ project, index, flipIndex, headingLevel: H = "h3" }: Props) {
   const num = String(index + 1).padStart(2, "0");
-  const flip = index % 2 === 1;
+  const flip = (flipIndex ?? index) % 2 === 1;
 
   return (
     <article className="group relative grid-12 items-end">
@@ -24,11 +24,11 @@ export default function ProjectCard({ project, index, headingLevel: H = "h3" }: 
         ) : (
         <EditorialImage
           image={project.image}
-          brief={project.imageBrief}
+          motif={project.motif}
           ratio={flip ? "1 / 1" : "5 / 4"}
           sizes="(min-width: 768px) 58vw, 100vw"
           hoverZoom
-          tone={project.accent ?? (index === 1 ? "deep" : "linen")}
+          tone={project.accent ?? (["linen", "butter", "deep"] as const)[(flipIndex ?? index) % 3]}
         />
         )}
       </Reveal>

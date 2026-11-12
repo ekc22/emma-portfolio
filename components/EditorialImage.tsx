@@ -5,23 +5,23 @@ export type ImageAsset = { src: string; alt: string; width: number; height: numb
 
 type Props = {
   image?: ImageAsset;
-  /** What should go here — printed on the placeholder until a real image is supplied. */
-  brief: string;
+  /** Typographic fallback when no image exists: the headline fact, set large. */
+  motif?: { figure: string; caption: string };
   ratio?: string; // CSS aspect-ratio, e.g. "4 / 5"
   sizes?: string;
   priority?: boolean;
   className?: string;
   hoverZoom?: boolean;
-  tone?: "linen" | "deep" | "cherry" | "turnout";
+  tone?: "linen" | "deep" | "cherry" | "turnout" | "butter";
 };
 
 /**
- * Real photograph when supplied, otherwise a quiet, clearly labelled placeholder.
- * Never shows stock or generated imagery.
+ * A real photograph when supplied; otherwise a typography-led panel.
+ * Never shows stock imagery or visible "image to come" placeholders.
  */
 export default function EditorialImage({
   image,
-  brief,
+  motif,
   ratio = "4 / 5",
   sizes = "(min-width: 768px) 50vw, 100vw",
   priority,
@@ -41,39 +41,21 @@ export default function EditorialImage({
     );
   }
 
+  if (!motif) return null;
+
   const tones = {
-    linen: "bg-linen",
-    deep: "bg-linen-deep",
-    turnout: "bg-turnout",
-    cherry: "bg-cherry/[0.09]",
+    linen: "bg-linen text-oxblood",
+    deep: "bg-linen-deep text-oxblood",
+    cherry: "bg-cherry text-paper",
+    turnout: "bg-turnout text-oxblood",
+    butter: "bg-butter text-oxblood",
   };
 
   return (
-    <div
-      className={`relative overflow-hidden ${className}`}
-      style={{ aspectRatio: ratio }}
-      role="img"
-      aria-label={`Image placeholder: ${brief}`}
-    >
-      <div className={`absolute inset-0 ${tones[tone]} ${zoom}`}>
-        {/* Fine paper-like grain, pure CSS. */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.35] mix-blend-multiply"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.7), transparent 55%), repeating-linear-gradient(135deg, rgba(37,37,37,0.035) 0 1px, transparent 1px 7px)",
-          }}
-        />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 sm:p-5">
-        <p className="max-w-[24ch] font-sans text-[0.75rem] leading-snug text-muted-ink">
-          <span className="label mb-1 block !text-[0.625rem]">Image to come</span>
-          {brief}
-        </p>
-        <span aria-hidden="true" className="font-serif text-2xl italic text-oxblood/30">
-          ✕
-        </span>
+    <div className={`relative overflow-hidden ${tones[tone]} ${className}`} style={{ aspectRatio: ratio }} aria-hidden="true">
+      <div className={`absolute inset-0 flex flex-col justify-end p-6 sm:p-8 md:p-10 ${zoom}`}>
+        <span className="font-serif text-[clamp(3rem,8vw,7.5rem)] leading-[0.9] tracking-[-0.02em]">{motif.figure}</span>
+        <span className="mt-4 max-w-[28ch] text-[0.75rem] font-semibold uppercase tracking-label opacity-75">{motif.caption}</span>
       </div>
     </div>
   );

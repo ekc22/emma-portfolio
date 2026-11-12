@@ -50,8 +50,8 @@ export type Project = {
   /** Optional small-print note shown after "My contribution" (e.g. the fundraising disclaimer). */
   note?: string;
   image?: ProjectImage;
-  /** Describes the image that should go here, shown on the placeholder until a real one is added. */
-  imageBrief: string;
+  /** Typographic panel shown until a real image exists: the headline fact, set large. */
+  motif: { figure: string; caption: string };
   /** Use a venture's own colour for its placeholders (Turnout blue). */
   accent?: "turnout";
   status: "draft" | "approved";
@@ -60,74 +60,85 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "when-youre-the-one-building-it",
-    title: "What happens when you’re the one building it?",
-    category: "Founding & Go-to-market",
+    title: "Building something from scratch.",
+    category: "Founding & Product",
     summary:
-      "Co-founding Turnout, a sports and wellness platform: owning its full go-to-market, building Poppy, our AI agent, and working with a fractional CTO to get to market sooner.",
+      "Co-founding Turnout, a sports and wellness platform: commercial decisions, product development, technical trade-offs and the accountability that comes with building something of your own.",
     context: "Turnout, a sports and wellness platform",
-    role: "Co-founder · Go-to-market & AI",
-    imageBrief: "Turnout: a real photograph from a sports or wellness session",
+    role: "Co-founder · Go-to-market, product & AI",
+    motif: { figure: "Turnout", caption: "Co-founded" },
     accent: "turnout",
     situation:
       "Turnout started as an idea: a sports and wellness platform that brings people together.",
     problem:
-      "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or brand, is a trade-off between ambition and what can realistically get done this week. And a great product still needs a clear route to the people it’s for.\n\nIn a small team, time is the scarcest resource. Every hour spent on manual work is an hour later to market.",
+      "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or technical, is a trade-off between ambition and what can realistically get done this week.\n\nIn a small team, time is the scarcest resource. Every hour spent on manual work is an hour later to market.",
     myRole: [
       {
-        title: "Founding",
-        body: "Co-founded the company, from formation and initial concept onwards.",
+        title: "Founder accountability",
+        body: "Co-founded the company and have taken it from formation and initial concept, through product development, into testing.",
       },
       {
-        title: "Go-to-market",
-        body: "Own the full go-to-market and developed the go-to-market strategy.",
+        title: "Commercial decisions",
+        body: "Lead go-to-market: I developed the go-to-market strategy and make the commercial calls on positioning, priorities and launch.",
+      },
+      {
+        title: "Product and technical trade-offs",
+        body: "Work closely with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, balancing what we want to build with what gets us to market sooner.",
       },
       {
         title: "Poppy, our AI agent",
         body: "Built Poppy, Turnout’s AI agent, with forecasting and agent-to-agent workflows that track trends.",
       },
       {
-        title: "Working with a fractional CTO",
-        body: "Work closely with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, to automate manual work and get Turnout to market sooner.",
-      },
-      {
-        title: "Product, brand and launch",
-        body: "Move between commercial planning, product decisions and brand, and worked on website development and preparing the platform for launch.",
+        title: "Brand and launch",
+        body: "Shaped the brand and worked on website development and preparing the platform for launch.",
       },
     ],
-    // Describes what was built; no performance claims (e.g. forecast accuracy, hours saved) unless evidenced.
+    // Describes what was built; no performance claims unless evidenced.
     whatChanged: [
-      { title: "A go-to-market strategy", text: "A full go-to-market strategy, developed and owned by me.", kind: "personal" },
-      { title: "Poppy, built into the business", text: "Poppy, our AI agent, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
       { title: "From idea to product testing", text: "Taken from company formation and initial concept into product testing.", kind: "team" },
+      { title: "A go-to-market strategy", text: "Developed and owned by me.", kind: "personal" },
+      { title: "Poppy, built into the business", text: "Our AI agent, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
     ],
     lesson:
       "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",
-    // Turnout keeps its own brand: shown as a credit, never merged into the EMMA CLARK mark.
+    // TODO(Emma): a practical example of what Turnout and Poppy do for a user, and real product visuals.
     status: "approved",
   },
   {
     slug: "finding-a-market-before-the-playbook",
     title: "Finding a market before there’s a playbook.",
-    category: "Go-to-market & Growth",
+    category: "Growth & Go-to-Market",
     summary:
-      "A founding member of the growth team at a seed-stage AI venture, alongside colleagues including former Amazon employees, responsible for the full go-to-market.",
+      "Creating commercial direction and traction at a seed-stage AI venture with no established go-to-market playbook.",
     context: "Seed-stage AI venture",
-    role: "Founding growth team member, responsible for go-to-market",
-    imageBrief: "Material detail: cherry lacquer, oxblood leather and linen paper edges",
+    role: "Founding growth team member · Go-to-market",
+    motif: { figure: "6", caption: "Businesses progressed to pilot stage" },
     situation:
-      "A seed-stage AI venture, with a founding team that includes former Amazon employees, had a promising product and no established route to market.",
+      "A seed-stage AI venture had a promising product and no established route to market.",
     problem:
       "There was no playbook. Who to sell to, what to charge and how to frame a first commercial engagement all had to be worked out from scratch.",
     myRole: [
-      "Joined as a founding member of the growth team, responsible for the full go-to-market",
-      "Worked closely with a technical founding team, including former Amazon employees",
-      "Developed the go-to-market strategy",
-      "Built market segmentation and target accounts",
-      "Shaped pricing and pilot propositions, and supported businesses through to pilot stage",
+      {
+        title: "Market mapping and segmentation",
+        body: "Mapped the market, built the segmentation and identified the target accounts worth pursuing first.",
+      },
+      {
+        title: "Pricing and propositions",
+        body: "Shaped pricing and pilot propositions that prospective customers could understand and say yes to.",
+      },
+      {
+        title: "Progressing opportunities",
+        body: "Supported prospective customers from first conversations through to pilot stage.",
+      },
+      {
+        title: "Go-to-market, with a technical team",
+        body: "Joined as a founding member of the growth team, leading the go-to-market strategy alongside a technical founding team that includes former Amazon employees.",
+      },
     ],
     whatChanged: [
-      { text: "Six businesses progressed to pilot stage.", kind: "pipeline" },
-      { text: "Commercial traction against a £150k pilot revenue target: a target, not recognised revenue.", kind: "pipeline" },
+      { title: "Six businesses at pilot stage", text: "Six businesses progressed to pilot stage.", kind: "pipeline" },
+      { title: "Traction against a target", text: "Commercial traction against a £150k pilot revenue target: a target, not recognised revenue.", kind: "pipeline" },
     ],
     lesson:
       "It taught me that early-stage growth is as much about listening and testing assumptions as it is about selling. When there’s no established market or playbook, you have to find the opportunity, shape a proposition people understand and turn uncertainty into commercial momentum.",
@@ -138,10 +149,10 @@ export const projects: Project[] = [
     title: "Building the relationships and infrastructure behind capital raising.",
     category: "Fundraising & Investor Relations",
     summary:
-      "Fractional Chief of Staff support for Circus Capital: fundraising, investor introductions, investor readiness and Claude-powered operational infrastructure.",
+      "Fractional Chief of Staff support for Circus Capital, combining investor relationships, fundraising preparation and Claude-powered operational systems.",
     context: "Circus Capital",
     role: "Fractional Chief of Staff · Fundraising, Investor Relations & Strategic Operations",
-    imageBrief: "The quiet room: empty meeting room, morning light, paper-toned walls",
+    motif: { figure: "Family offices", caption: "Introduced as part of the fundraise" },
     situation:
       "Circus Capital required fractional Chief of Staff support to strengthen fundraising activity, investor engagement and the coordination of strategic and operational priorities.",
     problem:
@@ -161,7 +172,7 @@ export const projects: Project[] = [
       },
       {
         title: "Operational infrastructure",
-        body: "Developed a Claude-powered Chief of Staff dashboard and project management system to improve visibility, track priorities and coordinate execution, and built an agentic Chief of Staff, a pipeline tracker and an investor finder.",
+        body: "Built a Claude-powered system to improve visibility, track priorities and coordinate execution: a Chief of Staff dashboard, an agentic Chief of Staff, a pipeline tracker, an investor finder and a project management system.",
       },
     ],
     // Keep "introduced", never "secured investment" or "raised capital", unless substantiated.
@@ -180,6 +191,7 @@ export const projects: Project[] = [
     lesson:
       "In capital raising, relationships open doors. Preparation, credibility and consistent execution create the conditions for progress.",
     note: "Fundraising support covers preparation, process management and introductions. It is not investment advice or arranging deals; any regulated activity stays with authorised firms.",
+    // TODO(Emma): an approved screenshot of the Claude Chief of Staff system.
     status: "approved",
   },
   {
@@ -187,21 +199,30 @@ export const projects: Project[] = [
     title: "Making strategy everyone’s business.",
     category: "Strategy & Execution",
     summary:
-      "Growth priorities spanning product, distribution, finance, technology and data needed a common execution rhythm.",
+      "Turning leadership priorities into coordinated, accountable execution across product, distribution, finance, technology and data.",
     context: "Canaccord",
     role: "Canaccord · Strategy & Executive Execution",
-    imageBrief: "Desk still life: paper, fountain pen, a cherry-lacquer cup, a folded agenda",
+    motif: { figure: "Growth Committee", caption: "Established to connect priorities, owners and decisions" },
     situation:
-      "A private equity-backed business had ambitious growth priorities spread across product, distribution, finance, technology and data.",
+      "Growth priorities were spread across product, distribution, finance, technology and data, each with its own owners and pace.",
     problem:
-      "Each area was moving, but not to a common rhythm. Priorities, owners and decisions weren’t connected to the reporting the executive team relied on, so accountability was hard to see.",
+      "Coordinating that many cross-functional initiatives needs a shared rhythm. Without one, priorities, owners and decisions weren’t connected to the reporting the executive team relied on, so progress and accountability were hard to see.",
     myRole: [
-      "Established a Growth Committee to bring the priorities together",
-      "Connected priorities, owners and decisions to executive reporting",
-      "Coordinated cross-functional initiatives and tracked priorities, risks and actions",
+      {
+        title: "A Growth Committee",
+        body: "Established a Growth Committee to bring the growth priorities, and the people who owned them, into one forum.",
+      },
+      {
+        title: "An operating cadence",
+        body: "Set the rhythm for reviewing priorities, risks and actions, and coordinated the cross-functional initiatives between meetings.",
+      },
+      {
+        title: "Executive visibility",
+        body: "Connected priorities, owners and decisions to executive reporting, so leadership could see progress and decide with confidence.",
+      },
     ],
     whatChanged: [
-      { text: "A repeatable system for turning leadership priorities into accountable delivery.", kind: "personal" },
+      { title: "Accountable delivery", text: "A repeatable system for turning leadership priorities into accountable delivery.", kind: "personal" },
     ],
     lesson:
       "It taught me that strategy only works when people understand what they’re working towards and how their contribution fits into the bigger picture. The real value isn’t in creating the plan, but in bringing people together, establishing accountability and turning ambition into collective progress.",
@@ -212,23 +233,35 @@ export const projects: Project[] = [
     title: "Less reporting. More thinking.",
     category: "AI & Operations",
     summary:
-      "Reporting infrastructure and AI-assisted workflows: using technology to create capacity, not just another dashboard.",
+      "Around two weeks of recurring reporting preparation saved per cycle, through a 30-metric executive dashboard and AI-assisted workflows.",
     context: "Executive reporting and AI-assisted workflows",
     role: "AI, Automation & Executive Reporting",
-    imageBrief: "Material detail: linen paper edges and a notebook, top-down at 30°",
+    motif: { figure: "≈2 weeks", caption: "Reporting preparation saved per cycle" },
     situation:
       "Executive reporting depended on a recurring, largely manual preparation cycle.",
     problem:
-      "Time spent assembling numbers was time not spent thinking about them.",
+      "Time spent assembling numbers was time not spent thinking about them, and the leadership team needed a clearer view of performance to make decisions.",
     myRole: [
-      "Built reporting infrastructure covering 30 executive metrics",
-      "Developed AI-assisted workflows for recurring reporting and research tasks",
+      {
+        title: "Reporting infrastructure",
+        body: "Built the reporting infrastructure behind an executive dashboard covering 30 metrics. This was conventional automation: getting the right data flowing into one place, reliably, every cycle.",
+      },
+      {
+        title: "AI-assisted workflows",
+        body: "Separately, developed AI-assisted workflows for the recurring reporting and research tasks that automation alone couldn’t handle, keeping a human check on the output.",
+      },
+      {
+        title: "Decision-ready reporting",
+        body: "Designed the reporting around the decisions it needed to support, so the time saved went into thinking rather than assembling.",
+      },
     ],
     whatChanged: [
-      { text: "Recurring reporting preparation reduced by approximately two weeks per cycle.", kind: "personal" },
+      { title: "Around two weeks back, every cycle", text: "Recurring reporting preparation reduced by approximately two weeks per cycle.", kind: "personal" },
+      { title: "30 metrics in one view", text: "An executive dashboard covering 30 metrics.", kind: "personal" },
     ],
     lesson:
       "It taught me to question how work gets done, not just how to do it faster. The real opportunity with technology isn’t simply automating tasks. It’s giving people back the time and clarity to think, make better decisions and focus on work that actually moves the business forward.",
+    // TODO(Emma): approved, anonymised dashboard screenshots.
     status: "approved",
   },
   {
@@ -236,19 +269,27 @@ export const projects: Project[] = [
     title: "The discipline behind the ambition.",
     category: "Finance & Leadership",
     summary:
-      "Part of Paddle during its $200m Series D and unicorn valuation, then acquisition integration, Board reporting, capital planning and investor relations.",
+      "Part of Paddle during its $200m Series D and unicorn valuation, with exposure to acquisition integration, Board reporting, capital planning and investor relations.",
     context: "Paddle, then investment management and private equity-backed businesses",
     role: "Paddle · Series D Fundraising & Acquisition",
-    imageBrief: "Desk still life: ledger, linen paper and a fountain pen, top-down at 30°",
+    motif: { figure: "$200m", caption: "Series D at a unicorn valuation" },
     situation:
-      "Businesses at different stages, from scaling SaaS to investment management and private equity-backed firms, each facing significant financial and operational decisions.",
+      "Paddle, a scaling SaaS business, was raising a $200m Series D at a unicorn valuation and integrating an acquisition. Later roles in investment management and private equity-backed firms brought the same kind of scrutiny.",
     problem:
       "Big moments like a funding round or an acquisition depend on rigorous analysis and clear reporting, delivered while the business keeps running.",
     myRole: [
-      "Part of the business during Paddle’s $200m Series D and unicorn valuation",
-      "Supported acquisition integration",
-      "Prepared executive and Board reporting",
-      "Contributed to capital planning and investor relations",
+      {
+        title: "Inside a major fundraise",
+        body: "Part of the business during Paddle’s $200m Series D and unicorn valuation.",
+      },
+      {
+        title: "Acquisition integration",
+        body: "Supported the integration of an acquisition.",
+      },
+      {
+        title: "Financial and Board reporting",
+        body: "Prepared executive and Board reporting, and contributed to capital planning and investor relations.",
+      },
     ],
     whatChanged: [
       { text: "Paddle raised a $200m Series D at a unicorn valuation while I was part of the business.", kind: "company" },

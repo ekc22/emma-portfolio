@@ -3,7 +3,7 @@ import EditorialImage from "@/components/EditorialImage";
 import Reveal from "@/components/Reveal";
 import ReviewNote from "@/components/ReviewNote";
 import TextLink from "@/components/TextLink";
-import { about, beyondWork, workedWith } from "@/content/profile";
+import { about, beyondWork, hero, identity, workedWith } from "@/content/profile";
 import { site } from "@/content/site";
 import { mailto } from "@/lib/contact";
 import { hasCv } from "@/lib/cv";
@@ -37,17 +37,26 @@ export default function AboutPage() {
       {/* Story, told in chapters */}
       <section aria-label="My story" className="frame pb-20 md:pb-32">
         <div className="grid-12 gap-y-12">
-          <figure className="col-span-4 md:sticky md:top-28 md:col-span-4 md:self-start">
-            <EditorialImage
-              brief="Portrait at work: candid at a table, hands and notebook in frame, window light. Real photograph only."
-              ratio="3 / 4"
-              sizes="(min-width: 768px) 33vw, 100vw"
-            />
-            <figcaption className="mt-4">
-              <span className="label">Where I’ve worked</span>
-              <span className="mt-2 block text-[1.0625rem] leading-snug text-muted-ink">{workedWith.join(" · ")}</span>
-            </figcaption>
-          </figure>
+          <aside aria-label="At a glance" className="col-span-4 md:sticky md:top-28 md:col-span-4 md:self-start">
+            {hero.portrait && <EditorialImage image={hero.portrait} ratio="3 / 4" sizes="(min-width: 768px) 33vw, 100vw" className="mb-8" />}
+            <div className="border-t border-cherry pt-5">
+              <p className="text-display-sm text-cherry">{identity.title}</p>
+              <p className="mt-3 text-muted-ink">{identity.positioning}</p>
+            </div>
+            <div className="mt-8 border-t border-linen-deep pt-5">
+              <p className="label">Where I’ve worked</p>
+              <ul className="mt-3 space-y-1 text-[1.25rem]">
+                {workedWith.map((w) => (
+                  <li key={w}>{w}</li>
+                ))}
+              </ul>
+            </div>
+            {cv && (
+              <div className="mt-8">
+                <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>
+              </div>
+            )}
+          </aside>
 
           <div className="col-span-4 md:col-span-7 md:col-start-6">
             {about.chapters.map((ch, i) => (

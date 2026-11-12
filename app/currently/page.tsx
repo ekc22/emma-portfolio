@@ -28,13 +28,13 @@ export default function CurrentlyPage() {
             A few things <em className="text-cherry">on my mind.</em>
           </h1>
           <p className="col-span-4 mt-10 max-w-measure text-lg text-muted-ink md:col-span-5 md:col-start-7 md:mt-16">
-            A running note of ideas, interests and experiments: what I’m exploring, reading and trying out. It changes often.
+            What I’m building, exploring, learning and paying attention to right now. It changes often.
           </p>
         </div>
       </section>
 
       <section aria-label="Current focus" className="frame pb-20 md:pb-28">
-        <CurrentlyList entries={currently.entries} large />
+        <CurrentlyList entries={currently.entries} />
       </section>
 
       <section aria-labelledby="notebook-title" className="frame pb-24 md:pb-36">

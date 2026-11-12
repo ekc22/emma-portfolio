@@ -1,159 +1,131 @@
 /**
- * Biography, home-page copy, capabilities, interests and "Currently".
+ * Biography, homepage copy, interests and "Currently".
  *
- * REVIEW STATUS: draft. Copy marked TODO(Emma) was written for this MVP and
- * needs Emma's approval. Do not add metrics, employer names or client names
- * until Emma has confirmed they can be published.
+ * Copy approved by Emma. House style: no em dashes in visible copy.
+ * Do not add metrics, employer names or client names without Emma's confirmation.
  */
+
+export type ImageAsset = { src: string; alt: string; width: number; height: number };
 
 export const hero = {
   eyebrow: "Strategy / Growth / Building",
   headline: "From the boardroom to the blank sheet.",
   intro: [
-    "I’ve spent the last decade working inside businesses of all shapes and sizes, from listed companies and private equity-backed firms to venture-backed startups and ideas that barely existed beyond a conversation.",
-    "Somewhere along the way, I discovered that what I enjoy most isn’t simply shaping strategy. It’s figuring out how to make things happen.",
-    "Today, I work across growth, commercial strategy, operations and technology, alongside the people building what’s next.",
+    "I’ve spent a decade working at the intersection of strategy, growth and execution, from listed businesses and venture-backed technology companies to founder-led ventures.",
+    "I’ve supported major fundraising processes, built commercial propositions, created operating systems and co-founded a business of my own.",
+    "Today, I bring together financial discipline, a founder’s perspective and hands-on execution to help ambitious businesses move forward.",
   ],
-  // TODO(Emma): add a portrait at public/images/emma-portrait.jpg and set `portrait` below.
-  portrait: undefined as undefined | { src: string; alt: string; width: number; height: number },
+  // Add a portrait at public/images/emma-portrait.jpg and set it here; the hero shows it automatically.
+  portrait: undefined as undefined | ImageAsset,
 };
 
-/** Where Emma has worked — approved for publication. Names as text only; no company logos. */
+/** Professional identity, shown beside the hero. */
+export const identity = {
+  title: "Founder & Strategic Operator",
+  positioning: "Strategy, growth and operations, from established businesses to the earliest stages of building.",
+  statement: ["Commercial thinking.", "Hands-on execution.", "A founder’s perspective."],
+};
+
+/** Where Emma has worked. Approved for publication. Names as text only; no company logos. */
 export const workedWith = ["Hastings Direct", "Paddle", "RBC Brewin Dolphin", "Canaccord", "Circus Capital", "Founder-led ventures"];
 
 export const aboutTeaser = {
   label: "A little about me",
   body: [
-    "My experience spans FTSE 250, private equity-backed and venture-backed businesses, from financial services and fintech to high-growth technology.",
-    "I’ve worked closely with executives, founders and technical teams across strategy, commercial growth, operations and complex projects.",
-    "Alongside my professional work, I’ve supported founders fractionally, co-founded Turnout, a sports and wellness platform where I own the full go-to-market, and built practical AI-powered tools.",
+    "I’ve spent my career working across businesses at very different stages of growth, from established financial institutions to venture-backed technology companies and early-stage ventures.",
+    "What connects those experiences is an interest in how businesses work, how ideas become commercially viable and what it takes to execute when there isn’t an obvious answer.",
+    "I’ve worked alongside executives, founders and technical teams, supported fundraising and growth initiatives, developed operating systems and built a venture of my own.",
   ],
   pullQuote:
-    "I’m particularly drawn to environments where there’s ambiguity, momentum and something interesting to build.",
+    "I’m particularly drawn to ambitious, founder-led environments where commercial thinking, ownership and execution matter.",
 };
 
-/** Homepage spotlight on Turnout. Turnout keeps its own brand: text credit only, no logo merged with EMMA CLARK. */
+/** Homepage spotlight on Turnout. Turnout keeps its own brand: its figures on its own blue. */
 export const turnout = {
   label: "Currently building",
   name: "Turnout",
   line: "A sports and wellness platform I co-founded.",
-  body: [
-    "I’m responsible for Turnout’s full go-to-market. I developed the go-to-market strategy, and I move between commercial planning, product decisions, brand and the website.",
-    "I’ve built Poppy, our AI agent, with forecasting and agent-to-agent workflows that track trends. And I work closely with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, to automate the manual work and get to market sooner.",
-    "Together we’ve taken it from company formation and initial concept into product testing.",
-  ],
+  body:
+    "Building Turnout has given me a founder’s perspective on commercial strategy, product development, technical trade-offs and execution. I lead go-to-market, built Poppy, our AI agent, and work with a fractional CTO to get to market sooner.",
   facts: [
     { label: "My role", value: "Co-founder" },
-    { label: "I own", value: "Go-to-market" },
+    { label: "I lead", value: "Go-to-market" },
     { label: "I built", value: "Poppy, our AI agent" },
   ],
 };
 
 /**
- * Credibility strip. Qualifying wording is part of each fact — keep it, so supporting a
+ * Credibility strip. Qualifying wording is part of each fact: keep it, so being part of a
  * fundraise isn’t read as raising the capital, and pilots aren’t read as revenue.
  * Figures confirmed by Emma as current and shareable.
  */
 export const facts = [
   { figure: "10 years", label: "Across finance, strategy, operations and growth" },
-  { figure: "$200m", label: "Part of the business during a Series D and unicorn valuation" },
-  { figure: "30 metrics", label: "Executive dashboard and reporting infrastructure built" },
-  { figure: "6 pilots", label: "Businesses progressed to pilot stage at a seed-stage AI venture" },
+  { figure: "≈2 weeks", label: "Recurring reporting preparation saved per cycle" },
+  { figure: "30", label: "Executive metrics in the reporting dashboards I built" },
+  { figure: "6", label: "Businesses progressed to pilot stage at a seed-stage AI venture" },
+  { figure: "$200m", label: "Series D at Paddle, at a unicorn valuation, while I was part of the business" },
 ];
 
 /** Separate journeys for the three kinds of visitor. */
 export const journeys = [
-  {
-    audience: "Founders",
-    title: "Looking for fractional or project support?",
-    href: "/work-with-me",
-    cta: "How I can help",
-  },
-  {
-    audience: "Hiring managers",
-    title: "Exploring a permanent role?",
-    href: "/about",
-    cta: "My story",
-  },
-  {
-    audience: "Investors & collaborators",
-    title: "Curious about my background?",
-    href: "/work",
-    cta: "Selected work",
-  },
-];
-
-export type Capability = { title: string; description: string; points: string[] };
-
-export const capabilities: Capability[] = [
-  {
-    title: "Strategy & Execution",
-    description: "Turning leadership priorities into plans people can follow, and the rhythm that keeps them moving.",
-    points: ["Strategic priorities", "Executive reporting", "Investor readiness", "Operating cadence"],
-  },
-  {
-    title: "Growth & Commercial",
-    description: "Sharper commercial plans, clearer pipeline and the material teams need to sell.",
-    points: ["Go-to-market strategy", "Commercial planning", "Pricing & propositions", "Pipeline analysis"],
-  },
-  {
-    title: "Operations & Systems",
-    description: "The reporting and processes that let a business see how it’s really performing.",
-    points: ["Dashboards", "Reporting", "Processes", "Performance visibility"],
-  },
-  {
-    title: "AI & Technical Collaboration",
-    description: "Building practical AI tools myself, and working closely with CTOs, engineers and technical founders to turn commercial goals into things that ship.",
-    points: ["Working with CTOs & engineers", "Agentic Chief of Staff", "Forecasting & trend agents", "Pipeline & investor tools"],
-  },
+  { audience: "Founders", title: "Looking for fractional or project support?", href: "/work-with-me", cta: "How I can help" },
+  { audience: "Hiring managers", title: "Exploring a permanent role?", href: "/work", cta: "Case studies and CV" },
+  { audience: "Investors & collaborators", title: "Curious about my background?", href: "/about", cta: "My story" },
 ];
 
 export type Interest = {
   title: string;
   caption: string;
-  imageBrief: string;
-  image?: { src: string; alt: string; width: number; height: number };
+  image?: ImageAsset;
 };
 
 export const beyondWork = {
   label: "Beyond the boardroom",
-  headline: "A curious mind rarely stays in one place.",
+  headline: "There’s more to life than a job title.",
   intro:
     "When I’m not working, I’m usually learning something new, finding a new place to explore, getting lost in a book or convincing myself I have time for another project.",
-  // TODO(Emma): replace placeholders with your own photography.
+  // TODO(Emma): add your own photos (image) and a line of personal reflection for each.
   interests: [
-    { title: "Art & collecting", caption: "Developing my eye and discovering artists and ideas.", imageBrief: "Your own photo: a favourite artwork, gallery or studio visit" },
-    { title: "Always learning", caption: "Economics, technology, business and whatever catches my curiosity.", imageBrief: "Your own photo: current reading pile or notebook" },
-    { title: "Movement & wellness", caption: "Tennis, Pilates and finding time to move.", imageBrief: "Your own photo: tennis court, racquet or studio" },
-    { title: "People & places", caption: "Travel, music, different cultures and interesting conversations.", imageBrief: "Your own photo: a place you’ve travelled to" },
+    { title: "Art & collecting", caption: "Developing my eye and discovering artists and ideas." },
+    { title: "Reading & learning", caption: "Economics, technology, business and whatever catches my curiosity." },
+    { title: "AI & experimentation", caption: "Building practical tools and agents, mostly to see what’s possible." },
+    { title: "Movement & wellness", caption: "Tennis, Pilates and finding time to move." },
+    { title: "Travel & culture", caption: "New places, music, different cultures and interesting conversations." },
   ] as Interest[],
 };
 
-export type CurrentlyEntry = { label: string; title: string; body: string };
+export type CurrentlyEntry = { label: string; title: string; body: string; href?: string };
 
 export const currently = {
   label: "Currently",
   headline: "A few things on my mind.",
-  // TODO(Emma): update these whenever you like — they also power /currently.
+  // TODO(Emma): update these whenever you like. Keep them specific.
   updated: "November 2026",
   entries: [
     {
-      label: "Currently exploring",
-      title: "Agentic AI and practical business automation.",
-      body: "What happens when agents move from demos into the everyday work of small teams, and where a human still needs to be in the loop.",
+      label: "Currently building",
+      title: "Turnout, alongside selected AI experiments and practical tools.",
+      body: "Leading go-to-market for Turnout and building Poppy, our AI agent, plus the Claude tools I use to run my own work.",
+      href: "/work/when-youre-the-one-building-it",
     },
     {
-      label: "Currently interested in",
-      title: "Founders, emerging technologies and interesting business models.",
-      body: "Particularly businesses that are rethinking an old industry, and the operating choices that make them work.",
+      label: "Currently exploring",
+      title: "Agentic AI, emerging technologies and new business models.",
+      body: "And the early-stage commercial opportunities they open up for small, ambitious teams.",
     },
     {
       label: "Currently learning",
-      title: "New tools, ideas and ways to build better businesses.",
-      body: "Trying things hands-on, keeping what proves useful and writing down what I learn along the way.",
+      title: "Economics and Management.",
+      body: "Alongside professional development and hands-on experimentation with new technology.",
+    },
+    {
+      label: "Currently interested in",
+      title: "Founder-led businesses, venture capital and growth-stage companies.",
+      body: "Especially opportunities that combine commercial thinking with execution.",
     },
   ] as CurrentlyEntry[],
-  // Optional extras for the /currently page. TODO(Emma): replace with your real picks or delete.
+  // Optional extras for the /currently page. Items starting "TODO" are hidden on the live site.
   notebook: [
     { label: "Reading", items: ["TODO: a book you’re reading", "TODO: another book or long read"] },
     { label: "Listening", items: ["TODO: a podcast, album or playlist"] },
@@ -171,7 +143,7 @@ export const contact = {
   cta: "Let’s talk",
 };
 
-/** About page — "your story, not your CV". */
+/** About page: "your story, not your CV". */
 export const about = {
   headline: "I’ve never been particularly interested in staying in one lane.",
   chapters: [
@@ -195,9 +167,9 @@ export const about = {
       label: "The other side of the table",
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
-        "I’ve co-founded Turnout, a sports and wellness platform, taking it from an idea through company formation, product development and into testing. I’m responsible for its full go-to-market, and I developed the go-to-market strategy. I’ve built Poppy, our AI agent, with forecasting and agent-to-agent workflows that track trends, and I work with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, to get to market sooner.",
-        "I’ve also worked fractionally with founders, helping turn early-stage ideas into commercial propositions and execution plans. At a seed-stage AI venture I’m a founding member of the growth team, alongside colleagues including former Amazon employees, and I own the full go-to-market there too. For Circus Capital, I support fundraising, connect them with family offices and support their investor materials, and I built an agentic Chief of Staff, a pipeline tracker, an investor finder and a project management system in Claude. It taught me the importance of relationship building.",
-        "I’ve also become fascinated by what AI makes possible for small, ambitious teams. I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
+        "I co-founded Turnout, a sports and wellness platform, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market and built Poppy, our AI agent.",
+        "I’ve also worked fractionally with founders. At a seed-stage AI venture I’m a founding member of the growth team, leading go-to-market. For Circus Capital, I support fundraising and investor relationships, and built the Claude-powered systems behind their day-to-day operations.",
+        "Across all of it, I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],
     },
   ],
@@ -208,5 +180,5 @@ export const about = {
     "I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
   closing: "I’m always looking for interesting people to learn from, ideas to explore and things worth building.",
   permanent:
-    "If you’re hiring: I’m open to the right permanent opportunity with an ambitious business, particularly roles that sit across strategy, growth and operations.",
+    "If you’re hiring: I’m open to selected permanent opportunities with ambitious businesses, particularly roles that sit across strategy, growth and operations.",
 };

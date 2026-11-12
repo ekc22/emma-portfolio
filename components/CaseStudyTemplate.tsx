@@ -68,7 +68,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
           {project.accent === "turnout" && !project.image ? (
             <TurnoutPanel ratio="16 / 9" figureWidth="40%" />
           ) : (
-            <EditorialImage image={project.image} brief={project.imageBrief} ratio="16 / 9" sizes="100vw" priority tone={project.accent ?? "linen"} />
+            <EditorialImage image={project.image} motif={project.motif} ratio="16 / 9" sizes="100vw" priority tone={project.accent ?? "linen"} />
           )}
         </Reveal>
       </div>

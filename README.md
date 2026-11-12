@@ -55,7 +55,7 @@ Notes
 
 **Case-study rules:** each story runs situation → problem → what I did → what changed → what it taught me. Every item in `whatChanged` has a `kind` (`personal`, `team`, `pipeline`, `company`) so delivered work, team results, pipeline progress and company milestones are never confused. Keep qualifying wording on figures; never invent lessons.
 
-**Images:** put files in `public/images/` and add an `image: { src, alt, width, height }` to the relevant entry (`hero.portrait`, a project, or an interest). Until then a labelled neutral placeholder shows what should go there. Resize them before adding (see the GitHub Pages notes above).
+**Images:** put files in `public/images/` and add an `image: { src, alt, width, height }` to the relevant entry (`hero.portrait` in `content/profile.ts`, a project, or an interest). With no image, layouts fall back to typography: projects show their headline fact (`motif`) set large, the hero and About show Emma's identity in type, and interests are a typographic index. No placeholders are ever shown. Resize images before adding (see the GitHub Pages notes above).
 
 **Contact:** set `site.contact.email`. Every "Let's talk" / "Talk about this" link becomes a `mailto:` with a pre-filled subject. Until set, the contact section says the address is coming soon (nothing is invented).
 
@@ -130,3 +130,11 @@ assets/fonts/           Instrument Serif (OFL) for the social card
 Copy and figures approved by Emma (November 2026). Draft badges are switched off in
 `.github/workflows/deploy.yml` (`NEXT_PUBLIC_SHOW_REVIEW_NOTES: "false"`). Set it to `"true"` to see review
 notes again while editing. Still to add: photography, CV PDF and real "Currently" picks.
+
+### Phase 2 materials still wanted (from the November 2026 review)
+- Portrait and working photographs (hero and About pick them up automatically)
+- Turnout product, brand and platform visuals; a practical example of what Turnout and Poppy do
+- Approved, anonymised dashboard screenshots (AI reporting) and a screenshot of the Claude Chief of Staff system (Circus Capital)
+- Personal photos and a line of reflection for each Beyond the boardroom interest
+- Real reading, listening and experiment picks for /currently
+- CV PDF at `public/cv/emma-clark-cv.pdf`

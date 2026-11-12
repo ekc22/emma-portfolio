@@ -117,6 +117,7 @@ export const projects: Project[] = [
       "There was no playbook. Who to sell to, what to charge and how to frame a first commercial engagement all had to be worked out from scratch.",
     myRole: [
       "Joined as a founding member of the growth team, responsible for the full go-to-market",
+      "Worked closely with a technical founding team, including former Amazon employees",
       "Developed the go-to-market strategy",
       "Built market segmentation and target accounts",
       "Shaped pricing and pilot propositions, and supported businesses through to pilot stage",

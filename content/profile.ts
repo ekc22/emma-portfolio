@@ -25,7 +25,7 @@ export const aboutTeaser = {
   label: "A little about me",
   body: [
     "My experience spans FTSE 250, private equity-backed and venture-backed businesses, from financial services and fintech to high-growth technology.",
-    "I’ve worked closely with executives and founders across strategy, commercial growth, operations and complex projects.",
+    "I’ve worked closely with executives, founders and technical teams across strategy, commercial growth, operations and complex projects.",
     "Alongside my professional work, I’ve supported founders fractionally, co-founded Turnout, a sports and wellness platform where I own the full go-to-market, and built practical AI-powered tools.",
   ],
   pullQuote:
@@ -102,9 +102,9 @@ export const capabilities: Capability[] = [
     points: ["Dashboards", "Reporting", "Processes", "Performance visibility"],
   },
   {
-    title: "AI & Automation",
-    description: "Practical, low-risk experiments that take repetitive work off people’s plates.",
-    points: ["Agentic Chief of Staff", "Forecasting & trend agents", "Pipeline tracker", "Investor finder"],
+    title: "AI & Technical Collaboration",
+    description: "Building practical AI tools myself, and working closely with CTOs, engineers and technical founders to turn commercial goals into things that ship.",
+    points: ["Working with CTOs & engineers", "Agentic Chief of Staff", "Forecasting & trend agents", "Pipeline & investor tools"],
   },
 ];
 
@@ -188,6 +188,7 @@ export const about = {
       paragraphs: [
         "Different industries, different challenges, different stages of growth. But a common thread: I’ve always gravitated towards the work that sits between functions, where the answer isn’t obvious and someone needs to connect the dots.",
         "I’ve worked alongside CFOs, commercial leaders, executives and founders. I’ve supported fundraising, helped navigate acquisitions, built executive reporting systems, translated commercial strategies into delivery plans and worked on everything from regulatory programmes to growth initiatives.",
+        "That includes the line between commercial and technical. I’m at home working with CTOs, engineers and technical founders: I build AI tools myself, so I understand enough of how things are made to ask the right questions, and I can translate commercial goals into technical priorities and back again.",
       ],
     },
     {

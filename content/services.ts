@@ -9,7 +9,7 @@ export const workWithMe = {
   headline: "Good ideas need people who make them happen.",
   intro: [
     "Sometimes the challenge is growth. Sometimes it’s building the right systems. Sometimes it’s simply that the founder has twenty priorities and not enough hours in the day.",
-    "I work with founders and leadership teams to bring commercial thinking, structure and hands-on execution to the things that matter most.",
+    "I work with founders, leadership teams and their technical colleagues to bring commercial thinking, structure and hands-on execution to the things that matter most.",
     "I’ve spent ten years working across finance, strategy, growth and operations, from established businesses to early-stage ventures. I understand the importance of the big picture, but I’m most useful when there’s something tangible to deliver.",
   ],
 };
@@ -46,7 +46,7 @@ export const offerings: Offering[] = [
     id: "manual-to-systems",
     from: "From manual work",
     to: "to better systems",
-    description: "Building dashboards, reporting processes, practical AI workflows and operational infrastructure that give teams more time to focus on what matters.",
+    description: "Building dashboards, reporting processes, practical AI workflows and operational infrastructure, working hand in hand with engineers and technical leads, so teams have more time to focus on what matters.",
     caseStudy: "less-reporting-more-thinking",
     subject: site.contact.subjects.project,
   },

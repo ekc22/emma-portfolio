@@ -21,6 +21,15 @@ export default function ProjectCard({ project, index, flipIndex, headingLevel: H
       >
         {project.accent === "turnout" && !project.image ? (
           <TurnoutScreen ratio={flip ? "1 / 1" : "5 / 4"} hoverZoom />
+        ) : !project.image && project.exhibit ? (
+          // Product screenshots are shown whole, at their natural shape, not cropped.
+          <EditorialImage
+            image={project.exhibit}
+            ratio={`${project.exhibit.width} / ${project.exhibit.height}`}
+            sizes="(min-width: 768px) 58vw, 100vw"
+            hoverZoom
+            className="ring-1 ring-linen-deep"
+          />
         ) : (
         <EditorialImage
           image={project.image}

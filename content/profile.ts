@@ -17,6 +17,9 @@ export const hero = {
   portrait: undefined as undefined | ImageAsset,
 };
 
+/** Shown at the top of the homepage. */
+export const openTo = "Open to Chief of Staff, Founder’s Office and strategy & operations roles";
+
 /** Professional identity, shown beside the hero. */
 export const identity = {
   title: "Founder & Strategic Operator",

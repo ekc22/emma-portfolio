@@ -1,4 +1,7 @@
-import { hero, identity, workedWith } from "@/content/profile";
+import { hero, identity, openTo, workedWith } from "@/content/profile";
+import { mailto } from "@/lib/contact";
+import { withBase } from "@/lib/paths";
+import { hasCv } from "@/lib/cv";
 import { site } from "@/content/site";
 import EditorialImage from "./EditorialImage";
 import TextLink from "./TextLink";
@@ -8,9 +11,21 @@ import TextLink from "./TextLink";
  * Beside it: a portrait when supplied, otherwise Emma's professional identity in type.
  */
 export default function Hero() {
+  const roleHref = mailto(site.contact.subjects.permanent);
+  const cv = hasCv();
   return (
     <section aria-labelledby="hero-title" className="frame pb-16 pt-10 md:pb-24 md:pt-16">
       <div className="grid-12">
+        <div className="col-span-4 mb-8 flex flex-wrap items-center gap-x-6 gap-y-3 border border-linen-deep bg-butter/60 px-4 py-3 md:col-span-12 md:mb-10">
+          <p className="flex items-center gap-3 text-[1.125rem] leading-snug">
+            <span aria-hidden="true" className="inline-block h-2 w-2 shrink-0 rounded-full bg-[#3F6B3A]" />
+            {openTo}
+          </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-[1rem]">
+            {cv && <a href={withBase(site.cv.path)} className="text-link">Download CV</a>}
+            {roleHref && <a href={roleHref} className="text-link">Talk about a role</a>}
+          </div>
+        </div>
         <p className="label col-span-4 md:col-span-12 motion-safe:animate-page-in">{hero.eyebrow}</p>
 
         <h1 id="hero-title" className="col-span-4 mt-8 text-display-xl md:col-span-8 md:mt-12">

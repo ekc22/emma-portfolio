@@ -89,6 +89,12 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
               <dd className="mt-2">{project.timeframe}</dd>
             </div>
           )}
+          {project.productStatus && (
+            <div className="col-span-4 md:col-span-5">
+              <dt className="label">Status</dt>
+              <dd className="mt-2">{project.productStatus}</dd>
+            </div>
+          )}
         </dl>
       </header>
 

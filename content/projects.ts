@@ -65,6 +65,8 @@ export type Project = {
   demo?: { href: string; label: string; note: string };
   /** Further screens shown as "Selected screens" on the case study. */
   gallery?: (ProjectImage & { caption: string; wide?: boolean })[];
+  /** Current status of a product, shown with the timeframe. */
+  productStatus?: string;
   /** One line on what the project shows about Emma, for the homepage cards. */
   demonstrates?: string;
   /** Optional sequence of steps, shown at the start of "The impact". */
@@ -84,6 +86,7 @@ export const projects: Project[] = [
     result: "A working AI-enabled Chief of Staff product connecting leadership priorities with operational execution.",
     context: "CoS OS, an AI-enabled operating workspace",
     role: "Founder · Product, Design & Build",
+    productStatus: "Built and working. Runs locally for my own use; not a commercial product.",
     demonstrates:
       "Identifying an operational problem, translating it into product requirements and building a working solution with modern AI development tools.",
     demo: {

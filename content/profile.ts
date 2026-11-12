@@ -16,7 +16,7 @@ export const hero = {
     "Today, I combine financial discipline, a founder’s perspective and hands-on technical capability to help ambitious businesses build, operate and grow.",
   ],
   // Add a portrait at public/images/emma-portrait.jpg and set it here; the hero shows it automatically.
-  portrait: undefined as undefined | ImageAsset,
+  portrait: { src: "/images/emma-portrait.jpg", alt: "Portrait of Emma Clark", width: 1122, height: 1402 } as undefined | ImageAsset,
 };
 
 /** Shown at the top of the homepage. */

@@ -61,8 +61,6 @@ export const turnout = {
  */
 export const facts = [
   { figure: "10 years", label: "Across finance, strategy, operations and growth" },
-  { figure: "≈2 weeks", label: "Recurring reporting preparation saved per cycle" },
-  { figure: "30", label: "Executive metrics in the reporting dashboards I built" },
   { figure: "6", label: "Businesses progressed to pilot stage at a seed-stage AI venture" },
   { figure: "$200m+", label: "Series D at Paddle, where I supported the financial analysis" },
 ];

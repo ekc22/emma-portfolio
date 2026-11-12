@@ -219,34 +219,6 @@ export const projects: Project[] = [
     status: "approved",
   },
   {
-    slug: "less-reporting-more-thinking",
-    title: "Less reporting. Better decisions.",
-    category: "AI-Native Operations · Executive Reporting",
-    summary:
-      "I built a 30-metric executive reporting dashboard and reporting automation that reduced recurring reporting preparation by approximately two weeks per cycle, alongside separate AI-assisted workflows for research, synthesis and action tracking.",
-    result: "Approximately two weeks of recurring reporting preparation removed per cycle.",
-    context: "Executive reporting and operations",
-    role: "Performance Reporting · Automation · Executive Operations",
-    motif: { figure: "≈2 weeks", caption: "Reporting preparation saved per cycle" },
-    problem:
-      "Senior reporting relied on manual data gathering, reconciliation and preparation, consuming time that could have been spent interpreting performance and supporting leadership decisions.",
-    myRole: [
-      "Designed and built executive reporting infrastructure with 30 commercial and operational metrics.",
-      "Consolidated performance information into a more consistent leadership view.",
-      "Introduced conventional reporting automation to reduce repetitive preparation.",
-      "Developed separate AI-assisted workflows using Claude and Microsoft Copilot for research, synthesis and action tracking.",
-      "Connected meeting outputs with named responsibilities, deadlines and ongoing execution.",
-      "Retained human review for accuracy, interpretation and executive decisions.",
-    ],
-    whatChanged: [
-      { title: "Around two weeks back, every cycle", text: "Approximately two weeks of recurring reporting preparation removed per reporting cycle.", kind: "personal" },
-      { title: "30 metrics in one view", text: "A consolidated dashboard bringing 30 executive performance metrics into one view.", kind: "personal" },
-    ],
-    lesson:
-      "Technology has made me question whether a process should exist in its current form at all. The biggest benefit of automation isn’t simply doing the same work faster. It’s creating the capacity for people to think more critically, act sooner and concentrate on the decisions that matter.",
-    status: "approved",
-  },
-  {
     slug: "circus-capital",
     title: "Building the infrastructure behind strategic decisions.",
     category: "Founder Support · Strategic Operations",

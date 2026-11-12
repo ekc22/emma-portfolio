@@ -54,7 +54,7 @@ export const offerings: Offering[] = [
     id: "bottleneck-to-momentum",
     from: "From founder bottleneck",
     to: "to forward momentum",
-    description: "Working alongside founders on the projects, decisions, investor materials and cross-functional priorities that need a trusted pair of hands, including Chief of Staff dashboards and project management systems built in Claude.",
+    description: "Working alongside founders on the projects, decisions, investor materials and cross-functional priorities that need a trusted pair of hands, including an agentic Chief of Staff, pipeline tracking, investor finding and project management systems built in Claude.",
     caseStudy: "circus-capital",
     subject: site.contact.subjects.fractional,
   },

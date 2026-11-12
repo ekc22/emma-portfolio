@@ -112,7 +112,7 @@ export const projects: Project[] = [
     title: "A founder’s office, built in Claude.",
     category: "Fractional Support",
     summary:
-      "Fractional support for Circus Capital: supporting fundraising, connecting family offices, investor materials, and a Chief of Staff dashboard and project management system built in Claude.",
+      "Fractional support for Circus Capital: supporting fundraising, connecting family offices and investor materials, plus an agentic Chief of Staff, pipeline tracker, investor finder and project management system built in Claude.",
     context: "Circus Capital",
     role: "Fractional support",
     imageBrief: "The quiet room: empty meeting room, morning light, paper-toned walls",
@@ -124,11 +124,13 @@ export const projects: Project[] = [
       "Supported fundraising",
       "Connected Circus Capital with family offices",
       "Supported investor materials to strengthen investor readiness",
+      "Built an agentic Chief of Staff, a pipeline tracker and an investor finder",
       "Built a Chief of Staff dashboard and a project management system in Claude",
     ],
     whatChanged: [
       { text: "Family offices introduced to Circus Capital as part of its fundraising.", kind: "personal" },
       { text: "Investor materials and day-to-day systems in place to support investor readiness.", kind: "personal" },
+      { text: "An agentic Chief of Staff, pipeline tracker and investor finder in use, built by me.", kind: "personal" },
     ],
     lesson: "It taught me the importance of relationship building.",
     note: "Fundraising support covers preparation, process management and introductions. It is not investment advice or arranging deals; any regulated activity stays with authorised firms.",

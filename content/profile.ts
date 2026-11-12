@@ -194,7 +194,7 @@ export const about = {
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
         "I’ve co-founded Turnout, a sports and wellness platform, taking it from an idea through company formation, product development and into testing. I’m responsible for its full go-to-market, and I developed the go-to-market strategy.",
-        "I’ve also worked fractionally with founders, helping turn early-stage ideas into commercial propositions and execution plans. At a seed-stage AI venture I’m a founding member of the growth team, alongside colleagues including former Amazon employees, and I own the full go-to-market there too. For Circus Capital, I built a Chief of Staff dashboard and a project management system in Claude, and supported the investor materials behind their investor readiness.",
+        "I’ve also worked fractionally with founders, helping turn early-stage ideas into commercial propositions and execution plans. At a seed-stage AI venture I’m a founding member of the growth team, alongside colleagues including former Amazon employees, and I own the full go-to-market there too. For Circus Capital, I support fundraising, connect them with family offices and support their investor materials, and I built a Chief of Staff dashboard and project management system in Claude. It taught me the importance of relationship building.",
         "I’ve also become fascinated by what AI makes possible for small, ambitious teams. I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],
     },

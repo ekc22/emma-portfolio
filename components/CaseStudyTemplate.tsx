@@ -91,6 +91,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
               </li>
             ))}
           </ol>
+          {project.note && <p className="mt-8 max-w-[60ch] text-[1rem] leading-snug text-muted-ink">{project.note}</p>}
         </Row>
 
         <Row number="04" label="What changed">

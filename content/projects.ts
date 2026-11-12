@@ -45,6 +45,8 @@ export type Project = {
   whatChanged: { text: string; kind: OutcomeKind }[];
   /** What it taught Emma, in her words only. */
   lesson?: string;
+  /** Optional small-print note shown after "What I did" (e.g. the fundraising disclaimer). */
+  note?: string;
   image?: ProjectImage;
   /** Describes the image that should go here, shown on the placeholder until a real one is added. */
   imageBrief: string;
@@ -110,22 +112,26 @@ export const projects: Project[] = [
     title: "A founder’s office, built in Claude.",
     category: "Fractional Support",
     summary:
-      "Fractional support for Circus Capital: a Chief of Staff dashboard and project management system built in Claude, and investor materials for investor readiness.",
+      "Fractional support for Circus Capital: supporting fundraising, connecting family offices, investor materials, and a Chief of Staff dashboard and project management system built in Claude.",
     context: "Circus Capital",
     role: "Fractional support",
     imageBrief: "The quiet room: empty meeting room, morning light, paper-toned walls",
     situation:
-      "Circus Capital needed fractional support across day-to-day visibility, project management and investor readiness.",
+      "Circus Capital needed fractional support across fundraising, investor relationships, day-to-day visibility and project management.",
     problem:
-      "Keeping priorities, projects and investor preparation moving at the same time takes structure, without the cost of a full-time Chief of Staff.",
+      "Raising capital runs on relationships and preparation at the same time. Keeping investor conversations, materials, priorities and projects all moving takes structure, without the cost of a full-time Chief of Staff.",
     myRole: [
-      "Built a Chief of Staff dashboard in Claude",
-      "Built a project management system in Claude",
+      "Supported fundraising",
+      "Connected Circus Capital with family offices",
       "Supported investor materials to strengthen investor readiness",
+      "Built a Chief of Staff dashboard and a project management system in Claude",
     ],
-    // TODO(Emma): add confirmed, shareable outcomes.
-    whatChanged: [],
-    // TODO(Emma): add what this taught you, in your own words.
+    whatChanged: [
+      { text: "Family offices introduced to Circus Capital as part of its fundraising.", kind: "personal" },
+      { text: "Investor materials and day-to-day systems in place to support investor readiness.", kind: "personal" },
+    ],
+    lesson: "It taught me the importance of relationship building.",
+    note: "Fundraising support covers preparation, process management and introductions. It is not investment advice or arranging deals; any regulated activity stays with authorised firms.",
     status: "draft",
   },
   {

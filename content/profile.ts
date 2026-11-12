@@ -171,7 +171,7 @@ export const currently = {
   ] as CurrentlyEntry[],
   // Optional extras for the /currently page. Items starting "TODO" are hidden on the live site.
   notebook: [
-    { label: "Reading", items: ["TODO: a book you’re reading", "TODO: another book or long read"] },
+    { label: "Reading", items: ["Thinking, Fast and Slow by Daniel Kahneman"] },
     { label: "Listening", items: ["TODO: a podcast, album or playlist"] },
     { label: "Experimenting with", items: ["Claude agents for research and reporting", "TODO: another experiment"] },
   ],

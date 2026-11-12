@@ -12,7 +12,7 @@ type Props = {
   priority?: boolean;
   className?: string;
   hoverZoom?: boolean;
-  tone?: "stone" | "deep" | "burgundy";
+  tone?: "linen" | "deep" | "cherry";
 };
 
 /**
@@ -27,7 +27,7 @@ export default function EditorialImage({
   priority,
   className = "",
   hoverZoom,
-  tone = "stone",
+  tone = "linen",
 }: Props) {
   const zoom = hoverZoom
     ? "motion-safe:transition-transform motion-safe:duration-[1200ms] motion-safe:ease-editorial motion-safe:group-hover:scale-[1.03]"
@@ -35,16 +35,16 @@ export default function EditorialImage({
 
   if (image) {
     return (
-      <div className={`relative overflow-hidden bg-stone ${className}`} style={{ aspectRatio: ratio }}>
+      <div className={`relative overflow-hidden bg-linen ${className}`} style={{ aspectRatio: ratio }}>
         <Image src={withBase(image.src)} alt={image.alt} fill sizes={sizes} priority={priority} className={`object-cover ${zoom}`} />
       </div>
     );
   }
 
   const tones = {
-    stone: "bg-stone",
-    deep: "bg-stone-deep",
-    burgundy: "bg-burgundy/[0.09]",
+    linen: "bg-linen",
+    deep: "bg-linen-deep",
+    cherry: "bg-cherry/[0.09]",
   };
 
   return (
@@ -70,7 +70,7 @@ export default function EditorialImage({
           <span className="label mb-1 block !text-[0.625rem]">Image to come</span>
           {brief}
         </p>
-        <span aria-hidden="true" className="font-serif text-2xl italic text-charcoal/30">
+        <span aria-hidden="true" className="font-serif text-2xl italic text-oxblood/30">
           ✕
         </span>
       </div>

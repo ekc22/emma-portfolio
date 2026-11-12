@@ -22,7 +22,7 @@ export const aboutTeaser = {
   body: [
     "My experience spans FTSE 250, private equity-backed and venture-backed businesses, from financial services and fintech to high-growth technology.",
     "I’ve worked closely with executives and founders across strategy, commercial growth, operations and complex projects.",
-    "Alongside my professional work, I’ve supported founders fractionally, built a sports and community venture and experimented with practical AI-powered tools.",
+    "Alongside my professional work, I’ve supported founders fractionally, founded Turnout, a sports and community venture, and experimented with practical AI-powered tools.",
   ],
   pullQuote:
     "I’m particularly drawn to environments where there’s ambiguity, momentum and something interesting to build.",
@@ -128,7 +128,7 @@ export const about = {
     "More recently I’ve worked fractionally, which suits the way I like to work: getting close to a business quickly, being useful early, and leaving behind things that keep working after I’ve gone.",
   ],
   founder: [
-    "I’ve also founded a sports and community venture. Building something from scratch is humbling in the best way — there’s no team to delegate to, and every decision is a trade-off between ambition and what you can realistically get done this week.",
+    "I’m also the founder of Turnout, a sports and community venture. Building something from scratch is humbling in the best way — there’s no team to delegate to, and every decision is a trade-off between ambition and what you can realistically get done this week.",
     "It changed how I work inside larger businesses too. I’m quicker to test an idea cheaply, more comfortable with ambiguity, and much more sympathetic to founders juggling everything at once.",
   ],
   principles: [

@@ -28,20 +28,20 @@ export async function GET() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#F7F4EF",
-          color: "#252525",
+          background: "#FBF6EC",
+          color: "#3A0E16",
           padding: "64px 80px",
           fontFamily: "Instrument Serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 26, letterSpacing: 6, textTransform: "uppercase" }}>{site.name}</div>
+        <div style={{ display: "flex", fontSize: 44, color: "#9B1C2E", textTransform: "uppercase", letterSpacing: -0.5 }}>{site.name}</div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 92, lineHeight: 0.98, letterSpacing: -2 }}>
           <span>A little bit of</span>
-          <span style={{ color: "#713E4B", fontStyle: "italic" }}>everything.</span>
+          <span style={{ color: "#9B1C2E", fontStyle: "italic" }}>everything.</span>
           <span style={{ paddingLeft: 140 }}>A lot of getting</span>
           <span style={{ paddingLeft: 140 }}>things done.</span>
         </div>
-        <div style={{ display: "flex", fontSize: 30, fontStyle: "italic", color: "#67615D" }}>{site.roles.join(" · ")}</div>
+        <div style={{ display: "flex", fontSize: 28, color: "#6E5659" }}>{site.tagline} — {site.roles.join(" · ")}</div>
       </div>
     ),
     {

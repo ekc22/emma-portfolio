@@ -78,6 +78,38 @@ export const offerings: Offering[] = [
   },
 ];
 
+/** Brand system graphic, "The four desks" — from the brand guidelines. */
+export const desks = [
+  {
+    numeral: "I",
+    title: "Raise",
+    label: "Fundraising support",
+    body: "Investor readiness, pitch narrative and deck, data room and the investor process — so the founder can focus on the meetings.",
+  },
+  {
+    numeral: "II",
+    title: "Hire",
+    label: "Talent & human capital",
+    body: "Org design, role scoping, executive and early-team hiring, onboarding.",
+  },
+  {
+    numeral: "III",
+    title: "Run",
+    label: "Fractional Chief of Staff",
+    body: "Operating cadence, board and investor updates, OKRs and the special projects that fall between roles.",
+  },
+  {
+    numeral: "IV",
+    title: "Connect",
+    label: "Introductions & network",
+    body: "Warm, considered introductions to investors, operators, advisers and partners — made only when they help both sides.",
+  },
+];
+
+/** Required wording from the brand guidelines whenever fundraising support is mentioned. */
+export const fundraisingNote =
+  "Fundraising support covers preparation and process management. It is not investment advice or arranging deals; any regulated activity stays with authorised firms.";
+
 export const engagementTypes = [
   {
     title: "Fractional",

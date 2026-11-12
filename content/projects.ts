@@ -36,7 +36,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "executive-operating-rhythm",
-    imageBrief: "Working session, whiteboard or planning materials (no confidential content)",
+    imageBrief: "Desk still life — paper, fountain pen, a cherry-lacquer cup, a folded agenda (3D render or photo)",
     title: "Turning strategy into execution",
     category: "Strategy & Operations",
     summary:
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-assisted-reporting",
-    imageBrief: "Screenshot of an anonymised dashboard or agent workflow",
+    imageBrief: "The quiet room — empty meeting room, morning light, paper-toned walls",
     title: "Making reporting more intelligent",
     category: "AI & Automation",
     summary:
@@ -94,12 +94,12 @@ export const projects: Project[] = [
   },
   {
     slug: "sports-community-venture",
-    imageBrief: "Photograph from a community or sports event",
+    imageBrief: "Turnout — a real photograph from a community or sports event",
     title: "Building something from scratch",
     category: "Founder Projects",
     summary:
-      "Founding a sports and community platform and exploring what it takes to turn an idea into a venture.",
-    context: "Early-stage founder project",
+      "Founding Turnout, a sports and community platform, and exploring what it takes to turn an idea into a venture.",
+    context: "Founder of Turnout",
     challenge:
       "Exploring how to bring people together through sport and shared interests — and whether that could become a sustainable business.",
     approach: [
@@ -108,13 +108,14 @@ export const projects: Project[] = [
       "Prioritised ruthlessly across product, partnerships and operations with very limited resources.",
     ],
     myRole: [
-      "Founded the venture and developed the concept",
+      "Founded Turnout and developed the concept",
       "Explored the proposition and community model",
       "Worked across early-stage business priorities",
     ],
     reflection:
       "Founding taught me to test cheaply, decide quickly and stay honest about what's working. I bring that mindset to every business I work with.",
-    // TODO(Emma): add the venture's name and a link only if you'd like them public.
+    // TODO(Emma): add the Turnout figures logo (public/images/turnout-figures.svg) and a link, if wanted.
+    // Brand rule: Turnout keeps its own brand — shown as a credit, never merged into the EMMA CLARK mark.
     featured: true,
     status: "draft",
   },

@@ -15,7 +15,7 @@ const slots = [
   { col: "md:col-span-3 md:col-start-10", ratio: "4 / 5", offset: "md:mt-6" },
   { col: "md:col-span-6 md:col-start-4", ratio: "16 / 9", offset: "md:mt-16" },
 ];
-const tones = ["stone", "deep", "burgundy", "deep", "stone", "burgundy", "deep"] as const;
+const tones = ["linen", "deep", "cherry", "deep", "linen", "cherry", "deep"] as const;
 
 export default function InterestsCollage({ interests }: { interests: Interest[] }) {
   return (
@@ -27,7 +27,7 @@ export default function InterestsCollage({ interests }: { interests: Interest[] 
             <Reveal as="figure" delay={(i % 3) * 80}>
               <EditorialImage image={item.image} brief={item.imageBrief} ratio={slot.ratio} tone={tones[i % tones.length]} sizes="(min-width: 768px) 33vw, 50vw" />
               <figcaption className="mt-4">
-                <span className="label text-burgundy">No. {String(i + 1).padStart(2, "0")}</span>
+                <span className="label text-cherry">No. {String(i + 1).padStart(2, "0")}</span>
                 <span className="mt-2 block font-serif text-2xl leading-tight">{item.title}</span>
                 <span className="mt-1 block text-[0.9375rem] italic text-muted-ink">{item.caption}</span>
               </figcaption>

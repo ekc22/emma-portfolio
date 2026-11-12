@@ -24,7 +24,7 @@ export default function ProjectCard({ project, index, headingLevel: H = "h3" }: 
           ratio={flip ? "1 / 1" : "5 / 4"}
           sizes="(min-width: 768px) 58vw, 100vw"
           hoverZoom
-          tone={index === 1 ? "deep" : "stone"}
+          tone={index === 1 ? "deep" : "linen"}
         />
       </Reveal>
 
@@ -32,20 +32,20 @@ export default function ProjectCard({ project, index, headingLevel: H = "h3" }: 
         delay={120}
         className={`col-span-4 mt-8 md:mt-0 md:pb-4 ${flip ? "md:col-span-4 md:col-start-2 md:row-start-1" : "md:col-span-4 md:col-start-9"}`}
       >
-        <span aria-hidden="true" className="block font-serif text-numeral text-stone-deep transition-colors duration-700 group-hover:text-burgundy/25">
+        <span aria-hidden="true" className="block font-serif text-numeral text-linen-deep transition-colors duration-700 group-hover:text-cherry/25">
           {num}
         </span>
-        <p className="label mt-6 text-burgundy">{project.category}</p>
+        <p className="label mt-6 text-cherry">{project.category}</p>
         <H className="mt-3 text-display-sm">
           <Link
             href={`/work/${project.slug}`}
-            className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none [&:focus-visible]:after:outline [&:focus-visible]:after:outline-2 [&:focus-visible]:after:outline-offset-8 [&:focus-visible]:after:outline-burgundy"
+            className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none [&:focus-visible]:after:outline [&:focus-visible]:after:outline-2 [&:focus-visible]:after:outline-offset-8 [&:focus-visible]:after:outline-cherry"
           >
             {project.title}
           </Link>
         </H>
         <p className="mt-4 max-w-[38ch] text-muted-ink">{project.summary}</p>
-        <span aria-hidden="true" className="text-link mt-6 text-[0.9375rem] group-hover:text-burgundy">
+        <span aria-hidden="true" className="text-link mt-6 text-[0.9375rem] group-hover:text-cherry">
           <span>View project</span>
           <span className="arrow">→</span>
         </span>

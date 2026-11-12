@@ -71,7 +71,8 @@ Assets
 - [ ] CV PDF → `public/cv/emma-clark-cv.pdf`
 
 Contact and links
-- [ ] Approved email address → `content/site.ts`
+- [ ] Approved email address → `content/site.ts` (the brand guidelines include one; confirm it may be published)
+- [ ] Turnout figures logo → `public/images/` for the founder credit (keep its own red; never merge with the EMMA CLARK mark)
 - [ ] LinkedIn URL (optional) → `content/site.ts`
 
 Copy to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
@@ -108,12 +109,14 @@ assets/fonts/           Instrument Serif (OFL) for the social card
 
 ## Design notes
 
-- Palette: ivory `#F7F4EF`, charcoal `#252525`, burgundy `#713E4B` (accent only), stone `#EAE5DE`, white.
-  The brief's muted grey `#77716D` measures 4.38:1 on ivory, just under WCAG AA for small text, so it is used for
-  large type and numerals; small muted text uses `#67615D` (5.56:1).
-- Type: Instrument Serif (display) and Inter (body), self-hosted at build time via `next/font`.
+- Brand: follows *Emma Clark Brand Guidelines v1.0* (Nov 2026) — palette, wordmark, "E." monogram, logo
+  animation, masthead nav and "the four desks" — while keeping the site's original editorial tone and headline.
+- Palette: paper `#FBF6EC`, oxblood `#3A0E16` (text), cherry `#9B1C2E` (accent, ~10%), butter `#F6EBC8`
+  (warm alternate ground), linen `#E4DACB` (borders). Muted text `#6E5659` (6.2:1 on paper).
+- Type: Instrument Serif (display, wordmark) and Inter (body), self-hosted via `next/font`. The guidelines specify
+  Instrument Sans for body; Inter is kept by choice — swap it in `app/layout.tsx` if preferred.
 - Layout: 12-column grid on desktop, 4 on mobile; asymmetric compositions, fine rules, oversized numerals.
-- Motion: gentle reveal-on-scroll, image hover zoom and page fade. All disabled under `prefers-reduced-motion`,
+- Motion: logo intro once per session (brand spec: 70 ms stagger, 1.4 s), gentle reveal-on-scroll, image hover zoom and page fade. All disabled under `prefers-reduced-motion`,
   and content is never hidden when JavaScript is off.
 - Accessibility: semantic landmarks, skip link, visible focus styles, keyboard-operable mobile menu
   (focus trap, Escape to close), descriptive placeholder labels.

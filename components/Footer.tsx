@@ -8,15 +8,17 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal text-ivory">
+    <footer className="bg-oxblood text-paper">
       <div className="frame py-14 md:py-20">
         <div className="grid-12 gap-y-12">
           <div className="col-span-4 md:col-span-6">
-            <p className="font-serif text-display-md">{site.name}</p>
-            <p className="mt-4 max-w-[38ch] text-ivory/70">{site.valueProposition}</p>
+            <p className="wordmark text-[clamp(2.5rem,5vw,4rem)] !text-paper">{site.name}</p>
+            <p className="mt-3 text-[0.6875rem] font-semibold uppercase tracking-label text-paper/70">{site.roles.join(" · ")}</p>
+            <p className="mt-10 font-serif text-display-sm">{site.tagline}</p>
+            <p className="mt-4 max-w-[40ch] text-paper/70">{site.valueProposition}</p>
           </div>
           <nav aria-label="Footer" className="col-span-2 md:col-span-3 md:col-start-8">
-            <p className="label !text-ivory/60">Explore</p>
+            <p className="label !text-paper/60">Explore</p>
             <ul className="mt-4 space-y-2">
               {nav
                 .filter((n) => !n.href.startsWith("#"))
@@ -28,7 +30,7 @@ export default function Footer() {
             </ul>
           </nav>
           <div className="col-span-2 md:col-span-2">
-            <p className="label !text-ivory/60">Elsewhere</p>
+            <p className="label !text-paper/60">Elsewhere</p>
             <ul className="mt-4 space-y-2">
               <li><a href="#contact" className="transition-colors hover:text-[#D9AEB8]">Contact</a></li>
               {site.links.linkedin && (
@@ -44,9 +46,9 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-16 flex flex-col justify-between gap-2 border-t border-ivory/15 pt-6 text-[0.8125rem] text-ivory/60 sm:flex-row">
+        <div className="mt-16 flex flex-col justify-between gap-2 border-t border-paper/15 pt-6 text-[0.8125rem] text-paper/60 sm:flex-row">
           <p>© {year} {site.name}</p>
-          <p className="italic">{site.title}</p>
+          <p>Based in {site.location}</p>
         </div>
       </div>
     </footer>

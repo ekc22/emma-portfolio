@@ -4,19 +4,19 @@
 
 @layer base {
   html {
-    @apply bg-ivory text-charcoal antialiased;
+    @apply bg-paper text-oxblood antialiased;
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
   }
   body {
-    @apply bg-ivory font-sans text-[1.0625rem] leading-[1.7];
+    @apply bg-paper font-sans text-[1.0625rem] leading-[1.7];
     font-feature-settings: "ss01", "cv11";
   }
-  ::selection { @apply bg-burgundy text-ivory; }
+  ::selection { @apply bg-cherry text-paper; }
   h1, h2, h3, h4 { @apply font-serif font-normal; text-wrap: balance; }
   p { text-wrap: pretty; }
-  :focus-visible { @apply outline outline-2 outline-offset-4 outline-burgundy; }
+  :focus-visible { @apply outline outline-2 outline-offset-[3px] outline-oxblood; }
 }
 
 @layer components {
@@ -25,13 +25,13 @@
   .grid-12 { @apply grid grid-cols-4 gap-x-5 md:grid-cols-12 md:gap-x-8; }
 
   /* Small uppercase section label. */
-  .label { @apply font-sans text-[0.6875rem] font-medium uppercase tracking-label text-muted-ink; }
+  .label { @apply font-sans text-[0.6875rem] font-semibold uppercase tracking-label text-muted-ink; }
 
-  .rule { @apply border-t border-charcoal/15; }
+  .rule { @apply border-t border-linen-deep; }
 
   /* Understated text link with a drawn underline. */
   .text-link {
-    @apply relative inline-flex items-center gap-2 pb-1 text-charcoal transition-colors duration-300 hover:text-burgundy;
+    @apply relative inline-flex items-center gap-2 pb-1 text-cherry transition-colors duration-300 hover:text-oxblood;
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0 100%;
     background-repeat: no-repeat;
@@ -39,6 +39,9 @@
   }
   .text-link .arrow { @apply transition-transform duration-500 ease-editorial; }
   .text-link:hover .arrow { transform: translateX(4px); }
+
+  /* EMMA CLARK wordmark — Instrument Serif capitals, tight tracking, cherry. */
+  .wordmark { @apply font-serif uppercase leading-none tracking-wordmark text-cherry; word-spacing: -0.06em; }
 
   /* Long-form copy. */
   .prose-editorial p + p { @apply mt-5; }
@@ -49,7 +52,7 @@
   .js [data-reveal] {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
     transition-delay: var(--reveal-delay, 0ms);
   }
   .js [data-reveal].is-visible { opacity: 1; transform: none; }
@@ -63,3 +66,22 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Logo in motion — see components/LogoIntro.tsx. */
+.logo-intro { display: none; }
+.intro .logo-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FBF6EC;
+  animation: logo-intro-out 500ms cubic-bezier(0.22, 0.61, 0.36, 1) 1750ms forwards;
+}
+.logo-intro-letter { opacity: 0; animation: logo-fade 520ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards; }
+.logo-intro-descriptor { opacity: 0; animation: logo-fade 500ms cubic-bezier(0.22, 0.61, 0.36, 1) 900ms forwards; }
+.intro #main > div { animation-delay: 1.9s; }
+@keyframes logo-fade { to { opacity: 1; } }
+@keyframes logo-intro-out { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .intro .logo-intro { display: none; } }

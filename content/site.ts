@@ -8,9 +8,11 @@
 export const site = {
   name: "Emma Clark",
   shortName: "Emma",
-  title: "Strategic Operator | Founder | Commercial Generalist",
+  title: "Founder · Chief of Staff · Commercial Generalist · Connector",
+  tagline: "The company behind the company.",
+  location: "London",
   eyebrow: "Strategy / Growth / Operations / Everything in between",
-  roles: ["Strategic Operator", "Founder", "Commercial Generalist"],
+  roles: ["Founder", "Chief of Staff", "Commercial Generalist", "Connector"],
   valueProposition:
     "Working across strategy, growth, operations and technology to help ambitious businesses turn ideas into execution.",
 
@@ -47,5 +49,5 @@ export const nav = [
   { href: "/work", label: "Work" },
   { href: "/work-with-me", label: "Work With Me" },
   { href: "/currently", label: "Currently" },
-  { href: "#contact", label: "Contact" },
+  { href: "#contact", label: "Get in touch" },
 ] as const;

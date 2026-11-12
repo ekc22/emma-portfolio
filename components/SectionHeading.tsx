@@ -16,7 +16,7 @@ export default function SectionHeading({ number, label, title, intro, as: H = "h
   return (
     <header className={`grid-12 ${className}`}>
       <div className="rule col-span-4 flex items-baseline gap-4 pt-4 md:col-span-12">
-        {number && <span className="label text-burgundy">{number}</span>}
+        {number && <span className="label text-cherry">{number}</span>}
         <span className="label">{label}</span>
       </div>
       {title && (

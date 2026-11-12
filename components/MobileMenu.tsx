@@ -47,7 +47,7 @@ export default function MobileMenu() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div className="justify-self-end lg:hidden">
       <button
         ref={buttonRef}
         type="button"
@@ -63,17 +63,17 @@ export default function MobileMenu() {
         id="mobile-menu"
         ref={panelRef}
         hidden={!open}
-        className={`fixed inset-0 z-40 flex-col bg-ivory ${open ? "flex" : "hidden"} px-5 pb-10 pt-24 motion-safe:animate-page-in sm:px-8`}
+        className={`fixed inset-0 z-40 flex-col bg-paper ${open ? "flex" : "hidden"} px-5 pb-10 pt-24 motion-safe:animate-page-in sm:px-8`}
       >
         <nav aria-label="Mobile">
-          <ol className="border-t border-charcoal/15">
+          <ol className="border-t border-linen-deep">
             {nav.map((item, i) => (
-              <li key={item.href} className="border-b border-charcoal/15">
+              <li key={item.href} className="border-b border-linen-deep">
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
                   aria-current={pathname === item.href ? "page" : undefined}
-                  className="flex items-baseline gap-5 py-5 font-serif text-[2.5rem] leading-none transition-colors hover:text-burgundy aria-[current=page]:italic aria-[current=page]:text-burgundy"
+                  className="flex items-baseline gap-5 py-5 font-serif text-[2.5rem] leading-none transition-colors hover:text-cherry aria-[current=page]:italic aria-[current=page]:text-cherry"
                 >
                   <span className="label w-6">{String(i + 1).padStart(2, "0")}</span>
                   {item.label}
@@ -82,7 +82,10 @@ export default function MobileMenu() {
             ))}
           </ol>
         </nav>
-        <p className="label mt-auto">{site.title}</p>
+        <div className="mt-auto">
+          <p className="wordmark text-[2rem]">{site.name}</p>
+          <p className="label mt-3">{site.title}</p>
+        </div>
       </div>
     </div>
   );

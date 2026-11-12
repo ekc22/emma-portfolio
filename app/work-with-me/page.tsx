@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import FourDesks from "@/components/FourDesks";
 import Reveal from "@/components/Reveal";
 import ReviewNote from "@/components/ReviewNote";
 import SectionHeading from "@/components/SectionHeading";
 import TextLink from "@/components/TextLink";
 import { site } from "@/content/site";
-import { engagementTypes, offerings, process } from "@/content/services";
+import { engagementTypes, fundraisingNote, offerings, process } from "@/content/services";
 import { mailto } from "@/lib/contact";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function WorkWithMePage() {
         <div className="grid-12">
           <p className="label col-span-4 md:col-span-12">Work with me</p>
           <h1 className="col-span-4 mt-8 text-display-xl md:col-span-11 md:mt-12 motion-safe:animate-page-in">
-            Fractional, focused, <em className="text-burgundy">or for the long run.</em>
+            Fractional, focused, <em className="text-cherry">or for the long run.</em>
           </h1>
           <div className="prose-editorial col-span-4 mt-12 text-lg md:col-span-5 md:col-start-6 md:mt-20 md:text-xl">
             <p>
@@ -37,10 +38,10 @@ export default function WorkWithMePage() {
 
         {/* Jump list */}
         <nav aria-label="Ways to work together" className="mt-20 md:mt-28">
-          <ol className="grid grid-cols-1 border-t border-charcoal/15 md:grid-cols-3">
+          <ol className="grid grid-cols-1 border-t border-linen-deep md:grid-cols-3">
             {offerings.map((o, i) => (
-              <li key={o.id} className={`border-b border-charcoal/15 md:border-b-0 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}>
-                <a href={`#${o.id}`} className="group block py-6 transition-colors hover:text-burgundy">
+              <li key={o.id} className={`border-b border-linen-deep md:border-b-0 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}>
+                <a href={`#${o.id}`} className="group block py-6 transition-colors hover:text-cherry">
                   <span className="label">{String(i + 1).padStart(2, "0")}</span>
                   <span className="mt-3 block font-serif text-2xl leading-tight">{o.title}</span>
                   <span className="mt-2 block text-[0.875rem] text-muted-ink">{o.forWhom}</span>
@@ -51,6 +52,25 @@ export default function WorkWithMePage() {
         </nav>
       </section>
 
+      {/* The four desks */}
+      <section aria-labelledby="desks-title" className="frame pb-20 md:pb-32">
+        <div className="grid-12">
+          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
+            <span className="label">The four desks</span>
+          </div>
+          <h2 id="desks-title" className="col-span-4 mt-10 text-display-lg md:col-span-7 md:mt-14">
+            The company behind <em className="text-cherry">the company.</em>
+          </h2>
+          <p className="col-span-4 mt-6 max-w-measure text-lg text-muted-ink md:col-span-4 md:col-start-9 md:mt-16">
+            For founders raising, hiring or scaling faster than their operations, I run the work behind the work — and keep you at the centre of it.
+          </p>
+        </div>
+        <div className="mt-14 md:mt-20">
+          <FourDesks />
+        </div>
+        <p className="mt-6 max-w-[70ch] text-[0.8125rem] text-muted-ink">{fundraisingNote}</p>
+      </section>
+
       {/* Offerings */}
       {offerings.map((o, i) => {
         const href = mailto(o.subject);
@@ -59,15 +79,15 @@ export default function WorkWithMePage() {
             key={o.id}
             id={o.id}
             aria-labelledby={`${o.id}-title`}
-            className={i % 2 === 0 ? "bg-white/60" : ""}
+            className={i % 2 === 0 ? "bg-butter/50" : ""}
           >
             <div className="frame py-20 md:py-32">
               <div className="grid-12">
-                <span aria-hidden="true" className="col-span-4 font-serif text-numeral text-stone-deep md:col-span-3">
+                <span aria-hidden="true" className="col-span-4 font-serif text-numeral text-linen-deep md:col-span-3">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="col-span-4 mt-6 md:col-span-8 md:col-start-5 md:mt-0">
-                  <p className="label text-burgundy">{o.forWhom}</p>
+                  <p className="label text-cherry">{o.forWhom}</p>
                   <Reveal>
                     <h2 id={`${o.id}-title`} className="mt-4 text-display-md">{o.title}</h2>
                   </Reveal>
@@ -77,7 +97,7 @@ export default function WorkWithMePage() {
 
               <div className="grid-12 mt-14 gap-y-12 md:mt-20">
                 <Reveal className="col-span-4 md:col-span-4 md:col-start-5">
-                  <h3 className="label border-t border-charcoal/15 pt-4">Problems I help with</h3>
+                  <h3 className="label border-t border-linen-deep pt-4">Problems I help with</h3>
                   <ul className="mt-6 space-y-4">
                     {o.problems.map((p) => (
                       <li key={p} className="font-serif text-[1.375rem] leading-snug">{p}</li>
@@ -85,11 +105,11 @@ export default function WorkWithMePage() {
                   </ul>
                 </Reveal>
                 <Reveal delay={100} className="col-span-4 md:col-span-3 md:col-start-10">
-                  <h3 className="label border-t border-charcoal/15 pt-4">What it can involve</h3>
+                  <h3 className="label border-t border-linen-deep pt-4">What it can involve</h3>
                   <ul className="mt-6 space-y-2.5">
                     {o.examples.map((e) => (
                       <li key={e} className="flex gap-3">
-                        <span aria-hidden="true" className="text-burgundy">—</span>
+                        <span aria-hidden="true" className="text-cherry">—</span>
                         {e}
                       </li>
                     ))}
@@ -108,14 +128,14 @@ export default function WorkWithMePage() {
 
       {/* Engagement types */}
       <section aria-labelledby="engagement-title" className="frame py-20 md:py-32">
-        <SectionHeading label="Ways of working" id="engagement-title" title={<>However it <em className="text-burgundy">fits best.</em></>} />
-        <ul className="mt-14 grid grid-cols-1 border-t border-charcoal/15 md:mt-20 md:grid-cols-3">
+        <SectionHeading label="Ways of working" id="engagement-title" title={<>However it <em className="text-cherry">fits best.</em></>} />
+        <ul className="mt-14 grid grid-cols-1 border-t border-linen-deep md:mt-20 md:grid-cols-3">
           {engagementTypes.map((e, i) => (
             <Reveal
               as="li"
               key={e.title}
               delay={i * 100}
-              className={`border-b border-charcoal/15 py-8 md:border-b-0 md:py-10 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}
+              className={`border-b border-linen-deep py-8 md:border-b-0 md:py-10 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}
             >
               <h3 className="text-display-sm">{e.title}</h3>
               <p className="mt-4 text-muted-ink">{e.body}</p>
@@ -127,16 +147,16 @@ export default function WorkWithMePage() {
       {/* Process */}
       <section aria-labelledby="process-title" className="frame pb-24 md:pb-36">
         <div className="grid-12">
-          <div className="col-span-4 border-t border-charcoal/15 pt-4 md:col-span-12">
+          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
             <span className="label">How it starts</span>
           </div>
           <h2 id="process-title" className="col-span-4 mt-10 text-display-md md:col-span-4 md:mt-14">
-            Simple, and <em className="text-burgundy">no pitch.</em>
+            Simple, and <em className="text-cherry">no pitch.</em>
           </h2>
           <ol className="col-span-4 mt-10 space-y-10 md:col-span-6 md:col-start-7 md:mt-14">
             {process.map((step, i) => (
               <Reveal as="li" key={step.title} delay={i * 100} className="grid grid-cols-[3.5rem_1fr]">
-                <span className="font-serif text-3xl text-burgundy">{i + 1}.</span>
+                <span className="font-serif text-3xl text-cherry">{i + 1}.</span>
                 <div>
                   <h3 className="font-serif text-2xl">{step.title}</h3>
                   <p className="mt-2 text-muted-ink">{step.body}</p>

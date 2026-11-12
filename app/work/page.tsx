@@ -17,18 +17,18 @@ export default function WorkPage() {
         <SectionHeading
           as="h1"
           label="Selected work"
-          title={<>Projects, ventures and <em className="text-burgundy">things I’ve built.</em></>}
+          title={<>Projects, ventures and <em className="text-cherry">things I’ve built.</em></>}
           intro="A small selection of work across strategy, operations, technology and founding something of my own. Each one separates what I did from what the wider team achieved."
         />
 
         {/* Contents-page index */}
         <nav aria-label="Project index" className="mt-16 md:mt-24">
-          <ol className="border-t border-charcoal/15">
+          <ol className="border-t border-linen-deep">
             {projects.map((p, i) => (
-              <li key={p.slug} className="border-b border-charcoal/15">
+              <li key={p.slug} className="border-b border-linen-deep">
                 <Link
                   href={`/work/${p.slug}`}
-                  className="group grid grid-cols-[2.5rem_1fr] items-baseline gap-x-4 py-5 transition-colors hover:text-burgundy md:grid-cols-[4rem_1fr_16rem_2rem]"
+                  className="group grid grid-cols-[2.5rem_1fr] items-baseline gap-x-4 py-5 transition-colors hover:text-cherry md:grid-cols-[4rem_1fr_16rem_2rem]"
                 >
                   <span className="label">{String(i + 1).padStart(2, "0")}</span>
                   <span className="font-serif text-2xl md:text-3xl">{p.title}</span>

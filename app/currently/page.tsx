@@ -19,7 +19,7 @@ export default function CurrentlyPage() {
             <p className="label">Updated {currently.updated}</p>
           </div>
           <h1 className="col-span-4 mt-8 text-display-xl md:col-span-11 md:mt-12 motion-safe:animate-page-in">
-            A few things <em className="text-burgundy">on my mind.</em>
+            A few things <em className="text-cherry">on my mind.</em>
           </h1>
           <p className="col-span-4 mt-10 max-w-measure text-lg text-muted-ink md:col-span-5 md:col-start-7 md:mt-16">
             A running note of ideas, interests and experiments — what I’m exploring, reading and trying out. It changes often.
@@ -33,7 +33,7 @@ export default function CurrentlyPage() {
 
       <section aria-labelledby="notebook-title" className="frame pb-24 md:pb-36">
         <div className="grid-12">
-          <div className="col-span-4 border-t border-charcoal/15 pt-4 md:col-span-12">
+          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
             <h2 id="notebook-title" className="label">From the notebook</h2>
           </div>
           <div className="col-span-4 mt-6 md:col-span-12">
@@ -41,10 +41,10 @@ export default function CurrentlyPage() {
           </div>
           {currently.notebook.map((group, i) => (
             <div key={group.label} className={`col-span-4 mt-10 md:col-span-3 ${i === 0 ? "md:col-start-1" : ""} ${i === 1 ? "md:col-start-5" : ""} ${i === 2 ? "md:col-start-9" : ""}`}>
-              <h3 className="font-serif text-2xl italic text-burgundy">{group.label}</h3>
+              <h3 className="font-serif text-2xl italic text-cherry">{group.label}</h3>
               <ul className="mt-4 space-y-2">
                 {group.items.map((it) => (
-                  <li key={it} className="border-b border-charcoal/10 pb-2">{it}</li>
+                  <li key={it} className="border-b border-linen-deep pb-2">{it}</li>
                 ))}
               </ul>
             </div>

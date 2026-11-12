@@ -30,13 +30,13 @@ export default function Home() {
       {/* 02 — A little about me */}
       <section aria-labelledby="about-title" className="frame py-20 md:py-32">
         <div className="grid-12">
-          <div className="col-span-4 flex gap-4 border-t border-charcoal/15 pt-4 md:col-span-12">
-            <span className="label text-burgundy">02</span>
+          <div className="col-span-4 flex gap-4 border-t border-linen-deep pt-4 md:col-span-12">
+            <span className="label text-cherry">02</span>
             <span className="label">{aboutTeaser.label}</span>
           </div>
           <Reveal className="col-span-4 mt-12 md:col-span-7 md:col-start-4 md:mt-16">
             <h2 id="about-title" className="text-display-lg">
-              Business-minded. <em className="text-burgundy">Curious</em> by nature.
+              Business-minded. <em className="text-cherry">Curious</em> by nature.
             </h2>
           </Reveal>
           <Reveal delay={100} className="prose-editorial col-span-4 mt-12 text-lg md:col-span-5 md:col-start-4 md:mt-20">
@@ -48,8 +48,8 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal as="aside" delay={200} className="col-span-4 mt-14 md:col-span-3 md:col-start-10 md:mt-28">
-            <div className="border-l border-burgundy pl-6">
-              <p className="font-serif text-[1.75rem] italic leading-[1.2] text-burgundy">{aboutTeaser.pullQuote}</p>
+            <div className="border-l border-cherry pl-6">
+              <p className="font-serif text-[1.75rem] italic leading-[1.2] text-cherry">{aboutTeaser.pullQuote}</p>
             </div>
           </Reveal>
         </div>
@@ -73,7 +73,7 @@ export default function Home() {
           number="04"
           label="Selected work"
           id="work-title"
-          title={<>A few things I’ve <em className="text-burgundy">worked on.</em></>}
+          title={<>A few things I’ve <em className="text-cherry">worked on.</em></>}
         />
         <div className="mt-16 space-y-28 md:mt-28 md:space-y-44">
           {featuredProjects.map((p, i) => (
@@ -86,13 +86,13 @@ export default function Home() {
       </section>
 
       {/* 05 — Beyond the work */}
-      <section aria-labelledby="beyond-title" className="bg-white/60 py-20 md:py-32">
+      <section aria-labelledby="beyond-title" className="bg-butter/50 py-20 md:py-32">
         <div className="frame">
           <SectionHeading
             number="05"
             label={beyondWork.label}
             id="beyond-title"
-            title={<>There’s more to life than a <em className="text-burgundy">job title.</em></>}
+            title={<>There’s more to life than a <em className="text-cherry">job title.</em></>}
             intro={beyondWork.intro}
           />
           <div className="mt-16 md:mt-24">

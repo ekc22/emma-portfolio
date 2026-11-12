@@ -190,22 +190,20 @@ export const projects: Project[] = [
     title: "Less reporting. More thinking.",
     category: "AI & Operations",
     summary:
-      "Reporting infrastructure, AI-assisted workflows and a Claude Chief of Staff agent: using technology to create capacity, not just another dashboard.",
+      "Reporting infrastructure and AI-assisted workflows: using technology to create capacity, not just another dashboard.",
     context: "Executive reporting and AI-assisted workflows",
     role: "AI, Automation & Executive Reporting",
     imageBrief: "Material detail: linen paper edges and a notebook, top-down at 30°",
     situation:
       "Executive reporting depended on a recurring, largely manual preparation cycle.",
     problem:
-      "Time spent assembling numbers was time not spent thinking about them. Getting a clear view of actions and pipeline meant chasing people for updates.",
+      "Time spent assembling numbers was time not spent thinking about them.",
     myRole: [
       "Built reporting infrastructure covering 30 executive metrics",
       "Developed AI-assisted workflows for recurring reporting and research tasks",
-      "Built a Claude Chief of Staff agent for action and pipeline visibility",
     ],
     whatChanged: [
       { text: "Recurring reporting preparation reduced by approximately two weeks per cycle.", kind: "personal" },
-      { text: "Clearer visibility of actions and pipeline, without another dashboard to maintain.", kind: "personal" },
     ],
     lesson:
       "It taught me to question how work gets done, not just how to do it faster. The real opportunity with technology isn’t simply automating tasks. It’s giving people back the time and clarity to think, make better decisions and focus on work that actually moves the business forward.",

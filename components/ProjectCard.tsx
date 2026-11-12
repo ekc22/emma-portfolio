@@ -44,8 +44,8 @@ export default function ProjectCard({ project, index, headingLevel: H = "h3" }: 
             {project.title}
           </Link>
         </H>
-        <p className="mt-4 max-w-[38ch] text-muted-ink">{project.summary}</p>
-        <span aria-hidden="true" className="text-link mt-6 text-[0.9375rem] group-hover:text-cherry">
+        <p className="mt-4 max-w-[34ch] text-[1.375rem] leading-[1.4] text-muted-ink">{project.summary}</p>
+        <span aria-hidden="true" className="text-link mt-6 text-[1.125rem] group-hover:text-cherry">
           <span>View project</span>
           <span className="arrow">→</span>
         </span>

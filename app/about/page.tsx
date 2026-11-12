@@ -3,118 +3,107 @@ import EditorialImage from "@/components/EditorialImage";
 import Reveal from "@/components/Reveal";
 import ReviewNote from "@/components/ReviewNote";
 import TextLink from "@/components/TextLink";
-import { about, beyondWork } from "@/content/profile";
+import { about, beyondWork, workedWith } from "@/content/profile";
 import { site } from "@/content/site";
+import { mailto } from "@/lib/contact";
 import { hasCv } from "@/lib/cv";
 import { withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Emma Clark’s story: experience across FTSE 250, PE-backed and venture-backed businesses, fractional work and founding a sports and community venture.",
-  alternates: { canonical: "/about" },
+    "Emma Clark’s story: a decade inside listed, private equity-backed and venture-backed businesses, and now building — Turnout, fractional growth work and AI systems.",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {
   const cv = hasCv();
+  const permanentHref = mailto(site.contact.subjects.permanent);
 
   return (
     <>
-      <section className="frame pb-16 pt-12 md:pb-28 md:pt-20">
+      <section className="frame pb-16 pt-12 md:pb-24 md:pt-20">
         <div className="grid-12">
-          <p className="label col-span-4 md:col-span-12">About</p>
-          <h1 className="col-span-4 mt-8 text-display-xl md:col-span-10 md:mt-12 motion-safe:animate-page-in">
-            A generalist, <em className="text-cherry">on purpose.</em>
+          <p className="label col-span-4 md:col-span-12">About · A little about me</p>
+          <h1 className="col-span-4 mt-8 text-display-xl md:col-span-11 md:mt-12 motion-safe:animate-page-in">
+            I’ve never been particularly interested in staying <em className="text-cherry">in one lane.</em>
           </h1>
-          <p className="col-span-4 mt-10 max-w-[30ch] font-serif text-display-sm text-muted md:col-span-6 md:col-start-6 md:mt-16">
-            {about.lead}
-          </p>
-          <div className="col-span-4 mt-8 md:col-span-6 md:col-start-6">
+          <div className="col-span-4 mt-8 md:col-span-6 md:col-start-6 md:mt-12">
             <ReviewNote />
           </div>
         </div>
       </section>
 
-      {/* Career */}
-      <section aria-labelledby="career-title" className="frame pb-20 md:pb-32">
+      {/* Story, told in chapters */}
+      <section aria-label="My story" className="frame pb-20 md:pb-32">
         <div className="grid-12 gap-y-12">
-          <figure className="col-span-4 md:col-span-4 md:row-span-2">
+          <figure className="col-span-4 md:sticky md:top-28 md:col-span-4 md:self-start">
             <EditorialImage
               brief="Portrait at work — candid at a table, hands and notebook in frame, window light. Real photograph only."
               ratio="3 / 4"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
+            <figcaption className="mt-4">
+              <span className="label">Where I’ve worked</span>
+              <span className="mt-2 block text-[1.0625rem] leading-snug text-muted-ink">{workedWith.join(" · ")}</span>
+            </figcaption>
           </figure>
-          <div className="col-span-4 md:col-span-6 md:col-start-6">
-            <h2 id="career-title" className="label border-t border-linen-deep pt-4">Career</h2>
-            <Reveal className="prose-editorial mt-8 text-lg">
-              {about.career.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-            </Reveal>
+
+          <div className="col-span-4 md:col-span-7 md:col-start-6">
+            {about.chapters.map((ch, i) => (
+              <Reveal as="section" key={ch.label} className={i > 0 ? "mt-16 md:mt-20" : ""}>
+                <h2 className="flex gap-3 border-t border-linen-deep pt-4">
+                  <span className="label text-cherry">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="label">{ch.label}</span>
+                </h2>
+                <div className="prose-editorial mt-8 text-[1.375rem] leading-[1.5] md:text-[1.5rem]">
+                  {ch.paragraphs.map((p, j) => (
+                    <p key={p} className={i === 2 && j === 0 ? "text-display-sm text-cherry" : ""}>{p}</p>
+                  ))}
+                </div>
+                {i === 2 && (
+                  <div className="mt-8 flex flex-wrap gap-x-10 gap-y-3">
+                    <TextLink href="/work/when-youre-the-one-building-it">Building Turnout</TextLink>
+                    <TextLink href="/work/less-reporting-more-thinking">AI systems</TextLink>
+                  </div>
+                )}
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Founder */}
-      <section aria-labelledby="founder-title" className="bg-butter/50">
+      {/* What connects it */}
+      <section aria-labelledby="connects-title" className="bg-butter/50">
         <div className="frame py-20 md:py-32">
           <div className="grid-12">
-            <div className="col-span-4 md:col-span-5">
-              <p className="label">Founder</p>
-              <h2 id="founder-title" className="mt-6 text-display-md">
-                Building something <em className="text-cherry">from scratch.</em>
-              </h2>
-            </div>
-            <Reveal className="prose-editorial col-span-4 mt-10 text-lg md:col-span-6 md:col-start-7 md:mt-0">
-              {about.founder.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-              <div className="!mt-10">
-                <TextLink href="/work/sports-community-venture">Read the project</TextLink>
-              </div>
+            <h2 id="connects-title" className="label col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
+              What connects all of it
+            </h2>
+            <Reveal className="col-span-4 mt-10 md:col-span-10 md:mt-14">
+              <blockquote>
+                <p className="text-display-lg italic text-cherry">“{about.pullQuote}”</p>
+              </blockquote>
             </Reveal>
+            <p className="col-span-4 mt-10 text-[1.375rem] leading-[1.5] md:col-span-5 md:col-start-7 md:mt-14 md:text-[1.5rem]">
+              {about.connects}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Principles */}
-      <section aria-labelledby="principles-title" className="frame py-20 md:py-32">
-        <div className="grid-12">
-          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
-            <span className="label">How I work</span>
-          </div>
-          <h2 id="principles-title" className="col-span-4 mt-10 text-display-lg md:col-span-8 md:mt-14">
-            A few working <em className="text-cherry">principles.</em>
-          </h2>
-        </div>
-        <ol className="mt-14 grid grid-cols-1 gap-x-16 md:mt-20 md:grid-cols-2">
-          {about.principles.map((p, i) => (
-            <Reveal as="li" key={p.title} delay={(i % 2) * 100} className="border-t border-linen-deep py-8">
-              <div className="flex items-baseline gap-5">
-                <span className="font-serif text-xl text-cherry">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3 className="text-display-sm">{p.title}</h3>
-                  <p className="mt-3 max-w-[40ch] text-muted-ink">{p.body}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </ol>
-      </section>
-
-      {/* Outside work */}
-      <section aria-labelledby="outside-title" className="frame pb-24 md:pb-36">
+      {/* Outside work + hiring-manager journey */}
+      <section aria-labelledby="outside-title" className="frame py-20 md:py-32">
         <div className="grid-12 gap-y-10">
           <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
-            <span className="label">Outside work</span>
+            <span className="label">Beyond the boardroom</span>
           </div>
           <h2 id="outside-title" className="col-span-4 text-display-md md:col-span-5">
-            Curiosity is the <em className="text-cherry">common thread.</em>
+            And outside <em className="text-cherry">work?</em>
           </h2>
           <div className="col-span-4 md:col-span-6 md:col-start-7">
-            <p className="text-lg">{about.outside}</p>
-            <ul className="mt-10 flex flex-wrap gap-x-2 gap-y-2 font-serif text-2xl leading-snug">
+            <p className="text-[1.5rem] leading-[1.45]">{about.outside}</p>
+            <ul className="mt-8 flex flex-wrap gap-x-2 gap-y-1 text-[1.5rem] leading-snug text-muted-ink">
               {beyondWork.interests.map((it, i) => (
                 <li key={it.title}>
                   {it.title}
@@ -122,12 +111,22 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
-              <TextLink href="/currently">What I’m into right now</TextLink>
-              {cv && <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>}
-            </div>
+            <p className="mt-10 text-display-sm italic text-cherry">{about.closing}</p>
           </div>
         </div>
+
+        <aside aria-labelledby="hiring-title" className="mt-20 grid-12 border-t border-linen-deep pt-8 md:mt-28">
+          <p className="label col-span-4 md:col-span-3">For hiring managers</p>
+          <div className="col-span-4 mt-4 md:col-span-7 md:col-start-5 md:mt-0">
+            <h2 id="hiring-title" className="sr-only">For hiring managers</h2>
+            <p className="text-[1.375rem] leading-[1.5]">{about.permanent}</p>
+            <div className="mt-6 flex flex-wrap gap-x-10 gap-y-3">
+              {permanentHref && <TextLink href={permanentHref}>Talk about a role</TextLink>}
+              {cv && <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>}
+              <TextLink href="/work">Selected work</TextLink>
+            </div>
+          </div>
+        </aside>
       </section>
     </>
   );

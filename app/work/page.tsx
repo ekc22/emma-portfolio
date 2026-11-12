@@ -7,7 +7,7 @@ import { projects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Work",
   description: "Selected projects across strategy, operations, AI and founding a venture.",
-  alternates: { canonical: "/work" },
+  alternates: { canonical: "/work/" },
 };
 
 export default function WorkPage() {
@@ -32,7 +32,7 @@ export default function WorkPage() {
                 >
                   <span className="label">{String(i + 1).padStart(2, "0")}</span>
                   <span className="font-serif text-2xl md:text-3xl">{p.title}</span>
-                  <span className="col-start-2 text-[0.875rem] text-muted-ink md:col-start-auto">{p.category}</span>
+                  <span className="col-start-2 text-[1.0625rem] text-muted-ink md:col-start-auto">{p.category}</span>
                   <span aria-hidden="true" className="hidden transition-transform duration-500 ease-editorial group-hover:translate-x-1 md:block">→</span>
                 </Link>
               </li>

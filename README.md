@@ -46,14 +46,14 @@ Notes
 | What | Where |
 | --- | --- |
 | Name, roles, email, LinkedIn, CV | `content/site.ts` |
-| Hero, About teaser, capabilities, interests, Currently, contact copy, About page | `content/profile.ts` |
+| Hero, employers, numbers strip, visitor journeys, capabilities, interests, Currently, contact, About story | `content/profile.ts` |
 | Case studies (each becomes `/work/<slug>`) | `content/projects.ts` |
-| Work With Me offerings, engagement types, process | `content/services.ts` |
+| Work With Me intro, "Where I can help", four desks, ways of working, process | `content/services.ts` |
 | Colours, type scale | `tailwind.config.ts` |
 
 **Adding a project:** copy an entry in `content/projects.ts`, give it a new `slug`. The page, sitemap entry and metadata are generated automatically.
 
-**Case-study rules:** `myRole` is what Emma personally did; `teamOutcomes` is what the wider team achieved. Keep them separate, keep copy qualitative until metrics are verified, and don't name employers or clients without permission.
+**Case-study rules:** each story runs situation → problem → what I did → what changed → what it taught me. Every item in `whatChanged` has a `kind` (`personal`, `team`, `pipeline`, `company`) so delivered work, team results, pipeline progress and company milestones are never confused. Keep qualifying wording on figures; never invent lessons.
 
 **Images:** put files in `public/images/` and add an `image: { src, alt, width, height }` to the relevant entry (`hero.portrait`, a project, or an interest). Until then a labelled neutral placeholder shows what should go there. Resize them before adding (see the GitHub Pages notes above).
 
@@ -75,7 +75,10 @@ Contact and links
 - [ ] Turnout figures logo → `public/images/` for the founder credit (keep its own red; never merge with the EMMA CLARK mark)
 - [ ] LinkedIn URL (optional) → `content/site.ts`
 
-Copy to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
+Copy and facts to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
+- [ ] Figures: 10 years, $200m+ Series D (supported), 30 metrics, ~two weeks saved per cycle, 6 pilots, £150k pilot target — current and shareable?
+- [ ] Naming Hastings Direct, Paddle, RBC Brewin Dolphin and Canaccord
+- [ ] "What it taught me" for each of the five case studies (in Emma's words)
 - [ ] Case studies: challenge, approach, my role, team outcomes and reflection for all three projects
 - [ ] Verified, publishable team outcomes (project 2 has none yet; project 1's are placeholders)
 - [ ] Whether to name the sports and community venture and link to it
@@ -113,8 +116,8 @@ assets/fonts/           Instrument Serif (OFL) for the social card
   animation, masthead nav and "the four desks" — while keeping the site's original editorial tone and headline.
 - Palette: paper `#FBF6EC`, oxblood `#3A0E16` (text), cherry `#9B1C2E` (accent, ~10%), butter `#F6EBC8`
   (warm alternate ground), linen `#E4DACB` (borders). Muted text `#6E5659` (6.2:1 on paper).
-- Type: Instrument Serif (display, wordmark) and Inter (body), self-hosted via `next/font`. The guidelines specify
-  Instrument Sans for body; Inter is kept by choice — swap it in `app/layout.tsx` if preferred.
+- Type: Instrument Serif for headlines, wordmark and body copy (set large — it's a condensed face). Inter only for
+  small uppercase labels and UI. Both self-hosted via `next/font`.
 - Layout: 12-column grid on desktop, 4 on mobile; asymmetric compositions, fine rules, oversized numerals.
 - Motion: logo intro once per session (brand spec: 70 ms stagger, 1.4 s), gentle reveal-on-scroll, image hover zoom and page fade. All disabled under `prefers-reduced-motion`,
   and content is never hidden when JavaScript is off.

@@ -10,11 +10,16 @@
     scroll-padding-top: 6rem;
   }
   body {
-    @apply bg-paper font-sans text-[1.0625rem] leading-[1.7];
-    font-feature-settings: "ss01", "cv11";
+    /* Body set in Instrument Serif ("B everywhere"). It's a narrow face with a small x-height,
+       so body text runs larger than a sans would. */
+    @apply bg-paper font-serif text-[1.25rem] leading-[1.5] md:text-[1.3125rem];
   }
   ::selection { @apply bg-cherry text-paper; }
   h1, h2, h3, h4 { @apply font-serif font-normal; text-wrap: balance; }
+  /* Small uppercase UI text (labels, tags, descriptor lines) stays in the sans for legibility. */
+  /* Attribute selector on purpose: a plain `.uppercase` rule would leak into anything that @applies `uppercase` (e.g. the wordmark). */
+  [class~="uppercase"]:not(.font-serif):not(.wordmark) { font-family: var(--font-sans), system-ui, sans-serif; }
+  button { font-family: var(--font-sans), system-ui, sans-serif; }
   p { text-wrap: pretty; }
   :focus-visible { @apply outline outline-2 outline-offset-[3px] outline-oxblood; }
 }

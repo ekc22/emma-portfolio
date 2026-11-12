@@ -2,17 +2,16 @@ import type { Metadata } from "next";
 import FourDesks from "@/components/FourDesks";
 import Reveal from "@/components/Reveal";
 import ReviewNote from "@/components/ReviewNote";
-import SectionHeading from "@/components/SectionHeading";
 import TextLink from "@/components/TextLink";
-import { site } from "@/content/site";
-import { engagementTypes, fundraisingNote, offerings, process } from "@/content/services";
+import { getProject } from "@/content/projects";
+import { fundraisingNote, offerings, process, waysToWork, workWithMe } from "@/content/services";
 import { mailto } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Work With Me",
   description:
-    "Fractional Chief of Staff and founder’s office support, commercial strategy and growth projects, and business operations and AI workflows. Open to relevant permanent roles.",
-  alternates: { canonical: "/work-with-me" },
+    "Commercial thinking, structure and hands-on execution for founders and leadership teams — fractional, project-based or permanent.",
+  alternates: { canonical: "/work-with-me/" },
 };
 
 export default function WorkWithMePage() {
@@ -23,128 +22,108 @@ export default function WorkWithMePage() {
         <div className="grid-12">
           <p className="label col-span-4 md:col-span-12">Work with me</p>
           <h1 className="col-span-4 mt-8 text-display-xl md:col-span-11 md:mt-12 motion-safe:animate-page-in">
-            Fractional, focused, <em className="text-cherry">or for the long run.</em>
+            Good ideas need people who make them <em className="text-cherry">happen.</em>
           </h1>
-          <div className="prose-editorial col-span-4 mt-12 text-lg md:col-span-5 md:col-start-6 md:mt-20 md:text-xl">
-            <p>
-              I work with founders, CEOs and leadership teams who need an experienced operator alongside them — someone who can do the strategic thinking and the hands-on work that turns it into progress.
-            </p>
-            <p>
-              That might be ongoing fractional support, a clearly defined project, or the right permanent role.
-            </p>
+          <div className="prose-editorial col-span-4 mt-12 text-[1.375rem] leading-[1.45] md:col-span-6 md:col-start-6 md:mt-20 md:text-[1.625rem]">
+            {workWithMe.intro.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
             <ReviewNote className="!mt-8" />
           </div>
         </div>
-
-        {/* Jump list */}
-        <nav aria-label="Ways to work together" className="mt-20 md:mt-28">
-          <ol className="grid grid-cols-1 border-t border-linen-deep md:grid-cols-3">
-            {offerings.map((o, i) => (
-              <li key={o.id} className={`border-b border-linen-deep md:border-b-0 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}>
-                <a href={`#${o.id}`} className="group block py-6 transition-colors hover:text-cherry">
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="mt-3 block font-serif text-2xl leading-tight">{o.title}</span>
-                  <span className="mt-2 block text-[0.875rem] text-muted-ink">{o.forWhom}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
       </section>
 
-      {/* The four desks */}
-      <section aria-labelledby="desks-title" className="frame pb-20 md:pb-32">
-        <div className="grid-12">
-          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
-            <span className="label">The four desks</span>
-          </div>
-          <h2 id="desks-title" className="col-span-4 mt-10 text-display-lg md:col-span-7 md:mt-14">
-            The company behind <em className="text-cherry">the company.</em>
-          </h2>
-          <p className="col-span-4 mt-6 max-w-measure text-lg text-muted-ink md:col-span-4 md:col-start-9 md:mt-16">
-            For founders raising, hiring or scaling faster than their operations, I run the work behind the work — and keep you at the centre of it.
-          </p>
+      {/* Where I can help */}
+      <section aria-labelledby="help-title" className="frame pb-20 md:pb-32">
+        <div className="border-t border-linen-deep pt-4">
+          <h2 id="help-title" className="label">Where I can help</h2>
         </div>
-        <div className="mt-14 md:mt-20">
-          <FourDesks />
-        </div>
-        <p className="mt-6 max-w-[70ch] text-[0.8125rem] text-muted-ink">{fundraisingNote}</p>
-      </section>
-
-      {/* Offerings */}
-      {offerings.map((o, i) => {
-        const href = mailto(o.subject);
-        return (
-          <section
-            key={o.id}
-            id={o.id}
-            aria-labelledby={`${o.id}-title`}
-            className={i % 2 === 0 ? "bg-butter/50" : ""}
-          >
-            <div className="frame py-20 md:py-32">
-              <div className="grid-12">
-                <span aria-hidden="true" className="col-span-4 font-serif text-numeral text-linen-deep md:col-span-3">
+        <ol className="mt-4">
+          {offerings.map((o, i) => {
+            const href = mailto(o.subject);
+            const study = o.caseStudy ? getProject(o.caseStudy) : undefined;
+            return (
+              <li key={o.id} id={o.id} className="grid-12 border-b border-linen-deep py-12 md:py-16">
+                <span aria-hidden="true" className="col-span-4 font-serif text-[clamp(3.5rem,7vw,6rem)] leading-[0.8] text-linen-deep md:col-span-2">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="col-span-4 mt-6 md:col-span-8 md:col-start-5 md:mt-0">
-                  <p className="label text-cherry">{o.forWhom}</p>
-                  <Reveal>
-                    <h2 id={`${o.id}-title`} className="mt-4 text-display-md">{o.title}</h2>
-                  </Reveal>
-                  <p className="mt-6 max-w-[46ch] text-lg text-muted-ink md:text-xl">{o.description}</p>
-                </div>
-              </div>
+                <Reveal className="col-span-4 mt-6 md:col-span-5 md:col-start-3 md:mt-0">
+                  <h3 className="text-display-md">
+                    {o.from} <em className="block text-cherry">{o.to}</em>
+                  </h3>
+                </Reveal>
+                <Reveal delay={100} className="col-span-4 mt-6 md:col-span-4 md:col-start-9 md:mt-2">
+                  <p className="text-[1.375rem] leading-[1.45]">{o.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+                    {href && <TextLink href={href}>Talk about this</TextLink>}
+                    {study && <TextLink href={`/work/${study.slug}`}>See an example</TextLink>}
+                  </div>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
 
-              <div className="grid-12 mt-14 gap-y-12 md:mt-20">
-                <Reveal className="col-span-4 md:col-span-4 md:col-start-5">
-                  <h3 className="label border-t border-linen-deep pt-4">Problems I help with</h3>
-                  <ul className="mt-6 space-y-4">
-                    {o.problems.map((p) => (
-                      <li key={p} className="font-serif text-[1.375rem] leading-snug">{p}</li>
-                    ))}
-                  </ul>
-                </Reveal>
-                <Reveal delay={100} className="col-span-4 md:col-span-3 md:col-start-10">
-                  <h3 className="label border-t border-linen-deep pt-4">What it can involve</h3>
-                  <ul className="mt-6 space-y-2.5">
-                    {o.examples.map((e) => (
-                      <li key={e} className="flex gap-3">
-                        <span aria-hidden="true" className="text-cherry">—</span>
-                        {e}
-                      </li>
-                    ))}
-                  </ul>
-                  {href && (
-                    <div className="mt-10">
-                      <TextLink href={href}>Talk about this</TextLink>
-                    </div>
-                  )}
-                </Reveal>
-              </div>
+      {/* The four desks (brand system graphic) */}
+      <section aria-labelledby="desks-title" className="bg-butter/50">
+        <div className="frame py-20 md:py-32">
+          <div className="grid-12">
+            <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
+              <span className="label">For founders · the four desks</span>
             </div>
-          </section>
-        );
-      })}
+            <h2 id="desks-title" className="col-span-4 mt-10 text-display-lg md:col-span-7 md:mt-14">
+              The company behind <em className="text-cherry">the company.</em>
+            </h2>
+            <p className="col-span-4 mt-6 max-w-measure text-[1.375rem] leading-[1.45] text-muted-ink md:col-span-4 md:col-start-9 md:mt-16">
+              For founders raising, hiring or scaling faster than their operations: the work behind the work, with you at the centre of it.
+            </p>
+          </div>
+          <div className="mt-14 md:mt-20">
+            <FourDesks />
+          </div>
+          <p className="mt-6 max-w-[70ch] text-[1rem] text-muted-ink">{fundraisingNote}</p>
+        </div>
+      </section>
 
-      {/* Engagement types */}
-      <section aria-labelledby="engagement-title" className="frame py-20 md:py-32">
-        <SectionHeading label="Ways of working" id="engagement-title" title={<>However it <em className="text-cherry">fits best.</em></>} />
+      {/* Ways we could work together */}
+      <section aria-labelledby="ways-title" className="frame py-20 md:py-32">
+        <div className="grid-12">
+          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
+            <span className="label">Ways we could work together</span>
+          </div>
+          <h2 id="ways-title" className="col-span-4 mt-10 text-display-lg md:col-span-6 md:mt-14">
+            Fractional, focused, <em className="text-cherry">or for the long run.</em>
+          </h2>
+          <div className="prose-editorial col-span-4 mt-8 text-[1.375rem] leading-[1.45] md:col-span-5 md:col-start-8 md:mt-16">
+            <p>{waysToWork.intro}</p>
+            <p className="italic text-cherry">{waysToWork.emphasis}</p>
+          </div>
+        </div>
         <ul className="mt-14 grid grid-cols-1 border-t border-linen-deep md:mt-20 md:grid-cols-3">
-          {engagementTypes.map((e, i) => (
-            <Reveal
-              as="li"
-              key={e.title}
-              delay={i * 100}
-              className={`border-b border-linen-deep py-8 md:border-b-0 md:py-10 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}
-            >
-              <h3 className="text-display-sm">{e.title}</h3>
-              <p className="mt-4 text-muted-ink">{e.body}</p>
-            </Reveal>
-          ))}
+          {waysToWork.types.map((t, i) => {
+            const href = mailto(t.subject);
+            return (
+              <Reveal
+                as="li"
+                key={t.title}
+                delay={i * 100}
+                className={`border-b border-linen-deep py-8 md:border-b-0 md:py-10 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}
+              >
+                <h3 className="text-display-sm">{t.title}</h3>
+                <p className="mt-4 text-muted-ink">{t.body}</p>
+                {href && (
+                  <div className="mt-6">
+                    <TextLink href={href}>Get in touch</TextLink>
+                  </div>
+                )}
+              </Reveal>
+            );
+          })}
         </ul>
       </section>
 
-      {/* Process */}
+      {/* How it starts */}
       <section aria-labelledby="process-title" className="frame pb-24 md:pb-36">
         <div className="grid-12">
           <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
@@ -158,16 +137,13 @@ export default function WorkWithMePage() {
               <Reveal as="li" key={step.title} delay={i * 100} className="grid grid-cols-[3.5rem_1fr]">
                 <span className="font-serif text-3xl text-cherry">{i + 1}.</span>
                 <div>
-                  <h3 className="font-serif text-2xl">{step.title}</h3>
+                  <h3 className="text-2xl">{step.title}</h3>
                   <p className="mt-2 text-muted-ink">{step.body}</p>
                 </div>
               </Reveal>
             ))}
           </ol>
         </div>
-        <p className="mt-20 text-center text-[0.9375rem] text-muted-ink">
-          Scroll on to get in touch{site.links.linkedin ? ", or find me on LinkedIn" : ""}.
-        </p>
       </section>
     </>
   );

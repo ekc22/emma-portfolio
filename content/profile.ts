@@ -7,26 +7,64 @@
  */
 
 export const hero = {
-  headline: ["A little bit of everything.", "A lot of getting things done."],
+  eyebrow: "Strategy / Growth / Building",
+  headline: "From the boardroom to the blank sheet.",
   intro: [
-    "I’m Emma — a strategic operator, founder and commercial generalist working across growth, strategy, operations and technology.",
-    "I’ve spent my career working alongside leadership teams, solving complex business challenges and turning ideas into things that actually happen.",
+    "I’ve spent the last decade working inside businesses of all shapes and sizes — from listed companies and private equity-backed firms to venture-backed startups and ideas that barely existed beyond a conversation.",
+    "Somewhere along the way, I discovered that what I enjoy most isn’t simply shaping strategy. It’s figuring out how to make things happen.",
+    "Today, I work across growth, commercial strategy, operations and technology, alongside the people building what’s next.",
   ],
   // TODO(Emma): add a portrait at public/images/emma-portrait.jpg and set `portrait` below.
   portrait: undefined as undefined | { src: string; alt: string; width: number; height: number },
 };
 
+/** Where Emma has worked. TODO(Emma): confirm you’re happy to name each employer publicly. */
+export const workedWith = ["Hastings Direct", "Paddle", "RBC Brewin Dolphin", "Canaccord", "Founder-led ventures"];
+
 export const aboutTeaser = {
   label: "A little about me",
-  headline: "Business-minded. Curious by nature.",
   body: [
     "My experience spans FTSE 250, private equity-backed and venture-backed businesses, from financial services and fintech to high-growth technology.",
     "I’ve worked closely with executives and founders across strategy, commercial growth, operations and complex projects.",
-    "Alongside my professional work, I’ve supported founders fractionally, founded Turnout, a sports and community venture, and experimented with practical AI-powered tools.",
+    "Alongside my professional work, I’ve supported founders fractionally, co-founded Turnout, a sports and wellness platform, and experimented with practical AI-powered tools.",
   ],
   pullQuote:
     "I’m particularly drawn to environments where there’s ambiguity, momentum and something interesting to build.",
 };
+
+/**
+ * Credibility strip. Qualifying wording is part of each fact — keep it, so supporting a
+ * fundraise isn’t read as raising the capital, and pilots aren’t read as revenue.
+ * TODO(Emma): confirm each figure is current and can be shared publicly.
+ */
+export const facts = [
+  { figure: "10 years", label: "Across finance, strategy, operations and growth" },
+  { figure: "$200m+", label: "Series D fundraising supported through financial analysis" },
+  { figure: "30 metrics", label: "Executive dashboard and reporting infrastructure built" },
+  { figure: "6 pilots", label: "Businesses progressed to pilot stage at a seed-stage AI venture" },
+];
+
+/** Separate journeys for the three kinds of visitor. */
+export const journeys = [
+  {
+    audience: "Founders",
+    title: "Looking for fractional or project support?",
+    href: "/work-with-me",
+    cta: "How I can help",
+  },
+  {
+    audience: "Hiring managers",
+    title: "Exploring a permanent role?",
+    href: "/about",
+    cta: "My story",
+  },
+  {
+    audience: "Investors & collaborators",
+    title: "Curious about my background?",
+    href: "/work",
+    cta: "Selected work",
+  },
+];
 
 export type Capability = { title: string; description: string; points: string[] };
 
@@ -55,24 +93,22 @@ export const capabilities: Capability[] = [
 
 export type Interest = {
   title: string;
-  caption: string; // TODO(Emma): approve or rewrite each caption in your own words.
+  caption: string;
   imageBrief: string;
   image?: { src: string; alt: string; width: number; height: number };
 };
 
 export const beyondWork = {
-  label: "Beyond the work",
-  headline: "There’s more to life than a job title.",
+  label: "Beyond the boardroom",
+  headline: "A curious mind rarely stays in one place.",
   intro:
-    "The things I do outside work shape how I think inside it — curiosity, taste and a healthy respect for practice.",
+    "When I’m not working, I’m usually learning something new, finding a new place to explore, getting lost in a book or convincing myself I have time for another project.",
+  // TODO(Emma): replace placeholders with your own photography.
   interests: [
-    { title: "Art & collecting", caption: "Galleries, studio visits and the occasional piece that comes home.", imageBrief: "A favourite artwork or gallery visit" },
-    { title: "Technology & AI", caption: "Building small things to understand big shifts.", imageBrief: "Desk, notebook or a side-project screen" },
-    { title: "Economics & business", caption: "How markets, incentives and companies really work.", imageBrief: "Books or a newspaper spread" },
-    { title: "Travel & culture", caption: "New cities, good food and seeing how other places do things.", imageBrief: "A travel photograph" },
-    { title: "Reading & learning", caption: "Always mid-way through at least two books.", imageBrief: "Current reading pile" },
-    { title: "Wellness, tennis & Pilates", caption: "Staying strong, staying sane, chasing a better backhand.", imageBrief: "Tennis court or racquet" },
-    { title: "Music & community", caption: "Live music, shared tables and bringing people together.", imageBrief: "Gig, concert or a community event" },
+    { title: "Art & collecting", caption: "Developing my eye and discovering artists and ideas.", imageBrief: "Your own photo — a favourite artwork, gallery or studio visit" },
+    { title: "Always learning", caption: "Economics, technology, business and whatever catches my curiosity.", imageBrief: "Your own photo — current reading pile or notebook" },
+    { title: "Movement & wellness", caption: "Tennis, Pilates and finding time to move.", imageBrief: "Your own photo — tennis court, racquet or studio" },
+    { title: "People & places", caption: "Travel, music, different cultures and interesting conversations.", imageBrief: "Your own photo — a place you’ve travelled to" },
   ] as Interest[],
 };
 
@@ -118,25 +154,39 @@ export const contact = {
   cta: "Let’s talk",
 };
 
+/** About page — "your story, not your CV". */
 export const about = {
-  // TODO(Emma): approve. Kept deliberately general — add employer names only if you’re happy to publish them.
-  headline: "A generalist, on purpose.",
-  lead: "My work sits where strategy meets day-to-day delivery — the space where good ideas usually get stuck.",
-  career: [
-    "I’ve worked across FTSE 250, private equity-backed and venture-backed businesses, mostly in financial services, insurance, fintech and technology. The settings have varied a lot; the job has usually been similar — sit close to the leadership team, understand what matters most, and make sure it actually gets done.",
-    "That has meant supporting executives and founders directly: shaping priorities, building the reporting that keeps a leadership team honest, coordinating work across functions, and picking up the commercial and operational problems that don’t fit neatly in anyone’s job description.",
-    "More recently I’ve worked fractionally, which suits the way I like to work: getting close to a business quickly, being useful early, and leaving behind things that keep working after I’ve gone.",
+  headline: "I’ve never been particularly interested in staying in one lane.",
+  chapters: [
+    {
+      label: "Learning how businesses work",
+      paragraphs: [
+        "I started my career in finance, learning how businesses really work — the numbers, the decisions, the people behind them and what it takes to keep everything moving.",
+        "Over the next decade, that curiosity took me from a FTSE 250 insurer to a venture-backed SaaS business, through investment management and into the commercial office of a private equity-backed wealth manager.",
+      ],
+    },
+    {
+      label: "Between functions",
+      paragraphs: [
+        "Different industries, different challenges, different stages of growth. But a common thread: I’ve always gravitated towards the work that sits between functions, where the answer isn’t obvious and someone needs to connect the dots.",
+        "I’ve worked alongside CFOs, commercial leaders, executives and founders. I’ve supported fundraising, helped navigate acquisitions, built executive reporting systems, translated commercial strategies into delivery plans and worked on everything from regulatory programmes to growth initiatives.",
+      ],
+    },
+    {
+      label: "The other side of the table",
+      paragraphs: [
+        "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
+        "I’ve worked fractionally with founders, helping turn early-stage ideas into commercial propositions and execution plans. I’ve co-founded Turnout, a sports and wellness platform, taking it from an idea through company formation, product development and into testing.",
+        "I’ve also become fascinated by what AI makes possible for small, ambitious teams. I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
+      ],
+    },
   ],
-  founder: [
-    "I’m also the founder of Turnout, a sports and community venture. Building something from scratch is humbling in the best way — there’s no team to delegate to, and every decision is a trade-off between ambition and what you can realistically get done this week.",
-    "It changed how I work inside larger businesses too. I’m quicker to test an idea cheaply, more comfortable with ambiguity, and much more sympathetic to founders juggling everything at once.",
-  ],
-  principles: [
-    { title: "Clarity before activity", body: "Agree what matters and what good looks like before anyone starts building decks or dashboards." },
-    { title: "Make it visible", body: "Priorities, risks and progress should be easy for anyone to see. Most problems get smaller once they’re written down." },
-    { title: "Small steps, shipped", body: "A working first version beats a perfect plan. Test, learn, then scale what works." },
-    { title: "Leave it better", body: "Good support should outlast the engagement — clearer processes, better tools, more confident teams." },
-  ],
+  connects:
+    "What connects all of it is curiosity, ownership and a genuine enjoyment of making things happen. I like understanding the big picture, but I’m equally happy getting into the detail.",
+  pullQuote: "A strategy is only interesting to me if someone is prepared to execute it.",
   outside:
-    "I’m interested in how things work — economies, organisations, technology and people. I read widely, spend as much time as I can around art, music and culture, and play tennis or get to Pilates whenever the calendar allows. Travel keeps me curious; wellness keeps me grounded.",
+    "And outside work? I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
+  closing: "I’m always looking for interesting people to learn from, ideas to explore and things worth building.",
+  permanent:
+    "If you’re hiring: I’m open to the right permanent opportunity with an ambitious business — particularly roles that sit across strategy, growth and operations.",
 };

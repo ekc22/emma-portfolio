@@ -8,11 +8,10 @@
 export const site = {
   name: "Emma Clark",
   shortName: "Emma",
-  title: "Founder · Chief of Staff · Commercial Generalist · Connector",
+  title: "Founder · Commercial Generalist · Connector",
   tagline: "The company behind the company.",
   location: "London",
-  eyebrow: "Strategy / Growth / Operations / Everything in between",
-  roles: ["Founder", "Chief of Staff", "Commercial Generalist", "Connector"],
+  roles: ["Founder", "Commercial Generalist", "Connector"],
   valueProposition:
     "Working across strategy, growth, operations and technology to help ambitious businesses turn ideas into execution.",
 

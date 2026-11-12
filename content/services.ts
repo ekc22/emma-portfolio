@@ -5,76 +5,57 @@
  */
 import { site } from "./site";
 
+export const workWithMe = {
+  headline: "Good ideas need people who make them happen.",
+  intro: [
+    "Sometimes the challenge is growth. Sometimes it’s building the right systems. Sometimes it’s simply that the founder has twenty priorities and not enough hours in the day.",
+    "I work with founders and leadership teams to bring commercial thinking, structure and hands-on execution to the things that matter most.",
+    "I’ve spent ten years working across finance, strategy, growth and operations, from established businesses to early-stage ventures. I understand the importance of the big picture, but I’m most useful when there’s something tangible to deliver.",
+  ],
+};
+
 export type Offering = {
   id: string;
-  title: string;
-  forWhom: string;
+  from: string;
+  to: string;
   description: string;
-  problems: string[];
-  examples: string[];
+  /** Related case study, if any. */
+  caseStudy?: string;
   subject: string;
 };
 
+/** "Where I can help" — sell the outcome, not the job title. */
 export const offerings: Offering[] = [
   {
-    id: "chief-of-staff",
-    title: "Fractional Chief of Staff / Founder’s Office",
-    forWhom: "For founders and CEOs",
-    description:
-      "Hands-on support for a founder or CEO who needs a trusted operator alongside them — without hiring a full-time Chief of Staff yet.",
-    problems: [
-      "Too many priorities, not enough follow-through",
-      "Leadership meetings that don't lead to decisions",
-      "No single view of how the business is performing",
-      "The founder is the bottleneck for everything",
-    ],
-    examples: [
-      "Setting priorities and an operating cadence",
-      "Executive and board reporting",
-      "Running cross-functional initiatives",
-      "Investor and leadership preparation",
-    ],
+    id: "ambition-to-execution",
+    from: "From ambition",
+    to: "to execution",
+    description: "Turning strategic priorities into clear plans, operating rhythms, measurable progress and accountable delivery.",
+    caseStudy: "making-strategy-everyones-business",
+    subject: site.contact.subjects.project,
+  },
+  {
+    id: "product-to-traction",
+    from: "From product",
+    to: "to commercial traction",
+    description: "Helping shape propositions, understand markets, prioritise customers and move commercial opportunities forward.",
+    caseStudy: "finding-a-market-before-the-playbook",
+    subject: site.contact.subjects.project,
+  },
+  {
+    id: "manual-to-systems",
+    from: "From manual work",
+    to: "to better systems",
+    description: "Building dashboards, reporting processes, practical AI workflows and operational infrastructure that give teams more time to focus on what matters.",
+    caseStudy: "less-reporting-more-thinking",
+    subject: site.contact.subjects.project,
+  },
+  {
+    id: "bottleneck-to-momentum",
+    from: "From founder bottleneck",
+    to: "to forward momentum",
+    description: "Working alongside founders on the projects, decisions, investor materials and cross-functional priorities that need a trusted pair of hands.",
     subject: site.contact.subjects.fractional,
-  },
-  {
-    id: "growth-commercial",
-    title: "Commercial Strategy & Growth Projects",
-    forWhom: "For leadership and commercial teams",
-    description:
-      "A defined piece of commercial work with a clear scope and finish line, delivered by someone who can do the thinking and the doing.",
-    problems: [
-      "A growth plan that hasn't been turned into actions",
-      "Pipeline that's hard to read or forecast",
-      "A new partnership or market that needs exploring",
-      "Sales teams without the material they need",
-    ],
-    examples: [
-      "Commercial planning",
-      "Partnership exploration",
-      "Pipeline analysis",
-      "Sales enablement",
-    ],
-    subject: site.contact.subjects.project,
-  },
-  {
-    id: "operations-ai",
-    title: "Business Operations & AI Workflows",
-    forWhom: "For teams drowning in manual work",
-    description:
-      "Practical improvements to reporting, processes and workflows — including careful, useful experiments with AI.",
-    problems: [
-      "Reporting that eats hours every week",
-      "Processes that live in one person's head",
-      "Curiosity about AI, but no idea where to start safely",
-      "Data that exists but nobody can easily see",
-    ],
-    examples: [
-      "Dashboards and reporting",
-      "Process design and documentation",
-      "AI-assisted workflow pilots",
-      "Performance visibility",
-    ],
-    subject: site.contact.subjects.project,
   },
 ];
 
@@ -110,20 +91,16 @@ export const desks = [
 export const fundraisingNote =
   "Fundraising support covers preparation and process management. It is not investment advice or arranging deals; any regulated activity stays with authorised firms.";
 
-export const engagementTypes = [
-  {
-    title: "Fractional",
-    body: "Ongoing, part-time support — typically a set number of days a month, working as part of your team.",
-  },
-  {
-    title: "Defined projects",
-    body: "A scoped piece of work with clear outcomes and an agreed finish line.",
-  },
-  {
-    title: "Permanent roles",
-    body: "I'm open to conversations about the right permanent opportunity — particularly Chief of Staff, strategy, operations and commercial roles in ambitious businesses.",
-  },
-];
+export const waysToWork = {
+  intro:
+    "I’m interested in fractional Chief of Staff and growth engagements, defined strategic or operational projects, and the right permanent opportunities with ambitious businesses.",
+  emphasis: "I’m particularly drawn to founder-led teams where there’s ownership, pace and an opportunity to build.",
+  types: [
+    { title: "Fractional", body: "Chief of Staff and growth engagements — ongoing, part-time and embedded in your team.", subject: site.contact.subjects.fractional },
+    { title: "Defined projects", body: "Strategic or operational work with a clear scope and an agreed finish line.", subject: site.contact.subjects.project },
+    { title: "Permanent", body: "The right permanent opportunity with an ambitious business.", subject: site.contact.subjects.permanent },
+  ],
+};
 
 export const process = [
   {

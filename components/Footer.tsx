@@ -46,7 +46,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-16 flex flex-col justify-between gap-2 border-t border-paper/15 pt-6 text-[0.8125rem] text-paper/60 sm:flex-row">
+        <div className="mt-16 flex flex-col justify-between gap-2 border-t border-paper/15 pt-6 text-[1rem] text-paper/60 sm:flex-row">
           <p>© {year} {site.name}</p>
           <p>Based in {site.location}</p>
         </div>

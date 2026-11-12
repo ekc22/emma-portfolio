@@ -39,7 +39,7 @@ export default function ContactCTA() {
                 </div>
               )}
               {site.links.linkedin && (
-                <p className="mt-6 text-[0.9375rem]">
+                <p className="mt-6 text-[1.125rem]">
                   Or find me on{" "}
                   <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-link">
                     LinkedIn

@@ -6,7 +6,7 @@ import { currently } from "@/content/profile";
 export const metadata: Metadata = {
   title: "Currently",
   description: "Ideas, interests and experiments Emma Clark is exploring right now.",
-  alternates: { canonical: "/currently" },
+  alternates: { canonical: "/currently/" },
 };
 
 export default function CurrentlyPage() {

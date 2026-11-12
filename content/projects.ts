@@ -1,125 +1,177 @@
 /**
  * Case studies. Each entry generates a page at /work/[slug].
+ * Order matters: the first three are featured on the homepage.
+ *
+ * Every case study tells the story through: the situation, the problem,
+ * what Emma personally did, what changed, and what it taught her.
  *
  * Editorial rules (please keep):
- *  - Qualitative copy only until Emma approves verified metrics.
- *  - `myRole` is what Emma personally did. `teamOutcomes` is what the wider
- *    team achieved together. Never merge the two.
- *  - No employer or client names unless Emma confirms they can be published.
- *  - `status: "draft"` shows an "awaiting approval" note in `npm run dev` only.
+ *  - `myRole` is what Emma personally did. Each `whatChanged` item says what KIND
+ *    of result it is, so personal delivery, team outcomes, pipeline progress and
+ *    company milestones are never confused.
+ *  - Figures come from Emma's portfolio. TODO(Emma): confirm each one is current and
+ *    can be shared publicly before setting status to "approved".
+ *  - Never invent lessons, clients, testimonials or numbers. If `lesson` is empty
+ *    the page shows a placeholder while review notes are on.
  */
 
 export type ProjectImage = { src: string; alt: string; width: number; height: number };
 
+export type OutcomeKind = "personal" | "team" | "pipeline" | "company";
+
+export const outcomeLabels: Record<OutcomeKind, string> = {
+  personal: "What I delivered",
+  team: "Team outcome",
+  pipeline: "Pipeline progress — not revenue",
+  company: "Company milestone I supported",
+};
+
 export type Project = {
   slug: string;
+  /** Editorial headline. */
   title: string;
   category: string;
   summary: string;
-  /** Short descriptor of the setting, without naming the business. */
+  /** The setting, described without confidential detail. */
   context: string;
+  /** Emma's role, where it had a title. */
+  role?: string;
   timeframe?: string; // TODO(Emma): add if you want dates shown.
-  challenge: string;
-  approach: string[];
-  /** Emma's personal contribution. */
+  situation: string;
+  problem: string;
   myRole: string[];
-  /** Results delivered by the wider team (qualitative until verified). */
-  teamOutcomes?: string[];
-  reflection?: string;
+  whatChanged: { text: string; kind: OutcomeKind }[];
+  /** What it taught Emma — her words only. */
+  lesson?: string;
   image?: ProjectImage;
   /** Describes the image that should go here, shown on the placeholder until a real one is added. */
   imageBrief: string;
-  featured: boolean;
   status: "draft" | "approved";
 };
 
 export const projects: Project[] = [
   {
-    slug: "executive-operating-rhythm",
-    imageBrief: "Desk still life — paper, fountain pen, a cherry-lacquer cup, a folded agenda (3D render or photo)",
-    title: "Turning strategy into execution",
-    category: "Strategy & Operations",
+    slug: "making-strategy-everyones-business",
+    title: "Making strategy everyone’s business.",
+    category: "Strategy & Execution",
     summary:
-      "Executive priorities, commercial initiatives and operating rhythms within a PE-backed business.",
-    context: "PE-backed wealth management business",
-    challenge:
-      "A growing, investor-backed business needed its strategic priorities to connect more clearly with reporting, governance and day-to-day execution — so the leadership team could see progress, spot risks early and make decisions with confidence.",
-    approach: [
-      "Mapped leadership priorities into a single, trackable set of initiatives with clear owners.",
-      "Set up a regular operating cadence so priorities, risks and actions were reviewed consistently.",
-      "Designed executive reporting that brought commercial and operational information into one view.",
-    ],
+      "Growth priorities spanning product, distribution, finance, technology and data needed a common execution rhythm.",
+    context: "Private equity-backed wealth manager",
+    imageBrief: "Desk still life — paper, fountain pen, a cherry-lacquer cup, a folded agenda",
+    situation:
+      "A private equity-backed business had ambitious growth priorities spread across product, distribution, finance, technology and data.",
+    problem:
+      "Each area was moving, but not to a common rhythm. Priorities, owners and decisions weren’t connected to the reporting the executive team relied on, so accountability was hard to see.",
     myRole: [
-      "Coordinated cross-functional initiatives on behalf of the executive team",
-      "Built executive reporting and dashboards",
-      "Tracked priorities, risks and actions through the operating cadence",
+      "Established a Growth Committee to bring the priorities together",
+      "Connected priorities, owners and decisions to executive reporting",
+      "Coordinated cross-functional initiatives and tracked priorities, risks and actions",
     ],
-    teamOutcomes: [
-      // TODO(Emma): replace with verified, publishable outcomes — or remove.
-      "Clearer line of sight from strategic priorities to delivery",
-      "A more consistent rhythm for leadership reviews and decisions",
+    whatChanged: [
+      { text: "A repeatable system for turning leadership priorities into accountable delivery.", kind: "personal" },
     ],
-    reflection:
-      "Most of the value came from making things visible. Once priorities and risks were written down in one place, conversations got shorter and decisions got easier.",
-    featured: true,
+    // TODO(Emma): add what this taught you, in your own words.
     status: "draft",
   },
   {
-    slug: "ai-assisted-reporting",
+    slug: "less-reporting-more-thinking",
+    title: "Less reporting. More thinking.",
+    category: "AI & Operations",
+    summary:
+      "Reporting infrastructure, AI-assisted workflows and a Claude Chief of Staff agent — using technology to create capacity, not just another dashboard.",
+    context: "Executive reporting and AI-assisted workflows",
     imageBrief: "The quiet room — empty meeting room, morning light, paper-toned walls",
-    title: "Making reporting more intelligent",
-    category: "AI & Automation",
-    summary:
-      "Dashboards, AI agents and workflow automation designed to improve how businesses operate.",
-    context: "Reporting and operations workflows",
-    challenge:
-      "Reporting took too much manual effort, and getting a straight answer from business information often meant waiting on someone to pull it together.",
-    approach: [
-      "Started with the dashboards people already relied on and simplified what they needed to see.",
-      "Ran small, contained experiments with Claude agents on repetitive reporting and research tasks.",
-      "Kept the workflows that saved real time and documented them so they could be repeated.",
-    ],
+    situation:
+      "Executive reporting depended on a recurring, largely manual preparation cycle.",
+    problem:
+      "Time spent assembling numbers was time not spent thinking about them — and getting a clear view of actions and pipeline meant chasing people for updates.",
     myRole: [
-      "Developed reporting dashboards",
-      "Built and experimented with Claude agents",
-      "Explored repeatable automation workflows",
+      "Built reporting infrastructure covering 30 executive metrics",
+      "Developed AI-assisted workflows for recurring reporting and research tasks",
+      "Built a Claude Chief of Staff agent for action and pipeline visibility",
     ],
-    teamOutcomes: [
-      // TODO(Emma): add verified outcomes, e.g. time saved, once you're happy to publish them.
+    whatChanged: [
+      { text: "Recurring reporting preparation reduced by approximately two weeks per cycle.", kind: "personal" },
+      { text: "Clearer visibility of actions and pipeline, without another dashboard to maintain.", kind: "personal" },
     ],
-    reflection:
-      "The best AI experiments were the boring ones: a clear, repetitive task, a human checking the output, and a simple way to measure whether it helped.",
-    featured: true,
+    // TODO(Emma): add what this taught you, in your own words.
     status: "draft",
   },
   {
-    slug: "sports-community-venture",
-    imageBrief: "Turnout — a real photograph from a community or sports event",
-    title: "Building something from scratch",
-    category: "Founder Projects",
+    slug: "finding-a-market-before-the-playbook",
+    title: "Finding a market before there’s a playbook.",
+    category: "Commercial Growth",
     summary:
-      "Founding Turnout, a sports and community platform, and exploring what it takes to turn an idea into a venture.",
-    context: "Founder of Turnout",
-    challenge:
-      "Exploring how to bring people together through sport and shared interests — and whether that could become a sustainable business.",
-    approach: [
-      "Developed the concept and tested the proposition with potential members.",
-      "Shaped the community model: who it is for, why they would join, and why they would stay.",
-      "Prioritised ruthlessly across product, partnerships and operations with very limited resources.",
-    ],
+      "As fractional Head of Growth at a seed-stage AI venture: segmentation, target accounts, pricing and pilot propositions.",
+    context: "Seed-stage AI venture",
+    role: "Fractional Head of Growth",
+    imageBrief: "Material detail — cherry lacquer, oxblood leather and linen paper edges",
+    situation:
+      "A seed-stage AI venture had a promising product and no established route to market.",
+    problem:
+      "There was no playbook: who to sell to, what to charge and how to frame a first commercial engagement all had to be worked out from scratch.",
     myRole: [
-      "Founded Turnout and developed the concept",
-      "Explored the proposition and community model",
-      "Worked across early-stage business priorities",
+      "Developed market segmentation and target accounts",
+      "Shaped pricing and pilot propositions",
+      "Supported prospective customers through to pilot stage",
     ],
-    reflection:
-      "Founding taught me to test cheaply, decide quickly and stay honest about what's working. I bring that mindset to every business I work with.",
-    // TODO(Emma): add the Turnout figures logo (public/images/turnout-figures.svg) and a link, if wanted.
-    // Brand rule: Turnout keeps its own brand — shown as a credit, never merged into the EMMA CLARK mark.
-    featured: true,
+    whatChanged: [
+      { text: "Six businesses progressed to pilot stage.", kind: "pipeline" },
+      { text: "Commercial traction against a £150k pilot revenue target — a target, not recognised revenue.", kind: "pipeline" },
+    ],
+    // TODO(Emma): add what this taught you, in your own words.
+    status: "draft",
+  },
+  {
+    slug: "when-youre-the-one-building-it",
+    title: "What happens when you’re the one building it?",
+    category: "Founding & Product",
+    summary:
+      "Co-founding Turnout, a sports and wellness platform — from company formation and initial concept to product testing.",
+    context: "Turnout — sports and wellness platform",
+    role: "Co-founder",
+    imageBrief: "Turnout — a real photograph from a sports or wellness session",
+    situation:
+      "Turnout started as an idea: a sports and wellness platform that brings people together.",
+    problem:
+      "As a co-founder there’s no one else to hand things to. Every decision — commercial, product, brand — is a trade-off between ambition and what can realistically get done this week.",
+    myRole: [
+      "Co-founded the company, from formation and initial concept onwards",
+      "Moved between commercial planning, product decisions and brand",
+      "Worked on website development and preparing the platform for launch",
+    ],
+    whatChanged: [
+      { text: "Taken from company formation and initial concept into product testing.", kind: "team" },
+    ],
+    // TODO(Emma): add what founding has taught you, in your own words.
+    // Turnout keeps its own brand: shown as a credit, never merged into the EMMA CLARK mark.
+    status: "draft",
+  },
+  {
+    slug: "the-discipline-behind-the-ambition",
+    title: "The discipline behind the ambition.",
+    category: "Finance & Leadership",
+    summary:
+      "From supporting analysis for Paddle’s $200m+ Series D and acquisition integration to Board reporting, capital planning and investor relations.",
+    context: "Venture-backed SaaS, investment management and private equity-backed businesses",
+    imageBrief: "Desk still life — ledger, linen paper and a fountain pen, top-down at 30°",
+    situation:
+      "Businesses at different stages — scaling SaaS, investment management, private equity-backed — each facing significant financial and operational decisions.",
+    problem:
+      "Big moments like a funding round or an acquisition depend on rigorous analysis and clear reporting, delivered while the business keeps running.",
+    myRole: [
+      "Supported financial analysis for Paddle’s $200m+ Series D",
+      "Supported acquisition integration",
+      "Prepared executive and Board reporting",
+      "Contributed to capital planning and investor relations",
+    ],
+    whatChanged: [
+      { text: "Paddle raised a $200m+ Series D. I supported the financial analysis; I did not raise the capital.", kind: "company" },
+    ],
+    // TODO(Emma): add what this taught you, in your own words.
     status: "draft",
   },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
-export const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
+export const featuredProjects = projects.slice(0, 3);

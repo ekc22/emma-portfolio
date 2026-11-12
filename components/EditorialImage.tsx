@@ -66,7 +66,7 @@ export default function EditorialImage({
         />
       </div>
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 sm:p-5">
-        <p className="max-w-[24ch] text-[0.75rem] leading-snug text-muted-ink">
+        <p className="max-w-[24ch] font-sans text-[0.75rem] leading-snug text-muted-ink">
           <span className="label mb-1 block !text-[0.625rem]">Image to come</span>
           {brief}
         </p>

@@ -15,7 +15,7 @@ export default function CapabilityCard({ capability, index }: { capability: Capa
         <h3 className="text-display-sm">{capability.title}</h3>
       </div>
       <p className="mt-5 max-w-[34ch] text-muted-ink md:ml-[3.25rem]">{capability.description}</p>
-      <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.875rem] md:ml-[3.25rem]">
+      <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[1.0625rem] md:ml-[3.25rem]">
         {capability.points.map((p) => (
           <li key={p} className="before:mr-2 before:text-cherry before:content-['—']">
             {p}

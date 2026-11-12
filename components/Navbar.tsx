@@ -47,7 +47,7 @@ export default function Navbar() {
     >
       <div className="frame grid h-16 grid-cols-[1fr_auto] items-center lg:h-20 lg:grid-cols-[1fr_auto_1fr]">
         {/* Left: place and time (desktop) / monogram (mobile) */}
-        <p className="hidden text-[0.8125rem] tabular-nums text-muted-ink lg:block" aria-label={`Based in ${site.location}`}>
+        <p className="hidden font-sans text-[0.8125rem] tabular-nums text-muted-ink lg:block" aria-label={`Based in ${site.location}`}>
           {site.location}
           {time && <span aria-hidden="true"> · {time}</span>}
         </p>
@@ -77,7 +77,7 @@ export default function Navbar() {
 
         {/* Right: sections */}
         <nav aria-label="Main" className="hidden justify-self-end lg:block">
-          <ul className="flex items-center gap-7 text-[0.875rem]">
+          <ul className="flex items-center gap-7 text-[1.125rem]">
             {nav.map((item) => {
               const active = isActive(item.href);
               const isCta = item.href === "#contact";

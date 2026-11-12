@@ -3,6 +3,7 @@ import { Instrument_Serif, Inter } from "next/font/google";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 import LogoIntro from "@/components/LogoIntro";
+import { hasCv } from "@/lib/cv";
 import Navbar from "@/components/Navbar";
 import { site } from "@/content/site";
 import { withBase } from "@/lib/paths";
@@ -56,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Navbar />
+        <Navbar cv={hasCv()} />
         <main id="main" tabIndex={-1} className="focus:outline-none">
           {children}
         </main>

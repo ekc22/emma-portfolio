@@ -24,7 +24,7 @@ function useLondonTime() {
  * centre, sections on the right. On the home page the centre holds the full EMMA CLARK
  * wordmark, which settles into "E." as you scroll. On phones: "E." left, Menu right.
  */
-export default function Navbar() {
+export default function Navbar({ cv = false }: { cv?: boolean }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
@@ -101,15 +101,17 @@ export default function Navbar() {
                 </li>
               );
             })}
+            {cv && (
             <li>
               <a href={withBase(site.cv.path)} className="text-[0.6875rem] font-semibold uppercase tracking-label text-muted-ink transition-colors hover:text-cherry">
                 CV<span className="sr-only"> (PDF)</span>
               </a>
             </li>
+            )}
           </ul>
         </nav>
 
-        <MobileMenu />
+        <MobileMenu cv={cv} />
       </div>
     </header>
   );

@@ -123,9 +123,9 @@ export const projects: Project[] = [
     context: "CoS OS, an AI-enabled operating workspace",
     role: "Founder · Product, Design & Build",
     demo: {
-      href: "https://claude.ai/artifact/JagBWBFjGhPqJ9CPJv3TNu",
-      label: "Try my AI Chief of Staff agent",
-      note: "Opens on claude.ai; sign in to talk to it. You get your own empty desk, and your calendar and inbox are only read if you allow it.",
+      href: "https://claude.ai/artifact/DQvy82cn3jjqciRPsra1ua",
+      label: "Try the AI Chief of Staff demo",
+      note: "Opens on claude.ai with a fictional company’s desk. Sign in to chat; nothing of yours is read or shared.",
     },
     motif: { figure: "9", caption: "Operating desks in one workspace" },
     exhibit: {

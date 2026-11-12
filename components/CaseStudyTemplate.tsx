@@ -164,6 +164,30 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
         </Row>
         )}
 
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="border-t border-linen-deep py-12 md:py-16" aria-labelledby="screens-title">
+            <h2 id="screens-title" className="flex gap-3">
+              <span className="label text-cherry">{n()}</span>
+              <span className="label">Selected screens</span>
+            </h2>
+            <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
+              {project.gallery.map((g) => (
+                <Reveal as="figure" key={g.src} className={g.wide ? "md:col-span-2" : ""}>
+                  <Image
+                    src={withBase(g.src)}
+                    alt={g.alt}
+                    width={g.width}
+                    height={g.height}
+                    sizes={g.wide ? "(min-width: 1440px) 1330px, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+                    className="h-auto w-full ring-1 ring-linen-deep"
+                  />
+                  <figcaption className="mt-3 text-[1rem] leading-snug text-muted-ink">{g.caption}</figcaption>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
         {(project.lesson || showReviewNotes) && (
           <section className="grid-12 border-t border-linen-deep pt-16 md:pt-24">
             <h2 className="col-span-4 flex gap-3 md:col-span-3">

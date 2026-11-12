@@ -61,6 +61,8 @@ export type Project = {
   motif: { figure: string; caption: string };
   /** A wide exhibit (e.g. product screens) shown at its natural shape instead of the hero panel. */
   exhibit?: ProjectImage & { caption: string };
+  /** Further screens shown as "Selected screens" on the case study. */
+  gallery?: (ProjectImage & { caption: string; wide?: boolean })[];
   /** Use a venture's own colour (Turnout blue). */
   accent?: "turnout";
   status: "draft" | "approved";
@@ -120,12 +122,36 @@ export const projects: Project[] = [
     role: "Founder · Product, Design & Build",
     motif: { figure: "9", caption: "Operating desks in one workspace" },
     exhibit: {
-      src: "/images/cos-os-command-centre.jpg",
-      alt: "The CoS OS Executive Command Centre: headline figures for objectives, projects, overdue actions, pipeline, forecast and runway, a list of issues needing attention and decisions awaiting approval.",
-      width: 2016,
-      height: 1428,
-      caption: "The Executive Command Centre, shown with a fictional demo company.",
+      src: "/images/cos-os-investors.jpg",
+      alt: "The CoS OS Investor Relations Desk for a fictional company raising an £8m Series A: indicative interest, soft commitments, legally committed and funds received shown separately, a capital ladder against the target, and investor conversion by stage.",
+      width: 2000,
+      height: 1333,
+      caption: "The Investor Relations Desk. Indicative interest is never shown as committed capital. Fictional demo company.",
     },
+    gallery: [
+      {
+        src: "/images/cos-os-command-centre.jpg",
+        alt: "The CoS OS Executive Command Centre: headline figures for objectives, projects, overdue actions, pipeline, forecast and runway, issues needing attention and decisions awaiting approval.",
+        width: 2016,
+        height: 1428,
+        caption: "Executive Command Centre: what needs attention today, and the decisions waiting for approval.",
+        wide: true,
+      },
+      {
+        src: "/images/cos-os-pipeline.jpg",
+        alt: "The CoS OS Commercial Pipeline: open and weighted pipeline, win rate, opportunities by stage and stage conversion.",
+        width: 2000,
+        height: 1333,
+        caption: "Commercial Pipeline: weighted forecast, stage conversion and deals that need intervention.",
+      },
+      {
+        src: "/images/cos-os-projects.jpg",
+        alt: "The CoS OS Projects and Delivery desk: portfolio status, overdue milestones and actions, budget used, open risks and delivery signals.",
+        width: 2000,
+        height: 1333,
+        caption: "Projects & Delivery: the portfolio, overdue work and delivery signals in one view.",
+      },
+    ],
     problem:
       "Leadership information is often scattered across presentations, spreadsheets, project trackers and inboxes.\n\nA Chief of Staff can spend a disproportionate amount of time assembling information, reconciling priorities and chasing updates rather than helping leadership make decisions and execute.",
     myRole: [

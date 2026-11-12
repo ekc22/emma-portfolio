@@ -114,6 +114,12 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
                   <span>
                     <span className="block text-display-sm">{step.title}</span>
                     <span className="mt-2 block text-muted-ink">{step.body}</span>
+                    {step.link && (
+                      <Link href={step.link.href} className="text-link mt-4 text-[1.125rem]">
+                        <span>{step.link.label}</span>
+                        <span aria-hidden="true" className="arrow">→</span>
+                      </Link>
+                    )}
                   </span>
                 )}
               </li>

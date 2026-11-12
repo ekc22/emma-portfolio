@@ -71,7 +71,7 @@ export const offerings: Offering[] = [
       "Business process improvement",
       "Project and decision tracking",
     ],
-    caseStudies: ["less-reporting-more-thinking", "circus-capital"],
+    caseStudies: ["cos-os", "less-reporting-more-thinking"],
     subject: site.contact.subjects.project,
   },
 ];

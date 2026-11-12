@@ -121,7 +121,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-20 flex justify-end md:mt-28">
-          <TextLink href="/work">All six stories</TextLink>
+          <TextLink href="/work">All seven stories</TextLink>
         </div>
       </section>
 

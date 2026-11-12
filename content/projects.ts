@@ -42,7 +42,7 @@ export type Project = {
   /** "The challenge". Separate paragraphs with a blank line. */
   problem: string;
   /** Emma's contribution: plain lines, or titled items. */
-  myRole: (string | { title: string; body: string })[];
+  myRole: (string | { title: string; body: string; link?: { href: string; label: string } })[];
   /** "The impact". Leave empty until outcomes are confirmed; the page shows a placeholder. */
   whatChanged: { title?: string; text: string; kind: OutcomeKind }[];
   /** What it taught Emma, in her words only. */
@@ -185,7 +185,8 @@ export const projects: Project[] = [
       },
       {
         title: "Operational infrastructure",
-        body: "Built a Claude-powered system to improve visibility, track priorities and coordinate execution: a Chief of Staff dashboard, an agentic Chief of Staff, a pipeline tracker, an investor finder and a project management system.",
+        body: "Built a Claude-powered system to improve visibility, track priorities and coordinate execution: a Chief of Staff dashboard, an agentic Chief of Staff, a pipeline tracker, an investor finder and a project management system. That work became the starting point for CoS OS, the AI Chief of Staff product I’m now building.",
+        link: { href: "/work/cos-os", label: "See CoS OS" },
       },
     ],
     // Keep "introduced", never "secured investment" or "raised capital", unless substantiated.

@@ -185,7 +185,7 @@ export const projects: Project[] = [
       },
       {
         title: "Operational infrastructure",
-        body: "Built a Claude-powered system to improve visibility, track priorities and coordinate execution: a Chief of Staff dashboard, an agentic Chief of Staff, a pipeline tracker, an investor finder and a project management system. That work became the starting point for CoS OS, the AI Chief of Staff product I’m now building.",
+        body: "Built a Claude-powered system to improve visibility, track priorities and coordinate execution: a Chief of Staff dashboard, an agentic Chief of Staff, a pipeline tracker, an investor finder and a project management system. That work grew into CoS OS, a live AI Chief of Staff tool we now use day to day.",
         link: { href: "/work/cos-os", label: "See CoS OS" },
       },
     ],
@@ -317,8 +317,8 @@ export const projects: Project[] = [
     title: "An operating system for the Chief of Staff role.",
     category: "AI & Product",
     summary:
-      "CoS OS, an AI Chief of Staff product I’m building: strategy, delivery, pipeline and investor relations in one workspace, with a Claude agent that proposes and a person who approves.",
-    context: "CoS OS, a product I’m building",
+      "CoS OS, a live AI Chief of Staff tool we use day to day: strategy, delivery, pipeline and investor relations in one workspace, with a Claude agent that proposes and a person who approves.",
+    context: "CoS OS, a live tool we use day to day",
     role: "Founder · Product, design and build",
     motif: { figure: "9", caption: "Desks in one workspace" },
     situation:
@@ -340,11 +340,11 @@ export const projects: Project[] = [
       },
     ],
     whatChanged: [
-      { title: "A working product", text: "Nine working desks on a realistic fictional dataset, with creating, editing and approval flows tested in the browser.", kind: "personal" },
+      { title: "Live and in use", text: "A live tool we use day to day: nine desks, with creating, editing and approval flows.", kind: "personal" },
       { title: "Indicative is never committed", text: "An investor relations desk that keeps indicative interest, soft commitments, legal commitments and cash received apart.", kind: "personal" },
     ],
     // TODO(Emma): add what building it taught you, in your own words.
-    note: "Shown with a fictional demo company. No client data is used.",
+    note: "Screens are shown with a fictional demo company, so no client data appears here.",
     exhibit: {
       src: "/images/cos-os-command-centre.jpg",
       alt: "The CoS OS Executive Command Centre: headline figures for objectives, projects, overdue actions, pipeline, forecast and runway, a list of issues needing attention and decisions awaiting approval.",

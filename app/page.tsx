@@ -5,17 +5,15 @@ import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import TextLink from "@/components/TextLink";
-import TurnoutMark from "@/components/TurnoutMark";
-import TurnoutScreen from "@/components/TurnoutScreen";
-import { aboutTeaser, beyondWork, facts, journeys, turnout } from "@/content/profile";
+import Opportunities from "@/components/Opportunities";
+import { beyondWork, facts, founderPerspective, whatIBring } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 
-/** Featured: Turnout (spotlight), CoS OS and the AI venture. Canaccord is highlighted further down. */
-const selected = ["cos-os", "finding-a-market-before-the-playbook"]
+/** Featured, in this order: CoS OS, Turnout and the seed-stage AI venture. The rest live on /work. */
+const selected = ["cos-os", "when-youre-the-one-building-it", "finding-a-market-before-the-playbook"]
   .map((slug) => projects.find((p) => p.slug === slug))
   .filter((p): p is (typeof projects)[number] => Boolean(p));
-const executive = projects.find((p) => p.slug === "making-strategy-everyones-business");
 
 export default function Home() {
   const personJsonLd = {
@@ -57,42 +55,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Turnout spotlight: Turnout's own figures on its own blue */}
-      <section aria-labelledby="turnout-title" className="frame pb-20 md:pb-28">
-        <div className="grid-12 gap-y-10">
-          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
-            <span className="label">{turnout.label}</span>
-          </div>
-          <Reveal className="col-span-4 md:col-span-5">
-            <Link href="/work/when-youre-the-one-building-it" className="group block" aria-label="Read the Turnout story">
-              <TurnoutScreen ratio="4 / 3" hoverZoom />
-            </Link>
-            <p className="mt-3 text-[1rem] leading-snug text-muted-ink">Concept direction, 2026. Product and UX by me; brand by A Plus M Studio.</p>
-          </Reveal>
-          <Reveal delay={120} className="col-span-4 md:col-span-6 md:col-start-7 md:self-center">
-            <div className="flex items-center gap-5">
-              <TurnoutMark size={64} />
-              <h2 id="turnout-title" className="text-display-md">
-                {turnout.name}. <em className="block text-[0.55em] leading-tight text-muted-ink">{turnout.line}</em>
-              </h2>
-            </div>
-            <p className="mt-8 text-display-sm leading-[1.25]">{turnout.what}</p>
-            <p className="mt-6 text-[1.25rem] leading-[1.5] text-muted-ink md:text-[1.375rem]">{turnout.body}</p>
-            <dl className="mt-8 grid grid-cols-3 gap-x-4 border-t border-linen-deep pt-5">
-              {turnout.facts.map((f) => (
-                <div key={f.label}>
-                  <dt className="label">{f.label}</dt>
-                  <dd className="mt-2 text-[1.125rem] leading-tight">{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-8">
-              <TextLink href="/work/when-youre-the-one-building-it">Read the Turnout story</TextLink>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Selected work */}
       <section aria-labelledby="work-title" className="frame py-20 md:py-28">
         <SectionHeading
@@ -102,99 +64,82 @@ export default function Home() {
         />
         <div className="mt-16 space-y-24 md:mt-24 md:space-y-36">
           {selected.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} index={projects.indexOf(p)} flipIndex={i + 1} />
+            <ProjectCard key={p.slug} project={p} index={projects.indexOf(p)} flipIndex={i} />
           ))}
         </div>
         <div className="mt-20 flex justify-end md:mt-28">
-          <TextLink href="/work">All six case studies</TextLink>
+          <TextLink href="/work">See all projects</TextLink>
         </div>
       </section>
 
-      {/* Executive delivery: Canaccord */}
-      {executive && (
-        <section aria-labelledby="executive-title" className="bg-oxblood text-paper">
-          <div className="frame py-20 md:py-28">
-            <div className="grid-12 gap-y-8">
-              <p className="label col-span-4 border-t border-paper/20 pt-4 !text-paper/70 md:col-span-12">Executive-level delivery · {executive.context}</p>
-              <h2 id="executive-title" className="col-span-4 text-display-lg md:col-span-6">{executive.title}</h2>
-              <div className="col-span-4 md:col-span-5 md:col-start-8">
-                <p className="label !text-paper/70">{executive.role}</p>
-                <p className="mt-4 text-[1.25rem] leading-[1.5] md:text-[1.375rem]">{executive.summary}</p>
-                <ul className="mt-8 space-y-3 border-t border-paper/20 pt-5">
-                  {executive.whatChanged.map((o) => (
-                    <li key={o.text} className="text-display-sm">{o.title}</li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <TextLink href={`/work/${executive.slug}`} className="!text-paper hover:!text-paper/70">Read the Canaccord story</TextLink>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* A little about me: keeps the original "little bit of everything" ethos */}
-      <section aria-labelledby="about-title" className="frame py-20 md:py-28">
-        <div className="grid-12">
+      {/* What I bring */}
+      <section aria-labelledby="bring-title" className="frame py-20 md:py-28">
+        <div className="grid-12 gap-y-10">
           <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
-            <span className="label">{aboutTeaser.label}</span>
+            <span className="label">{whatIBring.label}</span>
           </div>
-          <Reveal className="col-span-4 mt-10 md:col-span-8 md:col-start-4 md:mt-14">
-            <h2 id="about-title" className="text-display-lg">
-              <span className="block">A little bit of <em className="text-cherry">everything.</em></span>
-              <span className="block">A lot of getting things done.</span>
+          <Reveal className="col-span-4 md:col-span-7">
+            <h2 id="bring-title" className="text-display-lg">
+              I can see the bigger picture. <em className="text-cherry">I can also build what’s missing.</em>
             </h2>
           </Reveal>
-          <Reveal delay={100} className="prose-editorial col-span-4 mt-10 text-[1.375rem] leading-[1.45] md:col-span-5 md:col-start-4 md:mt-14 md:text-[1.5rem]">
-            {aboutTeaser.body.map((p) => (
+          <Reveal delay={100} className="prose-editorial col-span-4 text-[1.375rem] leading-[1.45] md:col-span-4 md:col-start-9 md:self-end md:text-[1.5rem]">
+            {whatIBring.intro.map((p) => (
               <p key={p}>{p}</p>
             ))}
-            <div className="!mt-8">
-              <TextLink href="/about">My story</TextLink>
-            </div>
           </Reveal>
-          <Reveal as="aside" delay={200} className="col-span-4 mt-12 md:col-span-3 md:col-start-10 md:mt-24">
-            <p className="border-l border-cherry pl-6 text-[1.625rem] italic leading-[1.25] text-cherry">{aboutTeaser.pullQuote}</p>
-          </Reveal>
+          <ol className="col-span-4 mt-4 grid grid-cols-1 sm:grid-cols-2 md:col-span-12 md:mt-10 md:grid-cols-4">
+            {whatIBring.items.map((it, i) => (
+              <li key={it.title} className={`border-t border-linen-deep py-6 md:border-t-0 md:py-0 ${i > 0 ? "md:border-l md:pl-6" : ""} md:pr-6`}>
+                <p className="label text-cherry">{String(i + 1).padStart(2, "0")}</p>
+                <h3 className="mt-3 text-display-sm">{it.title}</h3>
+                <p className="mt-3 text-[1.125rem] leading-snug text-muted-ink">{it.body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-
-      {/* Visitor journeys */}
-      <nav aria-labelledby="journeys-title" className="frame pb-20 md:pb-28">
-        <h2 id="journeys-title" className="label border-t border-linen-deep pt-4">Where would you like to start?</h2>
-        <ul className="mt-4 grid grid-cols-1 md:grid-cols-3">
-          {journeys.map((j, i) => (
-            <li key={j.audience} className={`border-b border-linen-deep md:border-b-0 ${i > 0 ? "md:border-l md:pl-8" : ""} md:pr-8`}>
-              <div className="group relative py-8">
-                <p className="label text-cherry">{j.audience}</p>
-                <p className="mt-4 text-display-sm transition-colors duration-500 group-hover:text-cherry">{j.title}</p>
-                <div className="mt-6">
-                  <TextLink href={j.href} className="static after:absolute after:inset-0 after:content-['']">
-                    {j.cta}
-                  </TextLink>
-                </div>
+      {/* Founder perspective */}
+      <section aria-labelledby="founder-title" className="bg-oxblood text-paper">
+        <div className="frame py-20 md:py-28">
+          <div className="grid-12 gap-y-8">
+            <p className="label col-span-4 border-t border-paper/20 pt-4 !text-paper/70 md:col-span-12">{founderPerspective.label}</p>
+            <Reveal className="col-span-4 md:col-span-6">
+              <h2 id="founder-title" className="text-display-lg">
+                I’ve sat on <em>both sides</em> of the table.
+              </h2>
+            </Reveal>
+            <Reveal delay={100} className="col-span-4 md:col-span-5 md:col-start-8 md:self-end">
+              <div className="space-y-5 text-[1.25rem] leading-[1.5] md:text-[1.375rem]">
+                {founderPerspective.body.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
               </div>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      {/* Beyond the boardroom */}
-      <section aria-labelledby="beyond-title" className="bg-butter/50 py-20 md:py-28">
-        <div className="frame">
-          <SectionHeading
-            label={beyondWork.label}
-            id="beyond-title"
-            title={<>There’s more to life than a <em className="text-cherry">job title.</em></>}
-            intro={beyondWork.intro}
-          />
-          <div className="mt-14 md:mt-20">
-            <InterestsCollage interests={beyondWork.interests} />
+              <div className="mt-8 flex flex-wrap gap-x-10 gap-y-3">
+                <TextLink href="/work/when-youre-the-one-building-it" className="!text-paper hover:!text-paper/70">Building Turnout</TextLink>
+                <TextLink href="/about" className="!text-paper hover:!text-paper/70">My story</TextLink>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
+
+      {/* Beyond the boardroom */}
+      <section aria-labelledby="beyond-title" className="frame py-20 md:py-28">
+        <SectionHeading
+          label={beyondWork.label}
+          id="beyond-title"
+          title={<>A curious mind rarely stays <em className="text-cherry">in one place.</em></>}
+          intro={beyondWork.intro}
+        />
+        <div className="mt-14 md:mt-20">
+          <InterestsCollage interests={beyondWork.interests} />
+        </div>
+      </section>
+
+      {/* Opportunities */}
+      <Opportunities />
     </>
   );
 }

@@ -9,7 +9,7 @@ export const site = {
   name: "Emma Clark",
   shortName: "Emma",
   title: "Founder & Strategic Operator",
-  tagline: "The company behind the company.",
+  tagline: "A little bit of everything. A lot of getting things done.",
   location: "London",
   roles: ["Founder", "Strategic Operator"],
   valueProposition:
@@ -48,5 +48,5 @@ export const nav = [
   { href: "/work", label: "Work" },
   { href: "/work-with-me", label: "Work With Me" },
   { href: "/currently", label: "Currently" },
-  { href: "#contact", label: "Get in touch" },
+  { href: "#contact", label: "Contact" },
 ] as const;

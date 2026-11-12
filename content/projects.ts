@@ -65,55 +65,16 @@ export type Project = {
   demo?: { href: string; label: string; note: string };
   /** Further screens shown as "Selected screens" on the case study. */
   gallery?: (ProjectImage & { caption: string; wide?: boolean })[];
+  /** One line on what the project shows about Emma, for the homepage cards. */
+  demonstrates?: string;
+  /** Optional sequence of steps, shown at the start of "The impact". */
+  progression?: string[];
   /** Use a venture's own colour (Turnout blue). */
   accent?: "turnout";
   status: "draft" | "approved";
 };
 
 export const projects: Project[] = [
-  {
-    slug: "when-youre-the-one-building-it",
-    title: "What it means to be the one building it.",
-    category: "Founding · Product · Go-to-Market",
-    summary:
-      "I co-founded Turnout, a sports and wellness community platform connecting clubs and members. From the initial concept through company formation and product testing, I’ve led commercial strategy, product and UX direction, monetisation and go-to-market.",
-    result: "From an idea to a defined commercial model, product direction and a platform in testing.",
-    context: "Turnout, a sports and wellness community platform",
-    role: "Co-Founder · Commercial & Product Lead",
-    timeframe: "2026 to present",
-    motif: { figure: "Turnout", caption: "Co-founded" },
-    accent: "turnout",
-    exhibit: {
-      src: "/images/turnout-concept-screens.jpg",
-      alt: "Three Turnout concept screens. Home: an open place on Saturday’s long slow distance run sits at the top with one tap to take it. A place opened up: the place is offered with a 9:41 clock before it passes to the next person. You’re on the sheet: twelve of twelve places filled.",
-      width: 2400,
-      height: 1483,
-      caption:
-        "Turnout concept direction, 2026. Product and UX direction by me; brand and moodboard by A Plus M Studio; technical implementation by our fractional CTO.",
-    },
-    problem:
-      "Starting a business means working without an established playbook. Every product decision has a commercial consequence, every priority competes for limited resources, and progress depends on knowing what to build now versus what can wait.\n\nWe needed to develop a product that solved genuine problems for clubs and members while creating a commercially viable business.",
-    myRole: [
-      "Co-founded the business and helped take it from concept and formation into product testing.",
-      "Developed the commercial framework, target market, monetisation approach and go-to-market strategy.",
-      "Led product and UX direction, translating user and business requirements into product priorities.",
-      "Worked closely with our fractional CTO on technical feasibility, feature prioritisation and development trade-offs.",
-      "Conceived Poppy, our AI agent for supporting coordination across the platform, and worked with our CTO, who built the technical implementation.",
-      "Shaped partnerships, brand and launch planning.",
-    ],
-    whatChanged: [
-      {
-        title: "From idea to platform in testing",
-        text: "Progressed Turnout from an idea into a business with a defined commercial model, product direction and a platform in testing.",
-        kind: "team",
-      },
-    ],
-    impactNote:
-      "The technical development is a team achievement. My ownership has been across commercial strategy, product and UX direction, monetisation and founder-level decisions.",
-    lesson:
-      "Founding has changed the way I think about execution. When it’s your business, there is no separating strategy from delivery. You make decisions with incomplete information, prioritise what matters and take responsibility for moving things forward.",
-    status: "approved",
-  },
   {
     slug: "cos-os",
     title: "Building the Chief of Staff system I wanted to use.",
@@ -123,6 +84,8 @@ export const projects: Project[] = [
     result: "A working AI-enabled Chief of Staff product connecting leadership priorities with operational execution.",
     context: "CoS OS, an AI-enabled operating workspace",
     role: "Founder · Product, Design & Build",
+    demonstrates:
+      "Identifying an operational problem, translating it into product requirements and building a working solution with modern AI development tools.",
     demo: {
       href: "https://claude.ai/artifact/DQvy82cn3jjqciRPsra1ua",
       label: "Try the AI Chief of Staff demo",
@@ -184,14 +147,62 @@ export const projects: Project[] = [
     status: "approved",
   },
   {
+    slug: "when-youre-the-one-building-it",
+    title: "What it means to be the one building it.",
+    category: "Founding · Product · Go-to-Market",
+    summary:
+      "I co-founded Turnout, a sports and wellness community platform connecting clubs and members. From the initial concept through company formation and product testing, I’ve led commercial strategy, product and UX direction, monetisation and go-to-market.",
+    result: "From an idea to a defined commercial model, product direction and a platform in testing.",
+    context: "Turnout, a sports and wellness community platform",
+    role: "Co-Founder · Commercial & Product Lead",
+    demonstrates:
+      "A founder’s understanding of uncertainty, commercial decisions, technical trade-offs and the responsibility of building something from scratch.",
+    timeframe: "2026 to present",
+    motif: { figure: "Turnout", caption: "Co-founded" },
+    accent: "turnout",
+    exhibit: {
+      src: "/images/turnout-concept-screens.jpg",
+      alt: "Three Turnout concept screens. Home: an open place on Saturday’s long slow distance run sits at the top with one tap to take it. A place opened up: the place is offered with a 9:41 clock before it passes to the next person. You’re on the sheet: twelve of twelve places filled.",
+      width: 2400,
+      height: 1483,
+      caption:
+        "Turnout concept direction, 2026. Product and UX direction by me; brand and moodboard by A Plus M Studio; technical implementation by our fractional CTO.",
+    },
+    problem:
+      "Starting a business means working without an established playbook. Every product decision has a commercial consequence, every priority competes for limited resources, and progress depends on knowing what to build now versus what can wait.\n\nWe needed to develop a product that solved genuine problems for clubs and members while creating a commercially viable business.",
+    myRole: [
+      "Co-founded the business and helped take it from concept and formation into product testing.",
+      "Developed the commercial framework, target market, monetisation approach and go-to-market strategy.",
+      "Led product and UX direction, translating user and business requirements into product priorities.",
+      "Worked closely with our fractional CTO on technical feasibility, feature prioritisation and development trade-offs.",
+      "Conceived Poppy, our AI agent for supporting coordination across the platform, and worked with our CTO, who built the technical implementation.",
+      "Shaped partnerships, brand and launch planning.",
+    ],
+    whatChanged: [
+      {
+        title: "From idea to platform in testing",
+        text: "Progressed Turnout from an idea into a business with a defined commercial model, product direction and a platform in testing.",
+        kind: "team",
+      },
+    ],
+    impactNote:
+      "The technical development is a team achievement. My ownership has been across commercial strategy, product and UX direction, monetisation and founder-level decisions.",
+    lesson:
+      "Founding has changed the way I think about execution. When it’s your business, there is no separating strategy from delivery. You make decisions with incomplete information, prioritise what matters and take responsibility for moving things forward.",
+    status: "approved",
+  },
+  {
     slug: "finding-a-market-before-the-playbook",
     title: "Finding the market before there’s a playbook.",
     category: "Zero-to-One Growth · Go-to-Market",
     summary:
-      "Working alongside a technical founding team at a seed-stage AI venture, I helped turn an emerging technology proposition into an actionable go-to-market strategy, progressing six businesses to pilot stage.",
+      "As part of the founding growth team at a seed-stage AI venture, I defined the target customer and pricing with the founder and built the go-to-market approach, progressing six businesses to pilot stage.",
     result: "Six businesses progressed to pilot stage.",
     context: "Seed-stage AI venture",
     role: "Founding Growth Team · Go-to-Market",
+    demonstrates:
+      "Creating commercial direction, developing propositions and moving opportunities forward in an early-stage environment.",
+    progression: ["Market opportunity", "Segmentation", "Proposition", "Pricing", "Pipeline", "Pilot stage"],
     timeframe: "2026 to present",
     motif: { figure: "6", caption: "Businesses progressed to pilot stage" },
     problem:
@@ -230,10 +241,11 @@ export const projects: Project[] = [
     problem:
       "Commercial growth spans multiple interdependent functions, from distribution and propositions to finance, technology, data and client experience.\n\nLeadership needed a consistent framework for prioritisation, accountability, performance visibility and decision-making.",
     myRole: [
-      "Developed the organic growth strategy, including client-segment and channel opportunity sizing, commercial analysis and proposition priorities.",
-      "Translated strategy into commercial objectives, KPIs and delivery plans.",
       "Established and ran a Growth Committee to coordinate priorities and decisions.",
       "Built the executive operating cadence, including governance, risk escalation and delivery reporting.",
+      "Built a 30-metric, one-page CEO dashboard covering client outcomes, fair value, growth, outflows, regulatory risk and retention, cutting leadership reporting time by around two weeks.",
+      "Developed the organic growth strategy, including client-segment and channel opportunity sizing, commercial analysis and proposition priorities.",
+      "Translated strategy into commercial objectives, KPIs and delivery plans.",
       "Supported strategic partnerships and commercial enablement through external materials, opportunity analysis and pipeline-conversion reporting.",
       "Worked across commercial, financial, technology, operations and compliance stakeholders.",
       "Coordinated eight Consumer Duty workstreams and Fair Value Assessment activity through senior governance and Board sign-off.",
@@ -242,6 +254,11 @@ export const projects: Project[] = [
       {
         title: "Strategy adopted, and made executable",
         text: "An organic growth strategy adopted by ExCo, with a repeatable leadership forum and operating cadence connecting strategic priorities to accountable execution.",
+        kind: "personal",
+      },
+      {
+        title: "Around two weeks back for leadership",
+        text: "The one-page dashboard I built cut leadership reporting preparation by around two weeks.",
         kind: "personal",
       },
       {

@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about/" },
 };
 
+const timelineGroups = [
+  { kind: "employment", title: "Employment", note: "" },
+  { kind: "founder", title: "Founder & fractional", note: "Running alongside my full-time role." },
+] as const;
+
 export default function AboutPage() {
   const cv = hasCv();
   const permanentHref = mailto(site.contact.subjects.permanent);
@@ -89,17 +94,27 @@ export default function AboutPage() {
           <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
             <h2 id="timeline-title" className="label">Career timeline</h2>
           </div>
-          <ol className="col-span-4 md:col-span-8">
-            {timeline.map((t) => (
-              <li key={t.org + t.when} className="grid grid-cols-1 gap-x-8 gap-y-1 border-b border-linen-deep py-5 sm:grid-cols-[11rem_1fr]">
-                <span className="text-[1rem] tabular-nums text-muted-ink">{t.when}</span>
-                <span>
-                  <span className="block text-[1.5rem] leading-tight">{t.org}</span>
-                  <span className="mt-1 block text-[1.0625rem] leading-snug text-muted-ink">{t.role}</span>
-                </span>
-              </li>
+          <div className="col-span-4 space-y-12 md:col-span-8">
+            {timelineGroups.map((g) => (
+              <div key={g.kind}>
+                <h3 className="label text-cherry">{g.title}</h3>
+                {g.note && <p className="mt-2 text-[1rem] text-muted-ink">{g.note}</p>}
+                <ol className="mt-3">
+                  {timeline
+                    .filter((t) => t.kind === g.kind)
+                    .map((t) => (
+                      <li key={t.org + t.when} className="grid grid-cols-1 gap-x-8 gap-y-1 border-b border-linen-deep py-5 sm:grid-cols-[11rem_1fr]">
+                        <span className="text-[1rem] tabular-nums text-muted-ink">{t.when}</span>
+                        <span>
+                          <span className="block text-[1.5rem] leading-tight">{t.org}</span>
+                          <span className="mt-1 block text-[1.0625rem] leading-snug text-muted-ink">{t.role}</span>
+                        </span>
+                      </li>
+                    ))}
+                </ol>
+              </div>
             ))}
-          </ol>
+          </div>
           <div className="col-span-4 md:col-span-4">
             <p className="label">Education & qualifications</p>
             <ul className="mt-4 space-y-3">
@@ -164,9 +179,9 @@ export default function AboutPage() {
             <h2 id="hiring-title" className="sr-only">For hiring managers</h2>
             <p className="text-[1.375rem] leading-[1.5]">{about.permanent}</p>
             <div className="mt-6 flex flex-wrap gap-x-10 gap-y-3">
-              {permanentHref && <TextLink href={permanentHref}>Talk about a role</TextLink>}
+              <TextLink href="/work">View my work</TextLink>
+              {permanentHref && <TextLink href={permanentHref}>Get in touch</TextLink>}
               {cv && <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>}
-              <TextLink href="/work">Selected work</TextLink>
             </div>
           </div>
         </aside>

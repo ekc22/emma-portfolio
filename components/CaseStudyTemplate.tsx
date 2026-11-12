@@ -117,7 +117,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
 
       <div className="frame py-20 md:py-28">
         {project.situation && (
-          <Row number={n()} label="The context">
+          <Row number={n()} label="The situation">
             <p className="text-display-sm">{project.situation}</p>
           </Row>
         )}
@@ -160,6 +160,16 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
         {showImpact && (
         <Row number={n()} label="The impact">
           {project.whatChanged.length === 0 && <ReviewNote>Outcomes to be added once confirmed</ReviewNote>}
+          {project.progression && (
+            <ol aria-label="How it progressed" className="mb-10 flex flex-wrap items-baseline gap-x-3 gap-y-2 text-[1.25rem] leading-snug">
+              {project.progression.map((step, i) => (
+                <li key={step} className={i === project.progression!.length - 1 ? "italic text-cherry" : ""}>
+                  {step}
+                  {i < project.progression!.length - 1 && <span aria-hidden="true" className="ml-3 text-cherry">→</span>}
+                </li>
+              ))}
+            </ol>
+          )}
           <ul className="space-y-8">
             {project.whatChanged.map((o) => (
               <li key={o.text}>

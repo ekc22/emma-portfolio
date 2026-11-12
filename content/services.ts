@@ -6,11 +6,11 @@
 import { site } from "./site";
 
 export const workWithMe = {
-  headline: "From ambitious ideas to meaningful progress.",
+  headline: "Good ideas need people who make them happen.",
   intro: [
-    "I work alongside founders and leadership teams on the commercial, strategic and operational priorities that move a business forward.",
-    "My experience combines the discipline of established businesses with the adaptability required in early-stage ventures.",
-    "I enjoy working across the big picture and the detail: shaping priorities, building systems and taking ownership of execution.",
+    "I work best alongside ambitious founders and leadership teams, bringing together commercial judgement, strategic thinking and hands-on execution.",
+    "I’m comfortable moving between the big picture and the detail, from helping shape priorities and commercial opportunities to building the systems and processes that make execution possible.",
+    "I’m particularly interested in high-ownership roles where I can operate across functions, solve ambiguous problems and help a business move faster.",
   ],
 };
 
@@ -24,64 +24,54 @@ export type Offering = {
   subject: string;
 };
 
-/** Three areas of support. */
+/** Three areas Emma can own. */
 export const offerings: Offering[] = [
-  {
-    id: "growth-go-to-market",
-    title: "Growth & Go-to-Market",
-    description: "Helping businesses move from commercial ideas to tangible market opportunities.",
-    areas: [
-      "Market research and segmentation",
-      "Commercial positioning",
-      "Go-to-market planning",
-      "Pricing and proposition development",
-      "Strategic partnerships",
-      "Customer pipeline and opportunity progression",
-      "Early commercial traction",
-    ],
-    caseStudies: ["finding-a-market-before-the-playbook", "when-youre-the-one-building-it"],
-    subject: site.contact.subjects.project,
-  },
   {
     id: "founders-office",
     title: "Founder’s Office & Strategic Execution",
     description: "Helping founders and leadership teams turn priorities into accountable execution.",
     areas: [
-      "Strategic planning and prioritisation",
-      "Executive operating cadence",
-      "Cross-functional initiatives",
-      "Founder and CEO special projects",
-      "Investor and Board materials",
-      "Management reporting",
-      "Project delivery and follow-through",
+      "Strategic priorities",
+      "Company operating cadence",
+      "Cross-functional delivery",
+      "Special projects",
+      "Executive and Board materials",
+      "Performance visibility",
+      "Decision-making and follow-through",
     ],
     caseStudies: ["making-strategy-everyones-business", "circus-capital"],
-    subject: site.contact.subjects.fractional,
+    subject: site.contact.subjects.permanent,
+  },
+  {
+    id: "commercial-growth",
+    title: "Commercial Strategy & Growth",
+    description: "Moving from commercial ideas to tangible market opportunities.",
+    areas: [
+      "Market analysis",
+      "Commercial positioning",
+      "Go-to-market strategy",
+      "Partnerships",
+      "Pipeline development",
+      "Pricing and propositions",
+      "Growth initiatives",
+    ],
+    caseStudies: ["finding-a-market-before-the-playbook", "when-youre-the-one-building-it"],
+    subject: site.contact.subjects.permanent,
   },
   {
     id: "ai-business-operations",
     title: "AI & Business Operations",
-    description: "Building practical systems that help businesses operate more intelligently.",
+    description: "Building practical infrastructure that helps a business operate more intelligently.",
     areas: [
       "Executive dashboards",
       "Reporting automation",
-      "AI-assisted workflows",
-      "Claude agents and operational tools",
-      "Performance visibility",
-      "Business process improvement",
-      "Project and decision tracking",
+      "Operational workflows",
+      "AI-assisted systems",
+      "Project tracking",
+      "Internal tools",
+      "Business performance visibility",
     ],
-    caseStudies: ["cos-os", "circus-capital"],
-    subject: site.contact.subjects.project,
+    caseStudies: ["cos-os", "making-strategy-everyones-business"],
+    subject: site.contact.subjects.permanent,
   },
 ];
-
-export const waysToWork = {
-  emphasis: "I’m particularly drawn to founder-led businesses where I can combine commercial thinking with hands-on ownership.",
-  types: [
-    { title: "Fractional engagements", subject: site.contact.subjects.fractional },
-    { title: "Defined commercial or operational projects", subject: site.contact.subjects.project },
-    { title: "Permanent Chief of Staff, Founder’s Office, strategy and operations roles", subject: site.contact.subjects.permanent },
-    { title: "Collaborations with ambitious founders and teams", subject: site.contact.subjects.general },
-  ],
-};

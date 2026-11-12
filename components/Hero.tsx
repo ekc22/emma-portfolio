@@ -11,21 +11,11 @@ import TextLink from "./TextLink";
  * Beside it: a portrait when supplied, otherwise Emma's professional identity in type.
  */
 export default function Hero() {
-  const roleHref = mailto(site.contact.subjects.permanent);
+  const talkHref = mailto();
   const cv = hasCv();
   return (
     <section aria-labelledby="hero-title" className="frame pb-16 pt-10 md:pb-24 md:pt-16">
       <div className="grid-12">
-        <div className="col-span-4 mb-8 flex flex-wrap items-center gap-x-6 gap-y-3 border border-linen-deep bg-butter/60 px-4 py-3 md:col-span-12 md:mb-10">
-          <p className="flex items-center gap-3 text-[1.125rem] leading-snug">
-            <span aria-hidden="true" className="inline-block h-2 w-2 shrink-0 rounded-full bg-[#3F6B3A]" />
-            {openTo}
-          </p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-[1rem]">
-            {cv && <a href={withBase(site.cv.path)} className="text-link">Download CV</a>}
-            {roleHref && <a href={roleHref} className="text-link">Talk about a role</a>}
-          </div>
-        </div>
         <p className="label col-span-4 md:col-span-12 motion-safe:animate-page-in">{hero.eyebrow}</p>
 
         <h1 id="hero-title" className="col-span-4 mt-8 text-display-xl md:col-span-8 md:mt-12">
@@ -52,15 +42,24 @@ export default function Hero() {
         </aside>
 
         <div className="col-span-4 mt-14 md:col-span-6 md:col-start-3 md:mt-20">
-          <div className="prose-editorial text-[1.375rem] leading-[1.45] md:text-[1.625rem]">
+          <div className="prose-editorial text-[1.375rem] leading-[1.45] md:text-[1.5rem]">
             {hero.intro.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
-          <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+          <div className="mt-10 flex flex-wrap items-baseline gap-x-10 gap-y-4">
             <TextLink href="/work">Explore my work</TextLink>
-            <TextLink href="/work-with-me">Work with me</TextLink>
+            {talkHref && <TextLink href={talkHref}>Let’s talk</TextLink>}
+            {cv && (
+              <a href={withBase(site.cv.path)} className="text-[1.0625rem] text-muted-ink underline decoration-linen-deep underline-offset-4 transition-colors hover:text-cherry">
+                View CV
+              </a>
+            )}
           </div>
+          <p className="mt-8 flex items-center gap-3 text-[1.0625rem] leading-snug text-muted-ink">
+            <span aria-hidden="true" className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#3F6B3A]" />
+            {openTo}
+          </p>
         </div>
       </div>
 

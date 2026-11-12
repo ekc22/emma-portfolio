@@ -59,6 +59,12 @@ export default function ProjectCard({ project, index, flipIndex, headingLevel: H
           </Link>
         </H>
         <p className="mt-4 max-w-[34ch] text-[1.375rem] leading-[1.4] text-muted-ink">{project.summary}</p>
+        {project.demonstrates && (
+          <p className="mt-5 max-w-[36ch] border-l border-cherry pl-4 text-[1.125rem] leading-snug">
+            <span className="label block text-cherry">What this demonstrates</span>
+            <span className="mt-1 block">{project.demonstrates}</span>
+          </p>
+        )}
         <span aria-hidden="true" className="text-link mt-6 text-[1.125rem] group-hover:text-cherry">
           <span>View project</span>
           <span className="arrow">→</span>

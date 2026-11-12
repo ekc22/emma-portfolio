@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/content/site";
+import { withBase } from "@/lib/paths";
 import MobileMenu from "./MobileMenu";
 
 function useLondonTime() {
@@ -100,6 +101,11 @@ export default function Navbar() {
                 </li>
               );
             })}
+            <li>
+              <a href={withBase(site.cv.path)} className="text-[0.6875rem] font-semibold uppercase tracking-label text-muted-ink transition-colors hover:text-cherry">
+                CV<span className="sr-only"> (PDF)</span>
+              </a>
+            </li>
           </ul>
         </nav>
 

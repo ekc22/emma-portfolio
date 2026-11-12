@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { nav, site } from "@/content/site";
+import { withBase } from "@/lib/paths";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -81,6 +82,7 @@ export default function MobileMenu() {
               </li>
             ))}
           </ol>
+          <a href={withBase(site.cv.path)} className="text-link mt-6 inline-block text-[1.25rem]">{site.cv.label}</a>
         </nav>
         <div className="mt-auto">
           <p className="wordmark text-[2rem]">{site.name}</p>

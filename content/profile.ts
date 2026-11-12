@@ -203,7 +203,7 @@ export const about = {
     "What connects all of it is curiosity, ownership and a genuine enjoyment of making things happen. I like understanding the big picture, but I’m equally happy getting into the detail.",
   pullQuote: "A strategy is only interesting to me if someone is prepared to execute it.",
   outside:
-    "And outside work? I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
+    "I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
   closing: "I’m always looking for interesting people to learn from, ideas to explore and things worth building.",
   permanent:
     "If you’re hiring: I’m open to the right permanent opportunity with an ambitious business, particularly roles that sit across strategy, growth and operations.",

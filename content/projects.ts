@@ -63,7 +63,7 @@ export const projects: Project[] = [
     title: "What happens when you’re the one building it?",
     category: "Founding & Go-to-market",
     summary:
-      "Co-founding Turnout, a sports and wellness platform: owning its full go-to-market, building Poppy, our AI agent, and working with our CTO to free up more time for go-to-market.",
+      "Co-founding Turnout, a sports and wellness platform: owning its full go-to-market, building Poppy, our AI agent, and working with a fractional CTO to get to market sooner.",
     context: "Turnout, a sports and wellness platform",
     role: "Co-founder · Go-to-market & AI",
     imageBrief: "Turnout: a real photograph from a sports or wellness session",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     situation:
       "Turnout started as an idea: a sports and wellness platform that brings people together.",
     problem:
-      "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or brand, is a trade-off between ambition and what can realistically get done this week. And a great product still needs a clear route to the people it’s for.\n\nIn a small team, time is the scarcest resource. Every hour spent on manual work is an hour not spent on go-to-market.",
+      "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or brand, is a trade-off between ambition and what can realistically get done this week. And a great product still needs a clear route to the people it’s for.\n\nIn a small team, time is the scarcest resource. Every hour spent on manual work is an hour later to market.",
     myRole: [
       {
         title: "Founding",
@@ -86,8 +86,8 @@ export const projects: Project[] = [
         body: "Built Poppy, Turnout’s AI agent, with forecasting and agent-to-agent workflows that track trends.",
       },
       {
-        title: "Working with our CTO",
-        body: "Work closely with our CTO, a Forward Deployed Engineer in AI, to automate manual work and free up more of our time for go-to-market.",
+        title: "Working with a fractional CTO",
+        body: "Work closely with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, to automate manual work and get Turnout to market sooner.",
       },
       {
         title: "Product, brand and launch",

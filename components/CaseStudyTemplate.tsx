@@ -2,6 +2,7 @@ import Link from "next/link";
 import { outcomeLabels, type Project } from "@/content/projects";
 import { showReviewNotes } from "@/lib/review";
 import EditorialImage from "./EditorialImage";
+import TurnoutPanel from "./TurnoutPanel";
 import Reveal from "./Reveal";
 import ReviewNote from "./ReviewNote";
 import TextLink from "./TextLink";
@@ -64,7 +65,11 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
 
       <div className="frame">
         <Reveal>
-          <EditorialImage image={project.image} brief={project.imageBrief} ratio="16 / 9" sizes="100vw" priority tone={project.accent ?? "linen"} />
+          {project.accent === "turnout" && !project.image ? (
+            <TurnoutPanel ratio="16 / 9" figureWidth="40%" />
+          ) : (
+            <EditorialImage image={project.image} brief={project.imageBrief} ratio="16 / 9" sizes="100vw" priority tone={project.accent ?? "linen"} />
+          )}
         </Reveal>
       </div>
 

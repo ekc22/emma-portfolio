@@ -7,6 +7,8 @@ import Reveal from "@/components/Reveal";
 import ReviewNote from "@/components/ReviewNote";
 import SectionHeading from "@/components/SectionHeading";
 import TextLink from "@/components/TextLink";
+import TurnoutPanel from "@/components/TurnoutPanel";
+import Link from "next/link";
 import { aboutTeaser, beyondWork, capabilities, currently, facts, journeys, turnout } from "@/content/profile";
 import { featuredProjects } from "@/content/projects";
 import { site } from "@/content/site";
@@ -57,45 +59,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Turnout spotlight */}
-      <section aria-labelledby="turnout-title" className="bg-turnout text-oxblood">
-        <div className="frame py-20 md:py-32">
-          <div className="grid-12 gap-y-10">
-            <div className="col-span-4 flex gap-4 border-t border-oxblood/20 pt-4 md:col-span-12">
-              <span className="label">{turnout.label}</span>
-            </div>
-            <Reveal className="col-span-4 md:col-span-6">
-              <h2 id="turnout-title" className="text-[clamp(4rem,12vw,10rem)] leading-[0.85] tracking-[-0.03em]">
-                {turnout.name}.
-              </h2>
-              <p className="mt-6 text-display-sm italic text-cherry">{turnout.line}</p>
-            </Reveal>
-            <Reveal delay={120} className="col-span-4 md:col-span-5 md:col-start-8 md:pt-6">
-              <div className="prose-editorial text-[1.375rem] leading-[1.45] md:text-[1.5rem]">
-                {turnout.body.map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
-              </div>
-              <dl className="mt-10 grid grid-cols-3 gap-x-4 border-t border-oxblood/20 pt-5">
-                {turnout.facts.map((f) => (
-                  <div key={f.label}>
-                    <dt className="label">{f.label}</dt>
-                    <dd className="mt-2 text-[1.25rem] leading-tight">{f.value}</dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="mt-10">
-                <TextLink href="/work/when-youre-the-one-building-it">
-                  Read the Turnout story
-                </TextLink>
-              </div>
-            </Reveal>
+      {/* Turnout spotlight: quiet, with Turnout's own figures on its own blue */}
+      <section aria-labelledby="turnout-title" className="frame py-20 md:py-28">
+        <div className="grid-12 gap-y-10">
+          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
+            <span className="label">{turnout.label}</span>
           </div>
+          <Reveal className="col-span-4 md:col-span-5">
+            <Link href="/work/when-youre-the-one-building-it" className="group block" aria-label="Read the Turnout story">
+              <TurnoutPanel ratio="4 / 3" hoverZoom figureWidth="62%" />
+            </Link>
+          </Reveal>
+          <Reveal delay={120} className="col-span-4 md:col-span-6 md:col-start-7">
+            <h2 id="turnout-title" className="text-display-md">
+              {turnout.name}. <em className="block text-[0.55em] leading-tight text-muted-ink">{turnout.line}</em>
+            </h2>
+            <div className="prose-editorial mt-8 text-[1.25rem] leading-[1.5] md:text-[1.375rem]">
+              {turnout.body.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            <dl className="mt-10 grid grid-cols-3 gap-x-4 border-t border-linen-deep pt-5">
+              {turnout.facts.map((f) => (
+                <div key={f.label}>
+                  <dt className="label">{f.label}</dt>
+                  <dd className="mt-2 text-[1.125rem] leading-tight">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-10">
+              <TextLink href="/work/when-youre-the-one-building-it">Read the Turnout story</TextLink>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Credibility strip */}
-      <section aria-labelledby="facts-title">
+      <section aria-labelledby="facts-title" className="bg-butter/50">
         <div className="frame py-16 md:py-24">
           <h2 id="facts-title" className="label">In numbers</h2>
           <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4 md:gap-x-0">

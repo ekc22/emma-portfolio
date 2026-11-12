@@ -72,7 +72,7 @@ Assets
 
 Contact and links
 - [x] Email address → `content/site.ts` (published; phone number intentionally not shown)
-- [ ] Turnout figures logo → `public/images/` for the founder credit (keep its own red; never merge with the EMMA CLARK mark)
+- [x] Turnout running figures → `public/images/turnout-figures.svg` (traced vector, shown on Turnout blue; never merged with the EMMA CLARK mark)
 - [ ] LinkedIn URL (optional) → `content/site.ts`
 
 Copy and facts to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
@@ -129,4 +129,4 @@ assets/fonts/           Instrument Serif (OFL) for the social card
 
 Copy and figures approved by Emma (November 2026). Draft badges are switched off in
 `.github/workflows/deploy.yml` (`NEXT_PUBLIC_SHOW_REVIEW_NOTES: "false"`). Set it to `"true"` to see review
-notes again while editing. Still to add: photography, CV PDF, Turnout figures logo, and real "Currently" picks.
+notes again while editing. Still to add: photography, CV PDF and real "Currently" picks.

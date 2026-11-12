@@ -39,7 +39,7 @@ export const turnout = {
   line: "A sports and wellness platform I co-founded.",
   body: [
     "I’m responsible for Turnout’s full go-to-market. I developed the go-to-market strategy, and I move between commercial planning, product decisions, brand and the website.",
-    "I’ve built Poppy, our AI agent, with forecasting and agent-to-agent workflows that track trends. And I work closely with our CTO, a Forward Deployed Engineer in AI, to automate the manual work and free up more of our time for go-to-market.",
+    "I’ve built Poppy, our AI agent, with forecasting and agent-to-agent workflows that track trends. And I work closely with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, to automate the manual work and get to market sooner.",
     "Together we’ve taken it from company formation and initial concept into product testing.",
   ],
   facts: [
@@ -195,7 +195,7 @@ export const about = {
       label: "The other side of the table",
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
-        "I’ve co-founded Turnout, a sports and wellness platform, taking it from an idea through company formation, product development and into testing. I’m responsible for its full go-to-market, and I developed the go-to-market strategy. I’ve built Poppy, our AI agent, with forecasting and agent-to-agent workflows that track trends, and I work with our CTO, a Forward Deployed Engineer in AI, to free up more of our time for go-to-market.",
+        "I’ve co-founded Turnout, a sports and wellness platform, taking it from an idea through company formation, product development and into testing. I’m responsible for its full go-to-market, and I developed the go-to-market strategy. I’ve built Poppy, our AI agent, with forecasting and agent-to-agent workflows that track trends, and I work with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, to get to market sooner.",
         "I’ve also worked fractionally with founders, helping turn early-stage ideas into commercial propositions and execution plans. At a seed-stage AI venture I’m a founding member of the growth team, alongside colleagues including former Amazon employees, and I own the full go-to-market there too. For Circus Capital, I support fundraising, connect them with family offices and support their investor materials, and I built an agentic Chief of Staff, a pipeline tracker, an investor finder and a project management system in Claude. It taught me the importance of relationship building.",
         "I’ve also become fascinated by what AI makes possible for small, ambitious teams. I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
 import EditorialImage from "./EditorialImage";
+import TurnoutPanel from "./TurnoutPanel";
 import Reveal from "./Reveal";
 
 type Props = { project: Project; index: number; headingLevel?: "h2" | "h3" };
@@ -18,6 +19,9 @@ export default function ProjectCard({ project, index, headingLevel: H = "h3" }: 
       <Reveal
         className={`col-span-4 ${flip ? "md:col-span-6 md:col-start-7 md:row-start-1" : "md:col-span-7 md:col-start-1"}`}
       >
+        {project.accent === "turnout" && !project.image ? (
+          <TurnoutPanel ratio={flip ? "1 / 1" : "5 / 4"} hoverZoom figureWidth="52%" />
+        ) : (
         <EditorialImage
           image={project.image}
           brief={project.imageBrief}
@@ -26,6 +30,7 @@ export default function ProjectCard({ project, index, headingLevel: H = "h3" }: 
           hoverZoom
           tone={project.accent ?? (index === 1 ? "deep" : "linen")}
         />
+        )}
       </Reveal>
 
       <Reveal

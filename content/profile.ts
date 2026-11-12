@@ -15,17 +15,17 @@ export const hero = {
     "My work sits where commercial strategy meets execution: building growth propositions, creating the systems businesses run on and turning ambitious ideas into something tangible.",
     "Today, I combine financial discipline, a founder’s perspective and hands-on technical capability to help ambitious businesses build, operate and grow.",
   ],
-  // Add a portrait at public/images/emma-portrait.jpg and set it here; the hero shows it automatically.
-  portrait: { src: "/images/emma-portrait.jpg", alt: "Portrait of Emma Clark", width: 1122, height: 1402 } as undefined | ImageAsset,
+  // Add a portrait at public/images/emma-portrait.webp and set it here; the hero shows it automatically.
+  portrait: { src: "/images/emma-portrait.webp", alt: "Portrait of Emma Clark", width: 1122, height: 1402 } as undefined | ImageAsset,
 };
 
 /** Shown at the top of the homepage. */
-export const openTo = "Open to Chief of Staff, Founder’s Office and strategy & operations roles";
+export const openTo = "Open to Chief of Staff, Founder’s Office, commercial and go-to-market, strategy & operations and AI enablement roles";
 
 /** Professional identity, shown beside the hero. */
 export const identity = {
   title: "Founder & Strategic Operator",
-  positioning: "Chief of Staff · Founder’s Office · Strategy & Operations",
+  positioning: "Chief of Staff · Commercial & Go-to-Market · AI Enablement",
   statement: ["I can build.", "I can operate.", "I bring commercial and financial judgement."],
 };
 
@@ -103,11 +103,17 @@ export const opportunities = {
   label: "Opportunities",
   headline: "Where I want to make an impact.",
   body: [
-    "I’m particularly interested in Chief of Staff, Founder’s Office, Founding Operator and Strategy & Operations roles within ambitious, founder-led businesses.",
+    "I’m particularly interested in Chief of Staff, Founder’s Office and Founding Operator roles, commercial and go-to-market roles, and AI enablement, within ambitious, founder-led businesses.",
     "I enjoy environments where there’s ownership, pace, trust and an opportunity to build.",
     "I’m also open to selected fractional engagements and defined projects where my experience can be useful.",
   ],
-  roles: ["Chief of Staff to a Founder or CEO", "Founding Operator", "Founder’s Office", "Strategy & Operations Lead", "Business Operations & Strategic Initiatives"],
+  roles: [
+    "Chief of Staff to a Founder or CEO",
+    "Founder’s Office & Founding Operator",
+    "Commercial & Go-to-Market",
+    "AI Enablement",
+    "Strategy & Operations",
+  ],
   environments: ["AI-native start-ups", "Venture-backed technology, seed to Series C", "Founder-led scale-ups", "Fintech and financial infrastructure"],
 };
 
@@ -244,5 +250,5 @@ export const about = {
     "I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
   closing: "I’m always looking for interesting people to learn from, ideas to explore and things worth building.",
   permanent:
-    "If you’re hiring: I’m looking for a permanent Chief of Staff, Founder’s Office, strategy or operations role, ideally at a founder-led seed or Series A business, where I can bring a founder’s perspective and take real ownership.",
+    "If you’re hiring: I’m looking for a permanent Chief of Staff, Founder’s Office, commercial and go-to-market, AI enablement, strategy or operations role, ideally at a founder-led seed or Series A business, where I can bring a founder’s perspective and take real ownership.",
 };

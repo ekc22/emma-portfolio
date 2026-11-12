@@ -96,7 +96,7 @@ export const projects: Project[] = [
     },
     motif: { figure: "9", caption: "Operating desks in one workspace" },
     exhibit: {
-      src: "/images/cos-os-investors.jpg",
+      src: "/images/cos-os-investors.webp",
       alt: "The CoS OS Investor Relations Desk for a fictional company raising an £8m Series A: indicative interest, soft commitments, legally committed and funds received shown separately, a capital ladder against the target, and investor conversion by stage.",
       width: 2000,
       height: 1333,
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     },
     gallery: [
       {
-        src: "/images/cos-os-command-centre.jpg",
+        src: "/images/cos-os-command-centre.webp",
         alt: "The CoS OS Executive Command Centre: headline figures for objectives, projects, overdue actions, pipeline, forecast and runway, issues needing attention and decisions awaiting approval.",
         width: 2016,
         height: 1428,
@@ -112,14 +112,14 @@ export const projects: Project[] = [
         wide: true,
       },
       {
-        src: "/images/cos-os-pipeline.jpg",
+        src: "/images/cos-os-pipeline.webp",
         alt: "The CoS OS Commercial Pipeline: open and weighted pipeline, win rate, opportunities by stage and stage conversion.",
         width: 2000,
         height: 1333,
         caption: "Commercial Pipeline: weighted forecast, stage conversion and deals that need intervention.",
       },
       {
-        src: "/images/cos-os-projects.jpg",
+        src: "/images/cos-os-projects.webp",
         alt: "The CoS OS Projects and Delivery desk: portfolio status, overdue milestones and actions, budget used, open risks and delivery signals.",
         width: 2000,
         height: 1333,
@@ -164,7 +164,7 @@ export const projects: Project[] = [
     motif: { figure: "Turnout", caption: "Co-founded" },
     accent: "turnout",
     exhibit: {
-      src: "/images/turnout-concept-screens.jpg",
+      src: "/images/turnout-concept-screens.webp",
       alt: "Three Turnout concept screens. Home: an open place on Saturday’s long slow distance run sits at the top with one tap to take it. A place opened up: the place is offered with a 9:41 clock before it passes to the next person. You’re on the sheet: twelve of twelve places filled.",
       width: 2400,
       height: 1483,

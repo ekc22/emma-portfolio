@@ -44,7 +44,7 @@ export const offerings: Offering[] = [
   },
   {
     id: "commercial-growth",
-    title: "Commercial Strategy & Growth",
+    title: "Commercial Strategy & Go-to-Market",
     description: "Moving from commercial ideas to tangible market opportunities.",
     areas: [
       "Market analysis",
@@ -60,13 +60,13 @@ export const offerings: Offering[] = [
   },
   {
     id: "ai-business-operations",
-    title: "AI & Business Operations",
-    description: "Building practical infrastructure that helps a business operate more intelligently.",
+    title: "AI Enablement & Business Operations",
+    description: "Helping teams adopt AI in practice, and building the infrastructure that helps a business operate more intelligently.",
     areas: [
+      "AI adoption and enablement",
+      "AI-assisted workflows and agents",
       "Executive dashboards",
       "Reporting automation",
-      "Operational workflows",
-      "AI-assisted systems",
       "Project tracking",
       "Internal tools",
       "Business performance visibility",

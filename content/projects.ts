@@ -351,7 +351,7 @@ export const projects: Project[] = [
       height: 1428,
       caption: "The Executive Command Centre, shown with a fictional demo company.",
     },
-    status: "draft",
+    status: "approved",
   },
 ];
 

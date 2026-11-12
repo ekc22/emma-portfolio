@@ -178,7 +178,8 @@ export const about = {
       label: "Learning how businesses work",
       paragraphs: [
         "I started my career in finance, learning how businesses really work: the numbers, the decisions, the people behind them and what it takes to keep everything moving.",
-        "Over the next decade, that curiosity took me from a FTSE 250 insurer to a venture-backed SaaS business, through investment management and into the commercial office of a private equity-backed wealth manager.",
+        "I joined Hastings Direct as a FTSE 250 insurer and stayed through its move into private ownership.",
+        "Over the next decade, that curiosity took me on to a venture-backed SaaS business, through investment management and into the commercial office of a private equity-backed wealth manager.",
       ],
     },
     {

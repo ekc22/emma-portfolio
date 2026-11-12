@@ -13,7 +13,7 @@ export const site = {
   location: "London",
   roles: ["Founder", "Strategic Operator"],
   valueProposition:
-    "Working across strategy, growth, operations and technology to help ambitious businesses turn ideas into execution.",
+    "I work alongside founders and executives to turn ambitious ideas into commercial opportunities, operating systems and measurable execution.",
 
   /** Public URL, used for canonical links, sitemap and Open Graph. Set NEXT_PUBLIC_SITE_URL in Vercel. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
@@ -31,8 +31,8 @@ export const site = {
   },
 
   links: {
-    // TODO(Emma): add your LinkedIn profile URL. Hidden until set.
-    linkedin: "",
+    // Shown in the footer and contact section.
+    linkedin: "https://www.linkedin.com/in/emmakclark11",
   },
 
   /**

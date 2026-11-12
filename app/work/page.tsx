@@ -6,7 +6,7 @@ import { projects } from "@/content/projects";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected projects across strategy, operations, AI and founding a venture.",
+  description: "Selected work across venture building, commercial growth, executive strategy, investor relations and AI-enabled operations.",
   alternates: { canonical: "/work/" },
 };
 
@@ -17,8 +17,14 @@ export default function WorkPage() {
         <SectionHeading
           as="h1"
           label="Selected work"
-          title={<>Projects, ventures and <em className="text-cherry">things I’ve built.</em></>}
-          intro="A small selection of work across strategy, operations, technology and founding something of my own. Each one separates what I did from what the wider team achieved."
+          title={<>The ideas, businesses and systems <em className="text-cherry">behind the work.</em></>}
+          intro={
+            <>
+              <span className="block">A selection of projects spanning venture building, commercial growth, executive strategy, investor relations and AI-enabled operations.</span>
+              <span className="mt-4 block">Different industries and stages of growth, but a consistent approach: understand the problem, work out what matters and take ownership of making progress.</span>
+              <span className="mt-4 block">Each story distinguishes what I personally contributed from the outcomes achieved by the wider team.</span>
+            </>
+          }
         />
 
         {/* Contents-page index */}

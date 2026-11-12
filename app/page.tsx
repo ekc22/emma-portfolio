@@ -11,8 +11,11 @@ import { aboutTeaser, beyondWork, facts, journeys, turnout } from "@/content/pro
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 
-/** Turnout has its own spotlight, so selected work shows the next three stories. */
-const selected = projects.filter((p) => p.accent !== "turnout").slice(0, 3);
+/** Featured: Turnout (spotlight), CoS OS and the AI venture. Canaccord is highlighted further down. */
+const selected = ["cos-os", "finding-a-market-before-the-playbook"]
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .filter((p): p is (typeof projects)[number] => Boolean(p));
+const executive = projects.find((p) => p.slug === "making-strategy-everyones-business");
 
 export default function Home() {
   const personJsonLd = {
@@ -43,32 +46,6 @@ export default function Home() {
               </Reveal>
             ))}
           </dl>
-        </div>
-      </section>
-
-      {/* A little about me: keeps the original "little bit of everything" ethos */}
-      <section aria-labelledby="about-title" className="frame py-20 md:py-28">
-        <div className="grid-12">
-          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
-            <span className="label">{aboutTeaser.label}</span>
-          </div>
-          <Reveal className="col-span-4 mt-10 md:col-span-8 md:col-start-4 md:mt-14">
-            <h2 id="about-title" className="text-display-lg">
-              <span className="block">A little bit of <em className="text-cherry">everything.</em></span>
-              <span className="block">A lot of getting things done.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={100} className="prose-editorial col-span-4 mt-10 text-[1.375rem] leading-[1.45] md:col-span-5 md:col-start-4 md:mt-14 md:text-[1.5rem]">
-            {aboutTeaser.body.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-            <div className="!mt-8">
-              <TextLink href="/about">My story</TextLink>
-            </div>
-          </Reveal>
-          <Reveal as="aside" delay={200} className="col-span-4 mt-12 md:col-span-3 md:col-start-10 md:mt-24">
-            <p className="border-l border-cherry pl-6 text-[1.625rem] italic leading-[1.25] text-cherry">{aboutTeaser.pullQuote}</p>
-          </Reveal>
         </div>
       </section>
 
@@ -117,13 +94,64 @@ export default function Home() {
         />
         <div className="mt-16 space-y-24 md:mt-24 md:space-y-36">
           {selected.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} index={projects.indexOf(p)} flipIndex={i} />
+            <ProjectCard key={p.slug} project={p} index={projects.indexOf(p)} flipIndex={i + 1} />
           ))}
         </div>
         <div className="mt-20 flex justify-end md:mt-28">
-          <TextLink href="/work">All seven stories</TextLink>
+          <TextLink href="/work">All seven case studies</TextLink>
         </div>
       </section>
+
+      {/* Executive delivery: Canaccord */}
+      {executive && (
+        <section aria-labelledby="executive-title" className="bg-oxblood text-paper">
+          <div className="frame py-20 md:py-28">
+            <div className="grid-12 gap-y-8">
+              <p className="label col-span-4 border-t border-paper/20 pt-4 !text-paper/70 md:col-span-12">Executive-level delivery · {executive.context}</p>
+              <h2 id="executive-title" className="col-span-4 text-display-lg md:col-span-6">{executive.title}</h2>
+              <div className="col-span-4 md:col-span-5 md:col-start-8">
+                <p className="label !text-paper/70">{executive.role}</p>
+                <p className="mt-4 text-[1.25rem] leading-[1.5] md:text-[1.375rem]">{executive.summary}</p>
+                <ul className="mt-8 space-y-3 border-t border-paper/20 pt-5">
+                  {executive.whatChanged.map((o) => (
+                    <li key={o.text} className="text-display-sm">{o.title}</li>
+                  ))}
+                </ul>
+                <div className="mt-8">
+                  <TextLink href={`/work/${executive.slug}`} className="!text-paper hover:!text-paper/70">Read the Canaccord story</TextLink>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* A little about me: keeps the original "little bit of everything" ethos */}
+      <section aria-labelledby="about-title" className="frame py-20 md:py-28">
+        <div className="grid-12">
+          <div className="col-span-4 border-t border-linen-deep pt-4 md:col-span-12">
+            <span className="label">{aboutTeaser.label}</span>
+          </div>
+          <Reveal className="col-span-4 mt-10 md:col-span-8 md:col-start-4 md:mt-14">
+            <h2 id="about-title" className="text-display-lg">
+              <span className="block">A little bit of <em className="text-cherry">everything.</em></span>
+              <span className="block">A lot of getting things done.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={100} className="prose-editorial col-span-4 mt-10 text-[1.375rem] leading-[1.45] md:col-span-5 md:col-start-4 md:mt-14 md:text-[1.5rem]">
+            {aboutTeaser.body.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+            <div className="!mt-8">
+              <TextLink href="/about">My story</TextLink>
+            </div>
+          </Reveal>
+          <Reveal as="aside" delay={200} className="col-span-4 mt-12 md:col-span-3 md:col-start-10 md:mt-24">
+            <p className="border-l border-cherry pl-6 text-[1.625rem] italic leading-[1.25] text-cherry">{aboutTeaser.pullQuote}</p>
+          </Reveal>
+        </div>
+      </section>
+
 
       {/* Visitor journeys */}
       <nav aria-labelledby="journeys-title" className="frame pb-20 md:pb-28">

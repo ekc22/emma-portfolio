@@ -11,9 +11,7 @@ export const hero = {
   eyebrow: "Strategy / Growth / Building",
   headline: "From the boardroom to the blank sheet.",
   intro: [
-    "I’ve spent a decade working at the intersection of strategy, growth and execution, from listed businesses and venture-backed technology companies to founder-led ventures.",
-    "I’ve supported major fundraising processes, built commercial propositions, created operating systems and co-founded a business of my own.",
-    "Today, I bring together financial discipline, a founder’s perspective and hands-on execution to help ambitious businesses move forward.",
+    "I work alongside founders and executives to turn ambitious ideas into commercial opportunities, operating systems and measurable execution.",
   ],
   // Add a portrait at public/images/emma-portrait.jpg and set it here; the hero shows it automatically.
   portrait: undefined as undefined | ImageAsset,
@@ -22,8 +20,8 @@ export const hero = {
 /** Professional identity, shown beside the hero. */
 export const identity = {
   title: "Founder & Strategic Operator",
-  positioning: "Strategy, growth and operations, from established businesses to the earliest stages of building.",
-  statement: ["Commercial thinking.", "Hands-on execution.", "A founder’s perspective."],
+  positioning: "Chief of Staff · Commercial Growth · AI-Native Operations",
+  statement: ["I can build.", "I can operate.", "I bring commercial and financial judgement."],
 };
 
 /** Where Emma has worked. Approved for publication. Names as text only; no company logos. */
@@ -32,9 +30,9 @@ export const workedWith = ["Hastings Direct", "Paddle", "RBC Brewin Dolphin", "C
 export const aboutTeaser = {
   label: "A little about me",
   body: [
-    "I’ve spent my career working across businesses at very different stages of growth, from established financial institutions to venture-backed technology companies and early-stage ventures.",
-    "What connects those experiences is an interest in how businesses work, how ideas become commercially viable and what it takes to execute when there isn’t an obvious answer.",
-    "I’ve worked alongside executives, founders and technical teams, supported fundraising and growth initiatives, developed operating systems and built a venture of my own.",
+    "My career has taken me from the financial and operational foundations of listed businesses to venture-backed technology, investment management and building something of my own.",
+    "I’ve worked directly with executive teams on commercial strategy, growth initiatives, fundraising, financial planning and business operations. More recently, I’ve co-founded a venture, developed early-stage go-to-market strategies and built AI-powered tools to make small teams more effective.",
+    "What connects the experience is a willingness to move between strategy and execution, understand the detail and take responsibility for getting things done.",
   ],
   pullQuote:
     "I’m particularly drawn to ambitious, founder-led environments where commercial thinking, ownership and execution matter.",
@@ -48,10 +46,10 @@ export const turnout = {
   what:
     "Turnout connects clubs and people, bringing together a sports and wellness market that’s fragmented. Clubs get a backend for collecting money and organising events, and Poppy, our AI agent, supports the coordination.",
   body:
-    "Building Turnout has given me a founder’s perspective on commercial strategy, product development, technical trade-offs and execution. I lead go-to-market, monetisation and product and UX, came up with the concept for Poppy, our AI agent, and work with our fractional CTO, who builds it, to bring that vision to life and get to market sooner.",
+    "From the initial concept through company formation and product testing, I’ve led commercial strategy, product and UX direction, monetisation and go-to-market. I conceived Poppy, our AI agent, and work with our fractional CTO, who builds the technical implementation.",
   facts: [
     { label: "My role", value: "Co-founder" },
-    { label: "I lead", value: "Go-to-market & monetisation" },
+    { label: "I lead", value: "Commercial & product" },
     { label: "My concept", value: "Poppy, our AI agent" },
   ],
 };
@@ -66,13 +64,13 @@ export const facts = [
   { figure: "≈2 weeks", label: "Recurring reporting preparation saved per cycle" },
   { figure: "30", label: "Executive metrics in the reporting dashboards I built" },
   { figure: "6", label: "Businesses progressed to pilot stage at a seed-stage AI venture" },
-  { figure: "$200m", label: "Series D at Paddle, at a unicorn valuation, while I was part of the business" },
+  { figure: "$200m+", label: "Series D at Paddle, where I supported the financial analysis" },
 ];
 
 /** Separate journeys for the three kinds of visitor. */
 export const journeys = [
   { audience: "Founders", title: "Looking for fractional or project support?", href: "/work-with-me", cta: "How I can help" },
-  { audience: "Seed & Series A founders", title: "Hiring an early commercial or operations lead?", href: "/work", cta: "See how I work" },
+  { audience: "Hiring", title: "Hiring a Chief of Staff, Founder’s Office or strategy and operations lead?", href: "/work", cta: "See how I work" },
   { audience: "Investors & collaborators", title: "Curious about my background?", href: "/about", cta: "My story" },
 ];
 
@@ -170,7 +168,7 @@ export const about = {
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
         "I co-founded Turnout, a sports and wellness community platform that connects clubs and people in a fragmented market, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market, monetisation and product and UX, and came up with the concept for Poppy, our AI agent, which supports the coordination behind it all. Our fractional CTO builds it; I work with him to channel the vision into the product.",
-        "I’ve also worked fractionally with founders. At a seed-stage AI venture I’m a founding member of the growth team, leading go-to-market. For Circus Capital, I support fundraising and investor relationships, and built the Claude-powered systems behind their day-to-day operations.",
+        "I’ve also worked fractionally with founders. At a seed-stage AI venture I’m part of the founding growth team, leading go-to-market. At Circus Capital, I work alongside the Principal as a fractional Chief of Staff, across strategic priorities, stakeholder communications, research and internal execution.",
         "Across all of it, I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],
     },
@@ -182,5 +180,5 @@ export const about = {
     "I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
   closing: "I’m always looking for interesting people to learn from, ideas to explore and things worth building.",
   permanent:
-    "If you’re hiring: I’m looking for my next role at a seed or Series A start-up, as an early hire across strategy, growth, go-to-market and operations, where I can bring a founder’s perspective and take real ownership.",
+    "If you’re hiring: I’m looking for a permanent Chief of Staff, Founder’s Office, strategy or operations role, ideally at a founder-led seed or Series A business, where I can bring a founder’s perspective and take real ownership.",
 };

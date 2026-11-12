@@ -55,7 +55,7 @@ export const offerings: Offering[] = [
       "Management reporting",
       "Project delivery and follow-through",
     ],
-    caseStudies: ["circus-capital", "making-strategy-everyones-business"],
+    caseStudies: ["making-strategy-everyones-business", "circus-capital"],
     subject: site.contact.subjects.fractional,
   },
   {
@@ -81,7 +81,7 @@ export const waysToWork = {
   types: [
     { title: "Fractional engagements", subject: site.contact.subjects.fractional },
     { title: "Defined commercial or operational projects", subject: site.contact.subjects.project },
-    { title: "Permanent roles at seed and Series A start-ups", subject: site.contact.subjects.permanent },
+    { title: "Permanent Chief of Staff, Founder’s Office, strategy and operations roles", subject: site.contact.subjects.permanent },
     { title: "Collaborations with ambitious founders and teams", subject: site.contact.subjects.general },
   ],
 };

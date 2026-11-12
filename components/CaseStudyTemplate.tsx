@@ -25,11 +25,15 @@ function Row({ number, label, children }: { number: string; label: string; child
 }
 
 /**
- * Editorial case study: situation → problem → what I did → what changed → what it taught me.
- * Each result carries its kind (delivered personally, team outcome, pipeline, company milestone).
+ * Editorial case study. The first screen carries the headline, role and primary result; then
+ * (context) → challenge → my contribution → impact → what it taught me. Sections are numbered
+ * in order and optional ones are skipped. Each result carries its kind.
  */
 export default function CaseStudyTemplate({ project, index, next, nextIndex }: Props) {
   const num = String(index + 1).padStart(2, "0");
+  let section = 0;
+  const n = () => String(++section).padStart(2, "0");
+  const showImpact = project.whatChanged.length > 0 || showReviewNotes;
 
   return (
     <article>
@@ -44,7 +48,13 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
             <p className="label text-cherry">{num} / {project.category}</p>
             <h1 className="mt-5 text-display-lg motion-safe:animate-page-in">{project.title}</h1>
             {project.role && <p className="label mt-6 !text-oxblood">{project.role}</p>}
-            <p className="mt-8 max-w-[34ch] text-[1.625rem] leading-[1.35] text-muted-ink">{project.summary}</p>
+            {project.result && (
+              <div className="mt-8 border-l-2 border-cherry pl-5">
+                <p className="label text-cherry">Result</p>
+                <p className="mt-2 max-w-[30ch] text-display-sm">{project.result}</p>
+              </div>
+            )}
+            <p className="mt-8 max-w-[42ch] text-[1.375rem] leading-[1.45] text-muted-ink md:text-[1.5rem]">{project.summary}</p>
             {project.status === "draft" && <ReviewNote className="mt-8">Draft: figures and wording awaiting Emma’s approval</ReviewNote>}
           </div>
         </div>
@@ -91,19 +101,23 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
       </div>
 
       <div className="frame py-20 md:py-28">
-        <Row number="01" label="The situation">
-          <p className="text-display-sm">{project.situation}</p>
-        </Row>
+        {project.situation && (
+          <Row number={n()} label="The context">
+            <p className="text-display-sm">{project.situation}</p>
+          </Row>
+        )}
 
-        <Row number="02" label="The challenge">
-          <div className="prose-editorial text-[1.5rem] leading-[1.4] md:text-[1.75rem]">
-            {project.problem.split("\n\n").map((para) => (
-              <p key={para}>{para}</p>
-            ))}
-          </div>
-        </Row>
+        {project.problem && (
+          <Row number={n()} label="The challenge">
+            <div className="prose-editorial text-[1.5rem] leading-[1.4] md:text-[1.75rem]">
+              {project.problem.split("\n\n").map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </div>
+          </Row>
+        )}
 
-        <Row number="03" label="My contribution">
+        <Row number={n()} label="My contribution">
           <ol className="space-y-6">
             {project.myRole.map((step, i) => (
               <li key={typeof step === "string" ? step : step.title} className="grid grid-cols-[3rem_1fr] text-[1.375rem] leading-snug">
@@ -128,7 +142,8 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
           {project.note && <p className="mt-8 max-w-[60ch] text-[1rem] leading-snug text-muted-ink">{project.note}</p>}
         </Row>
 
-        <Row number="04" label="The impact">
+        {showImpact && (
+        <Row number={n()} label="The impact">
           {project.whatChanged.length === 0 && <ReviewNote>Outcomes to be added once confirmed</ReviewNote>}
           <ul className="space-y-8">
             {project.whatChanged.map((o) => (
@@ -145,12 +160,14 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
               </li>
             ))}
           </ul>
+          {project.impactNote && <p className="mt-8 max-w-[52ch] border-t border-linen-deep pt-5 text-[1.125rem] italic leading-snug text-muted-ink">{project.impactNote}</p>}
         </Row>
+        )}
 
         {(project.lesson || showReviewNotes) && (
           <section className="grid-12 border-t border-linen-deep pt-16 md:pt-24">
             <h2 className="col-span-4 flex gap-3 md:col-span-3">
-              <span className="label text-cherry">05</span>
+              <span className="label text-cherry">{n()}</span>
               <span className="label">What it taught me</span>
             </h2>
             <div className="col-span-4 mt-6 md:col-span-8 md:col-start-5 md:mt-0">

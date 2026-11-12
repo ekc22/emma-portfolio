@@ -48,10 +48,10 @@ export const turnout = {
   what:
     "Turnout connects clubs and people, bringing together a sports and wellness market that’s fragmented. Clubs get a backend for collecting money and organising events, and Poppy, our AI agent, supports the coordination.",
   body:
-    "Building Turnout has given me a founder’s perspective on commercial strategy, product development, technical trade-offs and execution. I lead go-to-market, built Poppy, our AI agent, and work with a fractional CTO to get to market sooner.",
+    "Building Turnout has given me a founder’s perspective on commercial strategy, product development, technical trade-offs and execution. I lead go-to-market and product and UX, built Poppy, our AI agent, and work with a fractional CTO to get to market sooner.",
   facts: [
     { label: "My role", value: "Co-founder" },
-    { label: "I lead", value: "Go-to-market" },
+    { label: "I lead", value: "Go-to-market, product & UX" },
     { label: "I built", value: "Poppy, our AI agent" },
   ],
 };
@@ -72,7 +72,7 @@ export const facts = [
 /** Separate journeys for the three kinds of visitor. */
 export const journeys = [
   { audience: "Founders", title: "Looking for fractional or project support?", href: "/work-with-me", cta: "How I can help" },
-  { audience: "Hiring managers", title: "Exploring a permanent role?", href: "/work", cta: "Case studies and CV" },
+  { audience: "Seed & Series A founders", title: "Hiring an early commercial or operations lead?", href: "/work", cta: "See how I work" },
   { audience: "Investors & collaborators", title: "Curious about my background?", href: "/about", cta: "My story" },
 ];
 
@@ -169,7 +169,7 @@ export const about = {
       label: "The other side of the table",
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
-        "I co-founded Turnout, a sports and wellness community platform that connects clubs and people in a fragmented market, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market and built Poppy, our AI agent, which supports the coordination behind it all.",
+        "I co-founded Turnout, a sports and wellness community platform that connects clubs and people in a fragmented market, and have taken it from an idea through company formation and product development into testing. I lead its go-to-market and product and UX, and built Poppy, our AI agent, which supports the coordination behind it all.",
         "I’ve also worked fractionally with founders. At a seed-stage AI venture I’m a founding member of the growth team, leading go-to-market. For Circus Capital, I support fundraising and investor relationships, and built the Claude-powered systems behind their day-to-day operations.",
         "Across all of it, I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],
@@ -182,5 +182,5 @@ export const about = {
     "I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
   closing: "I’m always looking for interesting people to learn from, ideas to explore and things worth building.",
   permanent:
-    "If you’re hiring: I’m open to selected permanent opportunities with ambitious businesses, particularly roles that sit across strategy, growth and operations.",
+    "If you’re hiring: I’m looking for my next role at a seed or Series A start-up, as an early hire across strategy, growth, go-to-market and operations, where I can bring a founder’s perspective and take real ownership.",
 };

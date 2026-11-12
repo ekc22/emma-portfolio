@@ -133,7 +133,7 @@ notes again while editing. Still to add: photography, CV PDF and real "Currently
 
 ### Phase 2 materials still wanted (from the November 2026 review)
 - Portrait and working photographs (hero and About pick them up automatically)
-- Turnout product and platform visuals (the running figures are in place as the logo)
+- [x] Turnout concept screens added (product and UX by Emma; brand by A Plus M Studio)
 - Approved, anonymised dashboard screenshots (AI reporting) and a screenshot of the Claude Chief of Staff system (Circus Capital)
 - Personal photos and a line of reflection for each Beyond the boardroom interest
 - Real reading, listening and experiment picks for /currently

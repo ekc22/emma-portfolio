@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { withBase } from "@/lib/paths";
 import { outcomeLabels, type Project } from "@/content/projects";
 import { showReviewNotes } from "@/lib/review";
 import EditorialImage from "./EditorialImage";
@@ -67,7 +69,20 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
 
       <div className="frame">
         <Reveal>
-          {project.accent === "turnout" && !project.image ? (
+          {project.exhibit ? (
+            <figure>
+              <Image
+                src={withBase(project.exhibit.src)}
+                alt={project.exhibit.alt}
+                width={project.exhibit.width}
+                height={project.exhibit.height}
+                sizes="(min-width: 1440px) 1330px, 100vw"
+                priority
+                className="h-auto w-full"
+              />
+              <figcaption className="mt-4 text-[1rem] leading-snug text-muted-ink">{project.exhibit.caption}</figcaption>
+            </figure>
+          ) : project.accent === "turnout" && !project.image ? (
             <TurnoutPanel ratio="16 / 9" figureWidth="40%" />
           ) : (
             <EditorialImage image={project.image} motif={project.motif} ratio="16 / 9" sizes="100vw" priority tone={project.accent ?? "linen"} />

@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import TextLink from "@/components/TextLink";
 import TurnoutMark from "@/components/TurnoutMark";
-import TurnoutPanel from "@/components/TurnoutPanel";
+import TurnoutScreen from "@/components/TurnoutScreen";
 import { aboutTeaser, beyondWork, facts, journeys, turnout } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
@@ -80,8 +80,9 @@ export default function Home() {
           </div>
           <Reveal className="col-span-4 md:col-span-5">
             <Link href="/work/when-youre-the-one-building-it" className="group block" aria-label="Read the Turnout story">
-              <TurnoutPanel ratio="4 / 3" hoverZoom figureWidth="62%" />
+              <TurnoutScreen ratio="4 / 3" hoverZoom />
             </Link>
+            <p className="mt-3 text-[1rem] leading-snug text-muted-ink">Concept direction, 2026. Product and UX by me; brand by A Plus M Studio.</p>
           </Reveal>
           <Reveal delay={120} className="col-span-4 md:col-span-6 md:col-start-7 md:self-center">
             <div className="flex items-center gap-5">

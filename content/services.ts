@@ -81,7 +81,7 @@ export const waysToWork = {
   types: [
     { title: "Fractional engagements", subject: site.contact.subjects.fractional },
     { title: "Defined commercial or operational projects", subject: site.contact.subjects.project },
-    { title: "Selected permanent opportunities", subject: site.contact.subjects.permanent },
+    { title: "Permanent roles at seed and Series A start-ups", subject: site.contact.subjects.permanent },
     { title: "Collaborations with ambitious founders and teams", subject: site.contact.subjects.general },
   ],
 };

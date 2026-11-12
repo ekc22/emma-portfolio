@@ -9,7 +9,7 @@
  *  - `myRole` is what Emma personally did. Each `whatChanged` item says what KIND
  *    of result it is, so personal delivery, team outcomes, pipeline progress and
  *    company milestones are never confused.
- *  - Figures come from Emma's portfolio. TODO(Emma): confirm each one is current and
+ *  - Figures come from Emma's portfolio. Confirmed by Emma as current and
  *    can be shared publicly before setting status to "approved".
  *  - Never invent lessons, clients, testimonials or numbers. If `lesson` is empty
  *    the page shows a placeholder while review notes are on.
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     lesson:
       "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",
     // Turnout keeps its own brand: shown as a credit, never merged into the EMMA CLARK mark.
-    status: "draft",
+    status: "approved",
   },
   {
     slug: "finding-a-market-before-the-playbook",
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     ],
     lesson:
       "It taught me that early-stage growth is as much about listening and testing assumptions as it is about selling. When there’s no established market or playbook, you have to find the opportunity, shape a proposition people understand and turn uncertainty into commercial momentum.",
-    status: "draft",
+    status: "approved",
   },
   {
     slug: "circus-capital",
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     lesson:
       "In capital raising, relationships open doors. Preparation, credibility and consistent execution create the conditions for progress.",
     note: "Fundraising support covers preparation, process management and introductions. It is not investment advice or arranging deals; any regulated activity stays with authorised firms.",
-    status: "draft",
+    status: "approved",
   },
   {
     slug: "making-strategy-everyones-business",
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     ],
     lesson:
       "It taught me that strategy only works when people understand what they’re working towards and how their contribution fits into the bigger picture. The real value isn’t in creating the plan, but in bringing people together, establishing accountability and turning ambition into collective progress.",
-    status: "draft",
+    status: "approved",
   },
   {
     slug: "less-reporting-more-thinking",
@@ -207,14 +207,14 @@ export const projects: Project[] = [
     ],
     lesson:
       "It taught me to question how work gets done, not just how to do it faster. The real opportunity with technology isn’t simply automating tasks. It’s giving people back the time and clarity to think, make better decisions and focus on work that actually moves the business forward.",
-    status: "draft",
+    status: "approved",
   },
   {
     slug: "the-discipline-behind-the-ambition",
     title: "The discipline behind the ambition.",
     category: "Finance & Leadership",
     summary:
-      "From supporting analysis for Paddle’s $200m+ Series D and acquisition integration to Board reporting, capital planning and investor relations.",
+      "Part of Paddle during its $200m Series D and unicorn valuation, then acquisition integration, Board reporting, capital planning and investor relations.",
     context: "Paddle, then investment management and private equity-backed businesses",
     role: "Paddle · Series D Fundraising & Acquisition",
     imageBrief: "Desk still life: ledger, linen paper and a fountain pen, top-down at 30°",
@@ -223,17 +223,17 @@ export const projects: Project[] = [
     problem:
       "Big moments like a funding round or an acquisition depend on rigorous analysis and clear reporting, delivered while the business keeps running.",
     myRole: [
-      "Supported financial analysis for Paddle’s $200m+ Series D",
+      "Part of the business during Paddle’s $200m Series D and unicorn valuation",
       "Supported acquisition integration",
       "Prepared executive and Board reporting",
       "Contributed to capital planning and investor relations",
     ],
     whatChanged: [
-      { text: "Paddle raised a $200m+ Series D. I supported the financial analysis; I did not raise the capital.", kind: "company" },
+      { text: "Paddle raised a $200m Series D at a unicorn valuation while I was part of the business.", kind: "company" },
     ],
     lesson:
       "It taught me that behind every ambitious growth story is a business that needs to stand up to scrutiny. Supporting a major fundraise and acquisition gave me an appreciation for the financial discipline, commercial understanding and operational detail required to turn ambition into something investors can believe in.",
-    status: "draft",
+    status: "approved",
   },
 ];
 

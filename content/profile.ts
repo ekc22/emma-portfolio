@@ -51,11 +51,11 @@ export const turnout = {
 /**
  * Credibility strip. Qualifying wording is part of each fact — keep it, so supporting a
  * fundraise isn’t read as raising the capital, and pilots aren’t read as revenue.
- * TODO(Emma): confirm each figure is current and can be shared publicly.
+ * Figures confirmed by Emma as current and shareable.
  */
 export const facts = [
   { figure: "10 years", label: "Across finance, strategy, operations and growth" },
-  { figure: "$200m+", label: "Series D fundraising supported through financial analysis" },
+  { figure: "$200m", label: "Part of the business during a Series D and unicorn valuation" },
   { figure: "30 metrics", label: "Executive dashboard and reporting infrastructure built" },
   { figure: "6 pilots", label: "Businesses progressed to pilot stage at a seed-stage AI venture" },
 ];

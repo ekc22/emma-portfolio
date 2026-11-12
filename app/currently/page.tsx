@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import CurrentlyList from "@/components/CurrentlyList";
 import ReviewNote from "@/components/ReviewNote";
 import { currently } from "@/content/profile";
+import { showReviewNotes } from "@/lib/review";
 
 export const metadata: Metadata = {
   title: "Currently",
@@ -10,6 +11,11 @@ export const metadata: Metadata = {
 };
 
 export default function CurrentlyPage() {
+  // Unfilled "TODO" picks only show while review notes are on.
+  const notebook = currently.notebook
+    .map((g) => ({ ...g, items: showReviewNotes ? g.items : g.items.filter((it) => !it.startsWith("TODO")) }))
+    .filter((g) => g.items.length > 0);
+
   return (
     <>
       <section className="frame pb-16 pt-12 md:pb-24 md:pt-20">
@@ -39,7 +45,7 @@ export default function CurrentlyPage() {
           <div className="col-span-4 mt-6 md:col-span-12">
             <ReviewNote>Placeholder picks: Emma to replace</ReviewNote>
           </div>
-          {currently.notebook.map((group, i) => (
+          {notebook.map((group, i) => (
             <div key={group.label} className={`col-span-4 mt-10 md:col-span-3 ${i === 0 ? "md:col-start-1" : ""} ${i === 1 ? "md:col-start-5" : ""} ${i === 2 ? "md:col-start-9" : ""}`}>
               <h3 className="font-serif text-2xl italic text-cherry">{group.label}</h3>
               <ul className="mt-4 space-y-2">

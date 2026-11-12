@@ -76,7 +76,7 @@ Contact and links
 - [ ] LinkedIn URL (optional) → `content/site.ts`
 
 Copy and facts to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
-- [ ] Figures: 10 years, $200m+ Series D (supported), 30 metrics, ~two weeks saved per cycle, 6 pilots, £150k pilot target — current and shareable?
+- [x] Figures confirmed: 10 years, part of Paddle during a $200m Series D and unicorn valuation, 30 metrics, ~two weeks saved per cycle, 6 pilots, £150k pilot target
 - [x] Naming Hastings Direct, Paddle, RBC Brewin Dolphin and Canaccord (approved; text only, no logos; keep internal project detail unattributed)
 - [ ] "What it taught me" for each of the six case studies
 - [x] Circus Capital: fundraising support, family office introductions, lesson added (in Emma's words)
@@ -124,3 +124,9 @@ assets/fonts/           Instrument Serif (OFL) for the social card
   and content is never hidden when JavaScript is off.
 - Accessibility: semantic landmarks, skip link, visible focus styles, keyboard-operable mobile menu
   (focus trap, Escape to close), descriptive placeholder labels.
+
+## Status
+
+Copy and figures approved by Emma (November 2026). Draft badges are switched off in
+`.github/workflows/deploy.yml` (`NEXT_PUBLIC_SHOW_REVIEW_NOTES: "false"`). Set it to `"true"` to see review
+notes again while editing. Still to add: photography, CV PDF, Turnout figures logo, and real "Currently" picks.

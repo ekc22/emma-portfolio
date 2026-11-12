@@ -12,7 +12,7 @@ export const DialogClose = DialogPrimitive.Close;
 export function DialogContent({ className, children, wide, ...props }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & { wide?: boolean }) {
   return (
     <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-navy/20 backdrop-blur-[1px] animate-fade-in" />
+      <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-oxblood/25 animate-fade-in" />
       <DialogPrimitive.Content
         className={cn(
           "fixed left-1/2 top-[6vh] z-50 flex max-h-[88vh] w-[calc(100vw-2rem)] -translate-x-1/2 flex-col rounded-lg border border-border bg-surface shadow-pop animate-fade-in",
@@ -33,7 +33,7 @@ export function DialogHeader({ className, ...props }: React.HTMLAttributes<HTMLD
   return <div className={cn("border-b border-border px-5 py-4 pr-10", className)} {...props} />;
 }
 export function DialogTitle({ className, ...props }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>) {
-  return <DialogPrimitive.Title className={cn("font-serif text-lg font-medium", className)} {...props} />;
+  return <DialogPrimitive.Title className={cn("font-serif text-[26px] leading-tight", className)} {...props} />;
 }
 export function DialogDescription({ className, ...props }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>) {
   return <DialogPrimitive.Description className={cn("mt-0.5 text-xs text-muted-foreground", className)} {...props} />;

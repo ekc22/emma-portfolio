@@ -93,7 +93,7 @@ export default async function InvestorsDashboard() {
           </div>
 
           {pos.unverified.length > 0 && (
-            <div role="status" className="mt-4 flex items-start gap-2 rounded-md border border-rag-amber/40 bg-[#F6EBD6]/60 px-3 py-2.5 text-[13px]">
+            <div role="status" className="mt-4 flex items-start gap-2 rounded-md border border-rag-amber/40 bg-[#F6EBC8]/60 px-3 py-2.5 text-[13px]">
               <AlertTriangle className="mt-0.5 size-4 shrink-0 text-rag-amber" aria-hidden />
               <div>
                 <strong className="font-medium">{pos.unverified.length} commitment or receipt record{pos.unverified.length === 1 ? " is" : "s are"} not verified.</strong>{" "}

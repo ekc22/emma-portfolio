@@ -2,29 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Emma Clark brand: Instrument Serif for headlines, names and figures; Inter for labels, data and UI. */
 @layer base {
-  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  body { @apply bg-background text-foreground font-sans text-sm; font-feature-settings: "cv11", "ss01"; }
-  h1, h2, h3 { text-wrap: balance; }
-  :focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
-  ::selection { background: #E4EAE1; }
+  html { @apply bg-paper text-oxblood antialiased; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper font-sans text-[14px] text-oxblood; font-feature-settings: "cv11", "ss01"; }
+  h1, h2, h3 { @apply font-serif font-normal; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { @apply bg-cherry text-paper; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-oxblood; }
 }
 
 @layer components {
-  .eyebrow { @apply text-2xs font-medium uppercase tracking-[0.12em] text-muted-foreground; }
+  /* Small uppercase label (brand §05). */
+  .eyebrow { @apply font-sans text-2xs font-semibold uppercase tracking-label text-muted-foreground; }
+  .label { @apply font-sans text-[0.6875rem] font-semibold uppercase tracking-label text-muted-foreground; }
+  /* Wordmark: Instrument Serif capitals, tight tracking, cherry. */
+  .wordmark { @apply font-serif uppercase leading-none tracking-wordmark text-cherry; word-spacing: -0.06em; }
+  .rule { @apply border-t border-linen-deep; }
   .num { font-variant-numeric: tabular-nums; }
-  .prose-cos { @apply text-[13.5px] leading-6 text-foreground; }
-  .prose-cos h2 { @apply mt-5 mb-2 font-serif text-lg font-medium; }
-  .prose-cos h3 { @apply mt-4 mb-1.5 text-sm font-semibold; }
+
+  /* Long-form AI and report text: serif, set larger, as the brand sets body copy. */
+  .prose-cos { @apply font-serif text-[17px] leading-[1.5] text-oxblood; }
+  .prose-cos h2 { @apply mt-6 mb-2 font-serif text-[26px] leading-tight; }
+  .prose-cos h3 { @apply mt-5 mb-1.5 font-serif text-[20px]; }
   .prose-cos p { @apply mb-3; }
-  .prose-cos ul { @apply mb-3 list-disc pl-5 space-y-1; }
-  .prose-cos ol { @apply mb-3 list-decimal pl-5 space-y-1; }
-  .prose-cos strong { @apply font-semibold; }
-  .prose-cos code { @apply rounded bg-muted px-1 py-0.5 font-mono text-xs; }
-  .prose-cos table { @apply mb-3 w-full text-xs; }
-  .prose-cos th { @apply border-b border-border py-1 pr-3 text-left font-medium text-muted-foreground; }
-  .prose-cos td { @apply border-b border-border/60 py-1 pr-3 align-top; }
+  .prose-cos ul { @apply mb-3 list-disc pl-5 space-y-1 marker:text-cherry; }
+  .prose-cos ol { @apply mb-3 list-decimal pl-5 space-y-1 marker:text-cherry; }
+  .prose-cos strong { @apply font-normal text-cherry; }
+  .prose-cos em { @apply italic; }
+  .prose-cos a { @apply text-cherry; }
+  .prose-cos code { @apply bg-butter px-1 py-0.5 font-mono text-xs; }
+  .prose-cos table { @apply mb-3 w-full font-sans text-xs; }
+  .prose-cos th { @apply border-b border-oxblood py-1.5 pr-3 text-left text-2xs font-semibold uppercase tracking-label text-muted-foreground; }
+  .prose-cos td { @apply border-b border-linen-deep py-1.5 pr-3 align-top; }
 }
+
+/* Logo in motion (brand spec: 70 ms letter stagger, 1.4 s). Plays on the sign-in screen only. */
+.letter-in { display: inline-block; animation: letter-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

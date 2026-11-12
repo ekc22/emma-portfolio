@@ -135,7 +135,7 @@ function FieldInput({ id, field, value, onChange, lookups, invalid }: { id: stri
     case "boolean":
       return (
         <label className="flex h-8 items-center gap-2 text-[13px]">
-          <input id={id} type="checkbox" className="size-4 accent-[#1C2B3F]" checked={Boolean(value)} onChange={(e) => onChange(e.target.checked)} />
+          <input id={id} type="checkbox" className="size-4 accent-[#9B1C2E]" checked={Boolean(value)} onChange={(e) => onChange(e.target.checked)} />
           {field.label}
         </label>
       );

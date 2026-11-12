@@ -5,7 +5,7 @@ import type { Row } from "@/lib/types";
 export function RiskHeatmap({ risks }: { risks: Row[] }) {
   const open = risks.filter((r) => r.status !== "closed");
   const count = (l: number, i: number) => open.filter((r) => Number(r.likelihood) === l && Number(r.impact) === i).length;
-  const tone = (score: number) => (score >= 15 ? "bg-[#F4E1DE]" : score >= 8 ? "bg-[#F6EBD6]" : "bg-sage-soft/70");
+  const tone = (score: number) => (score >= 15 ? "bg-[#F6E2DC]" : score >= 8 ? "bg-[#F6EBC8]" : "bg-sage-soft/70");
   return (
     <figure className="w-full max-w-[280px]">
       <div className="flex gap-2">

@@ -99,7 +99,7 @@ export default async function ProjectsPage() {
           <ul className="divide-y divide-border">
             {[...openRisks].sort((a, b) => score(b) - score(a)).slice(0, 6).map((r) => (
               <li key={r.id} className="flex items-start gap-3 px-4 py-2.5">
-                <span className={cn("num mt-0.5 w-7 shrink-0 rounded text-center text-xs font-semibold", score(r) >= 15 ? "bg-[#F4E1DE] text-rag-red" : score(r) >= 8 ? "bg-[#F6EBD6] text-rag-amber" : "bg-sage-soft text-sage-deep")} title="Likelihood × impact">{score(r)}</span>
+                <span className={cn("num mt-0.5 w-7 shrink-0 rounded text-center text-xs font-semibold", score(r) >= 15 ? "bg-[#F6E2DC] text-rag-red" : score(r) >= 8 ? "bg-[#F6EBC8] text-rag-amber" : "bg-sage-soft text-sage-deep")} title="Likelihood × impact">{score(r)}</span>
                 <div className="min-w-0 flex-1">
                   <Link href={`/records/risks/${r.id}`} className="text-[13px] font-medium hover:underline underline-offset-2">{r.title}</Link>
                   <div className="text-xs text-muted-foreground">{people[r.owner_id] ?? "No owner"} · {r.category} · review {formatDate(r.review_date)}</div>

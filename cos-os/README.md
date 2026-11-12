@@ -99,6 +99,16 @@ The SQL is generated from `lib/schema.ts`, so the database and the app share one
 
 ---
 
+## Design
+
+CoS OS follows the *Emma Clark Brand Guidelines v1.0*, the same system as the portfolio site in this repository:
+
+- **Palette:** paper `#FBF6EC` ground, oxblood `#3A0E16` type, cherry `#9B1C2E` accent (about 10%), butter `#F6EBC8` as the warm alternate ground, linen `#E4DACB` rules. The tokens live in `tailwind.config.ts` under role names, so components never hard-code colours.
+- **Type:** Instrument Serif for headlines, names, figures and long-form AI and report text. Inter for small uppercase labels, tables and controls.
+- **Brand marks:** the "E." monogram and a CoS OS wordmark in brand style. The masthead navigation has place and time on the left, the name in the centre and the person on the right, with the nine numbered desks beneath. On phones there is a full-screen serif menu.
+- **Shape:** sharp edges, fine rules and no shadows. The logo animation (70 ms letter stagger over 1.4 s) plays on the sign-in screen and respects reduced motion.
+- **Status colours:** red, amber and green are kept separate from the cherry accent. AI content uses a dashed plum treatment so it is never mistaken for recorded data.
+
 ## Architecture
 
 ```

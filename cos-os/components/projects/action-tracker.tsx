@@ -26,7 +26,7 @@ export function ActionTracker({ rows, lookups, canWrite, today }: { rows: Row[];
           onClick={() => setView(v)}
           aria-pressed={view === v}
           className={cn(
-            "h-7 rounded-full border px-2.5 text-xs transition-colors",
+            "h-7 border px-2.5 text-xs transition-colors",
             view === v ? "border-navy bg-navy text-primary-foreground" : "border-border text-muted-foreground hover:text-foreground",
             v === "overdue" && sets.overdue.length && view !== v && "text-rag-red",
           )}

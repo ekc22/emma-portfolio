@@ -108,7 +108,7 @@ export function Chat({ storageKey, configured, readOnly }: { storageKey: string;
             <p className="mt-1 text-xs text-muted-foreground">Ask across strategy, delivery, pipeline and{readOnly ? "" : " investors"}. I can draft reports and propose changes; you approve them.</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {EXAMPLES.map((e) => (
-                <button key={e} onClick={() => (e.endsWith(": ") ? (setInput(e), box.current?.focus()) : send(e))} className="rounded-full border border-border px-3 py-1.5 text-left text-xs hover:border-navy/40 hover:bg-background">{e.replace(/: $/, "…")}</button>
+                <button key={e} onClick={() => (e.endsWith(": ") ? (setInput(e), box.current?.focus()) : send(e))} className="border border-border px-3 py-1.5 text-left text-xs hover:border-navy/40 hover:bg-background">{e.replace(/: $/, "…")}</button>
               ))}
             </div>
           </div>
@@ -119,7 +119,7 @@ export function Chat({ storageKey, configured, readOnly }: { storageKey: string;
               <div>
                 {!!m.steps?.length && (
                   <ol className="mb-2 flex flex-wrap gap-1.5">
-                    {m.steps.map((s, k) => <li key={k} className="rounded-full border border-dashed border-ai-border px-2 py-0.5 text-2xs text-ai">{s}</li>)}
+                    {m.steps.map((s, k) => <li key={k} className="border border-dashed border-ai-border px-2 py-0.5 text-2xs text-ai">{s}</li>)}
                   </ol>
                 )}
                 {m.content ? (

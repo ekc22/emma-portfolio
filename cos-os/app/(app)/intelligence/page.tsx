@@ -15,7 +15,7 @@ import { ViewTabs } from "@/components/ui/view-tabs";
 
 export const metadata = { title: "Intelligence & Reporting" };
 
-const TABLES = ["strategic_objectives", "kpis", "projects", "milestones", "tasks", "dependencies", "risks", "decisions", "commercial_opportunities", "investors", "fundraising_rounds", "fundraising_opportunities", "investor_commitments", "capital_receipts", "due_diligence_requests", "investor_interactions", "financial_snapshots", "users", "reports", "ai_recommendations"] as const;
+const TABLES = ["strategic_objectives", "kpis", "projects", "milestones", "tasks", "dependencies", "risks", "decisions", "commercial_opportunities", "investors", "fundraising_rounds", "fundraising_opportunities", "investor_commitments", "capital_receipts", "due_diligence_requests", "investor_interactions", "financial_snapshots", "users", "reports", "ai_recommendations", "status_updates", "routines", "requests"] as const;
 const INVESTOR_ONLY = new Set(["ir_briefing"]);
 
 export default async function IntelligencePage() {
@@ -24,13 +24,13 @@ export default async function IntelligencePage() {
   const reports = [...d.reports].sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
   const types = REPORT_TYPE.filter((t) => investors || !INVESTOR_ONLY.has(t));
   const ai = isClaudeConfigured() && write("reports");
-  const areas = ["delivery", "commercial", "investors", "capital", "strategy", "decisions"] as const;
+  const areas = ["delivery", "operations", "commercial", "investors", "capital", "strategy", "decisions"] as const;
   const decided = d.ai_recommendations.filter((r) => r.status !== "pending").sort((a, b) => String(b.decided_at).localeCompare(String(a.decided_at))).slice(0, 15);
 
   return (
     <div>
       <PageHeader
-        number="07"
+        number="08"
         title="Intelligence & Reporting"
         description="Reports drafted from structured workspace data, with sources, review and approval. Missing data is flagged, never filled in."
         actions={ai ? <GenerateReportButton types={types} /> : undefined}

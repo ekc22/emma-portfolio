@@ -10,12 +10,13 @@ export const NAV = [
   { n: "01", label: "Command Centre", full: "Executive Command Centre", href: "/" },
   { n: "02", label: "Strategy", full: "Strategy & Objectives", href: "/strategy" },
   { n: "03", label: "Delivery", full: "Projects & Delivery", href: "/projects" },
-  { n: "04", label: "Pipeline", full: "Commercial Pipeline", href: "/pipeline" },
-  { n: "05", label: "Investors", full: "Investor Relations Desk", href: "/investors", investor: true },
-  { n: "06", label: "Meetings", full: "Meetings & Decisions", href: "/meetings" },
-  { n: "07", label: "Intelligence", full: "Intelligence & Reporting", href: "/intelligence" },
-  { n: "08", label: "Chief of Staff", full: "AI Chief of Staff", href: "/agent" },
-  { n: "09", label: "Settings", full: "Settings & Integrations", href: "/settings" },
+  { n: "04", label: "Operations", full: "Team & Operations", href: "/operations" },
+  { n: "05", label: "Pipeline", full: "Commercial Pipeline", href: "/pipeline" },
+  { n: "06", label: "Investors", full: "Investor Relations Desk", href: "/investors", investor: true },
+  { n: "07", label: "Meetings", full: "Meetings & Decisions", href: "/meetings" },
+  { n: "08", label: "Intelligence", full: "Intelligence & Reporting", href: "/intelligence" },
+  { n: "09", label: "Chief of Staff", full: "AI Chief of Staff", href: "/agent" },
+  { n: "10", label: "Settings", full: "Settings & Integrations", href: "/settings" },
 ] as const;
 
 function useLondonTime() {
@@ -32,7 +33,7 @@ function useLondonTime() {
 
 /**
  * Masthead navigation (brand guidelines §08): place and time on the left, the
- * name in the centre, the person on the right; the nine desks run beneath.
+ * name in the centre, the person on the right; the ten desks run beneath.
  * On phones: "E." left, Menu right, and a full-screen serif menu.
  */
 export function Masthead({ orgName, user, role, demo, signOut, canSeeInvestors, pendingProposals }: {

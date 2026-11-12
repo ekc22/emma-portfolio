@@ -55,7 +55,7 @@ export default async function MeetingsPage() {
   return (
     <div>
       <PageHeader
-        number="06"
+        number="07"
         title="Meetings & Decisions"
         description="Turn meeting notes into decisions, actions and risks. The AI proposes; a person approves before anything changes."
         actions={write("meetings") ? <NewMeetingButton /> : undefined}

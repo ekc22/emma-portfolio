@@ -19,6 +19,9 @@ export const EXAMPLES = [
   "Prepare a board update covering commercial performance, delivery and fundraising.",
   "Extract actions from these meeting notes: ",
   "Identify where leadership attention would create the most value this week.",
+  "Who on the team is overloaded, and what should move?",
+  "What should I focus on this week?",
+  "Prepare my 1:1 with Tom.",
 ];
 
 export function Chat({ storageKey, configured, readOnly }: { storageKey: string; configured: boolean; readOnly: boolean }) {

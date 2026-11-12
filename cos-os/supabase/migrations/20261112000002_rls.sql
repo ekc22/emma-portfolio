@@ -191,6 +191,24 @@ create policy documents_insert on public.documents for insert with check (public
 create policy documents_update on public.documents for update using (public.can_write(organisation_id, 'core')) with check (public.can_write(organisation_id, 'core'));
 create policy documents_delete on public.documents for delete using (public.can_write(organisation_id, 'core'));
 
+alter table public.status_updates enable row level security;
+create policy status_updates_read on public.status_updates for select using (public.can_read(organisation_id, 'core'));
+create policy status_updates_insert on public.status_updates for insert with check (public.can_write(organisation_id, 'core'));
+create policy status_updates_update on public.status_updates for update using (public.can_write(organisation_id, 'core')) with check (public.can_write(organisation_id, 'core'));
+create policy status_updates_delete on public.status_updates for delete using (public.can_write(organisation_id, 'core'));
+
+alter table public.routines enable row level security;
+create policy routines_read on public.routines for select using (public.can_read(organisation_id, 'core'));
+create policy routines_insert on public.routines for insert with check (public.can_write(organisation_id, 'core'));
+create policy routines_update on public.routines for update using (public.can_write(organisation_id, 'core')) with check (public.can_write(organisation_id, 'core'));
+create policy routines_delete on public.routines for delete using (public.can_write(organisation_id, 'core'));
+
+alter table public.requests enable row level security;
+create policy requests_read on public.requests for select using (public.can_read(organisation_id, 'core'));
+create policy requests_insert on public.requests for insert with check (public.can_write(organisation_id, 'core'));
+create policy requests_update on public.requests for update using (public.can_write(organisation_id, 'core')) with check (public.can_write(organisation_id, 'core'));
+create policy requests_delete on public.requests for delete using (public.can_write(organisation_id, 'core'));
+
 alter table public.ai_recommendations enable row level security;
 create policy ai_recommendations_read on public.ai_recommendations for select using (public.can_read(organisation_id, 'core'));
 create policy ai_recommendations_insert on public.ai_recommendations for insert with check (public.can_write(organisation_id, 'core'));

@@ -21,7 +21,7 @@ export const metadata = { title: "Executive Command Centre" };
 const TABLES = [
   "strategic_objectives", "kpis", "projects", "milestones", "tasks", "dependencies", "risks", "decisions", "meetings",
   "commercial_opportunities", "investors", "fundraising_rounds", "fundraising_opportunities", "investor_commitments",
-  "capital_receipts", "due_diligence_requests", "investor_interactions", "financial_snapshots", "reports", "users",
+  "capital_receipts", "due_diligence_requests", "investor_interactions", "financial_snapshots", "reports", "users", "status_updates", "routines", "requests",
 ] as const;
 
 export default async function CommandCentre() {

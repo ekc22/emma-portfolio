@@ -22,16 +22,16 @@ export const T = (n: number, hm = "10:00") => `@@T:${n}:${hm}@@`;
 /* ---------- People ---------- */
 const U = (k: string) => id("users", k);
 const people: Seed[] = [
-  { key: "alex", full_name: "Alex Morgan", title: "Chief Executive Officer", email: "alex@fernhill.example", team: "leadership" },
-  { key: "priya", full_name: "Priya Shah", title: "Chief of Staff", email: "priya@fernhill.example", team: "leadership" },
-  { key: "daniel", full_name: "Daniel Okafor", title: "Chief Financial Officer", email: "daniel@fernhill.example", team: "finance" },
-  { key: "sophie", full_name: "Sophie Laurent", title: "Chief Commercial Officer", email: "sophie@fernhill.example", team: "commercial" },
-  { key: "tom", full_name: "Tom Reid", title: "Chief Technology Officer", email: "tom@fernhill.example", team: "engineering" },
-  { key: "grace", full_name: "Grace Liu", title: "Head of Delivery", email: "grace@fernhill.example", team: "delivery" },
-  { key: "marcus", full_name: "Marcus Bell", title: "Head of Product", email: "marcus@fernhill.example", team: "engineering" },
-  { key: "ella", full_name: "Ella Novak", title: "Customer Success Lead", email: "ella@fernhill.example", team: "delivery" },
-  { key: "sam", full_name: "Sam Whitaker", title: "Senior Account Executive", email: "sam@fernhill.example", team: "commercial" },
-  { key: "ruth", full_name: "Ruth Adeyemi", title: "Board Observer", email: "ruth@fernhill.example", team: "leadership" },
+  { key: "alex", capacity_hours: 20, full_name: "Alex Morgan", title: "Chief Executive Officer", email: "alex@fernhill.example", team: "leadership" },
+  { key: "priya", capacity_hours: 32, full_name: "Priya Shah", title: "Chief of Staff", email: "priya@fernhill.example", team: "leadership" },
+  { key: "daniel", capacity_hours: 28, full_name: "Daniel Okafor", title: "Chief Financial Officer", email: "daniel@fernhill.example", team: "finance" },
+  { key: "sophie", capacity_hours: 28, full_name: "Sophie Laurent", title: "Chief Commercial Officer", email: "sophie@fernhill.example", team: "commercial" },
+  { key: "tom", capacity_hours: 26, full_name: "Tom Reid", title: "Chief Technology Officer", email: "tom@fernhill.example", team: "engineering" },
+  { key: "grace", capacity_hours: 32, full_name: "Grace Liu", title: "Head of Delivery", email: "grace@fernhill.example", team: "delivery" },
+  { key: "marcus", capacity_hours: 30, full_name: "Marcus Bell", title: "Head of Product", email: "marcus@fernhill.example", team: "engineering" },
+  { key: "ella", capacity_hours: 32, full_name: "Ella Novak", title: "Customer Success Lead", email: "ella@fernhill.example", team: "delivery" },
+  { key: "sam", capacity_hours: 34, full_name: "Sam Whitaker", title: "Senior Account Executive", email: "sam@fernhill.example", team: "commercial" },
+  { key: "ruth", capacity_hours: 0, full_name: "Ruth Adeyemi", title: "Board Observer", email: "ruth@fernhill.example", team: "leadership" },
 ];
 
 /** Demo sign-in personas and their roles. */
@@ -104,22 +104,27 @@ const milestones: Seed[] = [
 ];
 
 const tasks: Seed[] = [
-  { key: "t1", title: "Retrain fault model with October telemetry from Halcyon sites", project: "p3", milestone: "p3-accuracy", owner: "tom", due_date: D(-4), status: "in_progress", priority: "critical", escalated: true },
-  { key: "t2", title: "Confirm install dates for gateway hardware at five pilot sites", project: "p3", milestone: "p3-beta", owner: "grace", due_date: D(6), status: "todo", priority: "high" },
-  { key: "t3", title: "Upload customer contracts to data room (folder 4)", project: "dataroom", milestone: "dr-index", owner: "priya", due_date: D(2), status: "in_progress", priority: "high" },
-  { key: "t4", title: "Prepare churn cohort analysis for investors", project: "dataroom", owner: "daniel", due_date: D(-1), status: "todo", priority: "high" },
-  { key: "t5", title: "Instruct counsel on legal DD pack", project: "dataroom", milestone: "dr-legal", owner: "daniel", due_date: D(4), status: "todo", priority: "medium" },
-  { key: "t6", title: "Finish BMS connector for Vantage controllers", project: "onboarding", milestone: "ob-playbook", owner: "tom", due_date: D(-8), status: "blocked", priority: "high", escalated: true, description: "Blocked on API credentials from Vantage. Third request sent." },
-  { key: "t7", title: "Publish onboarding playbook to customer success", project: "onboarding", milestone: "ob-playbook", owner: "grace", due_date: D(-6), status: "in_progress", priority: "high" },
-  { key: "t8", title: "Map legacy CRM fields to HubSpot properties", project: "crm", milestone: "crm-dry", owner: "sam", due_date: D(3), status: "in_progress", priority: "medium" },
-  { key: "t9", title: "Write access control policy for ISO scope", project: "iso", milestone: "iso-s1", owner: "tom", due_date: D(9), status: "todo", priority: "high" },
-  { key: "t10", title: "Draft predictive tier pricing options", project: "pricing", milestone: "pr-proposal", owner: "marcus", due_date: D(-5), status: "todo", priority: "high" },
-  { key: "t11", title: "Send Halcyon Estates commercial proposal v2", project: null, owner: "sophie", due_date: D(1), status: "todo", priority: "critical", opportunity: "halcyon" },
-  { key: "t12", title: "Book reference call between Northbridge and Brightwater FM", project: null, owner: "alex", due_date: D(3), status: "todo", priority: "high", investor: "northbridge" },
-  { key: "t13", title: "Agenda and papers for December board meeting", project: null, owner: "priya", due_date: D(12), status: "todo", priority: "medium" },
-  { key: "t14", title: "Hire senior data scientist (offer stage)", project: "p3", owner: "tom", due_date: D(14), status: "in_progress", priority: "medium" },
-  { key: "t15", title: "Customer health review for top 20 accounts", project: null, owner: "ella", due_date: D(8), status: "todo", priority: "medium" },
-  { key: "t16", title: "Collect gateway telemetry export for model validation", project: "p3", milestone: "p3-accuracy", owner: "marcus", due_date: D(-15), status: "done", priority: "high", evidence: "Export delivered to data science bucket; checksum confirmed." },
+  { key: "t1", estimate_hours: 16, title: "Retrain fault model with October telemetry from Halcyon sites", project: "p3", milestone: "p3-accuracy", owner: "tom", due_date: D(-4), status: "in_progress", priority: "critical", escalated: true },
+  { key: "t2", estimate_hours: 3, title: "Confirm install dates for gateway hardware at five pilot sites", project: "p3", milestone: "p3-beta", owner: "grace", due_date: D(6), status: "todo", priority: "high" },
+  { key: "t3", estimate_hours: 6, title: "Upload customer contracts to data room (folder 4)", project: "dataroom", milestone: "dr-index", owner: "priya", due_date: D(2), status: "in_progress", priority: "high" },
+  { key: "t4", estimate_hours: 10, title: "Prepare churn cohort analysis for investors", project: "dataroom", owner: "daniel", due_date: D(-1), status: "todo", priority: "high" },
+  { key: "t5", estimate_hours: 3, title: "Instruct counsel on legal DD pack", project: "dataroom", milestone: "dr-legal", owner: "daniel", due_date: D(4), status: "todo", priority: "medium" },
+  { key: "t6", estimate_hours: 12, title: "Finish BMS connector for Vantage controllers", project: "onboarding", milestone: "ob-playbook", owner: "tom", due_date: D(-8), status: "blocked", priority: "high", escalated: true, description: "Blocked on API credentials from Vantage. Third request sent." },
+  { key: "t7", estimate_hours: 6, title: "Publish onboarding playbook to customer success", project: "onboarding", milestone: "ob-playbook", owner: "grace", due_date: D(-6), status: "in_progress", priority: "high" },
+  { key: "t8", estimate_hours: 8, title: "Map legacy CRM fields to HubSpot properties", project: "crm", milestone: "crm-dry", owner: "sam", due_date: D(3), status: "in_progress", priority: "medium" },
+  { key: "t9", estimate_hours: 10, title: "Write access control policy for ISO scope", project: "iso", milestone: "iso-s1", owner: "tom", due_date: D(9), status: "todo", priority: "high" },
+  { key: "t10", estimate_hours: 8, title: "Draft predictive tier pricing options", project: "pricing", milestone: "pr-proposal", owner: "marcus", due_date: D(-5), status: "todo", priority: "high" },
+  { key: "t11", estimate_hours: 4, title: "Send Halcyon Estates commercial proposal v2", project: null, owner: "sophie", due_date: D(1), status: "todo", priority: "critical", opportunity: "halcyon" },
+  { key: "t12", estimate_hours: 1, title: "Book reference call between Northbridge and Brightwater FM", project: null, owner: "alex", due_date: D(3), status: "todo", priority: "high", investor: "northbridge" },
+  { key: "t13", estimate_hours: 8, title: "Agenda and papers for December board meeting", project: null, owner: "priya", due_date: D(12), status: "todo", priority: "medium" },
+  { key: "t14", estimate_hours: 4, title: "Hire senior data scientist (offer stage)", project: "p3", owner: "tom", due_date: D(14), status: "in_progress", priority: "medium" },
+  { key: "t15", estimate_hours: 6, title: "Customer health review for top 20 accounts", project: null, owner: "ella", due_date: D(8), status: "todo", priority: "medium" },
+  { key: "t16", estimate_hours: 4, title: "Collect gateway telemetry export for model validation", project: "p3", milestone: "p3-accuracy", owner: "marcus", due_date: D(-15), status: "done", priority: "high", evidence: "Export delivered to data science bucket; checksum confirmed." },
+  { key: "t17", estimate_hours: 12, title: "Prepare ISO 27001 Stage 1 evidence pack", project: "iso", milestone: "iso-s1", owner: "tom", due_date: D(12), status: "todo", priority: "high" },
+  { key: "t18", estimate_hours: 6, title: "Technical DD session with Solent", project: "dataroom", owner: "tom", due_date: D(8), status: "todo", priority: "high", investor: "solent" },
+  { key: "t19", estimate_hours: 5, title: "Review architecture overview for Northbridge DD", project: "dataroom", owner: "tom", due_date: D(5), status: "in_progress", priority: "high", investor: "northbridge" },
+  { key: "t20", estimate_hours: 3, title: "Draft October investor update", project: null, owner: "priya", due_date: D(2), status: "in_progress", priority: "medium", routine: "investor-update" },
+  { key: "t21", estimate_hours: 4, title: "Interview two candidates for customer success role", project: null, owner: "ella", due_date: D(6), status: "todo", priority: "medium", request: "rq-cs-hire" },
 ];
 
 const dependencies: Seed[] = [
@@ -358,6 +363,32 @@ const documents: Seed[] = [
   { key: "doc4", title: "Halcyon proposal v1", category: "commercial", url: "https://example.com/halcyon-v1", owner: "sophie", opportunity: "halcyon" },
 ];
 
+/* ---------- Team operations ---------- */
+const statusUpdates: Seed[] = [
+  { key: "su-p3-1", project: "p3", owner: "tom", week_ending: D(-1), rag: "amber", progress: 60, headline: "Accuracy at 79% against an 85% gate; retraining this week", summary: "Validation run complete on four pilot sites. Gateway installs scheduled for three of five beta sites.", blockers: "Need the pricing decision for the predictive tier before GA planning can finish.", next_steps: "Retrain with October telemetry; go/no-go recommendation at next exec meeting." },
+  { key: "su-dr-1", project: "dataroom", owner: "daniel", week_ending: D(-1), rag: "green", progress: 72, headline: "Model v3 signed off; data room index at 80%", summary: "Financial model v3 approved. Customer contracts upload under way.", blockers: "Churn cohort analysis requested by three investors.", next_steps: "Produce one standard churn pack; instruct counsel on legal DD." },
+  { key: "su-ob-1", project: "onboarding", owner: "grace", week_ending: D(-8), rag: "red", progress: 68, headline: "Playbook slipping; Vantage connector still blocked", summary: "Playbook drafted, not yet published.", blockers: "Vantage API credentials outstanding after three requests.", next_steps: "Escalate through Vantage partner manager." },
+  { key: "su-iso-1", project: "iso", owner: "tom", week_ending: D(-8), rag: "amber", progress: 40, headline: "Gap assessment closed; Stage 1 evidence not started", summary: "Auditor's gap report received.", blockers: "CTO capacity.", next_steps: "Access control policy draft." },
+];
+
+const routines: Seed[] = [
+  { key: "exec-pack", title: "Weekly executive meeting pack", cadence: "weekly", owner: "priya", team: "leadership", next_due: D(5), lead_days: 2, active: true, last_run: D(-2), description: "Agenda, project check-ins and decisions needed, circulated the day before the exec meeting.", checklist: "Collect project check-ins from owners\nUpdate decision log and actions\nCirculate agenda and pack" },
+  { key: "month-end", title: "Month-end close", cadence: "monthly", owner: "daniel", team: "finance", next_due: D(18), lead_days: 5, active: true, last_run: D(-12), description: "Close the books and publish the financial snapshot.", checklist: "Reconcile bank and payments\nAccruals and prepayments\nUpdate financial snapshot in CoS OS\nManagement accounts to CEO" },
+  { key: "investor-update", title: "Monthly investor update", cadence: "monthly", owner: "priya", team: "leadership", next_due: D(3), lead_days: 5, active: true, last_run: D(-27), description: "Update to existing investors and angels.", checklist: "Draft update from KPIs and highlights\nCEO review\nSend to investor list" },
+  { key: "board-pack", title: "Quarterly board pack", cadence: "quarterly", owner: "priya", team: "leadership", next_due: D(19), lead_days: 14, active: true, last_run: D(-75), description: "Board papers circulated a week before the board meeting.", checklist: "Board pack outline agreed with CEO\nFinancials and KPIs section\nCommercial and delivery sections\nFundraising section\nCirculate to board" },
+  { key: "health-review", title: "Customer health review", cadence: "monthly", owner: "ella", team: "delivery", next_due: D(-3), lead_days: 3, active: true, last_run: D(-34), description: "Top 20 accounts scored for risk and expansion.", checklist: "Pull usage and support data\nScore top 20 accounts\nFlag risks to account owners" },
+  { key: "pipeline-review", title: "Weekly pipeline review", cadence: "weekly", owner: "sophie", team: "commercial", next_due: D(1), lead_days: 1, active: true, last_run: D(-6), description: "Stage movement, stalled deals and next steps.", checklist: "Update stages and next steps\nReview stalled deals" },
+];
+
+const requests: Seed[] = [
+  { key: "rq-cs-hire", title: "Hire a second customer success manager", request_type: "people", requested_by: "ella", owner: "ella", team: "delivery", priority: "high", status: "in_progress", needed_by: D(30), detail: "Onboarding load is rising with the Brightwater expansion." },
+  { key: "rq-halcyon-msa", title: "Legal review of Halcyon MSA redlines", request_type: "legal", requested_by: "sophie", owner: null, team: "finance", priority: "critical", status: "new", needed_by: D(4), detail: "Procurement returned redlines on liability cap and payment terms." },
+  { key: "rq-hubspot", title: "HubSpot sandbox access for the onboarding team", request_type: "it_access", requested_by: "grace", owner: "sam", team: "commercial", priority: "medium", status: "triaged", needed_by: D(7) },
+  { key: "rq-laptop", title: "Laptop and accounts for new data scientist", request_type: "it_access", requested_by: "tom", owner: null, team: "finance", priority: "medium", status: "new", needed_by: D(16), detail: "Start date expected in three weeks, subject to offer." },
+  { key: "rq-case-study", title: "Brightwater case study for the investor deck", request_type: "commercial", requested_by: "alex", owner: "ella", team: "delivery", priority: "high", status: "new", needed_by: D(6) },
+  { key: "rq-expenses", title: "Approve conference travel for Future Buildings Summit", request_type: "finance", requested_by: "sam", owner: "daniel", team: "finance", priority: "low", status: "done", needed_by: D(-5) },
+];
+
 /* ---------- Build ---------- */
 const ref = (table: string, key: string | null | undefined) => (key ? id(table, key) : null);
 
@@ -370,12 +401,12 @@ export function buildSeed(): Record<TableName, Record<string, unknown>[]> {
   return {
     organisations: [{ id: ORG_ID, organisation_id: ORG_ID, created_at: T(-200), updated_at: T(-200), name: "Fernhill Systems Ltd", sector: "Energy optimisation software for commercial buildings", currency: "GBP", tagline: "Fictional demo company" }],
     teams: teams.map((t) => ({ ...base("teams", t.key as string, -200), name: t.name, description: t.description, lead_id: U(t.lead as string) })),
-    users: people.map((p) => ({ ...base("users", p.key as string, -200), full_name: p.full_name, title: p.title, email: p.email, team_id: ref("teams", p.team as string) })),
+    users: people.map((p) => ({ ...base("users", p.key as string, -200), full_name: p.full_name, title: p.title, email: p.email, team_id: ref("teams", p.team as string), capacity_hours: p.capacity_hours ?? null })),
     strategic_objectives: objectives.map((o) => ({ ...base("strategic_objectives", o.key as string, -120), title: o.title, level: o.level, period: o.period, parent_id: ref("strategic_objectives", o.parent as string), owner_id: ref("users", o.owner as string), status: o.status, progress: o.progress, measure: o.measure ?? null, due_date: o.due_date, description: o.description ?? null, assumptions: o.assumptions ?? null })),
     kpis: kpis.map((k) => ({ ...base("kpis", k.key as string, -120), name: k.name, objective_id: O(k.objective as string), owner_id: U(k.owner as string), unit: k.unit, baseline: k.baseline, current_value: k.current_value, target_value: k.target_value, direction: k.direction, period: k.period, last_updated: k.last_updated, source: k.source })),
     projects: projects.map((p) => ({ ...base("projects", p.key as string, -120), name: p.name, description: p.description ?? null, objective_id: ref("strategic_objectives", p.objective as string), sponsor_id: U(p.sponsor as string), owner_id: U(p.owner as string), priority: p.priority, status: p.status, rag: p.rag, progress: p.progress, start_date: p.start_date, target_date: p.target_date, budget: p.budget, spent: p.spent, deliverables: p.deliverables ?? null, decisions_required: p.decisions_required ?? null })),
     milestones: milestones.map((m) => ({ ...base("milestones", m.key as string, -90), title: m.title, project_id: P(m.project as string), owner_id: U(m.owner as string), due_date: m.due_date, status: m.status, completed_on: m.completed_on ?? null, evidence: m.evidence ?? null })),
-    tasks: tasks.map((t) => ({ ...base("tasks", t.key as string, -20), title: t.title, description: t.description ?? null, project_id: ref("projects", t.project as string), milestone_id: ref("milestones", t.milestone as string), owner_id: U(t.owner as string), due_date: t.due_date, status: t.status, priority: t.priority, escalated: Boolean(t.escalated), evidence: t.evidence ?? null, meeting_id: null, opportunity_id: ref("commercial_opportunities", t.opportunity as string), investor_id: ref("investors", t.investor as string) })),
+    tasks: tasks.map((t) => ({ ...base("tasks", t.key as string, -20), title: t.title, description: t.description ?? null, project_id: ref("projects", t.project as string), milestone_id: ref("milestones", t.milestone as string), owner_id: U(t.owner as string), due_date: t.due_date, status: t.status, priority: t.priority, escalated: Boolean(t.escalated), evidence: t.evidence ?? null, meeting_id: null, opportunity_id: ref("commercial_opportunities", t.opportunity as string), investor_id: ref("investors", t.investor as string), estimate_hours: t.estimate_hours ?? null, routine_id: ref("routines", t.routine as string), request_id: ref("requests", t.request as string) })),
     dependencies: dependencies.map((d) => ({ ...base("dependencies", d.key as string, -30), description: d.description, project_id: P(d.project as string), depends_on_project_id: P(d.depends_on as string), needed_by: d.needed_by, status: d.status })),
     risks: risks.map((r) => ({ ...base("risks", r.key as string, -40), title: r.title, description: r.description ?? null, category: r.category, likelihood: r.likelihood, impact: r.impact, owner_id: U(r.owner as string), status: r.status, mitigation: r.mitigation ?? null, review_date: r.review_date, project_id: ref("projects", r.project as string), objective_id: ref("strategic_objectives", r.objective as string), opportunity_id: ref("commercial_opportunities", r.opportunity as string) })),
     decisions: decisions.map((d) => ({ ...base("decisions", d.key as string, -10), title: d.title, rationale: d.rationale ?? null, owner_id: U(d.owner as string), status: d.status, decided_on: d.decided_on ?? null, due_date: d.due_date ?? null, impact: d.impact ?? null, objective_id: ref("strategic_objectives", d.objective as string), project_id: ref("projects", d.project as string), meeting_id: ref("meetings", d.meeting as string) })),
@@ -396,6 +427,9 @@ export function buildSeed(): Record<TableName, Record<string, unknown>[]> {
     financial_snapshots: snapshots.map((s) => ({ ...base("financial_snapshots", s.key as string, -12), period: s.period, cash_balance: s.cash_balance, monthly_burn: s.monthly_burn, revenue: s.revenue, arr: s.arr, headcount: s.headcount, source: s.source, verified: s.verified })),
     reports: reports.map((r) => ({ ...base("reports", r.key as string, -7), title: r.title, report_type: r.report_type, period: r.period, status: r.status, ai_generated: r.ai_generated, body: r.body, sources: [], approved_by: "Alex Morgan", approved_at: T(-6) })),
     documents: documents.map((d) => ({ ...base("documents", d.key as string, -20), title: d.title, category: d.category, url: d.url, owner_id: U(d.owner as string), project_id: ref("projects", d.project as string), investor_id: null, opportunity_id: ref("commercial_opportunities", d.opportunity as string), notes: null })),
+    status_updates: statusUpdates.map((u) => ({ ...base("status_updates", u.key as string, -2), headline: u.headline, project_id: P(u.project as string), week_ending: u.week_ending, rag: u.rag, progress: u.progress, owner_id: U(u.owner as string), summary: u.summary ?? null, blockers: u.blockers ?? null, next_steps: u.next_steps ?? null })),
+    routines: routines.map((r) => ({ ...base("routines", r.key as string, -100), title: r.title, cadence: r.cadence, owner_id: U(r.owner as string), team_id: ref("teams", r.team as string), next_due: r.next_due, lead_days: r.lead_days, active: r.active, last_run: r.last_run ?? null, project_id: null, description: r.description ?? null, checklist: r.checklist ?? null })),
+    requests: requests.map((r) => ({ ...base("requests", r.key as string, -6), title: r.title, request_type: r.request_type, requested_by_id: U(r.requested_by as string), owner_id: ref("users", r.owner as string), team_id: ref("teams", r.team as string), priority: r.priority, status: r.status, needed_by: r.needed_by ?? null, detail: r.detail ?? null, task_id: r.key === "rq-cs-hire" ? id("tasks", "t21") : null })),
     ai_recommendations: [],
     audit_logs: [],
   };

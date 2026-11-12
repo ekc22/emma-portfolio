@@ -12,7 +12,7 @@ import { daysFromToday, sum, todayISO } from "../utils";
 export type Severity = "high" | "medium" | "low";
 export interface Signal {
   key: string;
-  area: "strategy" | "delivery" | "commercial" | "investors" | "capital" | "decisions";
+  area: "strategy" | "delivery" | "operations" | "commercial" | "investors" | "capital" | "decisions";
   severity: Severity;
   title: string;
   detail: string;
@@ -243,6 +243,7 @@ export interface Bundle {
   commercial_opportunities: Row[];
   investors: Row[]; fundraising_rounds: Row[]; fundraising_opportunities: Row[]; investor_commitments: Row[]; capital_receipts: Row[]; due_diligence_requests: Row[]; investor_interactions: Row[]; financial_snapshots: Row[];
   users: Row[];
+  status_updates?: Row[]; routines?: Row[]; requests?: Row[];
 }
 
 export function computeSignals(b: Bundle, canSeeInvestors: boolean, today = todayISO()): Signal[] {
@@ -289,6 +290,8 @@ export function computeSignals(b: Bundle, canSeeInvestors: boolean, today = toda
     if (cap.runwayMonths !== null && cap.runwayMonths < 9) out.push({ key: "runway", area: "capital", severity: cap.runwayMonths < 6 ? "high" : "medium", title: `Runway ${cap.runwayMonths.toFixed(1)} months`, detail: "Calculated from the latest verified month-end cash and 3-month average burn.", refs: cap.latest ? [ref("financial_snapshots", cap.latest, "period")] : [] });
   }
 
+  out.push(...operationsSignals(b.users, b.tasks, b.projects, b.status_updates ?? [], b.routines ?? [], b.requests ?? [], today));
+
   const rank = { high: 0, medium: 1, low: 2 };
   return out.sort((a, z) => rank[a.severity] - rank[z.severity]);
 }
@@ -302,4 +305,102 @@ export function kpiProgress(k: Row) {
   const span = lowerIsBetter ? base - target : target - base;
   if (!Number.isFinite(base) || span <= 0) return Math.max(0, Math.min(99, lowerIsBetter ? (target / cur) * 100 : (cur / target) * 100));
   return Math.max(0, Math.min(99, ((lowerIsBetter ? base - cur : cur - base) / span) * 100));
+}
+
+/* ---------------- Team operations ---------------- */
+export const DEFAULT_ESTIMATE_HOURS = 4;
+export const WORKLOAD_WINDOW_DAYS = 14;
+
+/**
+ * Workload per person over the next two weeks: open actions due within the
+ * window (or overdue, or undated but in progress), using the action's estimate
+ * or a default. Capacity is weekly capacity × 2.
+ */
+export function teamWorkload(users: Row[], tasks: Row[], today = todayISO()) {
+  const open = tasks.filter((t) => t.status !== "done");
+  const inWindow = (t: Row) => {
+    const d = daysFromToday(t.due_date, today);
+    return d === null ? t.status === "in_progress" : d <= WORKLOAD_WINDOW_DAYS;
+  };
+  return users
+    .filter((u) => Number(u.capacity_hours) > 0 || open.some((t) => t.owner_id === u.id))
+    .map((u) => {
+      const mine = open.filter((t) => t.owner_id === u.id);
+      const window = mine.filter(inWindow);
+      const hours = sum(window.map((t) => Number(t.estimate_hours) || DEFAULT_ESTIMATE_HOURS));
+      const unestimated = window.filter((t) => !t.estimate_hours).length;
+      const capacity = (Number(u.capacity_hours) || 0) * (WORKLOAD_WINDOW_DAYS / 7);
+      return {
+        user: u,
+        open: mine.length,
+        overdue: mine.filter((t) => isOverdue(t.due_date, today)).length,
+        blocked: mine.filter((t) => t.status === "blocked").length,
+        critical: mine.filter((t) => t.priority === "critical").length,
+        windowTasks: window,
+        hours,
+        unestimated,
+        capacity,
+        load: capacity ? (hours / capacity) * 100 : null,
+      };
+    })
+    .sort((a, b) => (b.load ?? 0) - (a.load ?? 0));
+}
+
+/** The Monday-to-Sunday week ending date (Sunday) for a date. */
+export function weekEnding(iso = todayISO()) {
+  const d = new Date(iso + "T00:00:00");
+  const add = (7 - d.getDay()) % 7;
+  d.setDate(d.getDate() + add);
+  return todayISO(d);
+}
+
+/** Active projects and their latest check-in; flags projects without one in the last 7 days. */
+export function checkInCoverage(projects: Row[], updates: Row[], today = todayISO()) {
+  const active = projects.filter((p) => p.status === "active" || p.status === "on_hold");
+  return active.map((p) => {
+    const mine = updates.filter((u) => u.project_id === p.id).sort((a, b) => String(b.week_ending).localeCompare(String(a.week_ending)));
+    const latest = mine[0];
+    const age = latest ? -(daysFromToday(latest.week_ending, today) ?? 0) : null;
+    return { project: p, latest, history: mine, stale: !latest || (age !== null && age > 7), ageDays: age };
+  });
+}
+
+export function routinesDue(routines: Row[], today = todayISO()) {
+  const active = routines.filter((r) => r.active !== false);
+  return {
+    overdue: active.filter((r) => isOverdue(r.next_due, today)),
+    readyToRun: active.filter((r) => {
+      const d = daysFromToday(r.next_due, today);
+      const lead = Number(r.lead_days ?? 5);
+      return d !== null && d >= 0 && d <= lead && (!r.last_run || daysFromToday(r.last_run, today)! < -lead);
+    }),
+    upcoming: active.filter((r) => (daysFromToday(r.next_due, today) ?? -1) >= 0).sort((a, b) => String(a.next_due).localeCompare(String(b.next_due))),
+  };
+}
+
+export function requestQueue(requests: Row[], today = todayISO()) {
+  const open = requests.filter((r) => r.status !== "done" && r.status !== "declined");
+  return {
+    open,
+    untriaged: open.filter((r) => r.status === "new"),
+    unassigned: open.filter((r) => !r.owner_id),
+    overdue: open.filter((r) => isOverdue(r.needed_by, today)),
+    dueSoon: open.filter((r) => { const d = daysFromToday(r.needed_by, today); return d !== null && d >= 0 && d <= 7; }),
+  };
+}
+
+export function operationsSignals(users: Row[], tasks: Row[], projects: Row[], updates: Row[], routines: Row[], requests: Row[], today = todayISO()): Signal[] {
+  const out: Signal[] = [];
+  for (const w of teamWorkload(users, tasks, today)) {
+    if (w.load !== null && w.load > 110) out.push({ key: `load-${w.user.id}`, area: "operations", severity: w.load > 150 ? "high" : "medium", title: `${w.user.full_name} is over capacity`, detail: `${Math.round(w.hours)}h of work due in ${WORKLOAD_WINDOW_DAYS} days against ${Math.round(w.capacity)}h available (${Math.round(w.load)}%)`, refs: w.windowTasks.slice(0, 8).map((t) => ref("tasks", t, "title")) });
+  }
+  for (const c of checkInCoverage(projects, updates, today).filter((c) => c.stale)) {
+    out.push({ key: `checkin-${c.project.id}`, area: "operations", severity: c.project.rag === "red" || c.project.priority === "critical" ? "medium" : "low", title: `No check-in this week: ${c.project.name}`, detail: c.latest ? `Last update ${c.latest.week_ending}` : "No check-in recorded", refs: [ref("projects", c.project, "name")] });
+  }
+  for (const r of routinesDue(routines, today).overdue) out.push({ key: `routine-${r.id}`, area: "operations", severity: "medium", title: `Routine overdue: ${r.title}`, detail: `Was due ${r.next_due}`, refs: [ref("routines", r, "title")] });
+  const q = requestQueue(requests, today);
+  for (const r of q.open.filter((x) => (x.priority === "critical" || x.priority === "high") && (!x.owner_id || x.status === "new"))) {
+    out.push({ key: `req-${r.id}`, area: "operations", severity: r.priority === "critical" ? "high" : "medium", title: `${r.owner_id ? "Request not triaged" : "Request needs an owner"}: ${r.title}`, detail: `${r.status === "new" ? "Not triaged" : "Unassigned"}${r.needed_by ? ` · needed by ${r.needed_by}` : ""}`, refs: [ref("requests", r, "title")] });
+  }
+  return out;
 }

@@ -84,3 +84,5 @@ export function stableId(seed: string) {
   const a = hex(h1), b = hex(h2), c = hex(h1 ^ h2), d = hex(Math.imul(h1, 31) ^ h2);
   return `${a}-${b.slice(0, 4)}-4${b.slice(5, 8)}-${"89ab"[parseInt(c[0], 16) % 4]}${c.slice(1, 4)}-${c.slice(4)}${d}`;
 }
+
+export const humanizeCadence = (c: string | null | undefined) => (c ? c.charAt(0).toUpperCase() + c.slice(1) : "");

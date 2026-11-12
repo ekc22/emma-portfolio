@@ -72,7 +72,7 @@ export default async function PipelinePage() {
   return (
     <div>
       <PageHeader
-        number="04"
+        number="05"
         title="Commercial Pipeline"
         description="Organisations, opportunities and partnerships, with forecast and the deals that need intervention."
         actions={write("commercial_opportunities") ? <NewRecordButton table="commercial_opportunities" lookups={lookups} defaults={{ stage: "Lead", probability: 10 }} /> : null}

@@ -9,6 +9,7 @@ import { cleanRecord } from "../validate";
 import { entity, isTable } from "../schema";
 import { todayISO } from "../utils";
 import { AI_READ_ONLY } from "../ai/tools";
+import { touchParent } from "../data/hooks";
 
 export type DecisionResult = { ok: true; recordId?: string } | { ok: false; error: string };
 
@@ -47,6 +48,7 @@ export async function approveProposal(id: string, edits?: Record<string, unknown
     } else {
       const row = await store.insert(table, { ...data, created_by: session.authUserId });
       recordId = row.id;
+      await touchParent(store, table, row);
     }
     await store.update("ai_recommendations", id, { status: "applied", decided_by: session.name, decided_at: new Date().toISOString(), applied_record_id: recordId, payload });
     await writeAudit(store, session, { action: "approve", table, recordId, summary: `Applied AI proposal “${rec.title}”, approved by ${session.name}`, changes: data, actorType: "ai" });

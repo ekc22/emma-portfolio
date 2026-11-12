@@ -9,7 +9,7 @@ export default async function InvestorsLayout({ children }: { children: React.Re
   if (!canSeeInvestors(session.role)) {
     return (
       <div>
-        <PageHeader number="05" title="Investor Relations Desk" description="Investor CRM, fundraising, diligence, reporting and capital." />
+        <PageHeader number="06" title="Investor Relations Desk" description="Investor CRM, fundraising, diligence, reporting and capital." />
         <div className="mx-auto mt-10 max-w-md rounded-lg border border-border bg-surface p-6 text-center shadow-subtle">
           <Lock className="mx-auto mb-3 size-5 text-muted-foreground" aria-hidden />
           <h2 className="text-[15px] font-semibold">Restricted to the executive team</h2>
@@ -22,7 +22,7 @@ export default async function InvestorsLayout({ children }: { children: React.Re
   }
   return (
     <div>
-      <PageHeader number="05" title="Investor Relations Desk" description="Investor relationships, the fundraising pipeline, diligence, reporting and capital in one place. Indicative interest is never shown as committed capital." />
+      <PageHeader number="06" title="Investor Relations Desk" description="Investor relationships, the fundraising pipeline, diligence, reporting and capital in one place. Indicative interest is never shown as committed capital." />
       <InvestorSubnav />
       {children}
     </div>

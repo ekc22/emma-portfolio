@@ -72,6 +72,7 @@ export class AiContext {
       fundraising_opportunities: await t("fundraising_opportunities"), investor_commitments: await t("investor_commitments"), capital_receipts: await t("capital_receipts"),
       due_diligence_requests: await t("due_diligence_requests"), investor_interactions: await t("investor_interactions"), financial_snapshots: await t("financial_snapshots"),
       users: await t("users"),
+      status_updates: await t("status_updates"), routines: await t("routines"), requests: await t("requests"),
     };
   }
 

@@ -8,6 +8,7 @@ import { writeAudit, recordLabel } from "../audit";
 import { cleanRecord } from "../validate";
 import { entity, isTable, type TableName } from "../schema";
 import { todayISO } from "../utils";
+import { touchParent } from "../data/hooks";
 
 export type ActionResult = { ok: true; id: string } | { ok: false; error: string; fieldErrors?: Record<string, string> };
 
@@ -94,22 +95,4 @@ function withLifecycle(table: TableName, data: Record<string, unknown>, before: 
   }
   if (table === "milestones" && out.status === "complete" && before?.status !== "complete" && !out.completed_on) out.completed_on = today;
   return out;
-}
-
-/** Logging activity moves "last activity" / "last contact" on the parent record forward. */
-async function touchParent(store: Awaited<ReturnType<typeof getStore>>, table: TableName, row: Record<string, unknown>) {
-  try {
-    if (table === "commercial_activities" && row.opportunity_id && row.occurred_on) {
-      const opp = await store.get("commercial_opportunities", String(row.opportunity_id));
-      if (opp && (!opp.last_activity_date || opp.last_activity_date < String(row.occurred_on)))
-        await store.update("commercial_opportunities", opp.id, { last_activity_date: row.occurred_on });
-    }
-    if (table === "investor_interactions" && row.investor_id && row.occurred_on) {
-      const inv = await store.get("investors", String(row.investor_id));
-      if (inv && (!inv.last_contact_date || inv.last_contact_date < String(row.occurred_on)))
-        await store.update("investors", inv.id, { last_contact_date: row.occurred_on });
-    }
-  } catch {
-    /* parent may be hidden by permissions; the activity itself is saved */
-  }
 }

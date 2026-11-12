@@ -28,7 +28,7 @@ export default async function SettingsPage() {
 
   return (
     <div>
-      <PageHeader number="09" title="Settings & Integrations" description="Workspace, people, permissions, connections and the audit trail." />
+      <PageHeader number="10" title="Settings & Integrations" description="Workspace, people, permissions, connections and the audit trail." />
       <div className="mb-8 grid gap-3 sm:grid-cols-3">
         <Card className="p-4">
           <div className="eyebrow">Workspace</div>

@@ -12,7 +12,7 @@ export default async function AgentPage() {
   const pending = data.ai_recommendations.filter((r) => r.status === "pending");
   return (
     <div>
-      <PageHeader number="08" title="AI Chief of Staff" description="Ask anything about the business. Answers are grounded in your records, cite them, and keep facts, assumptions and recommendations apart." />
+      <PageHeader number="09" title="AI Chief of Staff" description="Ask anything about the business. Answers are grounded in your records, cite them, and keep facts, assumptions and recommendations apart." />
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_400px]">
         <div className="min-w-0">
           <Chat storageKey={`cos-agent-${session.authUserId}`} configured={isClaudeConfigured()} readOnly={!investors} />
@@ -25,7 +25,7 @@ export default async function AgentPage() {
           <Card>
             <CardHeader><CardTitle>What the agent can do</CardTitle></CardHeader>
             <CardContent className="space-y-1.5 text-xs text-muted-foreground">
-              <p>Read: strategy, projects, actions, risks, decisions, meetings, the commercial pipeline{investors ? ", investors, fundraising, diligence and capital" : ""}. It sees only what your role can see.</p>
+              <p>Read: strategy, projects, actions, team workload, check-ins, routines, requests, risks, decisions, meetings, the commercial pipeline{investors ? ", investors, fundraising, diligence and capital" : ""}. It sees only what your role can see.</p>
               <p>Calculate: delivery health, pipeline forecasts, fundraising position and runway, with methods shown.</p>
               <p>Propose: new actions, decisions, risks and record updates, for approval.</p>
               <p>Draft: briefings and reports, saved as unapproved drafts.</p>

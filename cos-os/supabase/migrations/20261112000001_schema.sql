@@ -27,7 +27,8 @@ create table if not exists public.users (
   full_name text not null,
   title text,
   email text,
-  team_id uuid
+  team_id uuid,
+  capacity_hours numeric
 );
 create index if not exists users_org_idx on public.users (organisation_id);
 create index if not exists users_team_id_idx on public.users (team_id);
@@ -140,6 +141,54 @@ create index if not exists milestones_project_id_idx on public.milestones (proje
 create index if not exists milestones_owner_id_idx on public.milestones (owner_id);
 create trigger milestones_touch before update on public.milestones for each row execute function public.touch_updated_at();
 
+create table if not exists public.routines (
+  id uuid primary key default gen_random_uuid(),
+  organisation_id uuid not null references public.organisations(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  created_by uuid,
+  title text not null,
+  cadence text not null check (cadence in ('weekly', 'fortnightly', 'monthly', 'quarterly')),
+  owner_id uuid references public.users(id) on delete set null,
+  team_id uuid references public.teams(id) on delete set null,
+  next_due date not null,
+  lead_days numeric,
+  active boolean not null default false,
+  last_run date,
+  project_id uuid references public.projects(id) on delete set null,
+  description text,
+  checklist text
+);
+create index if not exists routines_org_idx on public.routines (organisation_id);
+create index if not exists routines_owner_id_idx on public.routines (owner_id);
+create index if not exists routines_team_id_idx on public.routines (team_id);
+create index if not exists routines_project_id_idx on public.routines (project_id);
+create trigger routines_touch before update on public.routines for each row execute function public.touch_updated_at();
+
+create table if not exists public.requests (
+  id uuid primary key default gen_random_uuid(),
+  organisation_id uuid not null references public.organisations(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  created_by uuid,
+  title text not null,
+  request_type text check (request_type in ('people', 'finance', 'legal', 'it_access', 'commercial', 'product', 'other')),
+  requested_by_id uuid references public.users(id) on delete set null,
+  owner_id uuid references public.users(id) on delete set null,
+  team_id uuid references public.teams(id) on delete set null,
+  priority text check (priority in ('critical', 'high', 'medium', 'low')),
+  status text not null check (status in ('new', 'triaged', 'in_progress', 'done', 'declined')),
+  needed_by date,
+  detail text,
+  task_id uuid
+);
+create index if not exists requests_org_idx on public.requests (organisation_id);
+create index if not exists requests_requested_by_id_idx on public.requests (requested_by_id);
+create index if not exists requests_owner_id_idx on public.requests (owner_id);
+create index if not exists requests_team_id_idx on public.requests (team_id);
+create index if not exists requests_task_id_idx on public.requests (task_id);
+create trigger requests_touch before update on public.requests for each row execute function public.touch_updated_at();
+
 create table if not exists public.commercial_accounts (
   id uuid primary key default gen_random_uuid(),
   organisation_id uuid not null references public.organisations(id) on delete cascade,
@@ -250,6 +299,9 @@ create table if not exists public.tasks (
   status text not null check (status in ('todo', 'in_progress', 'blocked', 'done')),
   priority text check (priority in ('critical', 'high', 'medium', 'low')),
   escalated boolean not null default false,
+  estimate_hours numeric,
+  routine_id uuid references public.routines(id) on delete set null,
+  request_id uuid references public.requests(id) on delete set null,
   evidence text,
   meeting_id uuid references public.meetings(id) on delete set null,
   opportunity_id uuid references public.commercial_opportunities(id) on delete set null,
@@ -259,6 +311,8 @@ create index if not exists tasks_org_idx on public.tasks (organisation_id);
 create index if not exists tasks_project_id_idx on public.tasks (project_id);
 create index if not exists tasks_milestone_id_idx on public.tasks (milestone_id);
 create index if not exists tasks_owner_id_idx on public.tasks (owner_id);
+create index if not exists tasks_routine_id_idx on public.tasks (routine_id);
+create index if not exists tasks_request_id_idx on public.tasks (request_id);
 create index if not exists tasks_meeting_id_idx on public.tasks (meeting_id);
 create index if not exists tasks_opportunity_id_idx on public.tasks (opportunity_id);
 create index if not exists tasks_investor_id_idx on public.tasks (investor_id);
@@ -552,7 +606,7 @@ create table if not exists public.reports (
   updated_at timestamptz not null default now(),
   created_by uuid,
   title text not null,
-  report_type text not null check (report_type in ('daily_briefing', 'weekly_ceo_update', 'project_portfolio', 'pipeline_review', 'investor_update', 'monthly_business_review', 'board_pack', 'risk_summary', 'ir_briefing')),
+  report_type text not null check (report_type in ('daily_briefing', 'weekly_ceo_update', 'project_portfolio', 'pipeline_review', 'investor_update', 'monthly_business_review', 'board_pack', 'risk_summary', 'ir_briefing', 'team_operations_review')),
   period text,
   status text check (status in ('draft', 'in_review', 'approved')),
   ai_generated boolean not null default false,
@@ -587,6 +641,27 @@ create index if not exists documents_project_id_idx on public.documents (project
 create index if not exists documents_investor_id_idx on public.documents (investor_id);
 create index if not exists documents_opportunity_id_idx on public.documents (opportunity_id);
 create trigger documents_touch before update on public.documents for each row execute function public.touch_updated_at();
+
+create table if not exists public.status_updates (
+  id uuid primary key default gen_random_uuid(),
+  organisation_id uuid not null references public.organisations(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  created_by uuid,
+  headline text not null,
+  project_id uuid not null references public.projects(id) on delete cascade,
+  week_ending date not null,
+  rag text not null check (rag in ('green', 'amber', 'red')),
+  progress numeric check (progress between 0 and 100),
+  owner_id uuid references public.users(id) on delete set null,
+  summary text,
+  blockers text,
+  next_steps text
+);
+create index if not exists status_updates_org_idx on public.status_updates (organisation_id);
+create index if not exists status_updates_project_id_idx on public.status_updates (project_id);
+create index if not exists status_updates_owner_id_idx on public.status_updates (owner_id);
+create trigger status_updates_touch before update on public.status_updates for each row execute function public.touch_updated_at();
 
 create table if not exists public.ai_recommendations (
   id uuid primary key default gen_random_uuid(),
@@ -634,6 +709,7 @@ create trigger audit_logs_touch before update on public.audit_logs for each row 
 
 alter table public.users add constraint users_team_id_fkey foreign key (team_id) references public.teams(id) on delete set null deferrable initially immediate;
 alter table public.strategic_objectives add constraint strategic_objectives_parent_id_fkey foreign key (parent_id) references public.strategic_objectives(id) on delete set null deferrable initially immediate;
+alter table public.requests add constraint requests_task_id_fkey foreign key (task_id) references public.tasks(id) on delete set null deferrable initially immediate;
 
 -- Who belongs to which organisation, and with which role.
 create table if not exists public.memberships (

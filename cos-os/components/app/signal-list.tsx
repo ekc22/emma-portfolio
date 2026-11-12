@@ -3,7 +3,7 @@ import type { Signal } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const SEV = { high: "bg-rag-red", medium: "bg-rag-amber", low: "bg-stone" };
-const AREA: Record<Signal["area"], string> = { strategy: "Strategy", delivery: "Delivery", commercial: "Commercial", investors: "Investors", capital: "Capital", decisions: "Decisions" };
+const AREA: Record<Signal["area"], string> = { strategy: "Strategy", delivery: "Delivery", operations: "Operations", commercial: "Commercial", investors: "Investors", capital: "Capital", decisions: "Decisions" };
 
 /** Computed signals with their evidence. Each row expands to the records behind it. */
 export function SignalList({ signals, limit, empty = "Nothing needs attention." }: { signals: Signal[]; limit?: number; empty?: string }) {

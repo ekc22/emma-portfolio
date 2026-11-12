@@ -63,6 +63,7 @@ export type ModuleKey =
   | "command"
   | "strategy"
   | "projects"
+  | "operations"
   | "pipeline"
   | "investors"
   | "meetings"
@@ -99,6 +100,9 @@ export const TABLES = [
   "financial_snapshots",
   "reports",
   "documents",
+  "status_updates",
+  "routines",
+  "requests",
   "ai_recommendations",
   "audit_logs",
 ] as const;
@@ -152,9 +156,13 @@ export const REPORT_TYPE = [
   "board_pack",
   "risk_summary",
   "ir_briefing",
+  "team_operations_review",
 ] as const;
 export const REPORT_STATUS = ["draft", "in_review", "approved"] as const;
 export const DOC_CATEGORY = ["board", "financial", "legal", "commercial", "product", "investor", "other"] as const;
+export const CADENCE = ["weekly", "fortnightly", "monthly", "quarterly"] as const;
+export const REQUEST_STATUS = ["new", "triaged", "in_progress", "done", "declined"] as const;
+export const REQUEST_TYPE = ["people", "finance", "legal", "it_access", "commercial", "product", "other"] as const;
 export const RECOMMENDATION_STATUS = ["pending", "approved", "rejected", "applied"] as const;
 
 /* ---------- Shared field helpers ---------- */
@@ -193,6 +201,7 @@ export const ENTITIES: Record<TableName, EntityDef> = {
       { key: "title", label: "Title", type: "text", list: true },
       { key: "email", label: "Email", type: "text", list: true },
       { key: "team_id", label: "Team", type: "relation", relation: "teams", list: true },
+      { key: "capacity_hours", label: "Weekly capacity (hours)", type: "number", hint: "Hours a week available for tracked work. Used for workload." },
     ],
   },
   strategic_objectives: {
@@ -285,6 +294,9 @@ export const ENTITIES: Record<TableName, EntityDef> = {
       { key: "status", label: "Status", type: "select", options: TASK_STATUS, required: true, list: true },
       { key: "priority", label: "Priority", type: "select", options: PRIORITY, list: true },
       { key: "escalated", label: "Escalated", type: "boolean" },
+      { key: "estimate_hours", label: "Estimate (hours)", type: "number" },
+      { key: "routine_id", label: "From routine", type: "relation", relation: "routines" },
+      { key: "request_id", label: "From request", type: "relation", relation: "requests" },
       { key: "evidence", label: "Completion evidence", type: "textarea", hint: "Required before an action is marked done" },
       { key: "meeting_id", label: "From meeting", type: "relation", relation: "meetings" },
       { key: "opportunity_id", label: "Commercial opportunity", type: "relation", relation: "commercial_opportunities" },
@@ -609,6 +621,60 @@ export const ENTITIES: Record<TableName, EntityDef> = {
       { key: "investor_id", label: "Investor", type: "relation", relation: "investors" },
       { key: "opportunity_id", label: "Opportunity", type: "relation", relation: "commercial_opportunities" },
       notes,
+    ],
+  },
+  status_updates: {
+    table: "status_updates", label: "Check-in", plural: "Project check-ins", titleField: "headline", group: "core", module: "operations",
+    description: "Weekly project status from the owner: RAG, progress, blockers and next steps.",
+    search: ["headline", "summary", "blockers", "next_steps"],
+    sort: ["week_ending", "desc"],
+    fields: [
+      { key: "headline", label: "Headline", type: "text", required: true, list: true, hint: "One line a busy CEO would read" },
+      { key: "project_id", label: "Project", type: "relation", relation: "projects", required: true, list: true },
+      { key: "week_ending", label: "Week ending", type: "date", required: true, list: true },
+      { key: "rag", label: "RAG", type: "select", options: RAG, required: true, list: true },
+      { key: "progress", label: "Progress", type: "percent" },
+      owner("Author"),
+      { key: "summary", label: "Progress this week", type: "textarea" },
+      { key: "blockers", label: "Blockers and asks", type: "textarea" },
+      { key: "next_steps", label: "Next week", type: "textarea" },
+    ],
+  },
+  routines: {
+    table: "routines", label: "Routine", plural: "Operating rhythm", titleField: "title", group: "core", module: "operations",
+    description: "Recurring operational work. Running a routine creates its actions.",
+    search: ["title", "description", "checklist"],
+    sort: ["next_due", "asc"],
+    fields: [
+      { key: "title", label: "Routine", type: "text", required: true, list: true },
+      { key: "cadence", label: "Cadence", type: "select", options: CADENCE, required: true, list: true },
+      owner(),
+      { key: "team_id", label: "Team", type: "relation", relation: "teams", list: true },
+      { key: "next_due", label: "Next due", type: "date", required: true, list: true },
+      { key: "lead_days", label: "Create actions this many days before", type: "number", hint: "Default 5" },
+      { key: "active", label: "Active", type: "boolean", list: true },
+      { key: "last_run", label: "Last run", type: "date" },
+      { key: "project_id", label: "Project", type: "relation", relation: "projects" },
+      { key: "description", label: "Purpose", type: "textarea" },
+      { key: "checklist", label: "Checklist", type: "textarea", hint: "One step per line. Each becomes an action when the routine runs." },
+    ],
+  },
+  requests: {
+    table: "requests", label: "Request", plural: "Internal requests", titleField: "title", group: "core", module: "operations",
+    description: "Asks from across the team, triaged into actions.",
+    search: ["title", "detail"],
+    sort: ["created_at", "desc"],
+    fields: [
+      { key: "title", label: "Request", type: "text", required: true, list: true },
+      { key: "request_type", label: "Type", type: "select", options: REQUEST_TYPE, list: true },
+      { key: "requested_by_id", label: "Requested by", type: "relation", relation: "users", list: true },
+      owner("Assigned to"),
+      { key: "team_id", label: "Team", type: "relation", relation: "teams" },
+      { key: "priority", label: "Priority", type: "select", options: PRIORITY, list: true },
+      { key: "status", label: "Status", type: "select", options: REQUEST_STATUS, required: true, list: true },
+      { key: "needed_by", label: "Needed by", type: "date", list: true },
+      { key: "detail", label: "Detail", type: "textarea" },
+      { key: "task_id", label: "Action", type: "relation", relation: "tasks", system: true },
     ],
   },
   ai_recommendations: {

@@ -3,7 +3,7 @@ import type Anthropic from "@anthropic-ai/sdk";
 import { canSeeInvestors, canWrite } from "../auth/permissions";
 import { ENTITIES, REPORT_TYPE, TABLES, entity, isTable, type TableName } from "../schema";
 import { cleanRecord } from "../validate";
-import { capitalPosition, deliveryHealth, fundraisingPosition, investorIntelligence, pipelineMetrics, stageConversion, strategyAlignment } from "../analytics";
+import { capitalPosition, checkInCoverage, deliveryHealth, fundraisingPosition, investorIntelligence, pipelineMetrics, requestQueue, routinesDue, stageConversion, strategyAlignment, teamWorkload, DEFAULT_ESTIMATE_HOURS, WORKLOAD_WINDOW_DAYS } from "../analytics";
 import { todayISO } from "../utils";
 import { writeAudit } from "../audit";
 import type { AiContext } from "./context";
@@ -23,6 +23,8 @@ export const TOOL_LABELS: Record<string, string> = {
   fundraising_position: "Analysing the fundraising position",
   investor_intelligence: "Reviewing investor relationships",
   strategy_alignment: "Checking strategic alignment",
+  team_operations: "Reviewing team workload and operations",
+  my_work: "Looking at personal workload",
   propose_update: "Proposing a change for approval",
   save_report_draft: "Saving a report draft",
 };
@@ -79,6 +81,16 @@ export function toolDefinitions(): Anthropic.Beta.BetaTool[] {
       input_schema: { type: "object", properties: {} },
     },
     {
+      name: "team_operations",
+      description: "Internal team operations: workload per person against capacity over the next two weeks (with the method), who is overloaded or has overdue or blocked work, projects without a check-in this week, routines that are overdue or ready to run, and the internal request queue (untriaged, unassigned, overdue). Use for questions about the team, capacity, who should take work, standups and the weekly operating rhythm.",
+      input_schema: { type: "object", properties: { team_id: { type: "string", description: "Optional: limit to one team" } } },
+    },
+    {
+      name: "my_work",
+      description: "One person's work: open actions grouped as overdue, blocked, due this week and later, their routines and assigned requests, and their load against capacity. Defaults to the signed-in user. Use for 'what should I focus on', 'what's on Tom's plate', or to prepare a 1:1.",
+      input_schema: { type: "object", properties: { person_id: { type: "string", description: "A users id. Omit for the signed-in user." } } },
+    },
+    {
       name: "propose_update",
       description: "Propose creating or updating a record. Nothing changes until a person approves it in the AI proposals queue. Use for actions from meetings, status changes the user describes, new risks or decisions. Never use it to mark work complete without evidence. Financial records, commitments and receipts cannot be proposed.",
       input_schema: {
@@ -127,6 +139,8 @@ export async function runTool(ctx: AiContext, name: string, input: Record<string
       case "fundraising_position": return { result: await fundraising(ctx) };
       case "investor_intelligence": return { result: await investorIntel(ctx) };
       case "strategy_alignment": return { result: await strategy(ctx) };
+      case "team_operations": return { result: await teamOps(ctx, input) };
+      case "my_work": return { result: await myWork(ctx, input) };
       case "propose_update": return await propose(ctx, input);
       case "save_report_draft": return await saveReport(ctx, input);
       default: return { result: `Unknown tool ${name}`, isError: true };
@@ -295,6 +309,49 @@ async function strategy(ctx: AiContext) {
     without_delivery_plan: ids(s.noDeliveryPlan, "title"),
     projects_not_linked_to_strategy: ids(s.unalignedProjects, "name"),
     at_risk: ids(s.atRisk, "title"),
+  };
+}
+
+async function teamOps(ctx: AiContext, input: Record<string, unknown>) {
+  const team = typeof input.team_id === "string" ? input.team_id : null;
+  const users = (await ctx.rows("users")).filter((u) => !team || u.team_id === team);
+  const tasks = await ctx.rows("tasks");
+  const load = teamWorkload(users, tasks);
+  const coverage = checkInCoverage(await ctx.rows("projects"), await ctx.rows("status_updates"));
+  const rd = routinesDue(await ctx.rows("routines"));
+  const rq = requestQueue(await ctx.rows("requests"));
+  return {
+    today: todayISO(),
+    method: `Load = estimated hours of open actions due within ${WORKLOAD_WINDOW_DAYS} days (or overdue, or in progress without a date) ÷ (weekly capacity × ${WORKLOAD_WINDOW_DAYS / 7}). Actions without an estimate count as ${DEFAULT_ESTIMATE_HOURS}h.`,
+    workload: load.map((w) => ({ person_id: w.user.id, person: w.user.full_name, title: w.user.title, open_actions: w.open, overdue: w.overdue, blocked: w.blocked, critical: w.critical, hours_due_in_window: Math.round(w.hours), unestimated_in_window: w.unestimated, capacity_hours_in_window: Math.round(w.capacity), load_pct: w.load === null ? null : Math.round(w.load), actions_in_window: w.windowTasks.map((t) => ({ id: t.id, title: t.title, due: t.due_date, status: t.status, priority: t.priority, estimate_hours: t.estimate_hours ?? null })) })),
+    check_ins: coverage.map((c) => ({ project_id: c.project.id, project: c.project.name, latest_week_ending: c.latest?.week_ending ?? null, latest_rag: c.latest?.rag ?? null, latest_headline: c.latest?.headline ?? null, missing_this_week: c.stale })),
+    routines: { overdue: ids(rd.overdue, "title"), ready_to_run: ids(rd.readyToRun, "title"), upcoming: rd.upcoming.slice(0, 8).map((r) => ({ id: r.id, title: r.title, next_due: r.next_due, cadence: r.cadence })) },
+    requests: { untriaged: await Promise.all(rq.untriaged.map((r) => ctx.compact("requests", r))), unassigned: ids(rq.unassigned, "title"), overdue: ids(rq.overdue, "title"), due_in_7_days: ids(rq.dueSoon, "title") },
+  };
+}
+
+async function myWork(ctx: AiContext, input: Record<string, unknown>) {
+  const pid = typeof input.person_id === "string" ? input.person_id : ctx.session.personId;
+  if (!pid) return { error: "The signed-in user is not linked to a person record. Ask an admin to link their membership to a person." };
+  const person = (await ctx.rows("users")).find((u) => u.id === pid);
+  if (!person) return { error: "No person with that id." };
+  const today = todayISO();
+  const tasks = (await ctx.rows("tasks")).filter((t) => t.owner_id === pid);
+  const open = tasks.filter((t) => t.status !== "done");
+  const due = (t: Row) => (t.due_date ? Math.round((new Date(t.due_date).getTime() - new Date(today).getTime()) / 86400000) : null);
+  const c = (rows: Row[]) => Promise.all(rows.map((t) => ctx.compact("tasks", t)));
+  const w = teamWorkload([person], await ctx.rows("tasks"))[0];
+  return {
+    person: { id: person.id, name: person.full_name, title: person.title },
+    today,
+    overdue: await c(open.filter((t) => (due(t) ?? 1) < 0 && t.status !== "blocked")),
+    blocked: await c(open.filter((t) => t.status === "blocked")),
+    due_this_week: await c(open.filter((t) => { const d = due(t); return d !== null && d >= 0 && d <= 7 && t.status !== "blocked"; })),
+    later: ids(open.filter((t) => { const d = due(t); return (d === null || d > 7) && t.status !== "blocked"; }), "title"),
+    routines_owned: (await ctx.rows("routines")).filter((r) => r.owner_id === pid).map((r) => ({ id: r.id, title: r.title, next_due: r.next_due })),
+    requests_assigned: ids((await ctx.rows("requests")).filter((r) => r.owner_id === pid && !["done", "declined"].includes(r.status)), "title"),
+    decisions_owned_pending: ids((await ctx.rows("decisions")).filter((d) => d.owner_id === pid && ["proposed", "awaiting_approval"].includes(d.status)), "title"),
+    load: w ? { hours_due_in_window: Math.round(w.hours), capacity_hours_in_window: Math.round(w.capacity), load_pct: w.load === null ? null : Math.round(w.load) } : null,
   };
 }
 

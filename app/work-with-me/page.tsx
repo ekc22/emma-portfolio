@@ -10,7 +10,7 @@ import { mailto } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "Work With Me",
   description:
-    "Commercial thinking, structure and hands-on execution for founders and leadership teams — fractional, project-based or permanent.",
+    "Commercial thinking, structure and hands-on execution for founders and leadership teams: fractional, project-based or permanent.",
   alternates: { canonical: "/work-with-me/" },
 };
 

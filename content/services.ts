@@ -38,7 +38,7 @@ export const offerings: Offering[] = [
     id: "product-to-traction",
     from: "From product",
     to: "to commercial traction",
-    description: "Helping shape propositions, understand markets, prioritise customers and move commercial opportunities forward.",
+    description: "Owning go-to-market end to end: building the go-to-market strategy, shaping propositions, understanding markets, prioritising customers and moving commercial opportunities forward.",
     caseStudy: "finding-a-market-before-the-playbook",
     subject: site.contact.subjects.project,
   },
@@ -54,7 +54,8 @@ export const offerings: Offering[] = [
     id: "bottleneck-to-momentum",
     from: "From founder bottleneck",
     to: "to forward momentum",
-    description: "Working alongside founders on the projects, decisions, investor materials and cross-functional priorities that need a trusted pair of hands.",
+    description: "Working alongside founders on the projects, decisions, investor materials and cross-functional priorities that need a trusted pair of hands, including Chief of Staff dashboards and project management systems built in Claude.",
+    caseStudy: "circus-capital",
     subject: site.contact.subjects.fractional,
   },
 ];
@@ -65,7 +66,7 @@ export const desks = [
     numeral: "I",
     title: "Raise",
     label: "Fundraising support",
-    body: "Investor readiness, pitch narrative and deck, data room and the investor process — so the founder can focus on the meetings.",
+    body: "Investor readiness, pitch narrative and deck, data room and the investor process, so the founder can focus on the meetings.",
   },
   {
     numeral: "II",
@@ -83,7 +84,7 @@ export const desks = [
     numeral: "IV",
     title: "Connect",
     label: "Introductions & network",
-    body: "Warm, considered introductions to investors, operators, advisers and partners — made only when they help both sides.",
+    body: "Warm, considered introductions to investors, operators, advisers and partners, made only when they help both sides.",
   },
 ];
 
@@ -96,7 +97,7 @@ export const waysToWork = {
     "I’m interested in fractional Chief of Staff and growth engagements, defined strategic or operational projects, and the right permanent opportunities with ambitious businesses.",
   emphasis: "I’m particularly drawn to founder-led teams where there’s ownership, pace and an opportunity to build.",
   types: [
-    { title: "Fractional", body: "Chief of Staff and growth engagements — ongoing, part-time and embedded in your team.", subject: site.contact.subjects.fractional },
+    { title: "Fractional", body: "Chief of Staff and growth engagements: ongoing, part-time and embedded in your team.", subject: site.contact.subjects.fractional },
     { title: "Defined projects", body: "Strategic or operational work with a clear scope and an agreed finish line.", subject: site.contact.subjects.project },
     { title: "Permanent", body: "The right permanent opportunity with an ambitious business.", subject: site.contact.subjects.permanent },
   ],
@@ -109,7 +110,7 @@ export const process = [
   },
   {
     title: "A clear scope",
-    body: "If there's a fit, I'll suggest how I could help — what, how and over what timeframe.",
+    body: "If there's a fit, I'll suggest how I could help: what, how and over what timeframe.",
   },
   {
     title: "Getting it done",

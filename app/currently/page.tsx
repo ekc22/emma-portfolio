@@ -22,7 +22,7 @@ export default function CurrentlyPage() {
             A few things <em className="text-cherry">on my mind.</em>
           </h1>
           <p className="col-span-4 mt-10 max-w-measure text-lg text-muted-ink md:col-span-5 md:col-start-7 md:mt-16">
-            A running note of ideas, interests and experiments — what I’m exploring, reading and trying out. It changes often.
+            A running note of ideas, interests and experiments: what I’m exploring, reading and trying out. It changes often.
           </p>
         </div>
       </section>
@@ -37,7 +37,7 @@ export default function CurrentlyPage() {
             <h2 id="notebook-title" className="label">From the notebook</h2>
           </div>
           <div className="col-span-4 mt-6 md:col-span-12">
-            <ReviewNote>Placeholder picks — Emma to replace</ReviewNote>
+            <ReviewNote>Placeholder picks: Emma to replace</ReviewNote>
           </div>
           {currently.notebook.map((group, i) => (
             <div key={group.label} className={`col-span-4 mt-10 md:col-span-3 ${i === 0 ? "md:col-start-1" : ""} ${i === 1 ? "md:col-start-5" : ""} ${i === 2 ? "md:col-start-9" : ""}`}>

@@ -12,7 +12,7 @@ import { withBase } from "@/lib/paths";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Emma Clark’s story: a decade inside listed, private equity-backed and venture-backed businesses, and now building — Turnout, fractional growth work and AI systems.",
+    "Emma Clark’s story: a decade inside listed, private equity-backed and venture-backed businesses, and now building: Turnout, go-to-market for early-stage ventures and AI systems.",
   alternates: { canonical: "/about/" },
 };
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
         <div className="grid-12 gap-y-12">
           <figure className="col-span-4 md:sticky md:top-28 md:col-span-4 md:self-start">
             <EditorialImage
-              brief="Portrait at work — candid at a table, hands and notebook in frame, window light. Real photograph only."
+              brief="Portrait at work: candid at a table, hands and notebook in frame, window light. Real photograph only."
               ratio="3 / 4"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
@@ -64,7 +64,8 @@ export default function AboutPage() {
                 {i === 2 && (
                   <div className="mt-8 flex flex-wrap gap-x-10 gap-y-3">
                     <TextLink href="/work/when-youre-the-one-building-it">Building Turnout</TextLink>
-                    <TextLink href="/work/less-reporting-more-thinking">AI systems</TextLink>
+                    <TextLink href="/work/finding-a-market-before-the-playbook">Go-to-market at a seed-stage AI venture</TextLink>
+                    <TextLink href="/work/circus-capital">Circus Capital</TextLink>
                   </div>
                 )}
               </Reveal>

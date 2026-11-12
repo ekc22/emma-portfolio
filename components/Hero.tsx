@@ -35,7 +35,7 @@ export default function Hero() {
         <figure className="col-span-3 col-start-2 mt-16 md:col-span-3 md:col-start-10 md:-mt-6 lg:-mt-[24rem] xl:-mt-[30rem]">
           <EditorialImage
             image={hero.portrait}
-            brief="Founder portrait — waist up, three-quarter turn, paper-toned wall, one cherry note. Real photograph only."
+            brief="Founder portrait: waist up, three-quarter turn, paper-toned wall, one cherry note. Real photograph only."
             ratio="4 / 5"
             sizes="(min-width: 768px) 25vw, 75vw"
             priority

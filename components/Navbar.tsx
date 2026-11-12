@@ -51,12 +51,12 @@ export default function Navbar() {
           {site.location}
           {time && <span aria-hidden="true"> · {time}</span>}
         </p>
-        <Link href="/" aria-label={`${site.name} — home`} className="font-serif text-[1.75rem] leading-none text-cherry lg:hidden">
+        <Link href="/" aria-label={`${site.name}, home`} className="font-serif text-[1.75rem] leading-none text-cherry lg:hidden">
           E.
         </Link>
 
         {/* Centre: the name */}
-        <Link href="/" aria-label={`${site.name} — home`} className="relative hidden h-10 items-center justify-center lg:flex">
+        <Link href="/" aria-label={`${site.name}, home`} className="relative hidden h-10 items-center justify-center lg:flex">
           <span
             aria-hidden="true"
             className={`wordmark absolute whitespace-nowrap text-[1.75rem] transition-[opacity,transform] duration-500 ease-editorial ${

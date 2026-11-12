@@ -34,7 +34,7 @@ export default function ContactCTA() {
                   {/* TODO(Emma): set site.contact.email in content/site.ts to activate this link. */}
                   <span className="font-serif text-display-sm text-oxblood/40">{contact.cta} →</span>
                   <p className="mt-3 text-sm text-muted-ink">
-                    Contact link coming soon — {site.shortName}’s email address will appear here once approved.
+                    Contact link coming soon. {site.shortName}’s email address will appear here once approved.
                   </p>
                 </div>
               )}

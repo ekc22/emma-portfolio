@@ -42,7 +42,7 @@ export async function GET() {
             <span style={{ color: "#9B1C2E", fontStyle: "italic", marginLeft: 26 }}>blank sheet.</span>
           </div>
         </div>
-        <div style={{ display: "flex", fontSize: 28, color: "#6E5659" }}>{site.tagline} — {site.roles.join(" · ")}</div>
+        <div style={{ display: "flex", fontSize: 28, color: "#6E5659" }}>{site.tagline} {site.roles.join(" · ")}</div>
       </div>
     ),
     {

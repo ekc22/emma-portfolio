@@ -39,7 +39,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
             <p className="label text-cherry">{num} / {project.category}</p>
             <h1 className="mt-5 text-display-lg motion-safe:animate-page-in">{project.title}</h1>
             <p className="mt-8 max-w-[34ch] text-[1.625rem] leading-[1.35] text-muted-ink">{project.summary}</p>
-            {project.status === "draft" && <ReviewNote className="mt-8">Draft — figures and wording awaiting Emma’s approval</ReviewNote>}
+            {project.status === "draft" && <ReviewNote className="mt-8">Draft: figures and wording awaiting Emma’s approval</ReviewNote>}
           </div>
         </div>
 
@@ -94,6 +94,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
         </Row>
 
         <Row number="04" label="What changed">
+          {project.whatChanged.length === 0 && <ReviewNote>Outcomes to be added once confirmed</ReviewNote>}
           <ul className="space-y-8">
             {project.whatChanged.map((o) => (
               <li key={o.text}>
@@ -125,7 +126,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
 
       <nav aria-label="Next project" className="frame pb-24 md:pb-32">
         <div className="group relative border-t border-linen-deep pt-8">
-          <p className="label">Next — {String(nextIndex + 1).padStart(2, "0")} / {next.category}</p>
+          <p className="label">Next: {String(nextIndex + 1).padStart(2, "0")} / {next.category}</p>
           <p className="mt-4 text-display-md transition-colors duration-500 group-hover:text-cherry">
             <Link href={`/work/${next.slug}`} className="after:absolute after:inset-0 after:content-['']">
               {next.title}

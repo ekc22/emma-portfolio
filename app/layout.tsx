@@ -16,14 +16,14 @@ const description = `${site.tagline} ${site.valueProposition}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} — ${site.title}`, template: `%s — ${site.name}` },
+  title: { default: `${site.name} | ${site.title}`, template: `%s | ${site.name}` },
   description,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_GB",
     siteName: site.name,
-    title: `${site.name} — ${site.title}`,
+    title: `${site.name} | ${site.title}`,
     description,
     url: "/",
     images: [ogImage],

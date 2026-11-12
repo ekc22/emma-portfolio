@@ -10,7 +10,7 @@ export const hero = {
   eyebrow: "Strategy / Growth / Building",
   headline: "From the boardroom to the blank sheet.",
   intro: [
-    "I’ve spent the last decade working inside businesses of all shapes and sizes — from listed companies and private equity-backed firms to venture-backed startups and ideas that barely existed beyond a conversation.",
+    "I’ve spent the last decade working inside businesses of all shapes and sizes, from listed companies and private equity-backed firms to venture-backed startups and ideas that barely existed beyond a conversation.",
     "Somewhere along the way, I discovered that what I enjoy most isn’t simply shaping strategy. It’s figuring out how to make things happen.",
     "Today, I work across growth, commercial strategy, operations and technology, alongside the people building what’s next.",
   ],
@@ -19,17 +19,33 @@ export const hero = {
 };
 
 /** Where Emma has worked — approved for publication. Names as text only; no company logos. */
-export const workedWith = ["Hastings Direct", "Paddle", "RBC Brewin Dolphin", "Canaccord", "Founder-led ventures"];
+export const workedWith = ["Hastings Direct", "Paddle", "RBC Brewin Dolphin", "Canaccord", "Circus Capital", "Founder-led ventures"];
 
 export const aboutTeaser = {
   label: "A little about me",
   body: [
     "My experience spans FTSE 250, private equity-backed and venture-backed businesses, from financial services and fintech to high-growth technology.",
     "I’ve worked closely with executives and founders across strategy, commercial growth, operations and complex projects.",
-    "Alongside my professional work, I’ve supported founders fractionally, co-founded Turnout, a sports and wellness platform, and experimented with practical AI-powered tools.",
+    "Alongside my professional work, I’ve supported founders fractionally, co-founded Turnout, a sports and wellness platform where I own the full go-to-market, and built practical AI-powered tools.",
   ],
   pullQuote:
     "I’m particularly drawn to environments where there’s ambiguity, momentum and something interesting to build.",
+};
+
+/** Homepage spotlight on Turnout. Turnout keeps its own brand: text credit only, no logo merged with EMMA CLARK. */
+export const turnout = {
+  label: "Currently building",
+  name: "Turnout",
+  line: "A sports and wellness platform I co-founded.",
+  body: [
+    "I’m responsible for Turnout’s full go-to-market. I developed the go-to-market strategy, and I move between commercial planning, product decisions, brand and the website.",
+    "Together we’ve taken it from company formation and initial concept into product testing.",
+  ],
+  facts: [
+    { label: "My role", value: "Co-founder" },
+    { label: "I own", value: "Go-to-market" },
+    { label: "Stage", value: "Product testing" },
+  ],
 };
 
 /**
@@ -71,13 +87,13 @@ export type Capability = { title: string; description: string; points: string[] 
 export const capabilities: Capability[] = [
   {
     title: "Strategy & Execution",
-    description: "Turning leadership priorities into plans people can follow — and the rhythm that keeps them moving.",
-    points: ["Strategic priorities", "Executive reporting", "Cross-functional delivery", "Operating cadence"],
+    description: "Turning leadership priorities into plans people can follow, and the rhythm that keeps them moving.",
+    points: ["Strategic priorities", "Executive reporting", "Investor readiness", "Operating cadence"],
   },
   {
     title: "Growth & Commercial",
     description: "Sharper commercial plans, clearer pipeline and the material teams need to sell.",
-    points: ["Commercial planning", "Partnerships", "Sales enablement", "Pipeline analysis"],
+    points: ["Go-to-market strategy", "Commercial planning", "Pricing & propositions", "Pipeline analysis"],
   },
   {
     title: "Operations & Systems",
@@ -87,7 +103,7 @@ export const capabilities: Capability[] = [
   {
     title: "AI & Automation",
     description: "Practical, low-risk experiments that take repetitive work off people’s plates.",
-    points: ["Claude agents", "Reporting automation", "Workflow improvements"],
+    points: ["Chief of Staff systems in Claude", "Claude agents", "Reporting automation"],
   },
 ];
 
@@ -105,10 +121,10 @@ export const beyondWork = {
     "When I’m not working, I’m usually learning something new, finding a new place to explore, getting lost in a book or convincing myself I have time for another project.",
   // TODO(Emma): replace placeholders with your own photography.
   interests: [
-    { title: "Art & collecting", caption: "Developing my eye and discovering artists and ideas.", imageBrief: "Your own photo — a favourite artwork, gallery or studio visit" },
-    { title: "Always learning", caption: "Economics, technology, business and whatever catches my curiosity.", imageBrief: "Your own photo — current reading pile or notebook" },
-    { title: "Movement & wellness", caption: "Tennis, Pilates and finding time to move.", imageBrief: "Your own photo — tennis court, racquet or studio" },
-    { title: "People & places", caption: "Travel, music, different cultures and interesting conversations.", imageBrief: "Your own photo — a place you’ve travelled to" },
+    { title: "Art & collecting", caption: "Developing my eye and discovering artists and ideas.", imageBrief: "Your own photo: a favourite artwork, gallery or studio visit" },
+    { title: "Always learning", caption: "Economics, technology, business and whatever catches my curiosity.", imageBrief: "Your own photo: current reading pile or notebook" },
+    { title: "Movement & wellness", caption: "Tennis, Pilates and finding time to move.", imageBrief: "Your own photo: tennis court, racquet or studio" },
+    { title: "People & places", caption: "Travel, music, different cultures and interesting conversations.", imageBrief: "Your own photo: a place you’ve travelled to" },
   ] as Interest[],
 };
 
@@ -123,7 +139,7 @@ export const currently = {
     {
       label: "Currently exploring",
       title: "Agentic AI and practical business automation.",
-      body: "What happens when agents move from demos into the everyday work of small teams — and where a human still needs to be in the loop.",
+      body: "What happens when agents move from demos into the everyday work of small teams, and where a human still needs to be in the loop.",
     },
     {
       label: "Currently interested in",
@@ -161,7 +177,7 @@ export const about = {
     {
       label: "Learning how businesses work",
       paragraphs: [
-        "I started my career in finance, learning how businesses really work — the numbers, the decisions, the people behind them and what it takes to keep everything moving.",
+        "I started my career in finance, learning how businesses really work: the numbers, the decisions, the people behind them and what it takes to keep everything moving.",
         "Over the next decade, that curiosity took me from a FTSE 250 insurer to a venture-backed SaaS business, through investment management and into the commercial office of a private equity-backed wealth manager.",
       ],
     },
@@ -176,7 +192,8 @@ export const about = {
       label: "The other side of the table",
       paragraphs: [
         "More recently, I’ve found myself increasingly drawn to the other side of the table: building.",
-        "I’ve worked fractionally with founders, helping turn early-stage ideas into commercial propositions and execution plans. I’ve co-founded Turnout, a sports and wellness platform, taking it from an idea through company formation, product development and into testing.",
+        "I’ve co-founded Turnout, a sports and wellness platform, taking it from an idea through company formation, product development and into testing. I’m responsible for its full go-to-market, and I developed the go-to-market strategy.",
+        "I’ve also worked fractionally with founders, helping turn early-stage ideas into commercial propositions and execution plans. At a seed-stage AI venture I’m a founding member of the growth team, alongside colleagues including former Amazon employees, and I own the full go-to-market there too. For Circus Capital, I built a Chief of Staff dashboard and a project management system in Claude, and supported the investor materials behind their investor readiness.",
         "I’ve also become fascinated by what AI makes possible for small, ambitious teams. I build and experiment with agents, automations and reporting systems that make work simpler, faster and more intelligent.",
       ],
     },
@@ -188,5 +205,5 @@ export const about = {
     "And outside work? I’m interested in art, economics, technology, travel, music, wellness and just about anything that teaches me something new.",
   closing: "I’m always looking for interesting people to learn from, ideas to explore and things worth building.",
   permanent:
-    "If you’re hiring: I’m open to the right permanent opportunity with an ambitious business — particularly roles that sit across strategy, growth and operations.",
+    "If you’re hiring: I’m open to the right permanent opportunity with an ambitious business, particularly roles that sit across strategy, growth and operations.",
 };

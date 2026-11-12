@@ -79,7 +79,8 @@ export const projects: Project[] = [
       { text: "A full go-to-market strategy, developed and owned by me.", kind: "personal" },
       { text: "Taken from company formation and initial concept into product testing.", kind: "team" },
     ],
-    // TODO(Emma): add what founding has taught you, in your own words.
+    lesson:
+      "Building Turnout has taught me to think like an owner, not just an operator. To make decisions without perfect information, balance ambition with what’s commercially and technically possible, and take responsibility for everything between an idea and bringing it to life.",
     // Turnout keeps its own brand: shown as a credit, never merged into the EMMA CLARK mark.
     status: "draft",
   },

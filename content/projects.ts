@@ -65,9 +65,9 @@ export const projects: Project[] = [
     title: "Building something from scratch.",
     category: "Founding & Product",
     summary:
-      "Co-founding Turnout, a sports and wellness community platform that connects clubs and people: leading go-to-market and product, making the technical trade-offs, and owning the outcome.",
+      "Co-founding Turnout, a sports and wellness community platform that connects clubs and people: leading go-to-market, monetisation and product, shaping the concept for Poppy, our AI agent, and owning the outcome.",
     context: "Turnout, a sports and wellness community platform",
-    role: "Co-founder · Go-to-market, product & AI",
+    role: "Co-founder · Go-to-market, monetisation & product",
     motif: { figure: "Turnout", caption: "Co-founded" },
     accent: "turnout",
     exhibit: {
@@ -91,16 +91,16 @@ export const projects: Project[] = [
         body: "Led product and UX for the concept direction. The thing that needs you next sits at the top of the home screen; when someone drops out, their place is offered to the next person with a clock, and passes on if they don’t want it; and an invite link gets you onto the sheet in four screens, with no cold sign-up.",
       },
       {
-        title: "Commercial decisions",
-        body: "Lead go-to-market: I developed the go-to-market strategy and make the commercial calls on positioning, priorities and launch.",
+        title: "Go-to-market and monetisation",
+        body: "Lead go-to-market and monetisation: I developed the go-to-market strategy and the monetisation model, and make the commercial calls on positioning, pricing, priorities and launch.",
       },
       {
         title: "Product and technical trade-offs",
         body: "Work closely with a fractional CTO I’ve worked with before, a Forward Deployed Engineer in AI, balancing what we want to build with what gets us to market sooner.",
       },
       {
-        title: "Poppy, our AI agent",
-        body: "Built Poppy, Turnout’s AI agent, which supports coordination for clubs and members, with forecasting and agent-to-agent workflows that track trends.",
+        title: "The concept for Poppy",
+        body: "Came up with the concept for Poppy, Turnout’s AI agent, which supports coordination for clubs and members, with forecasting and agent-to-agent workflows that track trends.",
       },
       {
         title: "Brand and launch",
@@ -110,9 +110,9 @@ export const projects: Project[] = [
     // Describes what was built; no performance claims unless evidenced.
     whatChanged: [
       { title: "From idea to product testing", text: "Taken from company formation and initial concept into product testing.", kind: "team" },
-      { title: "A go-to-market strategy", text: "Developed and owned by me.", kind: "personal" },
+      { title: "Go-to-market and monetisation", text: "The go-to-market strategy and monetisation model, developed and owned by me.", kind: "personal" },
       { title: "A product concept", text: "Product and UX for the 2026 concept direction, designed by me, with brand by A Plus M Studio.", kind: "personal" },
-      { title: "Poppy, built into the business", text: "Our AI agent, which supports coordination for clubs and members, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
+      { title: "The concept for Poppy", text: "Our AI agent, which supports coordination for clubs and members, conceived by me.", kind: "personal" },
     ],
     lesson:
       "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",

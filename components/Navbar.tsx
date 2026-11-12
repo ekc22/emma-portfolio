@@ -101,13 +101,15 @@ export default function Navbar({ cv = false }: { cv?: boolean }) {
                 </li>
               );
             })}
-            {cv && (
             <li>
-              <a href={withBase(site.cv.path)} className="text-[0.6875rem] font-semibold uppercase tracking-label text-muted-ink transition-colors hover:text-cherry">
-                CV<span className="sr-only"> (PDF)</span>
-              </a>
+              {cv ? (
+                <a href={withBase(site.cv.path)} className="text-[0.6875rem] font-semibold uppercase tracking-label text-muted-ink transition-colors hover:text-cherry">
+                  CV<span className="sr-only"> (PDF)</span>
+                </a>
+              ) : (
+                <span aria-disabled="true" title="Updated CV coming soon" className="cursor-default text-[0.6875rem] font-semibold uppercase tracking-label text-muted-ink opacity-60">CV</span>
+              )}
             </li>
-            )}
           </ul>
         </nav>
 

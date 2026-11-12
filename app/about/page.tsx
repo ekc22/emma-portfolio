@@ -56,11 +56,9 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-            {cv && (
-              <div className="mt-8">
-                <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>
-              </div>
-            )}
+            <div className="mt-8">
+              <TextLink href={withBase(site.cv.path)} disabled={!cv}>{site.cv.label}</TextLink>
+            </div>
           </aside>
 
           <div className="col-span-4 md:col-span-7 md:col-start-6">
@@ -122,11 +120,9 @@ export default function AboutPage() {
                 <li key={e} className="text-[1.125rem] leading-snug">{e}</li>
               ))}
             </ul>
-            {cv && (
-              <div className="mt-8">
-                <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>
-              </div>
-            )}
+            <div className="mt-8">
+              <TextLink href={withBase(site.cv.path)} disabled={!cv}>{site.cv.label}</TextLink>
+            </div>
           </div>
         </div>
       </section>
@@ -181,7 +177,7 @@ export default function AboutPage() {
             <div className="mt-6 flex flex-wrap gap-x-10 gap-y-3">
               <TextLink href="/work">View my work</TextLink>
               {permanentHref && <TextLink href={permanentHref}>Get in touch</TextLink>}
-              {cv && <TextLink href={withBase(site.cv.path)}>{site.cv.label}</TextLink>}
+              <TextLink href={withBase(site.cv.path)} disabled={!cv}>{site.cv.label}</TextLink>
             </div>
           </div>
         </aside>

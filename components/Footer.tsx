@@ -38,11 +38,13 @@ export default function Footer() {
                   <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#D9AEB8]">LinkedIn</a>
                 </li>
               )}
-              {cv && (
-                <li>
+              <li>
+                {cv ? (
                   <a href={withBase(site.cv.path)} download className="transition-colors hover:text-[#D9AEB8]">{site.cv.label}</a>
-                </li>
-              )}
+                ) : (
+                  <span aria-disabled="true" title="Updated CV coming soon" className="cursor-default opacity-60">{site.cv.label}</span>
+                )}
+              </li>
             </ul>
           </div>
         </div>

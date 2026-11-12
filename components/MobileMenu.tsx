@@ -82,7 +82,11 @@ export default function MobileMenu({ cv = false }: { cv?: boolean }) {
               </li>
             ))}
           </ol>
-          {cv && <a href={withBase(site.cv.path)} className="text-link mt-6 inline-block text-[1.25rem]">{site.cv.label}</a>}
+          {cv ? (
+            <a href={withBase(site.cv.path)} className="text-link mt-6 inline-block text-[1.25rem]">{site.cv.label}</a>
+          ) : (
+            <span aria-disabled="true" title="Updated CV coming soon" className="text-link mt-6 inline-block cursor-default text-[1.25rem] opacity-60">{site.cv.label}</span>
+          )}
         </nav>
         <div className="mt-auto">
           <p className="wordmark text-[2rem]">{site.name}</p>

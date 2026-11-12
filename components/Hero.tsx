@@ -50,10 +50,14 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap items-baseline gap-x-10 gap-y-4">
             <TextLink href="/work">Explore my work</TextLink>
             {talkHref && <TextLink href={talkHref}>Let’s talk</TextLink>}
-            {cv && (
+            {cv ? (
               <a href={withBase(site.cv.path)} className="text-[1.0625rem] text-muted-ink underline decoration-linen-deep underline-offset-4 transition-colors hover:text-cherry">
                 View CV
               </a>
+            ) : (
+              <span aria-disabled="true" title="Updated CV coming soon" className="cursor-default text-[1.0625rem] text-muted-ink underline decoration-linen-deep underline-offset-4 opacity-60">
+                View CV
+              </span>
             )}
           </div>
           <p className="mt-8 flex items-center gap-3 text-[1.0625rem] leading-snug text-muted-ink">

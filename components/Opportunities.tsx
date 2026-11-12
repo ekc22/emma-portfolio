@@ -28,7 +28,7 @@ export default function Opportunities() {
             </div>
             <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
               {href && <TextLink href={href}>Let’s talk</TextLink>}
-              {cv && <TextLink href={withBase(site.cv.path)}>View CV</TextLink>}
+              <TextLink href={withBase(site.cv.path)} disabled={!cv}>View CV</TextLink>
             </div>
           </Reveal>
           <Reveal delay={100} className="col-span-4 md:col-span-4 md:col-start-9 md:self-end">

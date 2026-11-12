@@ -20,8 +20,8 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 
   contact: {
-    // TODO(Emma): add the email address you want enquiries sent to. Mailto links activate once set.
-    email: "",
+    // From the brand guidelines; approved for publication. Phone number deliberately not published.
+    email: "emmakatiec@gmail.com",
     // Pre-filled subject lines for the mailto links.
     subjects: {
       general: "Hello from your website",

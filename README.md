@@ -71,7 +71,7 @@ Assets
 - [ ] CV PDF → `public/cv/emma-clark-cv.pdf`
 
 Contact and links
-- [ ] Approved email address → `content/site.ts` (the brand guidelines include one; confirm it may be published)
+- [x] Email address → `content/site.ts` (published; phone number intentionally not shown)
 - [ ] Turnout figures logo → `public/images/` for the founder credit (keep its own red; never merge with the EMMA CLARK mark)
 - [ ] LinkedIn URL (optional) → `content/site.ts`
 

@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { @apply bg-background text-foreground font-sans text-sm; font-feature-settings: "cv11", "ss01"; }
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
+  ::selection { background: #E4EAE1; }
+}
+
+@layer components {
+  .eyebrow { @apply text-2xs font-medium uppercase tracking-[0.12em] text-muted-foreground; }
+  .num { font-variant-numeric: tabular-nums; }
+  .prose-cos { @apply text-[13.5px] leading-6 text-foreground; }
+  .prose-cos h2 { @apply mt-5 mb-2 font-serif text-lg font-medium; }
+  .prose-cos h3 { @apply mt-4 mb-1.5 text-sm font-semibold; }
+  .prose-cos p { @apply mb-3; }
+  .prose-cos ul { @apply mb-3 list-disc pl-5 space-y-1; }
+  .prose-cos ol { @apply mb-3 list-decimal pl-5 space-y-1; }
+  .prose-cos strong { @apply font-semibold; }
+  .prose-cos code { @apply rounded bg-muted px-1 py-0.5 font-mono text-xs; }
+  .prose-cos table { @apply mb-3 w-full text-xs; }
+  .prose-cos th { @apply border-b border-border py-1 pr-3 text-left font-medium text-muted-foreground; }
+  .prose-cos td { @apply border-b border-border/60 py-1 pr-3 align-top; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

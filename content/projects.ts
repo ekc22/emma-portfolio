@@ -69,7 +69,7 @@ export const projects: Project[] = [
     motif: { figure: "Turnout", caption: "Co-founded" },
     accent: "turnout",
     situation:
-      "Sports and wellness is a fragmented market. Turnout is a community platform that brings it together, connecting clubs and people in one place. Poppy, our AI agent, then supports you with your running.",
+      "Sports and wellness is a fragmented market. Turnout is a community platform that brings it together, connecting clubs and people in one place. Clubs get a backend for collecting money and organising events, and Poppy, our AI agent, supports the coordination.",
     problem:
       "As a co-founder there’s no one else to hand things to. Every decision, whether commercial, product or technical, is a trade-off between ambition and what can realistically get done this week.\n\nIn a small team, time is the scarcest resource. Every hour spent on manual work is an hour later to market.",
     myRole: [
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       },
       {
         title: "Poppy, our AI agent",
-        body: "Built Poppy, Turnout’s AI agent, which supports you with your running, with forecasting and agent-to-agent workflows that track trends.",
+        body: "Built Poppy, Turnout’s AI agent, which supports coordination for clubs and members, with forecasting and agent-to-agent workflows that track trends.",
       },
       {
         title: "Brand and launch",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     whatChanged: [
       { title: "From idea to product testing", text: "Taken from company formation and initial concept into product testing.", kind: "team" },
       { title: "A go-to-market strategy", text: "Developed and owned by me.", kind: "personal" },
-      { title: "Poppy, built into the business", text: "Our AI agent, which supports you with your running, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
+      { title: "Poppy, built into the business", text: "Our AI agent, which supports coordination for clubs and members, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
     ],
     lesson:
       "There’s a difference between helping run a business and building one. Turnout has taught me to think commercially, move without certainty, make difficult trade-offs and take ownership of the outcome, not just the work.",

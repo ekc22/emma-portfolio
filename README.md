@@ -77,7 +77,7 @@ Contact and links
 
 Copy and facts to approve (all currently marked `status: "draft"` or `TODO(Emma)`)
 - [ ] Figures: 10 years, $200m+ Series D (supported), 30 metrics, ~two weeks saved per cycle, 6 pilots, £150k pilot target — current and shareable?
-- [ ] Naming Hastings Direct, Paddle, RBC Brewin Dolphin and Canaccord
+- [x] Naming Hastings Direct, Paddle, RBC Brewin Dolphin and Canaccord (approved; text only, no logos; keep internal project detail unattributed)
 - [ ] "What it taught me" for each of the five case studies (in Emma's words)
 - [ ] Case studies: challenge, approach, my role, team outcomes and reflection for all three projects
 - [ ] Verified, publishable team outcomes (project 2 has none yet; project 1's are placeholders)

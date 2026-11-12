@@ -18,7 +18,7 @@ export const hero = {
   portrait: undefined as undefined | { src: string; alt: string; width: number; height: number },
 };
 
-/** Where Emma has worked. TODO(Emma): confirm you’re happy to name each employer publicly. */
+/** Where Emma has worked — approved for publication. Names as text only; no company logos. */
 export const workedWith = ["Hastings Direct", "Paddle", "RBC Brewin Dolphin", "Canaccord", "Founder-led ventures"];
 
 export const aboutTeaser = {

@@ -38,6 +38,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
           <div className="col-span-4 mt-8 md:col-span-9 md:col-start-4 md:mt-0">
             <p className="label text-cherry">{num} / {project.category}</p>
             <h1 className="mt-5 text-display-lg motion-safe:animate-page-in">{project.title}</h1>
+            {project.role && <p className="label mt-6 !text-oxblood">{project.role}</p>}
             <p className="mt-8 max-w-[34ch] text-[1.625rem] leading-[1.35] text-muted-ink">{project.summary}</p>
             {project.status === "draft" && <ReviewNote className="mt-8">Draft: figures and wording awaiting Emma’s approval</ReviewNote>}
           </div>
@@ -48,12 +49,6 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
             <dt className="label">Context</dt>
             <dd className="mt-2">{project.context}</dd>
           </div>
-          {project.role && (
-            <div className="col-span-2 md:col-span-3">
-              <dt className="label">My role</dt>
-              <dd className="mt-2">{project.role}</dd>
-            </div>
-          )}
           <div className="col-span-2 md:col-span-3">
             <dt className="label">Discipline</dt>
             <dd className="mt-2">{project.category}</dd>
@@ -78,29 +73,47 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
           <p className="text-display-sm">{project.situation}</p>
         </Row>
 
-        <Row number="02" label="The problem">
-          <p className="text-[1.5rem] leading-[1.4] md:text-[1.75rem]">{project.problem}</p>
+        <Row number="02" label="The challenge">
+          <div className="prose-editorial text-[1.5rem] leading-[1.4] md:text-[1.75rem]">
+            {project.problem.split("\n\n").map((para) => (
+              <p key={para}>{para}</p>
+            ))}
+          </div>
         </Row>
 
-        <Row number="03" label="What I did">
-          <ol className="space-y-5">
+        <Row number="03" label="My contribution">
+          <ol className="space-y-6">
             {project.myRole.map((step, i) => (
-              <li key={step} className="grid grid-cols-[3rem_1fr] text-[1.375rem] leading-snug">
+              <li key={typeof step === "string" ? step : step.title} className="grid grid-cols-[3rem_1fr] text-[1.375rem] leading-snug">
                 <span className="text-cherry">{String(i + 1).padStart(2, "0")}</span>
-                <span>{step}</span>
+                {typeof step === "string" ? (
+                  <span>{step}</span>
+                ) : (
+                  <span>
+                    <span className="block text-display-sm">{step.title}</span>
+                    <span className="mt-2 block text-muted-ink">{step.body}</span>
+                  </span>
+                )}
               </li>
             ))}
           </ol>
           {project.note && <p className="mt-8 max-w-[60ch] text-[1rem] leading-snug text-muted-ink">{project.note}</p>}
         </Row>
 
-        <Row number="04" label="What changed">
+        <Row number="04" label="The impact">
           {project.whatChanged.length === 0 && <ReviewNote>Outcomes to be added once confirmed</ReviewNote>}
           <ul className="space-y-8">
             {project.whatChanged.map((o) => (
               <li key={o.text}>
                 <p className="label text-cherry">{outcomeLabels[o.kind]}</p>
-                <p className="mt-2 text-display-sm">{o.text}</p>
+                {o.title ? (
+                  <>
+                    <h3 className="mt-2 text-display-sm">{o.title}</h3>
+                    <p className="mt-2 text-[1.375rem] leading-[1.45] text-muted-ink">{o.text}</p>
+                  </>
+                ) : (
+                  <p className="mt-2 text-display-sm">{o.text}</p>
+                )}
               </li>
             ))}
           </ul>

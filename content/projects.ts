@@ -39,13 +39,15 @@ export type Project = {
   role?: string;
   timeframe?: string; // TODO(Emma): add if you want dates shown.
   situation: string;
+  /** "The challenge". Separate paragraphs with a blank line. */
   problem: string;
-  myRole: string[];
-  /** Leave empty until outcomes are confirmed; the page shows a placeholder. */
-  whatChanged: { text: string; kind: OutcomeKind }[];
+  /** Emma's contribution: plain lines, or titled items. */
+  myRole: (string | { title: string; body: string })[];
+  /** "The impact". Leave empty until outcomes are confirmed; the page shows a placeholder. */
+  whatChanged: { title?: string; text: string; kind: OutcomeKind }[];
   /** What it taught Emma, in her words only. */
   lesson?: string;
-  /** Optional small-print note shown after "What I did" (e.g. the fundraising disclaimer). */
+  /** Optional small-print note shown after "My contribution" (e.g. the fundraising disclaimer). */
   note?: string;
   image?: ProjectImage;
   /** Describes the image that should go here, shown on the placeholder until a real one is added. */
@@ -109,30 +111,50 @@ export const projects: Project[] = [
   },
   {
     slug: "circus-capital",
-    title: "A founder’s office, built in Claude.",
-    category: "Fractional Support",
+    title: "Building the relationships and infrastructure behind capital raising.",
+    category: "Fundraising & Investor Relations",
     summary:
-      "Fractional support for Circus Capital: supporting fundraising, connecting family offices and investor materials, plus an agentic Chief of Staff, pipeline tracker, investor finder and project management system built in Claude.",
+      "Fractional Chief of Staff support for Circus Capital: fundraising, investor introductions, investor readiness and Claude-powered operational infrastructure.",
     context: "Circus Capital",
-    role: "Fractional support",
+    role: "Fractional Chief of Staff · Fundraising, Investor Relations & Strategic Operations",
     imageBrief: "The quiet room: empty meeting room, morning light, paper-toned walls",
     situation:
-      "Circus Capital needed fractional support across fundraising, investor relationships, day-to-day visibility and project management.",
+      "Circus Capital required fractional Chief of Staff support to strengthen fundraising activity, investor engagement and the coordination of strategic and operational priorities.",
     problem:
-      "Raising capital runs on relationships and preparation at the same time. Keeping investor conversations, materials, priorities and projects all moving takes structure, without the cost of a full-time Chief of Staff.",
+      "Capital raising requires more than investor introductions. It demands a coordinated approach to relationship management, compelling investor materials and disciplined execution across multiple workstreams.\n\nThe challenge was to establish this structure and maintain momentum without the overhead of a full-time Chief of Staff.",
     myRole: [
-      "Supported fundraising",
-      "Connected Circus Capital with family offices",
-      "Supported investor materials to strengthen investor readiness",
-      "Built an agentic Chief of Staff, a pipeline tracker and an investor finder",
-      "Built a Chief of Staff dashboard and a project management system in Claude",
+      {
+        title: "Fundraising support",
+        body: "Supported fundraising preparation and execution, helping coordinate investor-facing activities and priorities.",
+      },
+      {
+        title: "Investor introductions",
+        body: "Facilitated introductions between Circus Capital and family offices, expanding access to prospective capital partners.",
+      },
+      {
+        title: "Investor readiness",
+        body: "Supported the development and refinement of investor materials, strengthening the firm’s investment narrative and fundraising preparation.",
+      },
+      {
+        title: "Operational infrastructure",
+        body: "Developed a Claude-powered Chief of Staff dashboard and project management system to improve visibility, track priorities and coordinate execution, and built an agentic Chief of Staff, a pipeline tracker and an investor finder.",
+      },
     ],
+    // Keep "introduced", never "secured investment" or "raised capital", unless substantiated.
     whatChanged: [
-      { text: "Family offices introduced to Circus Capital as part of its fundraising.", kind: "personal" },
-      { text: "Investor materials and day-to-day systems in place to support investor readiness.", kind: "personal" },
-      { text: "An agentic Chief of Staff, pipeline tracker and investor finder in use, built by me.", kind: "personal" },
+      {
+        title: "Expanded investor access",
+        text: "Introduced family offices to Circus Capital as part of its fundraising activities, creating opportunities for prospective investor engagement.",
+        kind: "personal",
+      },
+      {
+        title: "Stronger fundraising readiness",
+        text: "Supported the preparation of investor materials and established operational systems to improve coordination, visibility and follow-through across priorities.",
+        kind: "personal",
+      },
     ],
-    lesson: "It taught me the importance of relationship building.",
+    lesson:
+      "In capital raising, relationships open doors. Preparation, credibility and consistent execution create the conditions for progress.",
     note: "Fundraising support covers preparation, process management and introductions. It is not investment advice or arranging deals; any regulated activity stays with authorised firms.",
     status: "draft",
   },

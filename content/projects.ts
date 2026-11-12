@@ -311,6 +311,48 @@ export const projects: Project[] = [
       "It taught me that behind every ambitious growth story is a business that needs to stand up to scrutiny. Supporting a major fundraise and acquisition gave me an appreciation for the financial discipline, commercial understanding and operational detail required to turn ambition into something investors can believe in.",
     status: "approved",
   },
+  {
+    slug: "cos-os",
+    title: "An operating system for the Chief of Staff role.",
+    category: "AI & Product",
+    summary:
+      "CoS OS, an AI Chief of Staff product I’m building: strategy, delivery, pipeline and investor relations in one workspace, with a Claude agent that proposes and a person who approves.",
+    context: "CoS OS, a product I’m building",
+    role: "Founder · Product, design and build",
+    motif: { figure: "9", caption: "Desks in one workspace" },
+    situation:
+      "My Chief of Staff work runs on Claude-powered tools I built: a dashboard, an agentic Chief of Staff, a pipeline tracker, an investor finder and a project system. CoS OS brings that thinking together into one product.",
+    problem:
+      "Leadership information lives in decks, trackers, CRMs and inboxes, so a Chief of Staff spends time assembling it rather than thinking about it.\n\nAI can help, but only if leaders can trust it. Every answer has to trace back to a record, and nothing should change without a person approving it.",
+    myRole: [
+      {
+        title: "Product definition",
+        body: "Wrote the product specification: nine desks, from an executive command centre to an investor relations desk, the data model that connects them, and the rules the AI has to follow.",
+      },
+      {
+        title: "Trust by design",
+        body: "Designed the AI to separate facts, assumptions and recommendations, cite the records behind each point, and propose changes into an approval queue rather than make them. It cannot touch financial records or commitments, or mark work complete without evidence.",
+      },
+      {
+        title: "Building it",
+        body: "Built the working version with Claude Code on Next.js, Supabase and the Claude API, with role-based permissions enforced in the database and my own brand identity throughout.",
+      },
+    ],
+    whatChanged: [
+      { title: "A working product", text: "Nine working desks on a realistic fictional dataset, with creating, editing and approval flows tested in the browser.", kind: "personal" },
+      { title: "Indicative is never committed", text: "An investor relations desk that keeps indicative interest, soft commitments, legal commitments and cash received apart.", kind: "personal" },
+    ],
+    // TODO(Emma): add what building it taught you, in your own words.
+    note: "Shown with a fictional demo company. No client data is used.",
+    exhibit: {
+      src: "/images/cos-os-command-centre.jpg",
+      alt: "The CoS OS Executive Command Centre: headline figures for objectives, projects, overdue actions, pipeline, forecast and runway, a list of issues needing attention and decisions awaiting approval.",
+      width: 2016,
+      height: 1428,
+      caption: "The Executive Command Centre, shown with a fictional demo company.",
+    },
+    status: "draft",
+  },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

@@ -64,7 +64,7 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
 
       <div className="frame">
         <Reveal>
-          <EditorialImage image={project.image} brief={project.imageBrief} ratio="16 / 9" sizes="100vw" priority />
+          <EditorialImage image={project.image} brief={project.imageBrief} ratio="16 / 9" sizes="100vw" priority tone={project.accent ?? "linen"} />
         </Reveal>
       </div>
 

@@ -12,7 +12,7 @@ type Props = {
   priority?: boolean;
   className?: string;
   hoverZoom?: boolean;
-  tone?: "linen" | "deep" | "cherry";
+  tone?: "linen" | "deep" | "cherry" | "turnout";
 };
 
 /**
@@ -44,6 +44,7 @@ export default function EditorialImage({
   const tones = {
     linen: "bg-linen",
     deep: "bg-linen-deep",
+    turnout: "bg-turnout",
     cherry: "bg-cherry/[0.09]",
   };
 

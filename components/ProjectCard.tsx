@@ -24,7 +24,7 @@ export default function ProjectCard({ project, index, headingLevel: H = "h3" }: 
           ratio={flip ? "1 / 1" : "5 / 4"}
           sizes="(min-width: 768px) 58vw, 100vw"
           hoverZoom
-          tone={index === 1 ? "deep" : "linen"}
+          tone={project.accent ?? (index === 1 ? "deep" : "linen")}
         />
       </Reveal>
 

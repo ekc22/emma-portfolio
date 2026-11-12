@@ -16,6 +16,8 @@ const config: Config = {
         cherry: { DEFAULT: "#9B1C2E", deep: "#7E1424" }, // accent (7.5:1 on paper)
         linen: { DEFAULT: "#EFE6D8", deep: "#E4DACB" }, // borders, placeholders, faded numerals
         muted: { DEFAULT: "#7A6467", ink: "#6E5659" }, // secondary text: 5.1:1 and 6.2:1 on paper
+        // Turnout's own blue: used only for Turnout references. Oxblood text 12.3:1, cherry 5.9:1.
+        turnout: { DEFAULT: "#C5E3EC", deep: "#A8D2DF" },
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "Times New Roman", "serif"],

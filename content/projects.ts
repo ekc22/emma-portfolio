@@ -52,6 +52,8 @@ export type Project = {
   image?: ProjectImage;
   /** Describes the image that should go here, shown on the placeholder until a real one is added. */
   imageBrief: string;
+  /** Use a venture's own colour for its placeholders (Turnout blue). */
+  accent?: "turnout";
   status: "draft" | "approved";
 };
 
@@ -61,10 +63,11 @@ export const projects: Project[] = [
     title: "What happens when you’re the one building it?",
     category: "Founding & Go-to-market",
     summary:
-      "Co-founding Turnout, a sports and wellness platform: owning its full go-to-market, building AI agents for forecasting and trends, and working with our CTO to free up more time for go-to-market.",
+      "Co-founding Turnout, a sports and wellness platform: owning its full go-to-market, building Poppy, our AI agent, and working with our CTO to free up more time for go-to-market.",
     context: "Turnout, a sports and wellness platform",
     role: "Co-founder · Go-to-market & AI",
     imageBrief: "Turnout: a real photograph from a sports or wellness session",
+    accent: "turnout",
     situation:
       "Turnout started as an idea: a sports and wellness platform that brings people together.",
     problem:
@@ -79,8 +82,8 @@ export const projects: Project[] = [
         body: "Own the full go-to-market and developed the go-to-market strategy.",
       },
       {
-        title: "AI agents",
-        body: "Built AI agents into how we work, including a forecasting agent and agent-to-agent workflows that track trends.",
+        title: "Poppy, our AI agent",
+        body: "Built Poppy, Turnout’s AI agent, with forecasting and agent-to-agent workflows that track trends.",
       },
       {
         title: "Working with our CTO",
@@ -94,7 +97,7 @@ export const projects: Project[] = [
     // Describes what was built; no performance claims (e.g. forecast accuracy, hours saved) unless evidenced.
     whatChanged: [
       { title: "A go-to-market strategy", text: "A full go-to-market strategy, developed and owned by me.", kind: "personal" },
-      { title: "AI built into the business", text: "A forecasting agent and agent-to-agent trend workflows, built by me.", kind: "personal" },
+      { title: "Poppy, built into the business", text: "Poppy, our AI agent, with forecasting and agent-to-agent trend workflows, built by me.", kind: "personal" },
       { title: "From idea to product testing", text: "Taken from company formation and initial concept into product testing.", kind: "team" },
     ],
     lesson:

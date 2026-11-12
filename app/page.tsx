@@ -58,17 +58,17 @@ export default function Home() {
       </section>
 
       {/* Turnout spotlight */}
-      <section aria-labelledby="turnout-title" className="bg-oxblood text-paper">
+      <section aria-labelledby="turnout-title" className="bg-turnout text-oxblood">
         <div className="frame py-20 md:py-32">
           <div className="grid-12 gap-y-10">
-            <div className="col-span-4 flex gap-4 border-t border-paper/20 pt-4 md:col-span-12">
-              <span className="label !text-paper/70">{turnout.label}</span>
+            <div className="col-span-4 flex gap-4 border-t border-oxblood/20 pt-4 md:col-span-12">
+              <span className="label">{turnout.label}</span>
             </div>
             <Reveal className="col-span-4 md:col-span-6">
               <h2 id="turnout-title" className="text-[clamp(4rem,12vw,10rem)] leading-[0.85] tracking-[-0.03em]">
                 {turnout.name}.
               </h2>
-              <p className="mt-6 text-display-sm italic text-paper/80">{turnout.line}</p>
+              <p className="mt-6 text-display-sm italic text-cherry">{turnout.line}</p>
             </Reveal>
             <Reveal delay={120} className="col-span-4 md:col-span-5 md:col-start-8 md:pt-6">
               <div className="prose-editorial text-[1.375rem] leading-[1.45] md:text-[1.5rem]">
@@ -76,16 +76,16 @@ export default function Home() {
                   <p key={p}>{p}</p>
                 ))}
               </div>
-              <dl className="mt-10 grid grid-cols-3 border-t border-paper/20 pt-5">
+              <dl className="mt-10 grid grid-cols-3 gap-x-4 border-t border-oxblood/20 pt-5">
                 {turnout.facts.map((f) => (
                   <div key={f.label}>
-                    <dt className="label !text-paper/60">{f.label}</dt>
+                    <dt className="label">{f.label}</dt>
                     <dd className="mt-2 text-[1.25rem] leading-tight">{f.value}</dd>
                   </div>
                 ))}
               </dl>
               <div className="mt-10">
-                <TextLink href="/work/when-youre-the-one-building-it" className="!text-paper hover:!text-paper/70">
+                <TextLink href="/work/when-youre-the-one-building-it">
                   Read the Turnout story
                 </TextLink>
               </div>

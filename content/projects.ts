@@ -192,7 +192,7 @@ export const projects: Project[] = [
     result: "Six businesses progressed to pilot stage.",
     context: "Seed-stage AI venture",
     role: "Founding Growth Team · Go-to-Market",
-    timeframe: "2025 to present",
+    timeframe: "2026 to present",
     motif: { figure: "6", caption: "Businesses progressed to pilot stage" },
     problem:
       "The business needed to establish who its most valuable customers were, how to position its product and what an initial commercial engagement should look like.\n\nThere was no existing sales playbook or established pricing framework.",

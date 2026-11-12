@@ -148,12 +148,12 @@ export const contact = {
 /** Career timeline and education, taken from Emma's CV. */
 export const timeline = [
   { when: "2026 to present", org: "Turnout (Good Turnout Ltd)", role: "Co-Founder & Chief Strategy Officer" },
+  { when: "2026 to present", org: "Seed-stage AI start-up (stealth)", role: "Founding growth team, part time" },
   { when: "2025 to present", org: "Circus Capital", role: "Chief of Staff (fractional)" },
-  { when: "2025 to present", org: "Seed-stage AI start-up (stealth)", role: "Founding growth team, part time" },
-  { when: "Apr 2024 to present", org: "Canaccord Genuity Wealth Management", role: "Business Initiatives Lead, Commercial Office · Chief of Staff remit to the Group CCO" },
-  { when: "Aug 2022 to Mar 2024", org: "RBC Brewin Dolphin", role: "Associate, Funds (Associate Director cover)" },
-  { when: "Apr 2022 to Aug 2022", org: "Paddle", role: "Management Accountant, FP&A" },
-  { when: "Mar 2016 to Jan 2022", org: "Hastings Direct", role: "Commercial Finance & Investor Relations" },
+  { when: "2024 to present", org: "Canaccord Genuity Wealth Management", role: "Business Initiatives Lead, Commercial Office · Chief of Staff remit to the Group CCO" },
+  { when: "2022 to 2024", org: "RBC Brewin Dolphin", role: "Associate, Funds (Associate Director cover)" },
+  { when: "2022", org: "Paddle", role: "Management Accountant, FP&A" },
+  { when: "2016 to 2022", org: "Hastings Direct", role: "Commercial Finance & Investor Relations" },
 ];
 
 export const education = [

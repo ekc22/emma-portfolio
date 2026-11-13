@@ -1,5 +1,9 @@
 import { loadPage } from "@/lib/page";
-import { claudeModel, isClaudeConfigured, isSupabaseConfigured } from "@/lib/env";
+import { canInviteUsers, claudeModel, isClaudeConfigured, isSupabaseConfigured } from "@/lib/env";
+import { listAccess } from "@/lib/members";
+import { AccessManager } from "@/components/settings/access-manager";
+import { CsvImport } from "@/components/settings/csv-import";
+import { IMPORTABLE } from "@/lib/import";
 import { INTEGRATIONS } from "@/lib/integrations";
 import { ROLES, ROLE_LABEL, canRead, canWrite, isAdmin } from "@/lib/auth/permissions";
 import { ENTITIES, humanize, type AccessGroup } from "@/lib/schema";
@@ -25,6 +29,7 @@ export default async function SettingsPage() {
   const { session, data, lookups, write } = await loadPage(["organisations", "users", "teams", "documents", "audit_logs"] as const);
   const org = data.organisations[0];
   const admin = isAdmin(session.role);
+  const access = admin ? await listAccess(session) : [];
 
   return (
     <div>
@@ -94,6 +99,8 @@ export default async function SettingsPage() {
               </div>
             ),
           },
+          ...(admin ? [{ id: "access", label: "Access", content: <AccessManager people={data.users} access={access.map((a) => ({ id: a.id, personId: a.personId, role: a.role }))} selfPersonId={session.personId} demo={session.mode === "demo"} canInvite={canInviteUsers()} /> }] : []),
+          ...(IMPORTABLE.some((t) => write(t)) ? [{ id: "import", label: "Import", content: <CsvImport writable={IMPORTABLE.filter((t) => write(t))} /> }] : []),
           { id: "people", label: "People", content: <EntityTable table="users" rows={data.users} lookups={lookups} canWrite={write("users")} /> },
           { id: "teams", label: "Teams", content: <EntityTable table="teams" rows={data.teams} lookups={lookups} canWrite={write("teams")} /> },
           { id: "documents", label: "Documents", content: <EntityTable table="documents" rows={data.documents} lookups={lookups} canWrite={write("documents")} emptyText="Link documents held in your storage." /> },

@@ -1,6 +1,7 @@
 import { isSupabaseConfigured } from "@/lib/env";
 import { DEMO_PERSONAS, personId } from "@/lib/data/seed";
 import { loadDb } from "@/lib/data/local-store";
+import type { Role } from "@/lib/types";
 import { signInDemo } from "@/lib/actions/auth";
 import { ROLE_LABEL } from "@/lib/auth/permissions";
 import { PasswordForm } from "./password-form";
@@ -10,9 +11,14 @@ export const metadata = { title: "Sign in" };
 
 const WORD = "CoS OS";
 
-export default async function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  const { error } = await searchParams;
   const supa = isSupabaseConfigured();
-  const people = supa ? [] : loadDb().tables.users;
+  const db = supa ? null : loadDb();
+  const people = db?.tables.users ?? [];
+  const personas = DEMO_PERSONAS.map((p) => ({ id: personId(p.personKey), role: p.role as Role, blurb: p.blurb as string }));
+  // People given access later in Settings appear too.
+  for (const m of db?.memberships ?? []) if (!personas.some((p) => p.id === m.person_id)) personas.push({ id: m.person_id, role: m.role as Role, blurb: "Added in Settings → Access." });
   return (
     <main className="mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 gap-12 px-5 py-10 sm:px-8 lg:grid-cols-12 lg:items-center lg:px-14">
       <section className="lg:col-span-7">
@@ -34,7 +40,7 @@ export default async function LoginPage() {
 
       <section className="border-t-2 border-oxblood pt-6 lg:col-span-5">
         {supa ? (
-          <PasswordForm />
+          <PasswordForm linkError={error === "link"} />
         ) : (
           <form action={signInDemo} className="flex flex-col gap-4">
             <div>
@@ -43,11 +49,11 @@ export default async function LoginPage() {
             </div>
             <fieldset className="flex flex-col border-t border-linen-deep">
               <legend className="sr-only">Persona</legend>
-              {DEMO_PERSONAS.map((p, i) => {
-                const person = people.find((u) => u.id === personId(p.personKey));
+              {personas.map((p, i) => {
+                const person = people.find((u) => u.id === p.id);
                 return (
-                  <label key={p.personKey} className="flex cursor-pointer items-start gap-3 border-b border-linen-deep px-1 py-3 transition-colors hover:bg-butter/40 has-[:checked]:bg-butter/70">
-                    <input type="radio" name="person" value={personId(p.personKey)} defaultChecked={i === 0} className="mt-1.5 accent-[#9B1C2E]" />
+                  <label key={p.id} className="flex cursor-pointer items-start gap-3 border-b border-linen-deep px-1 py-3 transition-colors hover:bg-butter/40 has-[:checked]:bg-butter/70">
+                    <input type="radio" name="person" value={p.id} defaultChecked={i === 0} className="mt-1.5 accent-[#9B1C2E]" />
                     <span>
                       <span className="block font-serif text-[1.25rem] leading-tight">{person?.full_name} <span className="label ml-1">{ROLE_LABEL[p.role]}</span></span>
                       <span className="block text-xs text-muted-foreground">{p.blurb}</span>

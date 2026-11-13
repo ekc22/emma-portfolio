@@ -25,12 +25,16 @@ export async function createMessage(params: Omit<Anthropic.Beta.MessageCreatePar
 
 export class AiUnavailableError extends Error {}
 
+/** Thrown when a person has used today's AI allowance. */
+export class AiLimitError extends Error {}
+
 export function assertClaude() {
   if (!isClaudeConfigured()) throw new AiUnavailableError("Claude is not configured. Add ANTHROPIC_API_KEY to the environment to use AI features.");
 }
 
 /** Plain-language error for the UI, without leaking internals. */
 export function describeAiError(e: unknown): { status: number; message: string } {
+  if (e instanceof AiLimitError) return { status: 429, message: e.message };
   if (e instanceof AiUnavailableError) return { status: 503, message: e.message };
   if (e instanceof Anthropic.AuthenticationError) return { status: 502, message: "Claude rejected the API key. Check ANTHROPIC_API_KEY." };
   if (e instanceof Anthropic.PermissionDeniedError) return { status: 502, message: "This API key does not have access to the configured model." };

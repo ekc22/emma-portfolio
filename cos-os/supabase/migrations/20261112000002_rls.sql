@@ -215,6 +215,11 @@ create policy ai_recommendations_insert on public.ai_recommendations for insert 
 create policy ai_recommendations_update on public.ai_recommendations for update using (public.can_write(organisation_id, 'core')) with check (public.can_write(organisation_id, 'core'));
 create policy ai_recommendations_delete on public.ai_recommendations for delete using (public.can_write(organisation_id, 'core'));
 
+alter table public.ai_usage enable row level security;
+create policy ai_usage_read on public.ai_usage for select using (actor_id = auth.uid()::text or public.can_read(organisation_id, 'admin'));
+create policy ai_usage_insert on public.ai_usage for insert with check (public.org_role(organisation_id) is not null and actor_id = auth.uid()::text);
+create policy ai_usage_update on public.ai_usage for update using (actor_id = auth.uid()::text) with check (actor_id = auth.uid()::text);
+
 alter table public.audit_logs enable row level security;
 create policy audit_read on public.audit_logs for select using (public.can_read(organisation_id, 'admin'));
 create policy audit_insert on public.audit_logs for insert with check (public.org_role(organisation_id) is not null and actor_id = auth.uid());

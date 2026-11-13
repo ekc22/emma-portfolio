@@ -170,6 +170,15 @@ function rlsSql() {
       );
       continue;
     }
+    if (t === "ai_usage") {
+      lines.push(
+        `create policy ai_usage_read on public.ai_usage for select using (actor_id = auth.uid()::text or public.can_read(organisation_id, 'admin'));`,
+        `create policy ai_usage_insert on public.ai_usage for insert with check (public.org_role(organisation_id) is not null and actor_id = auth.uid()::text);`,
+        `create policy ai_usage_update on public.ai_usage for update using (actor_id = auth.uid()::text) with check (actor_id = auth.uid()::text);`,
+        "",
+      );
+      continue;
+    }
     if (t === "organisations") {
       lines.push(
         `create policy org_read on public.organisations for select using (public.can_read(id, 'core'));`,

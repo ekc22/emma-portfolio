@@ -431,6 +431,7 @@ export function buildSeed(): Record<TableName, Record<string, unknown>[]> {
     routines: routines.map((r) => ({ ...base("routines", r.key as string, -100), title: r.title, cadence: r.cadence, owner_id: U(r.owner as string), team_id: ref("teams", r.team as string), next_due: r.next_due, lead_days: r.lead_days, active: r.active, last_run: r.last_run ?? null, project_id: null, description: r.description ?? null, checklist: r.checklist ?? null })),
     requests: requests.map((r) => ({ ...base("requests", r.key as string, -6), title: r.title, request_type: r.request_type, requested_by_id: U(r.requested_by as string), owner_id: ref("users", r.owner as string), team_id: ref("teams", r.team as string), priority: r.priority, status: r.status, needed_by: r.needed_by ?? null, detail: r.detail ?? null, task_id: r.key === "rq-cs-hire" ? id("tasks", "t21") : null })),
     ai_recommendations: [],
+    ai_usage: [],
     audit_logs: [],
   };
 }

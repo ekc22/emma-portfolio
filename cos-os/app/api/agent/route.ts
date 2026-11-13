@@ -1,6 +1,8 @@
 import { getSession } from "@/lib/auth/session";
 import { runAgent, type AgentEvent, type ChatTurn } from "@/lib/ai/agent";
 import { describeAiError } from "@/lib/ai/client";
+import { consumeAiAllowance } from "@/lib/ai/limits";
+import { isClaudeConfigured } from "@/lib/env";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -21,6 +23,10 @@ export async function POST(req: Request) {
     if (!history.length || history[history.length - 1].role !== "user") throw new Error();
   } catch {
     return Response.json({ error: "Send at least one user message." }, { status: 400 });
+  }
+
+  if (isClaudeConfigured()) {
+    try { await consumeAiAllowance(session, "agent"); } catch (e) { const { status, message } = describeAiError(e); return Response.json({ error: message }, { status }); }
   }
 
   const enc = new TextEncoder();

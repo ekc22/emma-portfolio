@@ -2,7 +2,7 @@
   "name": "cos-os",
   "version": "0.1.0",
   "private": true,
-  "description": "CoS OS — an AI Chief of Staff operating system. Less reporting. More thinking.",
+  "description": "CoS OS \u2014 an AI Chief of Staff operating system. Less reporting. More thinking.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build",
     "demo:reset": "tsx scripts/reset-demo.ts",
-    "db:generate": "tsx scripts/generate-sql.ts"
+    "db:generate": "tsx scripts/generate-sql.ts",
+    "setup:owner": "tsx scripts/setup-owner.ts"
   },
   "engines": {
     "node": ">=20"

@@ -104,6 +104,7 @@ export const TABLES = [
   "routines",
   "requests",
   "ai_recommendations",
+  "ai_usage",
   "audit_logs",
 ] as const;
 export type TableName = (typeof TABLES)[number];
@@ -689,6 +690,18 @@ export const ENTITIES: Record<TableName, EntityDef> = {
       { key: "status", label: "Status", type: "select", options: RECOMMENDATION_STATUS, list: true },
       { key: "rationale", label: "Rationale", type: "textarea" },
       { key: "confidence", label: "Confidence", type: "select", options: ["low", "medium", "high"] },
+    ],
+  },
+  ai_usage: {
+    table: "ai_usage", label: "AI usage", plural: "AI usage", titleField: "endpoint", group: "admin", module: "settings",
+    description: "Daily AI request counts per person, for usage limits.",
+    search: ["endpoint"],
+    sort: ["day", "desc"],
+    fields: [
+      { key: "day", label: "Day", type: "date", required: true, list: true },
+      { key: "actor_id", label: "Person", type: "text", required: true, list: true },
+      { key: "endpoint", label: "Feature", type: "text", required: true, list: true },
+      { key: "count", label: "Requests", type: "number", required: true, list: true },
     ],
   },
   audit_logs: {

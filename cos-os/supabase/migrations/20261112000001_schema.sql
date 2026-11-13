@@ -689,6 +689,20 @@ create table if not exists public.ai_recommendations (
 create index if not exists ai_recommendations_org_idx on public.ai_recommendations (organisation_id);
 create trigger ai_recommendations_touch before update on public.ai_recommendations for each row execute function public.touch_updated_at();
 
+create table if not exists public.ai_usage (
+  id uuid primary key default gen_random_uuid(),
+  organisation_id uuid not null references public.organisations(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  created_by uuid,
+  day date not null,
+  actor_id text not null,
+  endpoint text not null,
+  count numeric not null
+);
+create index if not exists ai_usage_org_idx on public.ai_usage (organisation_id);
+create trigger ai_usage_touch before update on public.ai_usage for each row execute function public.touch_updated_at();
+
 create table if not exists public.audit_logs (
   id uuid primary key default gen_random_uuid(),
   organisation_id uuid not null references public.organisations(id) on delete cascade,

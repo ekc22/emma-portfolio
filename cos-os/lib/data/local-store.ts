@@ -11,7 +11,10 @@ import { buildSeed, demoMemberships, resolveTokens } from "./seed";
  * fictional seed on first use. Survives restarts; delete the file (or run
  * `npm run demo:reset`) to start again.
  */
-const FILE = path.join(process.cwd(), ".data", "cos-os.json");
+// Serverless hosts (e.g. Vercel) only allow writing to /tmp, which is per-instance and
+// temporary: fine for a throwaway demo, never for real data (use Supabase).
+const DIR = process.env.COS_DATA_DIR || (process.env.VERCEL ? "/tmp/cos-os" : path.join(process.cwd(), ".data"));
+const FILE = path.join(DIR, "cos-os.json");
 
 type DB = { version: 1; seededAt: string; tables: Record<string, Row[]>; memberships: ReturnType<typeof demoMemberships> };
 
@@ -36,6 +39,25 @@ function saveDb(db: DB) {
   const tmp = FILE + ".tmp";
   fs.writeFileSync(tmp, JSON.stringify(db));
   fs.renameSync(tmp, FILE);
+}
+
+/** Demo-mode memberships (who can sign in, with which role). */
+export function listDemoMemberships(orgId: string) {
+  return loadDb().memberships.filter((m) => m.organisation_id === orgId);
+}
+
+export function upsertDemoMembership(m: { person_id: string; organisation_id: string; role: string }) {
+  const db = loadDb();
+  const existing = db.memberships.find((x) => x.person_id === m.person_id && x.organisation_id === m.organisation_id);
+  if (existing) existing.role = m.role as typeof existing.role;
+  else db.memberships.push({ auth_user_id: m.person_id, person_id: m.person_id, organisation_id: m.organisation_id, role: m.role as never });
+  saveDb(db);
+}
+
+export function removeDemoMembership(personId: string, orgId: string) {
+  const db = loadDb();
+  db.memberships = db.memberships.filter((x) => !(x.person_id === personId && x.organisation_id === orgId));
+  saveDb(db);
 }
 
 export function resetDemoDb() {

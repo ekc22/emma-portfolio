@@ -5,7 +5,7 @@ import { requireSession } from "../auth/session";
 import { isAdmin, ROLES } from "../auth/permissions";
 import { canInviteUsers, isSupabaseConfigured, siteUrl } from "../env";
 import { getStore } from "../data";
-import { removeDemoMembership, upsertDemoMembership } from "../data/local-store";
+import { listDemoMemberships, removeDemoMembership, upsertDemoMembership } from "../data/local-store";
 import { supabaseAdmin } from "../supabase/admin";
 import { supabaseServer } from "../supabase/server";
 import { writeAudit } from "../audit";
@@ -30,6 +30,7 @@ export async function inviteMember(personId: string, email: string, role: Role):
   if (!person) return { ok: false, error: "Person not found." };
 
   if (!isSupabaseConfigured()) {
+    if (listDemoMemberships(session.orgId).some((m) => m.person_id === personId)) return { ok: false, error: `${person.full_name} already has access. Use the role menu to change it.` };
     upsertDemoMembership({ person_id: personId, organisation_id: session.orgId, role });
     await writeAudit(store, session, { action: "create", table: "users", recordId: personId, summary: `Gave ${person.full_name} ${role} access` });
     revalidatePath("/", "layout");
@@ -40,6 +41,12 @@ export async function inviteMember(personId: string, email: string, role: Role):
   if (!EMAIL.test(address)) return { ok: false, error: "Enter a valid email address." };
   if (!canInviteUsers()) return { ok: false, error: "Inviting needs SUPABASE_SERVICE_ROLE_KEY on the server. See the README." };
   const admin = supabaseAdmin();
+
+  // This action only ever grants new access. Existing access changes through
+  // changeRole/revokeAccess, which enforce the owner rules.
+  const { data: linked, error: linkErr } = await admin.from("memberships").select("id").eq("organisation_id", session.orgId).eq("person_id", personId).limit(1);
+  if (linkErr) return { ok: false, error: linkErr.message };
+  if (linked?.length) return { ok: false, error: `${person.full_name} already has access. Use the role menu to change it.` };
 
   let authUserId: string | null = null;
   const invited = await admin.auth.admin.inviteUserByEmail(address, { redirectTo: `${siteUrl()}/auth/confirm?next=/auth/set-password` });
@@ -55,11 +62,13 @@ export async function inviteMember(personId: string, email: string, role: Role):
     if (!authUserId) return { ok: false, error: invited.error?.message ?? "The invite could not be sent." };
   }
 
-  const { error } = await admin.from("memberships").upsert(
-    { auth_user_id: authUserId, person_id: personId, organisation_id: session.orgId, role },
-    { onConflict: "auth_user_id,organisation_id" },
-  );
-  if (error) return { ok: false, error: error.message };
+  const { data: existing, error: lookupErr } = await admin.from("memberships").select("id").eq("organisation_id", session.orgId).eq("auth_user_id", authUserId).limit(1);
+  if (lookupErr) return { ok: false, error: lookupErr.message };
+  if (existing?.length) return { ok: false, error: `${address} already has access to this workspace. Use the role menu to change it.` };
+
+  // Insert, never upsert: the service-role client must not be able to change an existing membership.
+  const { error } = await admin.from("memberships").insert({ auth_user_id: authUserId, person_id: personId, organisation_id: session.orgId, role });
+  if (error) return { ok: false, error: error.code === "23505" ? `${address} already has access to this workspace.` : error.message };
   if (!person.email) await store.update("users", personId, { email: address });
   await writeAudit(store, session, { action: "create", table: "users", recordId: personId, summary: `Invited ${person.full_name} (${address}) as ${role}` });
   revalidatePath("/", "layout");
@@ -73,6 +82,9 @@ export async function changeRole(membershipId: string, role: Role): Promise<Memb
   if (role === "owner" && session.role !== "owner") return { ok: false, error: "Only an owner can make someone an owner." };
   if (!isSupabaseConfigured()) {
     if (membershipId === session.personId && role !== session.role) return { ok: false, error: "You can't change your own role." };
+    const current = listDemoMemberships(session.orgId).find((m) => m.person_id === membershipId);
+    if (!current) return { ok: false, error: "Access record not found." };
+    if (current.role === "owner" && session.role !== "owner") return { ok: false, error: "Only an owner can change another owner." };
     upsertDemoMembership({ person_id: membershipId, organisation_id: session.orgId, role });
   } else {
     const sb = await supabaseServer();
@@ -94,6 +106,9 @@ export async function revokeAccess(membershipId: string): Promise<MemberResult> 
   if (!isAdmin(session.role)) return { ok: false, error: "Only owners and admins can remove access." };
   if (!isSupabaseConfigured()) {
     if (membershipId === session.personId) return { ok: false, error: "You can't remove your own access." };
+    const current = listDemoMemberships(session.orgId).find((m) => m.person_id === membershipId);
+    if (!current) return { ok: false, error: "Access record not found." };
+    if (current.role === "owner" && session.role !== "owner") return { ok: false, error: "Only an owner can remove another owner." };
     removeDemoMembership(membershipId, session.orgId);
   } else {
     const sb = await supabaseServer();

@@ -229,6 +229,29 @@ alter table public.memberships enable row level security;
 create policy memberships_read on public.memberships for select using (auth_user_id = auth.uid() or public.can_read(organisation_id, 'admin'));
 create policy memberships_write on public.memberships for all using (public.can_write(organisation_id, 'admin')) with check (public.can_write(organisation_id, 'admin'));
 
+-- Owner protection: only an owner can create, change or remove an owner membership,
+-- or grant the owner role. Admins manage everyone else. The service role (auth.uid() is null)
+-- is exempt so first-owner setup works; app code checks roles before using it.
+create or replace function public.protect_owner_memberships() returns trigger
+language plpgsql security definer set search_path = public as $$
+declare caller_role text;
+begin
+  if auth.uid() is null then return coalesce(new, old); end if;
+  caller_role := public.org_role(coalesce(new.organisation_id, old.organisation_id));
+  if caller_role is distinct from 'owner' and (
+       (tg_op in ('UPDATE','DELETE') and old.role = 'owner')
+    or (tg_op in ('INSERT','UPDATE') and new.role = 'owner')
+  ) then
+    raise exception 'Only an owner can grant, change or remove owner access' using errcode = '42501';
+  end if;
+  if tg_op = 'UPDATE' and (new.auth_user_id is distinct from old.auth_user_id or new.organisation_id is distinct from old.organisation_id) then
+    raise exception 'A membership cannot be moved to another login or workspace' using errcode = '42501';
+  end if;
+  return coalesce(new, old);
+end $$;
+create trigger memberships_protect_owner before insert or update or delete on public.memberships
+  for each row execute function public.protect_owner_memberships();
+
 grant usage on schema public to authenticated;
 grant select, insert, update, delete on all tables in schema public to authenticated;
 revoke all on all tables in schema public from anon;

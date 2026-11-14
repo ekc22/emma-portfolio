@@ -83,10 +83,10 @@ export const projects: Project[] = [
     category: "AI · Product · Business Operations",
     summary:
       "I built CoS OS to bring strategy, project delivery, commercial pipeline management and investor relations into one AI-enabled operating workspace. Rather than creating another dashboard, I wanted to connect the information executives rely on with the decisions and actions that follow.",
-    result: "A working AI-enabled Chief of Staff product connecting leadership priorities with operational execution.",
+    result: "A working AI-enabled Chief of Staff product, now in live use at Circus Capital.",
     context: "CoS OS, an AI-enabled operating workspace",
     role: "Founder · Product, Design & Build",
-    productStatus: "Built and working. Runs locally for my own use; not a commercial product.",
+    productStatus: "Built and working. In live use at Circus Capital, supporting the Principal; not a commercial product.",
     demonstrates:
       "Identifying an operational problem, translating it into product requirements and building a working solution with modern AI development tools.",
     demo: {
@@ -140,6 +140,11 @@ export const projects: Project[] = [
       {
         title: "A working product",
         text: "A working AI-enabled Chief of Staff product that connects leadership priorities with operational execution.",
+        kind: "personal",
+      },
+      {
+        title: "In live use",
+        text: "CoS OS is now used day to day at Circus Capital, tracking actions, priorities and pipeline. I review its outputs before anything reaches the Principal.",
         kind: "personal",
       },
     ],
@@ -293,12 +298,18 @@ export const projects: Project[] = [
       "Conduct market and business research to inform strategic planning.",
       {
         title: "AI-assisted workflows",
-        body: "Build AI-assisted workflows to support information management, research and executive administration. That thinking also shaped CoS OS, the Chief of Staff product I built.",
+        body: "Build AI-assisted workflows to support information management, research and executive administration. CoS OS, the Chief of Staff product I built, is now in live use here: it tracks actions, priorities and pipeline, and I review its outputs before they reach the Principal.",
         link: { href: "/work/cos-os", label: "See CoS OS" },
       },
       "Coordinate operational priorities and follow-up activity under the Principal’s direction.",
     ],
-    whatChanged: [],
+    whatChanged: [
+      {
+        title: "CoS OS in live use",
+        text: "The Chief of Staff product I built now supports the Principal day to day, with every output reviewed by me before it is used.",
+        kind: "personal",
+      },
+    ],
     lesson:
       "Working closely with a Principal has reinforced how valuable good judgement, discretion and execution are in a lean business. Effective support isn’t about adding process. It’s about creating clarity, protecting leadership time and making sure important work moves forward.",
     status: "approved",

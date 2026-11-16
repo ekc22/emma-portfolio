@@ -88,63 +88,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "making-strategy-everyones-business",
-    title: "Making strategy executable.",
-    category: "Executive Strategy · Operations",
-    summary:
-      "Working directly with the Group Chief Commercial Officer of a major wealth management business, I developed an organic growth strategy adopted by the Executive Committee and established the governance and operating rhythm to turn leadership priorities into coordinated delivery.",
-    result: "An organic growth strategy adopted by the Executive Committee.",
-    context: "Canaccord, Commercial Office",
-    role: "Business Initiatives Lead · Commercial Office",
-    teaser:
-      "Developing commercial strategy, supporting executive decisions and creating the operating structures that turn priorities into coordinated delivery.",
-    demonstrates:
-      "Working at executive level: turning a growth strategy into the forums, reporting and accountability that make it happen across functions.",
-    framework: {
-      title: "The operating cadence I set up and ran",
-      caption: "Illustrative structure only. No internal data is shown.",
-      columns: [
-        { label: "Growth Committee", cadence: "Monthly", items: ["Agendas and actions", "OKR and departmental performance tracking", "Delivery risk raised early"] },
-        { label: "ExCo review", cadence: "Quarterly", items: ["Progress against the growth strategy", "Priorities and decisions", "Risk raised before it reaches the Board"] },
-        { label: "Board", cadence: "Sign-off", items: ["Consumer Duty reporting", "Eight workstreams, from self-assessment to sign-off"] },
-      ],
-    },
-    timeframe: "2024 to present",
-    motif: { figure: "ExCo", caption: "Organic growth strategy adopted" },
-    problem:
-      "Commercial growth spans multiple interdependent functions, from distribution and propositions to finance, technology, data and client experience.\n\nLeadership needed a consistent framework for prioritisation, accountability, performance visibility and decision-making.",
-    myRole: [
-      "Established and ran a Growth Committee to coordinate priorities and decisions.",
-      "Built the executive operating cadence, including governance, risk escalation and delivery reporting.",
-      "Built a 30-metric, one-page CEO dashboard covering client outcomes, fair value, growth, outflows, regulatory risk and retention, cutting leadership reporting time by around two weeks.",
-      "Developed the organic growth strategy, including client-segment and channel opportunity sizing, commercial analysis and proposition priorities.",
-      "Translated strategy into commercial objectives, KPIs and delivery plans.",
-      "Supported strategic partnerships and commercial enablement through external materials, opportunity analysis and pipeline-conversion reporting.",
-      "Worked across commercial, financial, technology, operations and compliance stakeholders.",
-      "Coordinated eight Consumer Duty workstreams and Fair Value Assessment activity through senior governance and Board sign-off.",
-    ],
-    whatChanged: [
-      {
-        title: "Strategy adopted, and made executable",
-        text: "An organic growth strategy adopted by ExCo, with a repeatable leadership forum and operating cadence connecting strategic priorities to accountable execution.",
-        kind: "personal",
-      },
-      {
-        title: "Around two weeks back for leadership",
-        text: "The one-page dashboard I built cut leadership reporting preparation by around two weeks.",
-        kind: "personal",
-      },
-      {
-        title: "Eight workstreams to Board sign-off",
-        text: "Separately, eight cross-functional regulatory workstreams were coordinated through Board sign-off.",
-        kind: "personal",
-      },
-    ],
-    lesson:
-      "Strategy becomes valuable when it changes what people do. I’ve learned that effective execution needs commercial judgement, clear ownership and the ability to connect different teams around a shared outcome. Leadership needs both the big picture and confidence that the details are being delivered.",
-    status: "approved",
-  },
-  {
     slug: "cos-os",
     title: "Building the Chief of Staff system I wanted to use.",
     category: "AI · Operating Systems",
@@ -254,44 +197,6 @@ export const projects: Project[] = [
     status: "approved",
   },
   {
-    slug: "finding-a-market-before-the-playbook",
-    title: "Finding the market before there’s a playbook.",
-    category: "Zero-to-One · Go-to-Market",
-    summary:
-      "As part of the founding growth team at a seed-stage AI venture, I defined the target customer and pricing with the founder and built the go-to-market approach, taking six businesses to live pilots.",
-    result: "Six businesses taken to live pilots.",
-    context: "Seed-stage AI venture",
-    role: "Founding Growth Team · Go-to-Market",
-    teaser:
-      "The commercial foundations of an early-stage AI business: market research, customer segmentation, pricing and pipeline development.",
-    demonstrates:
-      "Creating commercial direction, developing propositions and moving opportunities forward in an early-stage environment.",
-    progression: ["Market opportunity", "Segmentation", "Proposition", "Pricing", "Pipeline", "Live pilots"],
-    timeframe: "2026 to present",
-    motif: { figure: "6", caption: "Businesses taken to live pilots" },
-    problem:
-      "The business needed to establish who its most valuable customers were, how to position its product and what an initial commercial engagement should look like.\n\nThere was no existing sales playbook or established pricing framework.",
-    myRole: [
-      "Built a market map and segmented prospective customers according to commercial fit and potential demand.",
-      "Identified and prioritised target accounts.",
-      "Developed the initial go-to-market strategy and supported positioning.",
-      "Shaped pricing and pilot propositions.",
-      "Supported business development conversations and opportunity progression.",
-      "Worked with technical founders to connect product capabilities with real customer requirements.",
-    ],
-    whatChanged: [
-      {
-        title: "Six live pilots",
-        text: "Six businesses taken to live pilots, against a £150k pilot revenue target.",
-        kind: "team",
-      },
-    ],
-    impactNote: "The £150k is the pilot revenue target, not closed or recognised revenue.",
-    lesson:
-      "Building a market starts with understanding the customer, not perfecting the pitch. It taught me how to translate technical capabilities into a commercial proposition, test assumptions quickly and create momentum before the traditional sales infrastructure exists.",
-    status: "approved",
-  },
-  {
     slug: "when-youre-the-one-building-it",
     title: "What it means to be the one building it.",
     category: "Founding · Product · Go-to-Market",
@@ -334,6 +239,101 @@ export const projects: Project[] = [
       "The technical development is a team achievement. My ownership has been across commercial strategy, product and UX direction, monetisation and founder-level decisions.",
     lesson:
       "Founding has changed the way I think about execution. When it’s your business, there is no separating strategy from delivery. You make decisions with incomplete information, prioritise what matters and take responsibility for moving things forward.",
+    status: "approved",
+  },
+  {
+    slug: "finding-a-market-before-the-playbook",
+    title: "Finding the market before there’s a playbook.",
+    category: "Zero-to-One · Go-to-Market",
+    summary:
+      "As part of the founding growth team at a seed-stage AI venture, I defined the target customer and pricing with the founder and built the go-to-market approach, progressing six businesses to pilot stage.",
+    result: "Six businesses progressed to pilot stage.",
+    context: "Seed-stage AI venture",
+    role: "Founding Growth Team · Go-to-Market",
+    teaser:
+      "The commercial foundations of an early-stage AI business: market research, customer segmentation, pricing and pipeline development.",
+    demonstrates:
+      "Creating commercial direction, developing propositions and moving opportunities forward in an early-stage environment.",
+    progression: ["Market opportunity", "Segmentation", "Proposition", "Pricing", "Pipeline", "Pilot stage"],
+    timeframe: "2026 to present",
+    motif: { figure: "6", caption: "Businesses progressed to pilot stage" },
+    problem:
+      "The business needed to establish who its most valuable customers were, how to position its product and what an initial commercial engagement should look like.\n\nThere was no existing sales playbook or established pricing framework.",
+    myRole: [
+      "Built a market map and segmented prospective customers according to commercial fit and potential demand.",
+      "Identified and prioritised target accounts.",
+      "Developed the initial go-to-market strategy and supported positioning.",
+      "Shaped pricing and pilot propositions.",
+      "Supported business development conversations and opportunity progression.",
+      "Worked with technical founders to connect product capabilities with real customer requirements.",
+    ],
+    whatChanged: [
+      {
+        title: "Six businesses at pilot stage",
+        text: "Six businesses progressed to pilot stage, against a £150k pilot revenue target.",
+        kind: "pipeline",
+      },
+    ],
+    impactNote: "The £150k is the pilot revenue target, not closed or recognised revenue.",
+    lesson:
+      "Building a market starts with understanding the customer, not perfecting the pitch. It taught me how to translate technical capabilities into a commercial proposition, test assumptions quickly and create momentum before the traditional sales infrastructure exists.",
+    status: "approved",
+  },
+  {
+    slug: "making-strategy-everyones-business",
+    title: "Making strategy executable.",
+    category: "Executive Strategy · Operations",
+    summary:
+      "Working directly with the Group Chief Commercial Officer of a major wealth management business, I developed an organic growth strategy adopted by the Executive Committee and established the governance and operating rhythm to turn leadership priorities into coordinated delivery.",
+    result: "An organic growth strategy adopted by the Executive Committee.",
+    context: "Canaccord, Commercial Office",
+    role: "Business Initiatives Lead · Commercial Office",
+    teaser:
+      "Developing commercial strategy, supporting executive decisions and creating the operating structures that turn priorities into coordinated delivery.",
+    demonstrates:
+      "Working at executive level: turning a growth strategy into the forums, reporting and accountability that make it happen across functions.",
+    framework: {
+      title: "The operating cadence I set up and ran",
+      caption: "Illustrative structure only. No internal data is shown.",
+      columns: [
+        { label: "Growth Committee", cadence: "Monthly", items: ["Agendas and actions", "OKR and departmental performance tracking", "Delivery risk raised early"] },
+        { label: "ExCo review", cadence: "Quarterly", items: ["Progress against the growth strategy", "Priorities and decisions", "Risk raised before it reaches the Board"] },
+        { label: "Board", cadence: "Sign-off", items: ["Consumer Duty reporting", "Eight workstreams, from self-assessment to sign-off"] },
+      ],
+    },
+    timeframe: "2024 to present",
+    motif: { figure: "ExCo", caption: "Organic growth strategy adopted" },
+    problem:
+      "Commercial growth spans multiple interdependent functions, from distribution and propositions to finance, technology, data and client experience.\n\nLeadership needed a consistent framework for prioritisation, accountability, performance visibility and decision-making.",
+    myRole: [
+      "Established and ran a Growth Committee to coordinate priorities and decisions.",
+      "Built the executive operating cadence, including governance, risk escalation and delivery reporting.",
+      "Built a 30-metric, one-page CEO dashboard covering client outcomes, fair value, growth, outflows, regulatory risk and retention, cutting leadership reporting time by around two weeks.",
+      "Developed the organic growth strategy, including client-segment and channel opportunity sizing, commercial analysis and proposition priorities.",
+      "Translated strategy into commercial objectives, KPIs and delivery plans.",
+      "Supported strategic partnerships and commercial enablement through external materials, opportunity analysis and pipeline-conversion reporting.",
+      "Worked across commercial, financial, technology, operations and compliance stakeholders.",
+      "Coordinated eight Consumer Duty workstreams and Fair Value Assessment activity through senior governance and Board sign-off.",
+    ],
+    whatChanged: [
+      {
+        title: "Strategy adopted, and made executable",
+        text: "An organic growth strategy adopted by ExCo, with a repeatable leadership forum and operating cadence connecting strategic priorities to accountable execution.",
+        kind: "personal",
+      },
+      {
+        title: "Around two weeks back for leadership",
+        text: "The one-page dashboard I built cut leadership reporting preparation by around two weeks.",
+        kind: "personal",
+      },
+      {
+        title: "Eight workstreams to Board sign-off",
+        text: "Separately, eight cross-functional regulatory workstreams were coordinated through Board sign-off.",
+        kind: "personal",
+      },
+    ],
+    lesson:
+      "Strategy becomes valuable when it changes what people do. I’ve learned that effective execution needs commercial judgement, clear ownership and the ability to connect different teams around a shared outcome. Leadership needs both the big picture and confidence that the details are being delivered.",
     status: "approved",
   },
   {

@@ -9,8 +9,8 @@ import { capabilities, facts, homeAbout } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 
-/** Featured: executive credibility, hands-on building, zero-to-one commercial work. The rest live on /work. */
-const selected = ["making-strategy-everyones-business", "cos-os", "finding-a-market-before-the-playbook"]
+/** Featured, in this order: CoS OS, Turnout and the seed-stage AI venture. The rest live on /work. */
+const selected = ["cos-os", "when-youre-the-one-building-it", "finding-a-market-before-the-playbook"]
   .map((slug) => projects.find((p) => p.slug === slug))
   .filter((p): p is (typeof projects)[number] => Boolean(p));
 
@@ -65,7 +65,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-20 flex justify-end md:mt-28">
-          <TextLink href="/work">See all six projects, including Turnout</TextLink>
+          <TextLink href="/work">See all six projects</TextLink>
         </div>
       </section>
 

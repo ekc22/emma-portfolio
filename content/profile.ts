@@ -88,7 +88,7 @@ export const facts: Proof[] = [
   },
   {
     figure: "6",
-    title: "Businesses to live pilots",
+    title: "Businesses progressed to pilot stage",
     label: "At a seed-stage AI venture, against a £150k pilot revenue target.",
     href: "/work/finding-a-market-before-the-playbook",
   },
@@ -131,7 +131,7 @@ export const opportunities = {
   label: "Opportunities",
   headline: "Where I want to make an impact.",
   body: [
-    "I’m looking for a permanent, high-ownership role alongside ambitious founders and leadership teams, combining commercial judgement, operational ownership and the opportunity to build.",
+    "I’m particularly interested in permanent Chief of Staff, Founder’s Office and Strategy & Operations opportunities within ambitious, founder-led businesses. I’m drawn to roles that combine commercial judgement, operational ownership and the opportunity to build.",
     "I’m particularly drawn to AI, fintech and other high-growth technology businesses where small teams can have an outsized impact.",
   ],
   roles: ["Chief of Staff / Founder’s Office", "Strategy & Operations / Strategic Operator", "Commercial Strategy & Growth"],

@@ -18,14 +18,17 @@ export default function Hero() {
       <div className="grid-12">
         <p className="label col-span-4 md:col-span-12 motion-safe:animate-page-in">{hero.eyebrow}</p>
 
-        <h1 id="hero-title" className="col-span-4 mt-8 text-display-xl md:col-span-8 md:mt-12">
-          <span className="block motion-safe:animate-page-in">From strategy</span>
-          <span className="block motion-safe:animate-page-in [animation-delay:90ms]">to execution.</span>
-          <span className="block md:pl-[12%] motion-safe:animate-page-in [animation-delay:180ms]">From ideas to</span>
-          <span className="block italic text-cherry md:pl-[12%] motion-safe:animate-page-in [animation-delay:270ms]">something real.</span>
+        <h1
+          id="hero-title"
+          className="col-span-4 mt-8 font-serif text-[clamp(2.75rem,5.4vw,5.5rem)] leading-[0.98] tracking-[-0.02em] md:col-span-8 md:row-start-2 md:mt-12"
+        >
+          <span className="block motion-safe:animate-page-in">From strategy to execution.</span>
+          <span className="mt-2 block motion-safe:animate-page-in [animation-delay:120ms]">
+            From ideas to <em className="text-cherry">something real.</em>
+          </span>
         </h1>
 
-        <aside aria-label="Professional identity" className="col-span-4 mt-14 md:col-span-4 md:col-start-9 md:mt-14 md:self-end">
+        <aside aria-label="Professional identity" className="col-span-4 mt-14 md:col-span-4 md:col-start-9 md:row-span-2 md:row-start-2 md:mt-12 md:self-start">
           {hero.portrait && (
             <EditorialImage image={hero.portrait} ratio="4 / 5" sizes="(min-width: 768px) 30vw, 90vw" priority className="mb-8" />
           )}
@@ -41,7 +44,7 @@ export default function Hero() {
           </div>
         </aside>
 
-        <div className="col-span-4 mt-14 md:col-span-6 md:col-start-3 md:mt-20">
+        <div className="col-span-4 mt-14 md:col-span-7 md:col-start-1 md:row-start-3 md:mt-12">
           <div className="prose-editorial text-[1.375rem] leading-[1.45] md:text-[1.5rem]">
             {hero.intro.map((p) => (
               <p key={p}>{p}</p>

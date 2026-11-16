@@ -28,7 +28,7 @@ export const openTo =
 /** Professional identity, shown beside the hero. */
 export const identity = {
   title: "Founder & Strategic Operator",
-  positioning: "Chief of Staff · Commercial & Go-to-Market · AI Enablement",
+  positioning: "Commercial positioning: "Chief of Staff · Commercial & Go-to-Market · AI Enablement" Go-to-Market · AI Enablement",
   statement: ["I can build.", "I can operate.", "I bring commercial and financial judgement."],
 };
 

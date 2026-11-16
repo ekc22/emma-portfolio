@@ -99,10 +99,10 @@ export const projects: Project[] = [
     teaser:
       "A working AI-enabled Chief of Staff platform for projects, executive reporting, decision support and operational workflows, built with modern AI development tools.",
     video: {
-      src: "/images/cos-os-walkthrough.mp4",
-      poster: "/images/cos-os-walkthrough-poster.webp",
+      src: "/images/cos-os-walkthrough-v2.mp4",
+      poster: "/images/cos-os-walkthrough-v2-poster.webp",
       caption:
-        "A 48-second tour of the working product: sign-in, the Executive Command Centre, strategy, delivery, commercial pipeline, investor relations and meetings. Fictional demo company; no sound.",
+        "A 75-second tour of the working product, with a caption on each screen: the Command Centre, strategy, delivery, commercial pipeline, investor relations, and meetings and decisions. Fictional demo company; no sound.",
       width: 1280,
       height: 800,
     },

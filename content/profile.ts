@@ -8,19 +8,22 @@
 export type ImageAsset = { src: string; alt: string; width: number; height: number };
 
 export const hero = {
-  eyebrow: "Founder / Strategic Operator / Chief of Staff",
-  headline: "From the boardroom to the blank sheet.",
+  eyebrow: "Chief of Staff / Founder’s Office / Commercial Strategy & Operations",
+  headline: "From strategy to execution. From ideas to something real.",
   intro: [
-    "I’ve spent a decade working alongside executives and founders, from listed businesses and venture-backed technology companies to early-stage ventures.",
-    "My work sits where commercial strategy meets execution: building growth propositions, creating the systems businesses run on and turning ambitious ideas into something tangible.",
-    "Today, I combine financial discipline, a founder’s perspective and hands-on technical capability to help ambitious businesses build, operate and grow.",
+    "I’m a strategic operator with ten years of experience across financial services, venture-backed technology and founder-led businesses.",
+    "I work directly with founders and executive teams to turn commercial priorities into actionable plans, build the systems that keep businesses moving, and take ownership of the work that doesn’t sit neatly within one function.",
+    "My experience spans an organic growth strategy adopted by ExCo, early-stage go-to-market work that progressed six businesses to pilot stage, and building an AI-enabled Chief of Staff platform now in live use.",
+    "I also co-founded Turnout, giving me first-hand experience of building a business from the ground up.",
+    "I bring commercial judgement, financial discipline and the ability to move between the big picture and the detail.",
   ],
   // Add a portrait at public/images/emma-portrait.webp and set it here; the hero shows it automatically.
   portrait: { src: "/images/emma-portrait.webp", alt: "Portrait of Emma Clark", width: 1122, height: 1402 } as undefined | ImageAsset,
 };
 
 /** Shown at the top of the homepage. */
-export const openTo = "Open to Chief of Staff, Founder’s Office, commercial and go-to-market, strategy & operations and AI enablement roles";
+export const openTo =
+  "Currently exploring permanent Chief of Staff, Founder’s Office and Strategy & Operations opportunities, particularly within ambitious, founder-led technology businesses.";
 
 /** Professional identity, shown beside the hero. */
 export const identity = {

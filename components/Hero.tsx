@@ -7,7 +7,7 @@ import EditorialImage from "./EditorialImage";
 import TextLink from "./TextLink";
 
 /**
- * "From the boardroom to the blank sheet." Oversized serif with deliberate line breaks.
+ * "From strategy to execution. From ideas to something real." Oversized serif with deliberate line breaks.
  * Beside it: a portrait when supplied, otherwise Emma's professional identity in type.
  */
 export default function Hero() {
@@ -19,10 +19,10 @@ export default function Hero() {
         <p className="label col-span-4 md:col-span-12 motion-safe:animate-page-in">{hero.eyebrow}</p>
 
         <h1 id="hero-title" className="col-span-4 mt-8 text-display-xl md:col-span-8 md:mt-12">
-          <span className="block motion-safe:animate-page-in">From the</span>
-          <span className="block motion-safe:animate-page-in [animation-delay:90ms]">boardroom</span>
-          <span className="block md:pl-[12%] motion-safe:animate-page-in [animation-delay:180ms]">to the</span>
-          <span className="block italic text-cherry md:pl-[12%] motion-safe:animate-page-in [animation-delay:270ms]">blank sheet.</span>
+          <span className="block motion-safe:animate-page-in">From strategy</span>
+          <span className="block motion-safe:animate-page-in [animation-delay:90ms]">to execution.</span>
+          <span className="block md:pl-[12%] motion-safe:animate-page-in [animation-delay:180ms]">From ideas to</span>
+          <span className="block italic text-cherry md:pl-[12%] motion-safe:animate-page-in [animation-delay:270ms]">something real.</span>
         </h1>
 
         <aside aria-label="Professional identity" className="col-span-4 mt-14 md:col-span-4 md:col-start-9 md:mt-14 md:self-end">
@@ -47,23 +47,14 @@ export default function Hero() {
               <p key={p}>{p}</p>
             ))}
           </div>
-          <div className="mt-10 flex flex-wrap items-baseline gap-x-10 gap-y-4">
-            <TextLink href="/work">Explore my work</TextLink>
-            {talkHref && <TextLink href={talkHref}>Let’s talk</TextLink>}
-            {cv ? (
-              <a href={withBase(site.cv.path)} className="text-[1.0625rem] text-muted-ink underline decoration-linen-deep underline-offset-4 transition-colors hover:text-cherry">
-                View CV
-              </a>
-            ) : (
-              <span aria-disabled="true" title="Updated CV coming soon" className="cursor-default text-[1.0625rem] text-muted-ink underline decoration-linen-deep underline-offset-4 opacity-60">
-                View CV
-              </span>
-            )}
-          </div>
-          <p className="mt-8 flex items-center gap-3 text-[1.0625rem] leading-snug text-muted-ink">
-            <span aria-hidden="true" className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#3F6B3A]" />
+          <p className="mt-8 flex items-baseline gap-3 border-l border-cherry pl-4 text-[1.1875rem] leading-snug md:text-[1.25rem]">
             {openTo}
           </p>
+          <div className="mt-10 flex flex-wrap items-baseline gap-x-10 gap-y-4">
+            <TextLink href="/work">Explore my work</TextLink>
+            <TextLink href={withBase(site.cv.path)} disabled={!cv}>Download CV</TextLink>
+            {talkHref && <TextLink href={talkHref}>Get in touch</TextLink>}
+          </div>
         </div>
       </div>
 

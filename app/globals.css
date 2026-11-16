@@ -6,7 +6,6 @@
   html {
     @apply bg-paper text-oxblood antialiased;
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
     scroll-padding-top: 6rem;
   }
   body {

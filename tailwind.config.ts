@@ -34,10 +34,10 @@ const config: Config = {
       letterSpacing: { label: "0.14em", wordmark: "-0.008em" },
       transitionTimingFunction: { editorial: "cubic-bezier(0.22, 0.61, 0.36, 1)" },
       keyframes: {
-        "page-in": { from: { opacity: "0", transform: "translateY(8px)" }, to: { opacity: "1", transform: "none" } },
+        "page-in": { from: { opacity: "0" }, to: { opacity: "1" } },
         "fade-in": { from: { opacity: "0" }, to: { opacity: "1" } },
       },
-      animation: { "page-in": "page-in 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both" },
+      animation: { "page-in": "page-in 0.3s ease-out both" },
     },
   },
   plugins: [],

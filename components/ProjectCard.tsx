@@ -60,10 +60,20 @@ export default function ProjectCard({ project, index, flipIndex, headingLevel: H
         </H>
         <p className="mt-4 max-w-[34ch] text-[1.375rem] leading-[1.4] text-muted-ink">{project.teaser ?? project.summary}</p>
 
-        <span aria-hidden="true" className="text-link mt-6 text-[1.125rem] group-hover:text-cherry">
-          <span>View project</span>
-          <span className="arrow">→</span>
-        </span>
+        <div className="mt-6 flex flex-wrap items-baseline gap-x-8 gap-y-3">
+          <span aria-hidden="true" className="text-link text-[1.125rem] group-hover:text-cherry">
+            <span>View project</span>
+            <span className="arrow">→</span>
+          </span>
+          {project.demo?.href.startsWith("/") && (
+            <Link
+              href={project.demo.href}
+              className="relative z-10 inline-flex items-center gap-2 bg-cherry px-4 py-2 font-sans text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-paper transition-colors hover:bg-oxblood"
+            >
+              Try the demo <span aria-hidden="true">→</span>
+            </Link>
+          )}
+        </div>
       </Reveal>
     </article>
   );

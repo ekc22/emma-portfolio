@@ -27,6 +27,9 @@ export default function Footer() {
                     <Link href={n.href} className="transition-colors hover:text-[#D9AEB8]">{n.label}</Link>
                   </li>
                 ))}
+              <li>
+                <Link href="/demo/" className="transition-colors hover:text-[#D9AEB8]">CoS OS demo</Link>
+              </li>
             </ul>
           </nav>
           <div className="col-span-2 md:col-span-2">

@@ -23,6 +23,15 @@ export default function Reveal({ as: Tag = "div", delay = 0, className, children
       el.classList.add("is-visible");
       return;
     }
+    // Already on screen when the page opens: show it straight away, without a second fade.
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      el.style.transition = "none";
+      el.classList.add("is-visible");
+      requestAnimationFrame(() => {
+        el.style.transition = "";
+      });
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {

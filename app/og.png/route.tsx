@@ -35,11 +35,11 @@ export async function GET() {
         }}
       >
         <div style={{ display: "flex", fontSize: 44, color: "#9B1C2E", textTransform: "uppercase", letterSpacing: -0.5 }}>{site.name}</div>
-        <div style={{ display: "flex", flexDirection: "column", fontSize: 92, lineHeight: 1.02, letterSpacing: -1.5 }}>
-          <span>From strategy to execution.</span>
-          <div style={{ display: "flex", paddingLeft: 90 }}>
-            <span>From ideas to</span>
-            <span style={{ color: "#9B1C2E", fontStyle: "italic", marginLeft: 22 }}>something real.</span>
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 112, lineHeight: 0.98, letterSpacing: -2 }}>
+          <span>From the boardroom</span>
+          <div style={{ display: "flex", paddingLeft: 140 }}>
+            <span>to the</span>
+            <span style={{ color: "#9B1C2E", fontStyle: "italic", marginLeft: 26 }}>blank sheet.</span>
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 28, color: "#6E5659" }}>{site.tagline} {site.roles.join(" · ")}</div>

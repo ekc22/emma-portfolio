@@ -7,7 +7,7 @@ import EditorialImage from "./EditorialImage";
 import TextLink from "./TextLink";
 
 /**
- * "From strategy to execution. From ideas to something real." Oversized serif with deliberate line breaks.
+ * "From the boardroom to the blank sheet." Oversized serif with deliberate line breaks.
  * Beside it: a portrait when supplied, otherwise Emma's professional identity in type.
  */
 export default function Hero() {
@@ -19,10 +19,10 @@ export default function Hero() {
         <p className="label col-span-4 md:col-span-12 motion-safe:animate-page-in">{hero.eyebrow}</p>
 
         <h1 id="hero-title" className="col-span-4 mt-8 text-display-xl md:col-span-8 md:mt-12">
-          <span className="block motion-safe:animate-page-in">From strategy</span>
-          <span className="block motion-safe:animate-page-in [animation-delay:90ms]">to execution.</span>
-          <span className="block md:pl-[12%] motion-safe:animate-page-in [animation-delay:180ms]">From ideas to</span>
-          <span className="block italic text-cherry md:pl-[12%] motion-safe:animate-page-in [animation-delay:270ms]">something real.</span>
+          <span className="block motion-safe:animate-page-in">From the</span>
+          <span className="block motion-safe:animate-page-in [animation-delay:90ms]">boardroom</span>
+          <span className="block md:pl-[12%] motion-safe:animate-page-in [animation-delay:180ms]">to the</span>
+          <span className="block italic text-cherry md:pl-[12%] motion-safe:animate-page-in [animation-delay:270ms]">blank sheet.</span>
         </h1>
 
         <aside aria-label="Professional identity" className="col-span-4 mt-14 md:col-span-4 md:col-start-9 md:mt-14 md:self-end">

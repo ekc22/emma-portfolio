@@ -9,13 +9,11 @@ export type ImageAsset = { src: string; alt: string; width: number; height: numb
 
 export const hero = {
   eyebrow: "Chief of Staff / Founder’s Office / Commercial Strategy & Operations",
-  headline: "From strategy to execution. From ideas to something real.",
+  headline: "From the boardroom to the blank sheet.",
   intro: [
     "I’m a strategic operator with ten years of experience across financial services, venture-backed technology and founder-led businesses.",
     "I work directly with founders and executive teams to turn commercial priorities into actionable plans, build the systems that keep businesses moving, and take ownership of the work that doesn’t sit neatly within one function.",
-    "My experience spans an organic growth strategy adopted by ExCo, early-stage go-to-market work that progressed six businesses to pilot stage, and building an AI-enabled Chief of Staff platform now in live use.",
     "I also co-founded Turnout, giving me first-hand experience of building a business from the ground up.",
-    "I bring commercial judgement, financial discipline and the ability to move between the big picture and the detail.",
   ],
   // Add a portrait at public/images/emma-portrait.webp and set it here; the hero shows it automatically.
   portrait: { src: "/images/emma-portrait.webp", alt: "Portrait of Emma Clark", width: 1122, height: 1402 } as undefined | ImageAsset,
@@ -67,57 +65,76 @@ export const turnout = {
  * fundraise isn’t read as raising the capital, and pilots aren’t read as revenue.
  * Figures confirmed by Emma as current and shareable.
  */
-export const facts: { figure: string; label: string; href?: string }[] = [
-  { figure: "10 years", label: "Across finance, strategy, growth and operations" },
-  { figure: "~2 weeks", label: "Cut from leadership reporting time by the CEO dashboard I built at Canaccord", href: "/work/making-strategy-everyones-business" },
-  { figure: "30 metrics", label: "On that one-page executive dashboard, from client outcomes to retention", href: "/work/making-strategy-everyones-business" },
-  { figure: "6 pilots", label: "Businesses progressed to pilot stage at a seed-stage AI venture. Pipeline, not revenue", href: "/work/finding-a-market-before-the-playbook" },
+export type Proof = { figure: string; title: string; label: string; href?: string };
+
+export const facts: Proof[] = [
+  {
+    figure: "ExCo",
+    title: "Organic growth strategy",
+    label: "Adopted by ExCo, then turned into objectives, KPIs and a monthly Growth Committee.",
+    href: "/work/making-strategy-everyones-business",
+  },
+  {
+    figure: "30",
+    title: "Metric CEO dashboard",
+    label: "One page for leadership, cutting reporting time by around two weeks.",
+    href: "/work/making-strategy-everyones-business",
+  },
+  {
+    figure: "8",
+    title: "Workstreams to Board sign-off",
+    label: "Consumer Duty, coordinated across commercial, finance, operations and compliance.",
+    href: "/work/making-strategy-everyones-business",
+  },
+  {
+    figure: "6",
+    title: "Businesses to pilot stage",
+    label: "At a seed-stage AI venture. Pipeline progress, not revenue.",
+    href: "/work/finding-a-market-before-the-playbook",
+  },
+  {
+    figure: "Live",
+    title: "AI Chief of Staff platform",
+    label: "CoS OS, which I designed and built, now in live use at Circus Capital.",
+    href: "/work/cos-os",
+  },
 ];
 
-/** Homepage: what Emma brings. Four areas, kept short. */
-export const whatIBring = {
-  label: "What I bring",
-  headline: "I can see the bigger picture. I can also build what’s missing.",
-  intro: [
-    "I’ve worked in environments where decisions require financial discipline, regulatory awareness and executive alignment, and in early-stage businesses where the challenge is creating momentum with limited resources.",
-    "I bring both perspectives to the table.",
-  ],
+/** Homepage: what Emma can own, each linked to evidence. */
+export const capabilities = {
+  label: "What I can own",
   items: [
-    { title: "Strategic Execution", body: "Turning leadership priorities into clear plans, accountable delivery and measurable progress." },
-    { title: "Commercial Growth", body: "Building propositions, understanding markets, developing partnerships and moving opportunities forward." },
-    { title: "Business Operations", body: "Creating the reporting, systems and operating rhythms that help ambitious teams execute." },
-    { title: "AI-Enabled Building", body: "Using practical AI tools, automation and software development workflows to turn operational problems into usable solutions." },
+    { title: "Strategic Execution", body: "Turning leadership priorities into plans, coordinated delivery and action.", href: "/work/making-strategy-everyones-business", evidence: "Canaccord" },
+    { title: "Commercial Growth", body: "Market development, partnerships, pricing and go-to-market.", href: "/work/finding-a-market-before-the-playbook", evidence: "Seed-stage AI venture" },
+    { title: "Founder & Executive Support", body: "Decision materials, priorities, stakeholders and structure for complex work.", href: "/work/circus-capital", evidence: "Circus Capital" },
+    { title: "AI & Operational Systems", body: "Practical tools, dashboards, automations and AI workflows.", href: "/work/cos-os", evidence: "CoS OS" },
+    { title: "Financial & Business Planning", body: "Financial discipline in planning, performance and resource allocation.", href: "/work/the-discipline-behind-the-ambition", evidence: "Hastings Direct, Paddle, RBC" },
   ],
 };
 
-/** Homepage: corporate experience meets founding. */
-export const founderPerspective = {
-  label: "Founder perspective",
-  headline: "I’ve sat on both sides of the table.",
+/** Homepage: a short professional and personal introduction. */
+export const homeAbout = {
+  label: "About",
   body: [
-    "I’ve spent years helping leadership teams make decisions and execute their priorities.",
-    "Building a venture of my own has given me a different perspective: on uncertainty, trade-offs, commercial reality and the responsibility that comes with ownership.",
-    "It’s changed how I approach problems, how I prioritise and how I work alongside founders.",
+    "I’ve spent years helping leadership teams make decisions and deliver their priorities. Co-founding Turnout put me on the other side of the table: making trade-offs with incomplete information and owning the outcome.",
+  ],
+  outsideLabel: "Outside of work",
+  outside: [
+    "I’m naturally curious about how people, businesses and communities work.",
+    "Outside of work, you’ll usually find me exploring London’s food and art scene, playing tennis or padel, reading about economics and technology, or planning my next trip.",
+    "I also have a longstanding interest in wellness, community-building and the ideas that bring people together.",
   ],
 };
 
-/** Target roles and environments. Used on the homepage and Work With Me. */
+/** Target roles. Used on the homepage and Work With Me. */
 export const opportunities = {
   label: "Opportunities",
   headline: "Where I want to make an impact.",
   body: [
-    "I’m particularly interested in Chief of Staff, Founder’s Office and Founding Operator roles, commercial and go-to-market roles, and AI enablement, within ambitious, founder-led businesses.",
-    "I enjoy environments where there’s ownership, pace, trust and an opportunity to build.",
-    "I’m also open to selected fractional engagements and defined projects where my experience can be useful.",
+    "I’m looking for a permanent, high-ownership role alongside ambitious founders and leadership teams, combining commercial judgement, operational ownership and the opportunity to build.",
+    "I’m particularly drawn to AI, fintech and other high-growth technology businesses where small teams can have an outsized impact.",
   ],
-  roles: [
-    "Chief of Staff to a Founder or CEO",
-    "Founder’s Office & Founding Operator",
-    "Commercial & Go-to-Market",
-    "AI Enablement",
-    "Strategy & Operations",
-  ],
-  environments: ["AI-native start-ups", "Venture-backed technology, seed to Series C", "Founder-led scale-ups", "Fintech and financial infrastructure"],
+  roles: ["Chief of Staff / Founder’s Office", "Strategy & Operations / Strategic Operator", "Commercial Strategy & Growth"],
 };
 
 /** Separate journeys for the three kinds of visitor. */
@@ -188,12 +205,13 @@ export const currently = {
 
 export const contact = {
   label: "Contact",
-  headline: "Have something interesting in mind?",
+  headline: "Building something ambitious?",
   body: [
-    "I’m always interested in meeting ambitious founders, thoughtful operators and people building businesses worth being part of.",
-    "Whether you’re hiring for a high-ownership role, exploring a collaboration or simply think we should connect, I’d love to hear from you.",
+    "I’m interested in joining a founder or leadership team where I can combine commercial thinking with hands-on execution.",
+    "If you’re looking for someone who can bring structure, judgement and momentum to the work that matters, I’d love to hear what you’re building.",
   ],
-  cta: "Get in touch",
+  cta: "Let’s talk",
+  cvCta: "Download my CV",
 };
 
 /** Career timeline and education, taken from Emma's CV. */

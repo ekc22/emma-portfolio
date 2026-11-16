@@ -6,7 +6,7 @@ import { withBase } from "@/lib/paths";
 import Reveal from "./Reveal";
 import TextLink from "./TextLink";
 
-/** Target roles and environments, with the two hiring actions. Shared by the homepage and Work With Me. */
+/** Target roles, with the two hiring actions. Shared by the homepage and Work With Me. */
 export default function Opportunities() {
   const cv = hasCv();
   const href = mailto(site.contact.subjects.permanent);
@@ -28,20 +28,14 @@ export default function Opportunities() {
             </div>
             <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
               {href && <TextLink href={href}>Let’s talk</TextLink>}
-              <TextLink href={withBase(site.cv.path)} disabled={!cv}>View CV</TextLink>
+              <TextLink href={withBase(site.cv.path)} disabled={!cv}>Download my CV</TextLink>
             </div>
           </Reveal>
           <Reveal delay={100} className="col-span-4 md:col-span-4 md:col-start-9 md:self-end">
-            <h3 className="label">Roles</h3>
+            <h3 className="label">Roles of interest</h3>
             <ul className="mt-3">
               {opportunities.roles.map((r) => (
-                <li key={r} className="border-b border-linen-deep py-2.5 text-[1.25rem] leading-snug">{r}</li>
-              ))}
-            </ul>
-            <h3 className="label mt-8">Environments</h3>
-            <ul className="mt-3">
-              {opportunities.environments.map((r) => (
-                <li key={r} className="border-b border-linen-deep py-2.5 text-[1.25rem] leading-snug">{r}</li>
+                <li key={r} className="border-b border-linen-deep py-3 text-[1.5rem] leading-snug">{r}</li>
               ))}
             </ul>
           </Reveal>

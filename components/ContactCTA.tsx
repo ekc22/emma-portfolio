@@ -1,11 +1,15 @@
 import { contact } from "@/content/profile";
 import { site } from "@/content/site";
 import { mailto } from "@/lib/contact";
+import { hasCv } from "@/lib/cv";
+import { withBase } from "@/lib/paths";
+import TextLink from "./TextLink";
 import Reveal from "./Reveal";
 
 /** Closing contact section. Rendered on every page (from the layout) so the nav's #contact always resolves. */
 export default function ContactCTA() {
-  const href = mailto();
+  const href = mailto(site.contact.subjects.permanent);
+  const cv = hasCv();
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="bg-butter">
@@ -16,7 +20,7 @@ export default function ContactCTA() {
           </div>
           <Reveal className="col-span-4 mt-12 md:col-span-10 md:mt-16">
             <h2 id="contact-title" className="text-display-lg">
-              Have something <em className="text-cherry">interesting</em> in mind?
+              Building something <em className="text-cherry">ambitious?</em>
             </h2>
           </Reveal>
           <Reveal delay={100} className="prose-editorial col-span-4 mt-10 text-lg md:col-span-5 md:col-start-6 md:mt-14">
@@ -38,6 +42,9 @@ export default function ContactCTA() {
                   </p>
                 </div>
               )}
+              <div className="mt-6">
+                <TextLink href={withBase(site.cv.path)} disabled={!cv} className="text-[1.25rem]">{contact.cvCta}</TextLink>
+              </div>
               {site.links.linkedin && (
                 <p className="mt-6 text-[1.125rem]">
                   Or find me on{" "}

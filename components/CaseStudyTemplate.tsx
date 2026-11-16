@@ -163,6 +163,56 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
           {project.note && <p className="mt-8 max-w-[60ch] text-[1rem] leading-snug text-muted-ink">{project.note}</p>}
         </Row>
 
+        {project.walkthrough && (
+          <Row number={n()} label="How it works">
+            <h3 className="text-display-sm">{project.walkthrough.title}</h3>
+            <ol className="mt-6 space-y-4">
+              {project.walkthrough.steps.map((step, i) => (
+                <li key={step} className="grid grid-cols-[3rem_1fr] text-[1.25rem] leading-snug">
+                  <span className="text-cherry">{String(i + 1).padStart(2, "0")}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-8 text-[1.0625rem] text-muted-ink">
+              <span className="label mr-3">Built with</span>
+              {project.walkthrough.stack.join(" · ")}
+            </p>
+            <div className="mt-10 grid grid-cols-1 gap-8 border-t border-linen-deep pt-8 md:grid-cols-2">
+              <div>
+                <h4 className="label text-cherry">Working today</h4>
+                <ul className="mt-3 space-y-3 text-[1.0625rem] leading-snug">
+                  {project.walkthrough.working.map((w) => <li key={w}>{w}</li>)}
+                </ul>
+              </div>
+              <div>
+                <h4 className="label">Planned, not yet built</h4>
+                <ul className="mt-3 space-y-3 text-[1.0625rem] leading-snug text-muted-ink">
+                  {project.walkthrough.planned.map((w) => <li key={w}>{w}</li>)}
+                </ul>
+              </div>
+            </div>
+          </Row>
+        )}
+
+        {project.framework && (
+          <Row number={n()} label="How it ran">
+            <h3 className="text-display-sm">{project.framework.title}</h3>
+            <ol className="mt-8 grid grid-cols-1 gap-px bg-linen-deep sm:grid-cols-3">
+              {project.framework.columns.map((c, i) => (
+                <li key={c.label} className="bg-paper p-5">
+                  <p className="label text-cherry">{String(i + 1).padStart(2, "0")} · {c.cadence}</p>
+                  <p className="mt-3 text-[1.375rem] leading-tight">{c.label}</p>
+                  <ul className="mt-4 space-y-2 text-[1rem] leading-snug text-muted-ink">
+                    {c.items.map((it) => <li key={it}>{it}</li>)}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 text-[0.9375rem] italic text-muted-ink">{project.framework.caption}</p>
+          </Row>
+        )}
+
         {showImpact && (
         <Row number={n()} label="The impact">
           {project.whatChanged.length === 0 && <ReviewNote>Outcomes to be added once confirmed</ReviewNote>}
@@ -193,6 +243,12 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
           </ul>
           {project.impactNote && <p className="mt-8 max-w-[52ch] border-t border-linen-deep pt-5 text-[1.125rem] italic leading-snug text-muted-ink">{project.impactNote}</p>}
         </Row>
+        )}
+
+        {project.demonstrates && (
+          <Row number={n()} label="What it demonstrates">
+            <p className="text-display-sm">{project.demonstrates}</p>
+          </Row>
         )}
 
         {project.gallery && project.gallery.length > 0 && (

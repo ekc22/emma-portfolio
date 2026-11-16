@@ -9,7 +9,7 @@ export type ImageAsset = { src: string; alt: string; width: number; height: numb
 
 export const hero = {
   eyebrow: "Chief of Staff / Founder’s Office / Commercial Strategy & Operations",
-  headline: "From the boardroom to the blank sheet.",
+  headline: "From strategy to execution. From ideas to something real.",
   intro: [
     "I’m a strategic operator with ten years of experience across financial services, venture-backed technology and founder-led businesses.",
     "I work directly with founders and executive teams to turn commercial priorities into actionable plans, build the systems that keep businesses moving, and take ownership of the work that doesn’t sit neatly within one function.",

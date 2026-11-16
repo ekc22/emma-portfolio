@@ -56,16 +56,26 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
             )}
             {project.demo && (
               <div className="mt-8">
-                <a
-                  href={project.demo.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-cherry px-6 py-4 font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-paper transition-colors hover:bg-oxblood"
-                >
-                  {project.demo.label}
-                  <span aria-hidden="true">↗</span>
-                  <span className="sr-only">(opens in a new tab)</span>
-                </a>
+                {project.demo.href.startsWith("/") ? (
+                  <Link
+                    href={project.demo.href}
+                    className="inline-flex items-center gap-3 bg-cherry px-6 py-4 font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-paper transition-colors hover:bg-oxblood"
+                  >
+                    {project.demo.label}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                ) : (
+                  <a
+                    href={project.demo.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-cherry px-6 py-4 font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-paper transition-colors hover:bg-oxblood"
+                  >
+                    {project.demo.label}
+                    <span aria-hidden="true">↗</span>
+                    <span className="sr-only">(opens in a new tab)</span>
+                  </a>
+                )}
                 <p className="mt-3 max-w-[52ch] text-[1rem] leading-snug text-muted-ink">{project.demo.note}</p>
               </div>
             )}

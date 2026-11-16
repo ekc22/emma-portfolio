@@ -132,9 +132,9 @@ export const projects: Project[] = [
     demonstrates:
       "Identifying an operational problem, translating it into product requirements and building a working solution with modern AI development tools.",
     demo: {
-      href: "https://claude.ai/artifact/DQvy82cn3jjqciRPsra1ua",
+      href: "/demo/",
       label: "Try the AI Chief of Staff demo",
-      note: "Opens on claude.ai with a fictional company’s desk. Sign in to chat; nothing of yours is read or shared.",
+      note: "A guided demo with a fictional company. No sign-in needed.",
     },
     motif: { figure: "9", caption: "Operating desks in one workspace" },
     exhibit: {

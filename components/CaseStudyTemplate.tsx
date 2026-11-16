@@ -195,6 +195,31 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
           </Row>
         )}
 
+        {project.video && (
+          <section className="border-t border-linen-deep py-12 md:py-16" aria-labelledby="walkthrough-title">
+            <h2 id="walkthrough-title" className="flex gap-3">
+              <span className="label text-cherry">{n()}</span>
+              <span className="label">Walkthrough</span>
+            </h2>
+            <figure className="mt-8">
+              <video
+                controls
+                muted
+                playsInline
+                preload="none"
+                poster={withBase(project.video.poster)}
+                width={project.video.width}
+                height={project.video.height}
+                className="h-auto w-full bg-linen ring-1 ring-linen-deep"
+                aria-label="Screen recording of CoS OS"
+              >
+                <source src={withBase(project.video.src)} type="video/mp4" />
+              </video>
+              <figcaption className="mt-3 max-w-[70ch] text-[1rem] leading-snug text-muted-ink">{project.video.caption}</figcaption>
+            </figure>
+          </section>
+        )}
+
         {project.framework && (
           <Row number={n()} label="How it ran">
             <h3 className="text-display-sm">{project.framework.title}</h3>

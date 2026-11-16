@@ -71,6 +71,8 @@ export type Project = {
   teaser?: string;
   /** One line on what the project shows about Emma, shown on the case study. */
   demonstrates?: string;
+  /** A short screen recording, loaded only when played. */
+  video?: { src: string; poster: string; caption: string; width: number; height: number };
   /** A real workflow, step by step, with the stack and what is built versus planned. */
   walkthrough?: { title: string; steps: string[]; stack: string[]; working: string[]; planned: string[] };
   /** An illustrative operating structure (no internal data), shown after "My contribution". */
@@ -151,6 +153,14 @@ export const projects: Project[] = [
     role: "Founder · Product, Design & Build",
     teaser:
       "A working AI-enabled Chief of Staff platform for projects, executive reporting, decision support and operational workflows, built with modern AI development tools.",
+    video: {
+      src: "/images/cos-os-walkthrough.mp4",
+      poster: "/images/cos-os-walkthrough-poster.webp",
+      caption:
+        "A 48-second tour of the working product: sign-in, the Executive Command Centre, strategy, delivery, commercial pipeline, investor relations and meetings. Fictional demo company; no sound.",
+      width: 1280,
+      height: 800,
+    },
     walkthrough: {
       title: "One workflow, end to end: from a meeting to accountable action",
       steps: [

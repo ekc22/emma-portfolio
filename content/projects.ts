@@ -67,6 +67,8 @@ export type Project = {
   gallery?: (ProjectImage & { caption: string; wide?: boolean })[];
   /** Current status of a product, shown with the timeframe. */
   productStatus?: string;
+  /** The organisation's public website, linked from the case study header. */
+  website?: { href: string; label: string };
   /** Shorter description for the homepage cards; falls back to the summary. */
   teaser?: string;
   /** One line on what the project shows about Emma, shown on the case study. */
@@ -342,6 +344,7 @@ export const projects: Project[] = [
       "Working alongside the Principal of Circus Capital, I provide strategic and operational support across business priorities, stakeholder communications, research and internal execution.",
     result: "Practical systems supporting the Principal’s decision-making.",
     context: "Circus Capital",
+    website: { href: "https://circus-capital.com", label: "circus-capital.com" },
     role: "Fractional Chief of Staff · Strategic Operations & Investor Communications",
     demonstrates:
       "Working closely and discreetly with a principal: protecting leadership time, bringing structure to the work and making sure it moves forward.",

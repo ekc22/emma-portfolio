@@ -77,7 +77,16 @@ export default function CaseStudyTemplate({ project, index, next, nextIndex }: P
         <dl className="grid-12 mt-16 gap-y-6 border-t border-linen-deep pt-6 md:mt-24">
           <div className="col-span-4 md:col-span-4">
             <dt className="label">Context</dt>
-            <dd className="mt-2">{project.context}</dd>
+            <dd className="mt-2">
+              {project.context}
+              {project.website && (
+                <a href={project.website.href} target="_blank" rel="noopener noreferrer" className="mt-1 block text-[1rem] text-cherry underline decoration-cherry/30 underline-offset-4 hover:decoration-cherry">
+                  {project.website.label}
+                  <span aria-hidden="true"> ↗</span>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              )}
+            </dd>
           </div>
           <div className="col-span-2 md:col-span-3">
             <dt className="label">Discipline</dt>

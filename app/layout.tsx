@@ -30,7 +30,16 @@ export const metadata: Metadata = {
     images: [ogImage],
   },
   twitter: { card: "summary_large_image", title: site.name, description, images: [ogImage.url] },
-  robots: { index: true, follow: true },
+  // Private by design: shared by link only, never listed by search engines or AI tools.
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    googleBot: { index: false, follow: false, noarchive: true, nosnippet: true, noimageindex: true },
+  },
   icons: { icon: withBase("/icon.png"), apple: withBase("/icon.png") },
 };
 

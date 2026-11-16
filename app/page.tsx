@@ -7,7 +7,6 @@ import TextLink from "@/components/TextLink";
 import Opportunities from "@/components/Opportunities";
 import { capabilities, facts, homeAbout } from "@/content/profile";
 import { projects } from "@/content/projects";
-import { site } from "@/content/site";
 
 /** Featured, in this order: CoS OS, Turnout and the seed-stage AI venture. The rest live on /work. */
 const selected = ["cos-os", "when-youre-the-one-building-it", "finding-a-market-before-the-playbook"]
@@ -15,19 +14,9 @@ const selected = ["cos-os", "when-youre-the-one-building-it", "finding-a-market-
   .filter((p): p is (typeof projects)[number] => Boolean(p));
 
 export default function Home() {
-  const personJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: site.name,
-    jobTitle: site.title,
-    description: site.valueProposition,
-    url: site.url,
-    ...(site.links.linkedin ? { sameAs: [site.links.linkedin] } : {}),
-  };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
 
       <Hero />
 

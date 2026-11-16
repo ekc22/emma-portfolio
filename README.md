@@ -51,7 +51,7 @@ Notes
 | Work With Me intro, "Where I can help", four desks, ways of working, process | `content/services.ts` |
 | Colours, type scale | `tailwind.config.ts` |
 
-**Adding a project:** copy an entry in `content/projects.ts`, give it a new `slug`. The page, sitemap entry and metadata are generated automatically.
+**Adding a project:** copy an entry in `content/projects.ts`, give it a new `slug`. The page and its metadata are generated automatically. The site is set to noindex and has no sitemap (see app/robots.ts).
 
 **Case-study rules:** each story runs situation → problem → what I did → what changed → what it taught me. Every item in `whatChanged` has a `kind` (`personal`, `team`, `pipeline`, `company`) so delivered work, team results, pipeline progress and company milestones are never confused. Keep qualifying wording on figures; never invent lessons.
 
@@ -100,7 +100,7 @@ app/
   page.tsx              Home (hero → about → capabilities → work → beyond → currently)
   about/ work/ work/[slug]/ work-with-me/ currently/
   og.png/route.tsx      typographic social card (built to /og.png)
-  sitemap.ts robots.ts not-found.tsx
+  robots.ts not-found.tsx
 components/
   Navbar MobileMenu Footer Hero SectionHeading CapabilityCard ProjectCard
   CaseStudyTemplate ContactCTA EditorialImage InterestsCollage CurrentlyList

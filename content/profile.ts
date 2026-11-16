@@ -88,8 +88,8 @@ export const facts: Proof[] = [
   },
   {
     figure: "6",
-    title: "Businesses to pilot stage",
-    label: "At a seed-stage AI venture. Pipeline progress, not revenue.",
+    title: "Businesses to live pilots",
+    label: "At a seed-stage AI venture, against a £150k pilot revenue target.",
     href: "/work/finding-a-market-before-the-playbook",
   },
   {

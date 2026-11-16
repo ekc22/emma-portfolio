@@ -258,17 +258,17 @@ export const projects: Project[] = [
     title: "Finding the market before there’s a playbook.",
     category: "Zero-to-One · Go-to-Market",
     summary:
-      "As part of the founding growth team at a seed-stage AI venture, I defined the target customer and pricing with the founder and built the go-to-market approach, progressing six businesses to pilot stage.",
-    result: "Six businesses progressed to pilot stage.",
+      "As part of the founding growth team at a seed-stage AI venture, I defined the target customer and pricing with the founder and built the go-to-market approach, taking six businesses to live pilots.",
+    result: "Six businesses taken to live pilots.",
     context: "Seed-stage AI venture",
     role: "Founding Growth Team · Go-to-Market",
     teaser:
       "The commercial foundations of an early-stage AI business: market research, customer segmentation, pricing and pipeline development.",
     demonstrates:
       "Creating commercial direction, developing propositions and moving opportunities forward in an early-stage environment.",
-    progression: ["Market opportunity", "Segmentation", "Proposition", "Pricing", "Pipeline", "Pilot stage"],
+    progression: ["Market opportunity", "Segmentation", "Proposition", "Pricing", "Pipeline", "Live pilots"],
     timeframe: "2026 to present",
-    motif: { figure: "6", caption: "Businesses progressed to pilot stage" },
+    motif: { figure: "6", caption: "Businesses taken to live pilots" },
     problem:
       "The business needed to establish who its most valuable customers were, how to position its product and what an initial commercial engagement should look like.\n\nThere was no existing sales playbook or established pricing framework.",
     myRole: [
@@ -281,12 +281,12 @@ export const projects: Project[] = [
     ],
     whatChanged: [
       {
-        title: "Six businesses at pilot stage",
-        text: "Six businesses progressed to pilot stage against a £150k pilot revenue ambition.",
-        kind: "pipeline",
+        title: "Six live pilots",
+        text: "Six businesses taken to live pilots, against a £150k pilot revenue target.",
+        kind: "team",
       },
     ],
-    impactNote: "This represents pipeline progression, not £150k in closed or recognised revenue.",
+    impactNote: "The £150k is the pilot revenue target, not closed or recognised revenue.",
     lesson:
       "Building a market starts with understanding the customer, not perfecting the pitch. It taught me how to translate technical capabilities into a commercial proposition, test assumptions quickly and create momentum before the traditional sales infrastructure exists.",
     status: "approved",
